@@ -1,0 +1,11 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+@use "config" with (
+    $body-color: #ffffff,
+    $phone-frame-image: "{{ '/assets/black.webp' | relative_url }}"
+);
+@use "base";
+@use "landing";
+@use "navbar";
