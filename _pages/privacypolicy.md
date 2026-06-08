@@ -22,8 +22,8 @@ The words whose initial letters are capitalized have meanings defined under the 
 For the purposes of this Privacy Policy:
 - **Account** means a unique account created for You to access our Service or parts of our Service.
 - **Affiliate** means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
-- **Application** refers to 台語齒盤 - 台語輸入法, the software program provided by the Company.
-- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to 台語齒盤 - 台語輸入法.
+- **Application** refers to TaigiKeyboard 台語齒盤, the software program provided by the Company.
+- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to TaigiKeyboard 台語齒盤.
 - **Country** refers to: Taiwan
 - **Device** means any device that can access the Service such as a computer, a cell phone or a digital tablet.
 - **Personal Data** is any information that relates to an identified or identifiable individual.
