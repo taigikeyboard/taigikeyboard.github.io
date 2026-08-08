@@ -267,6 +267,37 @@ section {
 	background-color: var(--color-surface);
 }
 
+.feature-slide[hidden] {
+	display: none;
+}
+
+.feature-slideshow-status {
+	display: flex;
+	justify-content: center;
+	gap: 0.7rem;
+	padding: 1rem;
+	background-color: var(--color-surface);
+}
+
+.feature-slideshow-dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: var(--color-border);
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.feature-slideshow-dot.is-active {
+	background-color: var(--color-primary);
+	transform: scale(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.feature-slideshow-dot {
+		transition: none;
+	}
+}
+
 .feature-card-content p {
 	font-size: 1.7rem;
 	color: var(--color-text-secondary);

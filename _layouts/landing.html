@@ -139,7 +139,26 @@
 			<div class="feature-card">
 				<div class="feature-card-content">
 					<h3>{{ feature.title }}</h3>
-					{% if feature.image %}
+					{% if feature.slideshow %}
+					<div class="feature-image feature-slideshow" data-slideshow data-interval="700" tabindex="0"
+						role="group" aria-label="{{ feature.title }}圖片輪播">
+						<div class="feature-slideshow-viewport">
+							{% for slide in feature.slideshow %}
+							{% assign slide_webp = slide | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' %}
+							<picture class="feature-slide{% if forloop.first %} is-active{% endif %}" data-slide{% unless forloop.first %} hidden{% endunless %}>
+								<source srcset="{{ '/assets/' | append: slide_webp | relative_url }}" type="image/webp">
+								<img src="{{ '/assets/' | append: slide | relative_url }}"
+									alt="{{ feature.title }}（{{ forloop.index }}/{{ forloop.length }}）" loading="lazy">
+							</picture>
+							{% endfor %}
+						</div>
+						<div class="feature-slideshow-status" aria-hidden="true">
+							{% for slide in feature.slideshow %}
+							<span class="feature-slideshow-dot{% if forloop.first %} is-active{% endif %}" data-slide-indicator></span>
+							{% endfor %}
+						</div>
+					</div>
+					{% elsif feature.image %}
 					<div class="feature-image">
 						{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.gif', '.webp' %}
 						<picture>
@@ -341,6 +360,7 @@
 			<p class="footer-copyright">&copy; 2025 {{ site.app_name }}. All rights reserved.</p>
 		</div>
 	</footer>
+	<script src="{{ '/assets/feature-slideshow.js' | relative_url }}" defer></script>
 </body>
 
 </html>

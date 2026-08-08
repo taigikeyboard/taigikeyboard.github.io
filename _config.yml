@@ -117,12 +117,19 @@ sponsor:
 # =============================================================================
 
 features:
-  - title: 白話字、台羅、英語齒盤切換
-    image: english-keyboard.gif
-    description: 齒盤面頂有揤鈕通揤，白話字、台羅、英語切換誠利便。
+  - title: 白話字、台羅、英語、方音符號齒盤切換
+    slideshow:
+      - feature-input-modes-1.png
+      - feature-input-modes-2.png
+      - feature-input-modes-3.png
+      - feature-input-modes-4.png
+    description: 齒盤面頂有揤鈕通揤，白話字、台羅、英語、方音符號切換誠利便。
 
   - title: 3 段式大小寫切換
-    image: shift-button.gif
+    slideshow:
+      - feature-case-auto.png
+      - feature-case-lower.png
+      - feature-case-caps.png
     description: 一般 ê 情況第 1 个字會自動大寫，shift 揤鈕會反烏。連紲揤 Shift 鍵 2 改是 Caps Lock 模式，shift 揤鈕是烏色，圖示嘛無仝款，這時陣拍出來 ê 字攏會變大寫，閣揤 1 改才會改轉來小寫。
 
   - title: 揀選使用慣勢 ê 齒佈
@@ -134,7 +141,12 @@ features:
     description: 台語齒盤內底寄表情齒盤，拍字兼拍表情，加添拍字 ê 趣味。
 
   - title: 連紲建議詞
-    image: nextword.gif
+    slideshow:
+      - feature-nextword-1.png
+      - feature-nextword-2.png
+      - feature-nextword-3.png
+      - feature-nextword-4.png
+      - feature-nextword-5.png
     description: 拍字會連紲建議，免去想 2 个以上 ê 音節按怎拍。
 
   - title: 拍字記持詞庫
