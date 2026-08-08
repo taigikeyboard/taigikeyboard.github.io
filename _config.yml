@@ -3,7 +3,7 @@
 # =============================================================================
 
 title: TaigiKeyboard 台語齒盤
-description: 台語齒盤是專為台語使用者設計 ê 手機仔拍字家私，支持 iOS 佮 Android 2 種系統。無論你習慣用白話字、教育部台羅，抑是直接拍出漢字，台語齒盤攏會當滿足你 ê 需要。
+description: 台語齒盤是支援 iOS 佮 Android ê 免費台語輸入法，拍字 ia̋n-jín 由台灣人開發，會當使用白話字、教育部台羅、方音符號佮漢字輸入。無廣告，嘛袂推出付費功能。
 url: https://taigikeyboard.tw
 lang: zh-TW
 author: Bîn-hiân
@@ -34,7 +34,7 @@ google_analytics_id: G-9C1QYSMJGZ
 
 keywords: 台語, 臺語, 台文, 台語輸入法, 台語鍵盤, 台語齒盤, 台羅, Tâi-lô, 白話字, POJ, Pe̍h-ōe-jī, Tâi-gí, Taigi, Taiwanese, PhahTaigi, 粉圓字型, 台語APP, 台語軟體
 
-logo: /assets/icon/180.webp
+logo: /assets/icon/180.png
 twitter:
   card: summary_large_image
 
@@ -57,17 +57,18 @@ nav_labels:
 # =============================================================================
 
 hero:
-  subtitle: 台語輸入法，寫咱 ê 台灣話
+  subtitle: 台語輸入法，來寫咱 ê 台灣話
 
 # =============================================================================
 # Content - About Section
 # =============================================================================
 
 about:
-  title: 關於齒盤
+  title: 關於台語齒盤
   paragraphs:
-    - 台語齒盤是專為台語使用者設計 ê 手機仔拍字家私，支持 iOS 佮 Android 2 種系統。無論你習慣用白話字、教育部台羅，抑是直接拍出漢字，台語齒盤攏會當滿足你 ê 需要。
-    - 台語齒盤保證免費、無廣告，以後袂做付費功能。咱 ê 目標是 thui-sak 台語教育，予逐家輕輕鬆鬆用母語來拍字、寫文章、傳消息。
+    - 台語齒盤是一个予逐家佇手機仔拍台語 ê 拍字家私，拍字 ia̋n-jín 由台灣人家己開發，照台灣人拍字 ê 習慣設計。支援 iOS 佮 Android，會當用白話字、教育部台羅佮方音符號拍字。
+    - 台語齒盤永遠免費、無廣告，嘛袂推出付費功能。毋管是一般使用者、學校、先生抑是台語教育團體，攏會當自由使用。希望予逐家用台語、教台語 ê 時，毋免閣增加額外 ê 負擔。
+    - 這个計畫目前由我一个人利用上班以外 ê 時間開發佮維護。所需要 ê 費用主要由我家己負擔，嘛有逐家 ê 贊助支持。向望台語齒盤會當一直維持落去，予逐个想欲用母語拍字 ê 人，攏有一个好用 ê 家私。
 
 # =============================================================================
 # Content - Screenshots Section
@@ -91,10 +92,10 @@ how_to_type:
 how_to_use:
   steps:
     - description: 【設定】>【一般/系統】>【齒盤】
-      image: setup-1
+      image: setup-1.png
       alt: 台語齒盤設定步驟：入去系統設定
     - description: 點【齒盤】>【加入台語齒盤】>【允准完整取用】
-      image: setup-2
+      image: setup-2.png
       alt: 台語齒盤設定步驟：加入鍵盤
   notes:
     - ※ 無仝牌子 ê 手機仔設定可能無仝，但是啟用方法攏差不多。
@@ -106,8 +107,8 @@ how_to_use:
 
 sponsor:
   paragraphs:
-    - 台語齒盤是我 1 个人用上班以外時間開發佮維護，開發者帳號、開發家私、網站費用攏是用家己薪水支付。若你感覺這个齒盤對你有幫助，歡迎贊助支持，予台語齒盤會當繼續運作落去，咱做伙為著台語拍拚。
-    - 台語齒盤保證永遠免費，嘛袂做付費功能。台語是咱 ê 母語，無應該因為錢 ê 問題用袂著好家私。我向望逐家想欲學台語、寫台語 ê 人攏會當無負擔來使用，這是我做這个齒盤上重要 ê 心願。
+    - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。
+    - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
   button_text: 贊助台語齒盤
   link: https://p.ecpay.com.tw/AA663DE
 
@@ -117,27 +118,27 @@ sponsor:
 
 features:
   - title: 白話字、台羅、英語齒盤切換
-    image: english-keyboard
+    image: english-keyboard.gif
     description: 齒盤面頂有揤鈕通揤，白話字、台羅、英語切換誠利便。
 
   - title: 3 段式大小寫切換
-    image: shift-button
+    image: shift-button.gif
     description: 一般 ê 情況第 1 个字會自動大寫，shift 揤鈕會反烏。連紲揤 Shift 鍵 2 改是 Caps Lock 模式，shift 揤鈕是烏色，圖示嘛無仝款，這時陣拍出來 ê 字攏會變大寫，閣揤 1 改才會改轉來小寫。
 
   - title: 揀選使用慣勢 ê 齒佈
-    image: layout
+    image: layout.png
     description: 依據你 ê 使用習慣，選你佮意 ê 齒佈。
 
   - title: 表情齒盤切換
-    image: emoji-keyboard
+    image: emoji-keyboard.gif
     description: 台語齒盤內底寄表情齒盤，拍字兼拍表情，加添拍字 ê 趣味。
 
   - title: 連紲建議詞
-    image: nextword
+    image: nextword.gif
     description: 拍字會連紲建議，免去想 2 个以上 ê 音節按怎拍。
 
   - title: 拍字記持詞庫
-    image: user-dictionary
+    image: user-dictionary.png
     description:
       - 特別設計「拍字記持詞庫」，拍過 ê 字攏會記起來，較捷拍著會出現佇頭前，愈久無拍，著會沓沓仔排佇後壁。
       - 「拍字記持詞庫」加「連紲建議詞」功能，予輸入法愈拍愈巧。
@@ -146,11 +147,11 @@ features:
     description: 定期翻新教典、公視台語新詞詞庫，上新 ê 台語詞攏揣有。
 
   - title: 詞庫管理頁面
-    image: dictionary
+    image: dictionary.png
     description: 佇「詞庫」頁面會使選拍字使用 ê 詞庫，無仝詞庫收錄 ê 字有依家己 ê 特色。
 
   - title: 異用字開關
-    image: variants
+    image: variants.png
     description: 依據教典 ê 資料標示台語異用字。
 
   - title: 自動大寫開關
@@ -158,12 +159,12 @@ features:
 
   # Font
   - title: 台語字骨 thang 切換
-    image: font
+    image: font.png
     description: 預設使用粉圓字骨，嘛有芫荽字骨通選。
 
   # Others
-  - title: 台灣人寫 ê 拍字演算法
-    description: 專為台灣人 ê 拍字習慣設計，無用中国人寫 ê 拍字 ia̋n-jín，絕對 MIT。
+  - title: 台灣人開發 ê 拍字 ia̋n-jín
+    description: 拍字 ia̋n-jín 由台灣人家己開發，照台灣人拍台語 ê 習慣設計。
 
   - title: 保護你 ê 資料
     description: 無連網路、無偷錄你 ê 私人資料，請放心使用。

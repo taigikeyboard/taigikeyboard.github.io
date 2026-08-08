@@ -2,6 +2,7 @@
 .bundle
 .sass-cache
 _site
+.jekyll-cache/
 
 # macOS
 .DS_Store
@@ -36,5 +37,8 @@ Temporary Items
 
 # Project specific
 automatic-app-landing-page
-
 .claude
+
+# Generated from versioned PNG/JPEG/GIF source images by `make webp-all`.
+assets/**/*.webp
+assets/*.webp

@@ -18,10 +18,10 @@
 	<title>{{ site.app_name }} - {{ site.app_description }}</title>
 	<meta name="keywords" content="{{ site.keywords }}">
 
-	<link rel="icon" type="image/webp" sizes="48x48" href="{{ '/assets/icon/48.webp' | relative_url }}">
-	<link rel="icon" type="image/webp" sizes="32x32" href="{{ '/assets/icon/32.webp' | relative_url }}">
-	<link rel="icon" type="image/webp" sizes="16x16" href="{{ '/assets/icon/16.webp' | relative_url }}">
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icon/180.webp' | relative_url }}">
+	<link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/icon/48.png' | relative_url }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icon/32.png' | relative_url }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icon/16.png' | relative_url }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icon/180.png' | relative_url }}">
 
 	{% if site.enable_smart_app_banner %}
 	<meta name="apple-itunes-app" content="app-id={{ site.ios_app_id }}">
@@ -30,12 +30,12 @@
 	{% seo %}
 
 	<!-- Additional Open Graph images for Facebook sharing -->
-	<meta property="og:image" content="{{ site.url }}/assets/android.webp">
-	<meta property="og:image" content="{{ site.url }}/assets/iphone.webp">
-	<meta property="og:image" content="{{ site.url }}/assets/feature-1.webp">
-	<meta property="og:image" content="{{ site.url }}/assets/feature-2.webp">
-	<meta property="og:image" content="{{ site.url }}/assets/feature-3.webp">
-	<meta property="og:image" content="{{ site.url }}/assets/feature-4.webp">
+	<meta property="og:image" content="{{ site.url }}/assets/android.png">
+	<meta property="og:image" content="{{ site.url }}/assets/iphone.png">
+	<meta property="og:image" content="{{ site.url }}/assets/feature-1.png">
+	<meta property="og:image" content="{{ site.url }}/assets/feature-2.png">
+	<meta property="og:image" content="{{ site.url }}/assets/feature-3.png">
+	<meta property="og:image" content="{{ site.url }}/assets/feature-4.png">
 
 	<!-- Structured Data for Software Application -->
 	<script type="application/ld+json">
@@ -64,7 +64,7 @@
 			"{{ site.appstore_link }}",
 			"{{ site.playstore_link }}"
 		],
-		"screenshot": "{{ site.url }}/assets/feature-1.webp",
+		"screenshot": "{{ site.url }}/assets/feature-1.png",
 		"softwareVersion": "1.0",
 		"inLanguage": "zh-TW",
 		"keywords": "台語,輸入法,台語鍵盤,POJ,台羅,白話字,Taigi"
@@ -101,11 +101,17 @@
 				<div id="download" class="download-buttons">
 					{% if site.playstore_link %}
 					<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer">
-						<img src="{{ '/assets/playstore.webp' | relative_url }}" alt="Google Play 下載">
+						<picture>
+							<source srcset="{{ '/assets/playstore.webp' | relative_url }}" type="image/webp">
+							<img src="{{ '/assets/playstore.png' | relative_url }}" alt="Google Play 下載">
+						</picture>
 					</a>
 					{% endif %}
 					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer">
-						<img src="{{ '/assets/appstore.webp' | relative_url }}" alt="App Store 下載">
+					<picture>
+						<source srcset="{{ '/assets/appstore.webp' | relative_url }}" type="image/webp">
+						<img src="{{ '/assets/appstore.png' | relative_url }}" alt="App Store 下載">
+					</picture>
 					</a>
 				</div>
 			</div>
@@ -135,13 +141,11 @@
 					<h3>{{ feature.title }}</h3>
 					{% if feature.image %}
 					<div class="feature-image">
-						{% if feature.image contains '.' %}
-						<img src="{{ '/assets/' | append: feature.image | replace: '.png', '.webp' | relative_url }}"
-							alt="{{ feature.title }}" loading="lazy">
-						{% else %}
-						<img src="{{ '/assets/' | append: feature.image | append: '.webp' | relative_url }}"
-							alt="{{ feature.title }}" loading="lazy">
-						{% endif %}
+						{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.gif', '.webp' %}
+						<picture>
+							<source srcset="{{ '/assets/' | append: feature_webp | relative_url }}" type="image/webp">
+							<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="{{ feature.title }}" loading="lazy">
+						</picture>
 					</div>
 					{% endif %}
 					{% if feature.description %}
@@ -172,7 +176,7 @@
 				<div class="screenshot-image">
 					<picture>
 						<source srcset="{{ '/assets/android.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/android.webp' | relative_url }}" alt="Android 台語齒盤外觀" width="750" height="1624"
+						<img src="{{ '/assets/android.png' | relative_url }}" alt="Android 台語齒盤外觀" width="750" height="1624"
 							loading="lazy">
 					</picture>
 				</div>
@@ -182,7 +186,7 @@
 				<div class="screenshot-image">
 					<picture>
 						<source srcset="{{ '/assets/iphone.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/iphone.webp' | relative_url }}" alt="iPhone 台語齒盤外觀" width="750" height="1624"
+						<img src="{{ '/assets/iphone.png' | relative_url }}" alt="iPhone 台語齒盤外觀" width="750" height="1624"
 							loading="lazy">
 					</picture>
 				</div>
@@ -202,7 +206,7 @@
 			<div class="keyboard-layout-image">
 				<picture>
 					<source srcset="{{ '/assets/keyboard-layout-1.webp' | relative_url }}" type="image/webp">
-					<img src="{{ '/assets/keyboard-layout-1.webp' | relative_url }}" alt="台語齒盤基本使用說明" width="2048" height="1144"
+					<img src="{{ '/assets/keyboard-layout-1.png' | relative_url }}" alt="台語齒盤基本使用說明" width="2048" height="1144"
 						loading="lazy">
 				</picture>
 
@@ -210,7 +214,7 @@
 
 				<picture>
 					<source srcset="{{ '/assets/keyboard-layout-3.webp' | relative_url }}" type="image/webp">
-					<img src="{{ '/assets/keyboard-layout-3.webp' | relative_url }}" alt="台語齒盤拍字範例" width="2048" height="1144"
+					<img src="{{ '/assets/keyboard-layout-3.png' | relative_url }}" alt="台語齒盤拍字範例" width="2048" height="1144"
 						loading="lazy">
 				</picture>
 			</div>
@@ -228,8 +232,9 @@
 				<div class="step-number">{{ forloop.index }}</div>
 				<div class="step-image">
 					<picture>
-						<source srcset="{{ '/assets/' | append: step.image | append: '.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/' | append: step.image | append: '.webp' | relative_url }}" alt="{{ step.alt }}"
+						{% assign step_webp = step.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.gif', '.webp' %}
+						<source srcset="{{ '/assets/' | append: step_webp | relative_url }}" type="image/webp">
+						<img src="{{ '/assets/' | append: step.image | relative_url }}" alt="{{ step.alt }}"
 							width="500" height="1034" loading="lazy">
 					</picture>
 				</div>

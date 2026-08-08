@@ -1,7 +1,10 @@
 <nav class="navbar">
 	<div class="navbar-container">
 		<a href="{{ '/' | relative_url }}" class="navbar-brand">
-			<img src="{{ '/assets/icon/180.webp' | relative_url }}" alt="{{ site.app_name }}" width="180" height="180">
+			<picture>
+				<source srcset="{{ '/assets/icon/180.webp' | relative_url }}" type="image/webp">
+				<img src="{{ '/assets/icon/180.png' | relative_url }}" alt="{{ site.app_name }}" width="180" height="180">
+			</picture>
 			<span>{{ site.app_name }}</span>
 		</a>
 		<ul class="navbar-menu">

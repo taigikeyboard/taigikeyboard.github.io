@@ -4,7 +4,7 @@
 
 @use "config" with (
     $body-color: #ffffff,
-    $phone-frame-image: "{{ '/assets/black.webp' | relative_url }}"
+    $phone-frame-image: "{{ '/assets/black.png' | relative_url }}"
 );
 @use "base";
 @use "landing";
