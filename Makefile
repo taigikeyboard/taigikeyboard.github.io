@@ -33,6 +33,9 @@ webp: check-webp-tools
 
 webp-all: check-webp-tools
 	@find assets -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) | while read f; do \
+		case "$$f" in \
+			assets/black.png|assets/feature-[1-4].png|assets/icon/16.png|assets/icon/32.png|assets/icon/48.png) continue ;; \
+		esac; \
 		output="$${f%.*}.webp"; \
 		if [ ! -f "$$output" ] || [ "$$f" -nt "$$output" ]; then \
 			echo "Generating $$output"; \

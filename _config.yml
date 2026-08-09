@@ -158,6 +158,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - Makefile
   - vendor
   - .bundle
 
