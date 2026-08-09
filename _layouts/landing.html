@@ -166,6 +166,10 @@
 							<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="{{ feature.title }}" loading="lazy">
 						</picture>
 					</div>
+					{% elsif feature.icon %}
+					<div class="feature-image feature-icon" aria-hidden="true">
+						<i class="{{ feature.icon }}"></i>
+					</div>
 					{% endif %}
 					{% if feature.description %}
 					{% if feature.description.first %}

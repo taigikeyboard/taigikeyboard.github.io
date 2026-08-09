@@ -117,75 +117,23 @@ sponsor:
 # =============================================================================
 
 features:
-  - title: 白話字、台羅、英語、方音符號齒盤切換
-    slideshow:
-      - feature-input-modes-1.png
-      - feature-input-modes-2.png
-      - feature-input-modes-3.png
-      - feature-input-modes-4.png
-    description: 齒盤面頂有揤鈕通揤，白話字、台羅、英語、方音符號切換誠利便。
+  - title: 支援 4 種拍字方式
+    description: 白話字、教育部台羅、方音符號佮英語，佇齒盤頂懸直接切換。
 
-  - title: 3 段式大小寫切換
-    slideshow:
-      - feature-case-auto.png
-      - feature-case-lower.png
-      - feature-case-caps.png
-    description: 一般 ê 情況第 1 个字會自動大寫，shift 揤鈕會反烏。連紲揤 Shift 鍵 2 改是 Caps Lock 模式，shift 揤鈕是烏色，圖示嘛無仝款，這時陣拍出來 ê 字攏會變大寫，閣揤 1 改才會改轉來小寫。
+  - title: 表情齒盤，拍出這馬 ê 心情
+    description: 毋免離開齒盤，直接揀表情、切換分類，揣著你想欲 ê 表情。
 
-  - title: 揀選使用慣勢 ê 齒佈
-    image: layout.png
-    description: 依據你 ê 使用習慣，選你佮意 ê 齒佈。
+  - title: 智慧選字，愈拍愈順
+    description: 齒盤會照你 ê 拍字習慣排列佮建議詞，齒盤愈用愈巧。
 
-  - title: 表情齒盤切換
-    image: emoji-keyboard.gif
-    description: 台語齒盤內底寄表情齒盤，拍字兼拍表情，加添拍字 ê 趣味。
+  - title: 家己訂做齒盤
+    description: 自由揀色水、字型佮齒盤主題，設定合你慣勢 ê 拍字畫面。
 
-  - title: 連紲建議詞
-    slideshow:
-      - feature-nextword-1.png
-      - feature-nextword-2.png
-      - feature-nextword-3.png
-      - feature-nextword-4.png
-      - feature-nextword-5.png
-    description: 拍字會連紲建議，免去想 2 个以上 ê 音節按怎拍。
+  - title: 無仝詞庫在你揀
+    description: 教育部用字、非教育部用字、在來字佮異用字，照家己 ê 習慣來揀。
 
-  - title: 拍字記持詞庫
-    image: user-dictionary.png
-    description:
-      - 特別設計「拍字記持詞庫」，拍過 ê 字攏會記起來，較捷拍著會出現佇頭前，愈久無拍，著會沓沓仔排佇後壁。
-      - 「拍字記持詞庫」加「連紲建議詞」功能，予輸入法愈拍愈巧。
-
-  - title: 定期加入上新 ê 詞庫
-    description: 定期翻新教典、公視台語新詞詞庫，上新 ê 台語詞攏揣有。
-
-  - title: 詞庫管理頁面
-    image: dictionary.png
-    description: 佇「詞庫」頁面會使選拍字使用 ê 詞庫，無仝詞庫收錄 ê 字有依家己 ê 特色。
-
-  - title: 異用字開關
-    image: variants.png
-    description: 依據教典 ê 資料標示台語異用字。
-
-  - title: 自動大寫開關
-    description: 若關起來，拍 ê 羅馬字攏是小寫。
-
-  # Font
-  - title: 台語字骨 thang 切換
-    image: font.png
-    description: 預設使用粉圓字骨，嘛有芫荽字骨通選。
-
-  # Others
-  - title: 台灣人開發 ê 拍字 ia̋n-jín
-    description: 拍字 ia̋n-jín 由台灣人家己開發，照台灣人拍台語 ê 習慣設計。
-
-  - title: 保護你 ê 資料
-    description: 無連網路、無偷錄你 ê 私人資料，請放心使用。
-
-  - title: 定期升級維護 APP
-    description: 依據手機仔牌子升級上新 ê 版本，修理資安破空。
-
-  - title: 永遠支持台語教育使用
-    description: 免錢、無廣告、袂做付費功能。
+  - title: 無連網路，安心拍字
+    description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
 
 # =============================================================================
 # Social & Contact

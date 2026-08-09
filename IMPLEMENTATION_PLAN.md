@@ -56,3 +56,25 @@ Replace large feature GIFs with lightweight, automatically cycling WebP/PNG slid
 - [x] Stage 3
 - [ ] Stage 4 — automated checks pass; desktop/mobile visual verification remains
 - [ ] Emoji screenshot set supplied
+
+---
+
+# Feature Grid Redesign Plan
+
+## Goal
+
+Reduce the feature section to six focused cards in a balanced three-column, two-row desktop grid without stretching or cropping screenshots.
+
+## Stages
+
+1. **Consolidate content** — Merge minor and overlapping items into six user-facing themes. Success: configuration contains exactly six concise cards and background promises remain in the About/Sponsor sections.
+2. **Normalize card structure** — Support either a screenshot/slideshow or a neutral icon placeholder in the same media area. Success: every card has the same title, media, and description hierarchy.
+3. **Align cards without changing images** — Keep equal card heights within each row while images render at their natural aspect ratio; remove excess padding and forced cross-row height. Success: desktop cards align in a 3×2 grid while no image is stretched, cropped, or placed in a fixed-height viewport.
+4. **Verify and prepare replacement points** — Build, validate six rendered cards, inspect responsive CSS, and document which placeholder needs a future screenshot. Success: checks pass and replacing the placeholder requires only a configuration/image change.
+
+## Status
+
+- [x] Stage 1
+- [x] Stage 2
+- [x] Stage 3
+- [ ] Stage 4 — automated checks pass; visual approval and final screenshot replacement remain

@@ -223,14 +223,15 @@ section {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 4rem;
+	gap: 3rem;
 }
 
 .feature-card {
 	background-color: var(--color-surface);
 	border-radius: 16px;
-	padding: 4rem 3rem;
+	padding: 3.2rem 2.8rem;
 	border: 1px solid var(--color-border);
+	display: flex;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -247,10 +248,20 @@ section {
 	line-height: 1.3;
 }
 
+.feature-card-content {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
 .feature-card-content .feature-image {
-	margin: 2.5rem 0 2rem;
+	margin: 2rem 0 1.8rem;
 	border-radius: 18px;
 	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-surface);
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -260,11 +271,35 @@ section {
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+.feature-card-content .feature-image > picture,
+.feature-card-content .feature-slide {
+	width: 100%;
+	display: block;
+}
+
 .feature-card-content .feature-image img {
 	width: 100%;
 	height: auto;
 	display: block;
 	background-color: var(--color-surface);
+}
+
+.feature-slideshow {
+	flex-direction: column;
+}
+
+.feature-slideshow-viewport {
+	width: 100%;
+	min-height: 0;
+}
+
+.feature-icon {
+	min-height: 180px;
+}
+
+.feature-icon i {
+	font-size: clamp(6rem, 8vw, 10rem);
+	color: var(--color-primary);
 }
 
 .feature-slide[hidden] {
@@ -276,6 +311,8 @@ section {
 	justify-content: center;
 	gap: 0.7rem;
 	padding: 1rem;
+	width: 100%;
+	flex: 0 0 auto;
 	background-color: var(--color-surface);
 }
 
@@ -870,7 +907,7 @@ footer {
 	}
 
 	.feature-card {
-		padding: 3rem 2.5rem;
+		padding: 2.8rem 2.2rem;
 	}
 
 	.feature-card-content h3 {
