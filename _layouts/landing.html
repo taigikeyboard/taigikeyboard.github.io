@@ -82,6 +82,7 @@
 
 	<section id="hero" class="hero">
 		<div class="hero-container">
+			<!-- Phone demo kept for future use; hidden while hero uses the centered layout.
 			<div class="phone-preview">
 				<div class="phone-frame">
 					<div class="phone-screen">
@@ -91,6 +92,7 @@
 					</div>
 				</div>
 			</div>
+			-->
 
 			<div class="hero-text">
 				<!-- <img src="{{ '/assets/icon/180.png' | relative_url }}" alt="台語齒盤 Logo" class="hero-logo" width="180"
@@ -99,19 +101,30 @@
 				<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
 
 				<div id="download" class="download-buttons">
+					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
+						class="download-btn font-apple">
+						<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon invert">
+						<span class="download-btn-text">
+							<span class="download-btn-label">Download on</span>
+							<span class="download-btn-name">App Store</span>
+						</span>
+					</a>
 					{% if site.playstore_link %}
-					<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer">
-						<picture>
-							<source srcset="{{ '/assets/playstore.webp' | relative_url }}" type="image/webp">
-							<img src="{{ '/assets/playstore.png' | relative_url }}" alt="Google Play 下載">
-						</picture>
+					<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer"
+						class="download-btn font-google">
+						<img src="{{ '/assets/google-play-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+						<span class="download-btn-text">
+							<span class="download-btn-label">Download on</span>
+							<span class="download-btn-name">Google Play</span>
+						</span>
 					</a>
 					{% endif %}
-					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer">
-					<picture>
-						<source srcset="{{ '/assets/appstore.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/appstore.png' | relative_url }}" alt="App Store 下載">
-					</picture>
+					<a href="" class="download-btn font-apple">
+						<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon invert">
+						<span class="download-btn-text">
+							<span class="download-btn-label">Download on</span>
+							<span class="download-btn-name">macOS</span>
+						</span>
 					</a>
 				</div>
 			</div>

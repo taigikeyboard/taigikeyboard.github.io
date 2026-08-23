@@ -52,17 +52,16 @@ body {
 }
 
 .hero-container {
-	max-width: 1400px;
+	max-width: 900px;
 	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 44% 56%;
-	gap: 4rem;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	width: 100%;
 }
 
 .hero-text {
-	text-align: left;
+	text-align: center;
 	padding: 2rem 0;
 }
 
@@ -74,7 +73,7 @@ body {
 }
 
 .hero h1 {
-	font-size: 4.2rem;
+	font-size: 5.6rem;
 	font-weight: 500;
 	line-height: 1.2;
 	margin-bottom: 2.4rem;
@@ -91,26 +90,61 @@ body {
 }
 
 .download-buttons {
-	display: flex;
-	gap: 2rem;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+	gap: 1.25rem;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 }
 
-.download-buttons a {
-	transition: transform 0.2s;
-	display: block;
+.download-btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	width: 200px;
+	height: 60px;
+	padding: 0.15rem 0.5rem;
+	background: #1a1a1a;
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid #3a3a3a;
+	border-radius: 10px;
+	box-sizing: border-box;
+	transition: transform 0.3s ease;
 }
 
-.download-buttons picture,
-.download-buttons img {
-	display: block;
-	height: 56px;
+.download-btn:hover {
+	transform: scale(1.05);
 }
 
-.download-buttons a:hover {
-	transform: translateY(-2px);
+.download-btn-icon {
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+}
+
+.download-btn-icon.invert {
+	filter: invert(1);
+}
+
+.download-btn-text {
+	display: flex;
+	white-space: nowrap;
+	flex-direction: column;
+	text-align: left;
+	line-height: 1.1;
+}
+
+.download-btn-label {
+	font-size: 1.1rem;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.download-btn-name {
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 .phone-preview {
@@ -785,15 +819,8 @@ footer {
 		padding: 4rem 2rem 6rem;
 	}
 
-	.hero-container {
-		grid-template-columns: 1fr;
-		gap: 4rem;
-	}
-
 	.hero-text {
 		text-align: center;
-		padding-right: 2rem;
-		order: 2;
 	}
 
 	.phone-preview {
@@ -817,6 +844,7 @@ footer {
 	}
 
 	.download-buttons {
+		grid-template-columns: min(200px, 100%);
 		justify-content: center;
 	}
 
@@ -933,10 +961,6 @@ footer {
 
 	.hero-subtitle {
 		font-size: 1.8rem;
-	}
-
-	.download-buttons img {
-		height: 48px;
 	}
 
 	.phone-preview {
