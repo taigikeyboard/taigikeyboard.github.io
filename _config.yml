@@ -22,6 +22,13 @@ playstore_link: https://play.google.com/store/apps/details?id=com.siansiansu.tai
 
 enable_smart_app_banner: true
 
+# macOS is distributed from a GitHub release rather than a store, and the
+# release flow fills _data/macos_release.json as soon as any package is
+# published. Keep this false until the macOS launch is meant to be public: it
+# hides the download button AND keeps the package URL out of the page's
+# structured data.
+enable_macos_download: false
+
 # =============================================================================
 # Analytics
 # =============================================================================

@@ -1,4 +1,15 @@
+{%- comment -%}
+The release flow writes _data/macos_release.json the moment a package is
+published — a throwaway test publish included — so that file cannot be what
+decides whether the site advertises macOS. `enable_macos_download` is that
+decision, and gating the variable here covers both of its consumers: the
+visible download button, and the JSON-LD `downloadUrl` array, which is
+machine-readable whether or not a button renders.
+{%- endcomment -%}
+{%- assign macos_download_url = "" -%}
+{%- if site.enable_macos_download -%}
 {%- assign macos_download_url = site.data.macos_release.downloadURL | default: "" -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="zh-TW">
 
