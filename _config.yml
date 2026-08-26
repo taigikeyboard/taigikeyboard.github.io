@@ -27,7 +27,7 @@ enable_smart_app_banner: true
 # published. Keep this false until the macOS launch is meant to be public: it
 # hides the download button AND keeps the package URL out of the page's
 # structured data.
-enable_macos_download: false
+enable_macos_download: true
 
 # =============================================================================
 # Analytics
