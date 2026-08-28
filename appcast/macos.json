@@ -1,4 +1,5 @@
 {
-  "version": "3.6.5",
-  "downloadPageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/tag/macos-v3.6.5"
+  "version": "3.6.6",
+  "downloadPageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/tag/macos-v3.6.6",
+  "packageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/download/macos-v3.6.6/TaigiKeyboard-3.6.6.pkg"
 }
