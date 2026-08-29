@@ -1,0 +1,19 @@
+---
+layout: null
+# Rendered from _data/windows_release.json, which the release flow
+# (taigikeyboard's windows/scripts/publish-release.sh) is the only writer of.
+#
+# One published fact, one committed file — same shape as appcast/macos.json,
+# for the reason recorded there: two literal files meant two commits seconds
+# apart, and each Pages run deploys the tree of its own commit.
+#
+# Contract for these fields lives in taigikeyboard's windows/updates/README.md;
+# the reader is taigi-windows-update::manifest. `jsonify` rather than bare
+# quotes so a value that ever needs escaping is escaped; an absent downloadURL
+# renders as null, which the reader treats as "no in-app download".
+---
+{
+  "version": {{ site.data.windows_release.version | jsonify }},
+  "downloadPageURL": {{ site.data.windows_release.releasePageURL | jsonify }},
+  "packageURL": {{ site.data.windows_release.downloadURL | jsonify }}
+}

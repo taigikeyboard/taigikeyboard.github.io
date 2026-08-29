@@ -10,6 +10,10 @@ machine-readable whether or not a button renders.
 {%- if site.enable_macos_download -%}
 {%- assign macos_download_url = site.data.macos_release.downloadURL | default: "" -%}
 {%- endif -%}
+{%- assign windows_download_url = "" -%}
+{%- if site.enable_windows_download -%}
+{%- assign windows_download_url = site.data.windows_release.downloadURL | default: "" -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -75,7 +79,8 @@ machine-readable whether or not a button renders.
 		"downloadUrl": [
 			"{{ site.appstore_link }}",
 			"{{ site.playstore_link }}"{% if macos_download_url != "" %},
-			"{{ macos_download_url }}"{% endif %}
+			"{{ macos_download_url }}"{% endif %}{% if windows_download_url != "" %},
+			"{{ windows_download_url }}"{% endif %}
 		],
 		"screenshot": "{{ site.url }}/assets/feature-1.png",
 		"softwareVersion": "1.0",
@@ -138,6 +143,15 @@ machine-readable whether or not a button renders.
 						<span class="download-btn-text">
 							<span class="download-btn-label">Download on</span>
 							<span class="download-btn-name">macOS</span>
+						</span>
+					</a>
+					{% endif %}
+					{% if windows_download_url != "" %}
+					<a href="{{ windows_download_url }}" class="download-btn font-apple">
+						<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+						<span class="download-btn-text">
+							<span class="download-btn-label">Download on</span>
+							<span class="download-btn-name">Windows</span>
 						</span>
 					</a>
 					{% endif %}
