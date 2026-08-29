@@ -90,8 +90,8 @@ machine-readable whether or not a button renders.
 	</script>
 
 	<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-		integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+		integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
@@ -119,8 +119,7 @@ machine-readable whether or not a button renders.
 				<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
 
 				<div id="download" class="download-buttons">
-					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
-						class="download-btn font-apple">
+					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
 						<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 						<span class="download-btn-text">
 							<span class="download-btn-label">Download on</span>
@@ -182,12 +181,14 @@ machine-readable whether or not a button renders.
 				<div class="feature-card-content">
 					<h3>{{ feature.title }}</h3>
 					{% if feature.slideshow %}
-					<div class="feature-image feature-slideshow" data-slideshow data-interval="700" tabindex="0"
-						role="group" aria-label="{{ feature.title }}圖片輪播">
+					<div class="feature-image feature-slideshow" data-slideshow data-interval="700" tabindex="0" role="group"
+						aria-label="{{ feature.title }}圖片輪播">
 						<div class="feature-slideshow-viewport">
 							{% for slide in feature.slideshow %}
-							{% assign slide_webp = slide | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' %}
-							<picture class="feature-slide{% if forloop.first %} is-active{% endif %}" data-slide{% unless forloop.first %} hidden{% endunless %}>
+							{% assign slide_webp = slide | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg',
+							'.webp' %}
+							<picture class="feature-slide{% if forloop.first %} is-active{% endif %}" data-slide{% unless
+								forloop.first %} hidden{% endunless %}>
 								<source srcset="{{ '/assets/' | append: slide_webp | relative_url }}" type="image/webp">
 								<img src="{{ '/assets/' | append: slide | relative_url }}"
 									alt="{{ feature.title }}（{{ forloop.index }}/{{ forloop.length }}）" loading="lazy">
@@ -196,16 +197,19 @@ machine-readable whether or not a button renders.
 						</div>
 						<div class="feature-slideshow-status" aria-hidden="true">
 							{% for slide in feature.slideshow %}
-							<span class="feature-slideshow-dot{% if forloop.first %} is-active{% endif %}" data-slide-indicator></span>
+							<span class="feature-slideshow-dot{% if forloop.first %} is-active{% endif %}"
+								data-slide-indicator></span>
 							{% endfor %}
 						</div>
 					</div>
 					{% elsif feature.image %}
 					<div class="feature-image">
-						{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.gif', '.webp' %}
+						{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace:
+						'.jpeg', '.webp' | replace: '.gif', '.webp' %}
 						<picture>
 							<source srcset="{{ '/assets/' | append: feature_webp | relative_url }}" type="image/webp">
-							<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="{{ feature.title }}" loading="lazy">
+							<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="{{ feature.title }}"
+								loading="lazy">
 						</picture>
 					</div>
 					{% elsif feature.icon %}
@@ -297,10 +301,11 @@ machine-readable whether or not a button renders.
 				<div class="step-number">{{ forloop.index }}</div>
 				<div class="step-image">
 					<picture>
-						{% assign step_webp = step.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg', '.webp' | replace: '.gif', '.webp' %}
+						{% assign step_webp = step.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg',
+						'.webp' | replace: '.gif', '.webp' %}
 						<source srcset="{{ '/assets/' | append: step_webp | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/' | append: step.image | relative_url }}" alt="{{ step.alt }}"
-							width="500" height="1034" loading="lazy">
+						<img src="{{ '/assets/' | append: step.image | relative_url }}" alt="{{ step.alt }}" width="500"
+							height="1034" loading="lazy">
 					</picture>
 				</div>
 				<p class="step-description">{{ step.description }}</p>
@@ -336,6 +341,11 @@ machine-readable whether or not a button renders.
 	<section id="issues" class="issues-section">
 		<h2 class="section-title">{{ site.nav_labels.issues }}</h2>
 		<p class="section-note">無論是使用上拄著 ê 問題、感覺好用 ê 所在，抑是會當改進 ê 建議，攏歡迎寄批 info@taigikeyboard.tw 予我！</p>
+		{% if site.discord_link %}
+		<p class="section-note">➡️ 加入 <a href="{{ site.discord_link }}" target="_blank"
+				rel="noopener noreferrer">Discord</a>
+			回報問題。</p>
+		{% endif %}
 	</section>
 
 	<footer>
@@ -351,7 +361,7 @@ machine-readable whether or not a button renders.
 			</div>
 
 			{% if site.linkedin_username or site.github_username or site.email_address or site.twitter_username or
-			site.facebook_username or site.instagram_username or site.mastodon_link %}
+			site.facebook_username or site.instagram_username or site.mastodon_link or site.discord_link %}
 			<div class="footer-social">
 				{% if site.linkedin_username %}
 				<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer"
@@ -386,6 +396,11 @@ machine-readable whether or not a button renders.
 				{% if site.mastodon_link %}
 				<a href="{{ site.mastodon_link }}" target="_blank" rel="me noopener noreferrer" aria-label="Mastodon">
 					<i class="fab fa-mastodon"></i>
+				</a>
+				{% endif %}
+				{% if site.discord_link %}
+				<a href="{{ site.discord_link }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+					<i class="fab fa-discord"></i>
 				</a>
 				{% endif %}
 				{% if site.email_address %}
