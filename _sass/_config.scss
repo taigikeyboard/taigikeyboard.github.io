@@ -1,2 +1,5 @@
 $body-color: #ffffff !default;
+
+// Native UI font of whatever OS is rendering the page; no webfont is downloaded.
+$font-system: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $phone-frame-image: "" !default;
