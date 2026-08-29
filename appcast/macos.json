@@ -1,5 +1,21 @@
+---
+layout: null
+# Rendered from _data/macos_release.json, which the release flow
+# (taigikeyboard's macos/scripts/publish-release.sh) is the only writer of.
+#
+# One published fact, one committed file. This used to be a second literal JSON
+# file the release flow wrote in its own commit, and two commits seconds apart
+# raced: each Pages run deploys the tree of its own commit, so on 2026-08-28 the
+# run for the earlier commit finished last and served an appcast one release
+# behind for a day. Deriving it here means a release touches one file, which
+# leaves nothing to race.
+#
+# Contract for these fields lives in taigikeyboard's macos/updates/README.md;
+# the readers are UpdateChecker.swift and UpdateInstallation.swift. `jsonify`
+# rather than bare quotes so a value that ever needs escaping is escaped.
+---
 {
-  "version": "3.6.6",
-  "downloadPageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/tag/macos-v3.6.6",
-  "packageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/download/macos-v3.6.6/TaigiKeyboard-3.6.6.pkg"
+  "version": {{ site.data.macos_release.version | jsonify }},
+  "downloadPageURL": {{ site.data.macos_release.releasePageURL | jsonify }},
+  "packageURL": {{ site.data.macos_release.downloadURL | jsonify }}
 }
