@@ -230,21 +230,8 @@ machine-readable whether or not a button renders.
 			{% endfor %}
 		</div>
 
-		{% if site.install.troubleshooting %}
-		<div class="install-troubleshooting">
-			<h3 class="install-troubleshooting-title">{{ site.install.troubleshooting.title }}</h3>
-			{% for group in site.install.troubleshooting.groups %}
-			<div class="install-troubleshooting-group">
-				<h4 class="install-troubleshooting-scope">{{ group.scope }}</h4>
-				<dl>
-					{% for item in group.items %}
-					<dt>{{ item.question }}</dt>
-					<dd>{{ item.answer }}</dd>
-					{% endfor %}
-				</dl>
-			</div>
-			{% endfor %}
-		</div>
+		{% if site.install.note %}
+		<p class="install-note">{{ site.install.note }}</p>
 		{% endif %}
 	</section>
 	<hr class="section-divider">

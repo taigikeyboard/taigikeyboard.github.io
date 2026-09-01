@@ -624,8 +624,8 @@ figure.screenshot-item figcaption {
 	}
 }
 
-// Only one panel is visible at a time, and the troubleshooting box below brings
-// its own top margin, so panels need no bottom spacing of their own.
+// Only one panel is visible at a time, and .install-note below brings its own
+// top margin, so panels need no bottom spacing of their own.
 .install-platform {
 	margin-bottom: 0;
 }
@@ -694,90 +694,13 @@ figure.screenshot-item figcaption {
 	color: var(--color-text-secondary);
 }
 
-.install-troubleshooting {
-	margin-top: 7rem;
-	padding: 3rem 3.5rem;
-	background-color: var(--color-surface);
-	border: 1px solid var(--color-border);
-	border-radius: 12px;
-}
-
-.install-troubleshooting-title {
-	font-size: 2.2rem;
-	font-weight: 500;
-	color: var(--color-text-primary);
-	margin: 0 0 2.5rem;
-}
-
-.install-troubleshooting-group {
-	margin-bottom: 3.5rem;
-}
-
-.install-troubleshooting-group:last-of-type {
-	margin-bottom: 0;
-}
-
-.install-troubleshooting-scope {
-	font-size: 1.5rem;
-	font-weight: 500;
-	color: var(--color-text-secondary);
-	margin: 0 0 1.8rem;
-}
-
-.install-troubleshooting dl {
-	margin: 0;
-}
-
-.install-troubleshooting dt {
-	font-size: 1.7rem;
-	font-weight: 500;
-	color: var(--color-text-primary);
-	margin-bottom: 0.8rem;
-}
-
-.install-troubleshooting dd {
-	margin: 0 0 2.5rem;
+.install-note {
+	max-width: 700px;
+	margin: 5rem auto 0;
+	text-align: center;
 	font-size: 1.6rem;
 	line-height: 1.7;
 	color: var(--color-text-secondary);
-}
-
-.install-troubleshooting dd:last-child {
-	margin-bottom: 0;
-}
-
-.step-number {
-	width: 48px;
-	height: 48px;
-	border-radius: 50%;
-	background-color: var(--color-primary);
-	color: #ffffff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 2.4rem;
-	font-weight: 600;
-	margin-bottom: 2rem;
-}
-
-.step-image {
-	width: 100%;
-	max-width: 260px;
-	border-radius: 12px;
-	overflow: hidden;
-	margin-bottom: 2rem;
-}
-
-.step-image img {
-	width: 100%;
-	height: auto;
-	display: block;
-}
-
-.step-description {
-	font-size: 1.6rem;
-	color: var(--color-text-secondary);
-	line-height: 1.5;
 }
 
 .download-section {
@@ -1117,10 +1040,6 @@ footer {
 
 	.install-step .step-image {
 		max-width: 100%;
-	}
-
-	.install-troubleshooting {
-		padding: 2.4rem 2rem;
 	}
 
 	.step-image {
