@@ -59,7 +59,7 @@ nav_labels:
   features: 功能特色
   screenshots: 齒盤外觀
   how_to_type: 按怎拍字
-  how_to_use: 按怎啟用
+  install: 按怎安裝
   issues: 問題回報
   sponsor: 贊助支持
   privacy_policy: 隱私政策
@@ -78,7 +78,7 @@ hero:
 about:
   title: 關於台語齒盤
   paragraphs:
-    - 台語齒盤是一个予逐家佇手機仔拍台語 ê 拍字家私，拍字 ia̋n-jín 由台灣人家己開發，照台灣人拍字 ê 習慣設計。支援 iOS 佮 Android，會當用白話字、教育部台羅佮方音符號拍字。
+    - 台語齒盤是一个予逐家佇手機仔拍台語 ê 拍字家私，拍字 ia̋n-jín 由台灣人家己開發，照台灣人拍字 ê 習慣設計。支援 iOS, Android, macOS，會當用白話字、教育部台羅佮方音符號拍字。
     - 台語齒盤永遠免費、無廣告，嘛袂推出付費功能。毋管是一般使用者、學校、先生抑是台語教育團體，攏會當自由使用。希望予逐家用台語、教台語 ê 時，毋免閣增加額外 ê 負擔。
     - 這个計畫目前由我一个人利用上班以外 ê 時間開發佮維護。所需要 ê 費用主要由我家己負擔，嘛有逐家 ê 贊助支持。向望台語齒盤會當一直維持落去，予逐个想欲用母語拍字 ê 人，攏有一个好用 ê 家私。
 
@@ -98,20 +98,75 @@ how_to_type:
     - 若拍漢字，會自動使用全形標點符號，拍羅馬字會自動切去半形標點符號，建議 ê 候選詞會顯示佇頂頭，嘛會使褫開看較清楚。
 
 # =============================================================================
-# Content - How to Use Section
+# Content - Install Section
+#
+# One entry per platform. `requires` gates a platform on the matching
+# enable_*_download switch above, so an unlaunched platform's instructions stay
+# off the page along with its download button. Steps render without an image
+# until `image` is filled in, so text can ship before the screenshots exist.
 # =============================================================================
 
-how_to_use:
-  steps:
-    - description: 【設定】>【一般/系統】>【齒盤】
-      image: setup-1.png
-      alt: 台語齒盤設定步驟：入去系統設定
-    - description: 點【齒盤】>【加入台語齒盤】>【允准完整取用】
-      image: setup-2.png
-      alt: 台語齒盤設定步驟：加入鍵盤
-  notes:
-    - ※ 無仝牌子 ê 手機仔設定可能無仝，但是啟用方法攏差不多。
-    - ※ 「允准完整取用」是予齒盤會當捌你揤 ê 動作，成做你拍 ê 字，請放心，台語齒盤袂偷錄任何資料。
+install:
+  platforms:
+    - id: ios
+      label: iPhone / iPad
+      steps:
+        - description: 【設定】>【一般】>【齒盤】
+          image: setup-1.png
+          alt: 入去系統設定
+        - description: 點【齒盤】>【加入台語齒盤】>【允准完整取用】
+          image: setup-2.png
+          alt: 加入台語齒盤
+      done: 揤地球圖看會著「台語齒盤」，就是裝好矣。
+
+    - id: android
+      label: Android
+      steps:
+        - description: 【設定】>【系統】>【齒盤】
+          image: setup-1.png
+          alt: 入去系統設定
+        - description: 點【齒盤】>【加入台語齒盤】>【允准完整取用】
+          image: setup-2.png
+          alt: 加入台語齒盤
+      done: 齒盤下面 ê 齒盤圖內底揣著「台語齒盤」，就是裝好矣。
+      note: ※ 無仝牌子 ê 手機仔，設定 ê 名可能無仝，方法攏仝款。
+
+    - id: macos
+      label: macOS
+      requires: macos
+      steps:
+        - description: 褫開落載 ê .dmg，共「台語齒盤」拖入去【應用程式】。
+        - description: 若顯示「無法褫開」，去【系統設定】>【隱私權與安全性】揤【強制開啟】。
+        - description: 褫開「台語齒盤」，允准輸入法 ê 權限。
+        - description: 【系統設定】>【齒盤】>【輸入來源】，揤「＋」加入「台語齒盤」。
+      done: 正上角 ê 輸入法選單有「台語齒盤」就好矣。
+
+    - id: windows
+      label: Windows
+      requires: windows
+      steps:
+        - description: 褫開落載 ê 安裝檔，照指示裝完。若顯示「Windows 已保護您的電腦」，揤【其他資訊】>【仍要執行】。
+        - description: 重新開機。
+        - description: 揤工作列 ê 語言鈕（抑是 Win + 空白鍵），揀「台語齒盤」。
+      done: 語言鈕頂看會著「台語齒盤」，就是裝好矣。
+
+  # Fixed FAQ, grouped by 手機 / 電腦 rather than per-OS: the underlying problems
+  # are the same on both desktop systems, so these items are not gated on the
+  # enable_*_download switches. The store-outside install warning is deliberately
+  # NOT here — it lives in the macOS/Windows steps, where the visitor hits it.
+  troubleshooting:
+    title: 若是拄著問題
+    groups:
+      - scope: 手機（iPhone / Android）
+        items:
+          - question: 加入了齒盤，毋過拍字 ê 時揣無
+            answer: 去【設定】>【齒盤】確認「台語齒盤」有開，嘛有「允准完整取用」。若猶是揣無，重新開機一次。
+          - question: 齒盤出來矣，毋過袂拍出台語字
+            answer: 揤齒盤下面 ê 地球圖抑是齒盤圖，切去「台語齒盤」。
+      - scope: 電腦（macOS / Windows）
+        items:
+          - question: 裝好矣，毋過輸入法內底揣無「台語齒盤」
+            answer: 電腦版愛重新開機一次，輸入法才會註冊起來。重開了後 macOS 去【系統設定】>【齒盤】>【輸入來源】加入，Windows 揤 Win + 空白鍵切換。
 
 # =============================================================================
 # Content - Sponsor Section

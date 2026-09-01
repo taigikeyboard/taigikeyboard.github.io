@@ -535,19 +535,215 @@ figure.screenshot-item figcaption {
 	display: block;
 }
 
-.setup-steps {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 3rem;
-	max-width: 700px;
-	margin: 6rem auto 0;
+.install-section {
+	padding: 8rem 2rem;
+	max-width: 900px;
+	margin: 0 auto;
 }
 
-.setup-step {
+// Keeps the pre-rename #how-to-use links landing below the sticky navbar.
+.anchor-alias {
+	display: block;
+	height: 0;
+	scroll-margin-top: 8rem;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+// Native radios drive the tabs: keyboard arrows and screen-reader semantics
+// come for free, and no JS is needed for switching.
+.install-tablist {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin: 0 0 6rem;
+	padding: 0;
+	border: none;
+}
+
+.install-tab-input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.install-tab {
+	display: inline-block;
+	padding: 1rem 2.4rem;
+	border: 1px solid var(--color-border);
+	border-radius: 999px;
+	font-size: 1.6rem;
+	color: var(--color-text-secondary);
+	cursor: pointer;
+}
+
+.install-tab-input:checked + .install-tab {
+	border-color: var(--color-primary);
+	background-color: var(--color-primary);
+	color: #ffffff;
+}
+
+.install-tab-input:focus-visible + .install-tab {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+// Without :has() every panel stays visible, which degrades to the plain
+// stacked list rather than to a blank section.
+@supports selector(:has(*)) {
+	.install-panels > .install-platform {
+		display: none;
+	}
+
+	@for $i from 1 through 6 {
+		.install-tablist:has(.install-tab-input:nth-of-type(#{$i}):checked) ~ .install-panels > .install-platform:nth-of-type(#{$i}) {
+			display: block;
+		}
+	}
+}
+
+// Hidden panels would silently drop from a printout, so show them all.
+@media print {
+	.install-tablist {
+		display: none;
+	}
+
+	.install-panels > .install-platform {
+		display: block;
+		margin-bottom: 4rem;
+	}
+}
+
+// Only one panel is visible at a time, and the troubleshooting box below brings
+// its own top margin, so panels need no bottom spacing of their own.
+.install-platform {
+	margin-bottom: 0;
+}
+
+.install-platform-title {
+	font-size: 2.8rem;
+	font-weight: 500;
+	color: var(--color-text-primary);
+	margin: 0 0 3rem;
+	padding-bottom: 1.2rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.install-steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.install-step {
+	display: grid;
+	grid-template-columns: 4.8rem 1fr;
+	column-gap: 2rem;
+	align-items: start;
+	margin-bottom: 3.5rem;
+}
+
+.install-step:last-child {
+	margin-bottom: 0;
+}
+
+.install-step .step-number {
+	width: 4rem;
+	height: 4rem;
+	font-size: 1.8rem;
+	margin-bottom: 0;
+}
+
+.install-step .step-description {
+	margin: 0.6rem 0 0;
+	font-size: 1.8rem;
+	line-height: 1.6;
+	color: var(--color-text-primary);
+	text-align: left;
+}
+
+// Screenshot sits under its own step text, indented to the text column.
+.install-step .step-image {
+	grid-column: 2;
+	max-width: 280px;
+	margin: 2rem 0 0;
+	border: 1px solid var(--color-border);
+}
+
+.install-done {
+	margin: 3rem 0 0;
+	font-size: 1.7rem;
+	line-height: 1.6;
+	color: var(--color-text-primary);
+}
+
+.install-platform-note {
+	margin: 1.2rem 0 0;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	color: var(--color-text-secondary);
+}
+
+.install-troubleshooting {
+	margin-top: 7rem;
+	padding: 3rem 3.5rem;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 12px;
+}
+
+.install-troubleshooting-title {
+	font-size: 2.2rem;
+	font-weight: 500;
+	color: var(--color-text-primary);
+	margin: 0 0 2.5rem;
+}
+
+.install-troubleshooting-group {
+	margin-bottom: 3.5rem;
+}
+
+.install-troubleshooting-group:last-of-type {
+	margin-bottom: 0;
+}
+
+.install-troubleshooting-scope {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--color-text-secondary);
+	margin: 0 0 1.8rem;
+}
+
+.install-troubleshooting dl {
+	margin: 0;
+}
+
+.install-troubleshooting dt {
+	font-size: 1.7rem;
+	font-weight: 500;
+	color: var(--color-text-primary);
+	margin-bottom: 0.8rem;
+}
+
+.install-troubleshooting dd {
+	margin: 0 0 2.5rem;
+	font-size: 1.6rem;
+	line-height: 1.7;
+	color: var(--color-text-secondary);
+}
+
+.install-troubleshooting dd:last-child {
+	margin-bottom: 0;
 }
 
 .step-number {
@@ -582,23 +778,6 @@ figure.screenshot-item figcaption {
 	font-size: 1.6rem;
 	color: var(--color-text-secondary);
 	line-height: 1.5;
-}
-
-.setup-note {
-	max-width: 800px;
-	margin: 5rem auto 0;
-	text-align: center;
-}
-
-.setup-note p {
-	font-size: var(--font-size-body);
-	color: var(--color-text-secondary);
-	line-height: 1.8;
-	margin-bottom: 1rem;
-}
-
-.setup-note p:last-child {
-	margin-bottom: 0;
 }
 
 .download-section {
@@ -812,11 +991,6 @@ footer {
 		gap: 3rem;
 	}
 
-	.setup-steps {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2.5rem;
-	}
-
 	.hero {
 		min-height: auto;
 		padding: 4rem 2rem 6rem;
@@ -918,10 +1092,35 @@ footer {
 		max-width: 220px;
 	}
 
-	.setup-steps {
-		grid-template-columns: 1fr;
-		gap: 4rem;
-		margin-top: 4rem;
+	.install-section {
+		padding: 6rem 1.6rem;
+	}
+
+	.install-platform-title {
+		font-size: 2.2rem;
+	}
+
+	.install-step {
+		grid-template-columns: 3.6rem 1fr;
+		column-gap: 1.4rem;
+	}
+
+	.install-step .step-number {
+		width: 3.2rem;
+		height: 3.2rem;
+		font-size: 1.5rem;
+	}
+
+	.install-step .step-description {
+		font-size: 1.7rem;
+	}
+
+	.install-step .step-image {
+		max-width: 100%;
+	}
+
+	.install-troubleshooting {
+		padding: 2.4rem 2rem;
 	}
 
 	.step-image {
