@@ -1,7 +1,7 @@
 {
-  "version": "0.0.0",
-  "tag": "",
-  "downloadURL": "",
-  "sha256": "",
-  "releasePageURL": "https://taigikeyboard.tw/#download"
+  "version": "3.6.7",
+  "tag": "windows-v3.6.7",
+  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/download/windows-v3.6.7/TaigiKeyboard-3.6.7.exe",
+  "sha256": "62337a0499047febd3406b26a435e2892a492e77cd03dbca11b4bed4355fadc3",
+  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/tag/windows-v3.6.7"
 }
