@@ -11,9 +11,16 @@ layout: null
 # the reader is taigi-windows-update::manifest. `jsonify` rather than bare
 # quotes so a value that ever needs escaping is escaped; an absent downloadURL
 # renders as null, which the reader treats as "no in-app download".
+#
+# `packageSHA256` has no macOS counterpart: Windows releases are unsigned, so
+# the digest is what an installed copy holds the download against before it
+# offers to install it. Absent (or absent from the data file) it renders null,
+# and the reader falls back to the download page — the update is still
+# announced.
 ---
 {
   "version": {{ site.data.windows_release.version | jsonify }},
   "downloadPageURL": {{ site.data.windows_release.releasePageURL | jsonify }},
-  "packageURL": {{ site.data.windows_release.downloadURL | jsonify }}
+  "packageURL": {{ site.data.windows_release.downloadURL | jsonify }},
+  "packageSHA256": {{ site.data.windows_release.sha256 | jsonify }}
 }

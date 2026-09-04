@@ -96,6 +96,11 @@ body {
 	text-align: center;
 }
 
+// One note per desktop platform: they read as one block, not two.
+.download-note + .download-note {
+	margin-top: 0.3rem;
+}
+
 .download-btn {
 	display: flex;
 	align-items: center;
