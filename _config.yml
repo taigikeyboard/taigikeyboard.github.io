@@ -32,7 +32,7 @@ enable_macos_download: true
 # Windows is the same: a GitHub release, _data/windows_release.json filled by
 # taigikeyboard's windows/scripts/publish-release.sh on every publish. Keep this
 # false until the Windows launch is meant to be public — same two consumers.
-enable_windows_download: false
+enable_windows_download: true
 
 # =============================================================================
 # Analytics
