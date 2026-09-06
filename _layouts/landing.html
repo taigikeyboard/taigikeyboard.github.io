@@ -178,6 +178,36 @@ machine-readable whether or not a button renders.
 
 	<hr class="section-divider">
 
+	<section id="how-to-type" class="feature-section">
+		<h2 class="section-title">{{ site.nav_labels.how_to_type }}</h2>
+		<fieldset class="install-tablist">
+			<legend class="visually-hidden">揀你 ê 裝置</legend>
+			<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input"
+				value="desktop" checked>
+			<label for="typing-tab-desktop" class="install-tab">Desktop</label>
+			<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input"
+				value="mobile">
+			<label for="typing-tab-mobile" class="install-tab">Mobile</label>
+		</fieldset>
+		<div class="install-panels">
+			<div class="install-platform" role="region" aria-labelledby="typing-desktop-title">
+				<h3 id="typing-desktop-title" class="visually-hidden">Desktop</h3>
+				<div class="keyboard-layout-image">
+					<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
+						width="5284" height="3414" loading="lazy">
+				</div>
+			</div>
+			<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
+				<h3 id="typing-mobile-title" class="visually-hidden">Mobile</h3>
+				<div class="keyboard-layout-image">
+					<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
+						width="5284" height="3414" loading="lazy">
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr class="section-divider">
+
 	<section id="install" class="install-section">
 		<span id="how-to-use" class="anchor-alias" aria-hidden="true"></span>
 		<h2 class="section-title">{{ site.nav_labels.install }}</h2>
@@ -233,29 +263,6 @@ machine-readable whether or not a button renders.
 		{% if site.install.note %}
 		<p class="install-note">{{ site.install.note }}</p>
 		{% endif %}
-	</section>
-	<hr class="section-divider">
-
-	<section id="how-to-type" class="feature-section">
-		<h2 class="section-title">{{ site.nav_labels.how_to_type }}</h2>
-		<p class="section-note">{{ site.how_to_type.notes[0] }}</p>
-		<div class="keyboard-layout">
-			<div class="keyboard-layout-image">
-				<picture>
-					<source srcset="{{ '/assets/keyboard-layout-1.webp' | relative_url }}" type="image/webp">
-					<img src="{{ '/assets/keyboard-layout-1.png' | relative_url }}" alt="台語齒盤基本使用說明" width="2048" height="1144"
-						loading="lazy">
-				</picture>
-
-				<hr class="section-divider-inner">
-
-				<picture>
-					<source srcset="{{ '/assets/keyboard-layout-3.webp' | relative_url }}" type="image/webp">
-					<img src="{{ '/assets/keyboard-layout-3.png' | relative_url }}" alt="台語齒盤拍字範例" width="2048" height="1144"
-						loading="lazy">
-				</picture>
-			</div>
-		</div>
 	</section>
 	<hr class="section-divider">
 
@@ -379,8 +386,8 @@ machine-readable whether or not a button renders.
 	<footer>
 		<div class="footer-content">
 			<div class="footer-links">
-				<a href="#install">{{ site.nav_labels.install }}</a>
 				<a href="#how-to-type">{{ site.nav_labels.how_to_type }}</a>
+				<a href="#install">{{ site.nav_labels.install }}</a>
 				<a href="#features">{{ site.nav_labels.features }}</a>
 				<a href="#screenshots">{{ site.nav_labels.screenshots }}</a>
 				<a href="#sponsor">{{ site.nav_labels.sponsor }}</a>
