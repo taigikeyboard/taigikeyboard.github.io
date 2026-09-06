@@ -200,7 +200,7 @@ machine-readable whether or not a button renders.
 			<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
 				<h3 id="typing-mobile-title" class="visually-hidden">Mobile</h3>
 				<div class="keyboard-layout-image">
-					<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
+					<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="手機台語齒盤拍字速查表"
 						width="5284" height="3414" loading="lazy">
 				</div>
 			</div>
@@ -229,43 +229,25 @@ machine-readable whether or not a button renders.
 			{% unless platform.requires == "macos" and site.enable_macos_download != true %}
 			{% unless platform.requires == "windows" and site.enable_windows_download != true %}
 			<div id="install-{{ platform.id }}" class="install-platform">
-				<h3 class="install-platform-title">{{ platform.label }}</h3>
+				<h3 class="visually-hidden">{{ platform.label }}</h3>
 				<ol class="install-steps">
 					{% for step in platform.steps %}
 					<li class="install-step">
 						<span class="step-number" aria-hidden="true">{{ forloop.index }}</span>
 						<p class="step-description">{{ step.description }}</p>
-						{% if step.image %}
-						<div class="step-image">
-							{% assign step_webp = step.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg',
-							'.webp' | replace: '.gif', '.webp' %}
-							<picture>
-								<source srcset="{{ '/assets/' | append: step_webp | relative_url }}" type="image/webp">
-								<img src="{{ '/assets/' | append: step.image | relative_url }}" alt="{{ step.alt }}" loading="lazy">
-							</picture>
-						</div>
-						{% endif %}
 					</li>
 					{% endfor %}
 				</ol>
-				{% if platform.done %}
-				<p class="install-done">✓ {{ platform.done }}</p>
-				{% endif %}
-				{% if platform.note %}
-				<p class="install-platform-note">{{ platform.note }}</p>
-				{% endif %}
 			</div>
 			{% endunless %}
 			{% endunless %}
 			{% endfor %}
 		</div>
 
-		{% if site.install.note %}
-		<p class="install-note">{{ site.install.note }}</p>
-		{% endif %}
 	</section>
 	<hr class="section-divider">
 
+	{% if site.enable_features %}
 	<section id="features" class="features-grid-section">
 		<h2 class="section-title">{{ site.nav_labels.features }}</h2>
 		<div class="features-grid">
@@ -328,36 +310,7 @@ machine-readable whether or not a button renders.
 	</section>
 	<hr class="section-divider">
 
-	<section id="screenshots" class="screenshots-section">
-		<h2 class="section-title">{{ site.nav_labels.screenshots }}</h2>
-
-		<p class="section-note">{{ site.screenshots.platform_note }}</p>
-
-		<div class="platform-comparison">
-			<figure class="screenshot-item">
-				<div class="screenshot-image">
-					<picture>
-						<source srcset="{{ '/assets/android.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/android.png' | relative_url }}" alt="Android 台語齒盤外觀" width="750" height="1624"
-							loading="lazy">
-					</picture>
-				</div>
-				<figcaption class="screenshot-title">Android</figcaption>
-			</figure>
-			<figure class="screenshot-item">
-				<div class="screenshot-image">
-					<picture>
-						<source srcset="{{ '/assets/iphone.webp' | relative_url }}" type="image/webp">
-						<img src="{{ '/assets/iphone.png' | relative_url }}" alt="iPhone 台語齒盤外觀" width="750" height="1624"
-							loading="lazy">
-					</picture>
-				</div>
-				<figcaption class="screenshot-title">iPhone</figcaption>
-			</figure>
-		</div>
-
-
-	</section>
+	{% endif %}
 	<section id="sponsor" class="feature-section" style="padding: 8rem 2rem;">
 		<div class="feature-item" style="margin-bottom: 0;">
 			<div class="feature-content">
@@ -388,8 +341,9 @@ machine-readable whether or not a button renders.
 			<div class="footer-links">
 				<a href="#how-to-type">{{ site.nav_labels.how_to_type }}</a>
 				<a href="#install">{{ site.nav_labels.install }}</a>
+				{% if site.enable_features %}
 				<a href="#features">{{ site.nav_labels.features }}</a>
-				<a href="#screenshots">{{ site.nav_labels.screenshots }}</a>
+				{% endif %}
 				<a href="#sponsor">{{ site.nav_labels.sponsor }}</a>
 				<a href="#issues">{{ site.nav_labels.issues }}</a>
 				<a href="{{ '/privacypolicy.html' | relative_url }}">{{ site.nav_labels.privacy_policy }}</a>

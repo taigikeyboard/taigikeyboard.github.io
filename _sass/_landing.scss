@@ -644,9 +644,11 @@ figure.screenshot-item figcaption {
 
 .install-step {
 	display: grid;
-	grid-template-columns: 4.8rem 1fr;
-	column-gap: 2rem;
-	align-items: start;
+	grid-template-columns: 2.4rem minmax(0, 1fr);
+	column-gap: 1.6rem;
+	align-items: baseline;
+	font-size: 1.8rem;
+	line-height: 1.7;
 	margin-bottom: 3.5rem;
 }
 
@@ -655,16 +657,19 @@ figure.screenshot-item figcaption {
 }
 
 .install-step .step-number {
-	width: 4rem;
-	height: 4rem;
-	font-size: 1.8rem;
-	margin-bottom: 0;
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: var(--color-text-primary);
+	text-align: center;
 }
 
 .install-step .step-description {
-	margin: 0.6rem 0 0;
-	font-size: 1.8rem;
-	line-height: 1.6;
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+	overflow-wrap: anywhere;
 	color: var(--color-text-primary);
 	text-align: left;
 }
@@ -1021,17 +1026,8 @@ footer {
 	}
 
 	.install-step {
-		grid-template-columns: 3.6rem 1fr;
-		column-gap: 1.4rem;
-	}
-
-	.install-step .step-number {
-		width: 3.2rem;
-		height: 3.2rem;
-		font-size: 1.5rem;
-	}
-
-	.install-step .step-description {
+		grid-template-columns: 2.4rem minmax(0, 1fr);
+		column-gap: 1.2rem;
 		font-size: 1.7rem;
 	}
 
