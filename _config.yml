@@ -149,6 +149,13 @@ install:
         - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
 
+  # SignPath Foundation requires the download page to state who signs the
+  # binaries. Shown under the install steps.
+  signing_note_html: >-
+    Windows 安裝檔的程式碼簽章由 <a href="https://signpath.io" rel="noopener">SignPath.io</a>
+    免費提供，憑證由 <a href="https://signpath.org" rel="noopener">SignPath Foundation</a> 核發。
+    詳情看<a href="/codesigning.html">程式碼簽章政策</a>。
+
 # =============================================================================
 # Content - Sponsor Section
 # =============================================================================

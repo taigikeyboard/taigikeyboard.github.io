@@ -244,6 +244,10 @@ machine-readable whether or not a button renders.
 			{% endfor %}
 		</div>
 
+		{% if site.install.signing_note_html %}
+		<p class="install-signing-note">{{ site.install.signing_note_html }}</p>
+		{% endif %}
+
 	</section>
 	<hr class="section-divider">
 
