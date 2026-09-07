@@ -202,14 +202,6 @@ section {
 	background: linear-gradient(to right, transparent, var(--color-border), transparent);
 }
 
-.section-divider-inner {
-	max-width: 800px;
-	margin: 6rem auto;
-	border: none;
-	height: 1px;
-	background: linear-gradient(to right, transparent, var(--color-border), transparent);
-}
-
 .section-title {
 	font-size: 4.8rem;
 	font-weight: 500;
@@ -218,15 +210,6 @@ section {
 	margin-bottom: 6rem;
 	letter-spacing: -0.01em;
 	line-height: 1.2;
-}
-
-.subsection-title {
-	font-size: 2.4rem;
-	font-weight: 500;
-	text-align: center;
-	color: var(--color-text-secondary);
-	margin-bottom: 4rem;
-	margin-top: 0;
 }
 
 .about-section {
@@ -441,13 +424,6 @@ section {
 	background-color: #f5f5f7;
 }
 
-.screenshots-section {
-	padding: 8rem 2rem;
-	max-width: 1000px;
-	margin: 0 auto;
-	background: transparent;
-}
-
 .section-note {
 	text-align: center;
 	color: var(--color-text-secondary);
@@ -455,70 +431,6 @@ section {
 	margin: 2rem auto 4rem;
 	max-width: 700px;
 	line-height: 1.6;
-}
-
-.platform-comparison {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 2rem;
-	margin: 4rem auto 6rem;
-	max-width: 1000px;
-}
-
-.screenshots-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-	margin-top: 6rem;
-}
-
-.screenshot-item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0;
-}
-
-.screenshot-title {
-	font-size: 1.8rem;
-	font-weight: 700;
-	color: var(--color-text-primary);
-	margin-top: 1.5rem;
-	margin-bottom: 0;
-	text-align: center;
-}
-
-figure.screenshot-item .screenshot-image {
-	order: 1;
-}
-
-figure.screenshot-item figcaption {
-	order: 2;
-}
-
-.screenshot-image {
-	width: 100%;
-	max-width: 240px;
-	border-radius: 12px;
-	overflow: hidden;
-	transition: transform 0.3s ease;
-}
-
-.screenshot-image:hover {
-	transform: translateY(-6px);
-}
-
-.screenshot-image img {
-	width: 100%;
-	height: auto;
-	display: block;
-}
-
-.keyboard-layout {
-	margin-top: 6rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 
 .keyboard-layout-image {
@@ -621,19 +533,10 @@ figure.screenshot-item figcaption {
 	}
 }
 
-// Only one panel is visible at a time, and .install-note below brings its own
-// top margin, so panels need no bottom spacing of their own.
+// Only one panel is visible at a time and the section padding closes the gap,
+// so panels need no bottom spacing of their own.
 .install-platform {
 	margin-bottom: 0;
-}
-
-.install-platform-title {
-	font-size: 2.8rem;
-	font-weight: 500;
-	color: var(--color-text-primary);
-	margin: 0 0 3rem;
-	padding-bottom: 1.2rem;
-	border-bottom: 1px solid var(--color-border);
 }
 
 .install-steps {
@@ -682,106 +585,6 @@ figure.screenshot-item figcaption {
 	text-align: left;
 }
 
-// Screenshot sits under its own step text, indented to the text column.
-.install-step .step-image {
-	grid-column: 2;
-	max-width: 280px;
-	margin: 2rem 0 0;
-	border: 1px solid var(--color-border);
-}
-
-.install-done {
-	margin: 3rem 0 0;
-	font-size: 1.7rem;
-	line-height: 1.6;
-	color: var(--color-text-primary);
-}
-
-.install-platform-note {
-	margin: 1.2rem 0 0;
-	font-size: 1.5rem;
-	line-height: 1.6;
-	color: var(--color-text-secondary);
-}
-
-.install-note {
-	max-width: 700px;
-	margin: 5rem auto 0;
-	text-align: center;
-	font-size: 1.6rem;
-	line-height: 1.7;
-	color: var(--color-text-secondary);
-}
-
-.download-section {
-	max-width: 800px;
-	margin: 0 auto;
-	text-align: center;
-	padding: 4rem 2rem;
-}
-
-.download-title {
-	font-size: 4.2rem;
-	font-weight: 600;
-	color: var(--color-text-primary);
-	margin-bottom: 1.5rem;
-	line-height: 1.2;
-}
-
-.download-subtitle {
-	font-size: 2rem;
-	color: var(--color-text-secondary);
-	margin-bottom: 4rem;
-	line-height: 1.5;
-}
-
-.store-badge {
-	transition: transform 0.2s;
-	display: block;
-}
-
-.store-badge:hover {
-	transform: translateY(-2px);
-}
-
-.store-badge img {
-	height: 56px;
-}
-
-.download-features-container {
-	max-width: 500px;
-	margin: 0 auto;
-	padding: 3rem;
-	background-color: var(--color-surface);
-	border-radius: 10px;
-	border: 1px solid var(--color-border);
-}
-
-.download-feature {
-	display: flex;
-	align-items: center;
-	gap: 1.2rem;
-	margin-bottom: 1.5rem;
-	text-align: left;
-}
-
-.download-feature:last-child {
-	margin-bottom: 0;
-}
-
-.feature-check {
-	font-size: 2rem;
-	color: var(--color-primary);
-	font-weight: 700;
-	flex-shrink: 0;
-}
-
-.download-feature span:not(.feature-check) {
-	font-size: 1.7rem;
-	color: var(--color-text-primary);
-	line-height: 1.5;
-}
-
 .sponsor-button {
 	display: inline-block;
 	padding: 1.8rem 4rem;
@@ -800,32 +603,6 @@ figure.screenshot-item figcaption {
 	background-color: #424245;
 	transform: translateY(-2px);
 	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-.issues-options {
-	margin-top: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2rem;
-}
-
-.email-text {
-	font-size: var(--font-size-body);
-	color: var(--color-text-secondary);
-	margin: 0;
-}
-
-.email-text a {
-	color: var(--color-primary);
-	font-weight: 500;
-	text-decoration: none;
-	transition: color 0.2s;
-}
-
-.email-text a:hover {
-	color: #424245;
-	text-decoration: underline;
 }
 
 footer {
@@ -914,16 +691,6 @@ footer {
 		gap: 3rem;
 	}
 
-	.platform-comparison {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 3rem;
-	}
-
-	.screenshots-grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 3rem;
-	}
-
 	.hero {
 		min-height: auto;
 		padding: 4rem 2rem 6rem;
@@ -965,19 +732,6 @@ footer {
 	.hero-subtitle {
 		font-size: 2rem;
 	}
-
-	.download-title {
-		font-size: 3.6rem;
-	}
-
-	.download-subtitle {
-		font-size: 1.8rem;
-		margin-bottom: 3rem;
-	}
-
-	.download-features-container {
-		padding: 2.5rem;
-	}
 }
 
 @media (max-width: 768px) {
@@ -990,11 +744,6 @@ footer {
 		margin-bottom: 4rem;
 	}
 
-	.subsection-title {
-		font-size: 2rem;
-		margin-bottom: 3rem;
-	}
-
 	.section-note {
 		font-size: 1.8rem;
 	}
@@ -1004,47 +753,14 @@ footer {
 		gap: 2.5rem;
 	}
 
-	.platform-comparison {
-		grid-template-columns: 1fr;
-		gap: 3rem;
-		margin-top: 4rem;
-	}
-
-	.screenshots-grid {
-		grid-template-columns: 1fr;
-		gap: 3rem;
-		margin-top: 4rem;
-	}
-
-	.screenshot-title {
-		font-size: 1.6rem;
-		margin-bottom: 1.2rem;
-	}
-
-	.screenshot-image {
-		max-width: 220px;
-	}
-
 	.install-section {
 		padding: 6rem 1.6rem;
-	}
-
-	.install-platform-title {
-		font-size: 2.2rem;
 	}
 
 	.install-step {
 		grid-template-columns: 2.4rem minmax(0, 1fr);
 		column-gap: 1.2rem;
 		font-size: 1.7rem;
-	}
-
-	.install-step .step-image {
-		max-width: 100%;
-	}
-
-	.step-image {
-		max-width: 240px;
 	}
 
 	.step-description {
@@ -1100,10 +816,6 @@ footer {
 		padding: 8rem 2rem;
 	}
 
-	.screenshots-section {
-		padding: 6rem 2rem;
-	}
-
 	.feature-item {
 		margin-bottom: 10rem;
 	}
@@ -1114,27 +826,6 @@ footer {
 
 	.feature-item p {
 		font-size: 1.8rem;
-	}
-
-	.download-title {
-		font-size: 3.2rem;
-	}
-
-	.download-subtitle {
-		font-size: 1.7rem;
-		margin-bottom: 2.5rem;
-	}
-
-	.download-features-container {
-		padding: 2rem;
-	}
-
-	.download-feature span:not(.feature-check) {
-		font-size: 1.6rem;
-	}
-
-	.store-badge img {
-		height: 48px;
 	}
 
 	.footer-links {
@@ -1178,23 +869,6 @@ footer {
 
 	.section-note {
 		font-size: 1.6rem;
-	}
-
-	.download-title {
-		font-size: 2.8rem;
-	}
-
-	.download-subtitle {
-		font-size: 1.6rem;
-		margin-bottom: 2rem;
-	}
-
-	.download-features-container {
-		padding: 1.5rem;
-	}
-
-	.download-feature span:not(.feature-check) {
-		font-size: 1.5rem;
 	}
 }
 
