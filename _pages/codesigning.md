@@ -23,18 +23,18 @@ proves only that the file downloaded is the file published — not who built it.
 
 ## Roles
 
-SignPath separates three roles: the **Author** who writes the code and requests
-a signing operation, the **Reviewer** who reviews what goes into the source
+Releasing a binary splits into three roles: the **Author** who writes the code
+and requests a release, the **Reviewer** who reviews what goes into the source
 tree and the artifact built from it, and the **Approver** who approves the
-signing request itself.
+release itself.
 
 Taigi Keyboard is maintained by one person, who therefore holds all three:
 
 | Role | Who |
 | --- | --- |
-| Author — commits source and build scripts, requests signing | Soo Bîn-hiân 蘇民弦 — <https://github.com/siansiansu> |
+| Author — commits source and build scripts, requests a release | Soo Bîn-hiân 蘇民弦 — <https://github.com/siansiansu> |
 | Reviewer — reviews changes into `main` and the release artifact's provenance | Soo Bîn-hiân 蘇民弦 |
-| Approver — approves each signing request | Soo Bîn-hiân 蘇民弦 |
+| Approver — approves each release | Soo Bîn-hiân 蘇民弦 |
 
 Every maintainer of a source file or a build script in this repository is
 listed above. There are no other committers, and no contributor's change
@@ -53,39 +53,32 @@ where a third party can read it:
   back from the served file, so it attests what the download URL actually
   serves rather than what was built locally.
 
-Stated plainly because it bears on provenance: the artifact that gets signed is
-built by [`.github/workflows/windows-build.yml`](https://github.com/taigikeyboard/taigikeyboard/blob/main/.github/workflows/windows-build.yml) on a GitHub-hosted `windows-2025`
-runner, in the public repository <https://github.com/taigikeyboard/taigikeyboard>,
-from the commit that workflow run names. Every external input that build pulls
-in — the toolchain, `protoc`, Inno Setup — is pinned by version and by digest,
-and the run fails if the build modified any tracked file, so the artifact cannot
-have come from a tree other than the one published at that commit.
-
-`make windows-release` on a maintainer machine remains the local path for
-testing an installer; it produces nothing that is signed.
-The release procedure itself is documented with the project's other
-engineering notes, which are kept in the development repository.
+Stated plainly because it bears on provenance: Windows releases are built by the
+maintainer on their own Windows machine, not on a hosted build server, and the
+source repository is not public. Nothing here asks the reader to take that on
+trust — the published SHA-256 below is what a user can actually check, and it
+proves only that the file downloaded is the file published.
 
 If a second maintainer joins, this table is updated in the same commit that
 grants them access.
 
 ## Approval
 
-Every signing request is approved by hand by the Approver above, per release.
-No signing is triggered automatically — not by a push, not by a tag, not by a
+Every release is approved by hand by the Approver above. No publish is
+triggered automatically — not by a push, not by a tag, not by a
 scheduled job, and not by a successful build. A build that completes produces
 an unsigned artifact and waits.
 
-Multi-factor authentication is required on the GitHub account and on any code
-signing service account used for this project.
+Multi-factor authentication is required on the GitHub account and on every
+account that can publish a release.
 
 ## What is signed
 
 Only first-party binaries produced by this project's own release scripts:
 
-- [`windows/scripts/release-app.sh`](https://github.com/taigikeyboard/taigikeyboard/blob/main/windows/scripts/release-app.sh) — builds the DLL, the settings executable,
+- `windows/scripts/release-app.sh` — builds the DLL, the settings executable,
   and stages the installer payload
-- [`windows/scripts/publish-release.sh`](https://github.com/taigikeyboard/taigikeyboard/blob/main/windows/scripts/publish-release.sh) — publishes the installer and records
+- `windows/scripts/publish-release.sh` — publishes the installer and records
   its digest
 
 Third-party dependencies are statically linked into those binaries and are not
@@ -130,7 +123,7 @@ The installer requires administrator rights because `regsvr32` writes to
 installs no driver, no service, and no browser extension, and changes no
 system-wide setting outside its own registration.
 
-[`SECURITY.md`](https://github.com/taigikeyboard/taigikeyboard/blob/main/SECURITY.md) carries the full privacy statement and the vulnerability
+`SECURITY.md` carries the full privacy statement and the vulnerability
 reporting address.
 
 ## Verifying a release yourself
@@ -144,20 +137,21 @@ locally, so it attests the file that URL actually serves.
 Get-FileHash .\TaigiKeyboard-<version>.exe -Algorithm SHA256
 ```
 
-Once Windows releases are signed, the in-app updater additionally verifies the
-downloaded package's Authenticode signature before offering to install it —
-that path already exists in [`windows/crates/taigi-windows-update/src/verify.rs`](https://github.com/taigikeyboard/taigikeyboard/blob/main/windows/crates/taigi-windows-update/src/verify.rs)
-and activates as soon as a running copy carries a signature of its own.
+If Windows releases are signed in future, the in-app updater additionally
+verifies the downloaded package's Authenticode signature before offering to
+install it — that path already exists and activates as soon as a running copy
+carries a signature of its own.
 
-## Attribution
+## Why Windows releases are unsigned
 
-> Free code signing provided by [SignPath.io](https://signpath.io), certificate
-> by [SignPath Foundation](https://signpath.org).
-
-Windows releases are unsigned until that certificate is in place; the line
-above states the arrangement this policy is written for.
+An Authenticode certificate costs a few hundred US dollars a year, and the free
+programme for open source projects requires the whole product — including the
+data it bundles — to be open source. Taigi Keyboard bundles Taiwanese-language
+dictionary data whose sources carry their own, non-open-source terms, so that
+route is closed. Signing may be revisited; until then this page describes what
+a user can verify instead.
 
 ## Licence
 
-Source code: Apache License, Version 2.0 — see [`LICENSE`](https://github.com/taigikeyboard/taigikeyboard/blob/main/LICENSE).
-Third-party components: [`THIRD_PARTY_LICENSES.md`](https://github.com/taigikeyboard/taigikeyboard/blob/main/THIRD_PARTY_LICENSES.md).
+Source code: Apache License, Version 2.0 — see `LICENSE`.
+Third-party components: `THIRD_PARTY_LICENSES.md`.
