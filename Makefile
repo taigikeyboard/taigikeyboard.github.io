@@ -1,4 +1,4 @@
-.PHONY: serve start build clean install webp webp-all check-webp-tools
+.PHONY: serve start build clean install webp webp-all webp-svg check-cwebp check-webp-tools
 
 serve: start
 
@@ -15,8 +15,10 @@ clean:
 install:
 	bundle install
 
-check-webp-tools:
+check-cwebp:
 	@command -v cwebp >/dev/null || { echo "cwebp is required (macOS: brew install webp; Ubuntu: apt-get install webp)"; exit 1; }
+
+check-webp-tools: check-cwebp
 	@command -v gif2webp >/dev/null || { echo "gif2webp is required (macOS: brew install webp; Ubuntu: apt-get install webp)"; exit 1; }
 
 webp: check-webp-tools
@@ -49,3 +51,9 @@ webp-all: check-webp-tools
 			gif2webp -q 85 -m 6 "$$f" -o "$$output" >/dev/null || exit 1; \
 		fi; \
 	done
+
+# Excalidraw embeds pasted screenshots as full-resolution base64 PNG. Re-run this
+# after re-exporting an SVG from Excalidraw; it rewrites the file in place.
+webp-svg: check-cwebp
+	@command -v python3 >/dev/null || { echo "python3 3.9+ is required"; exit 1; }
+	@find assets -name '*.svg' -type f -exec python3 tools/shrink-svg-images.py {} +
