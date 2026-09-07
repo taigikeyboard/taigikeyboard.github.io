@@ -64,7 +64,9 @@ nav_labels:
   issues: 問題回報
   sponsor: 贊助支持
   privacy_policy: 隱私政策
-  code_signing: 程式碼簽章
+  # signpath.org/terms.html requires the term "Code signing policy" on the home
+  # page; this label is the home page's link to it.
+  code_signing: 程式碼簽章政策 / Code signing policy
 
 # =============================================================================
 # Content - Hero Section
@@ -149,11 +151,19 @@ install:
         - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
 
-  # Windows binaries carry no signature, so the installer shows a SmartScreen
-  # warning. Say so where the download is, and point at how to verify instead.
+  # signpath.org/terms.html, "Conditions for the website / repository": the term
+  # "Code signing policy" has to appear on the home page AND the download page,
+  # together with the attribution sentence. Shown under the install steps.
+  # The pending-application wording stays until a certificate is issued — the
+  # published installers really are unsigned, and saying otherwise here would be
+  # contradicted by the first person who checks one.
   signing_note_html: >-
-    Windows 安裝檔<strong>猶未有程式碼簽章</strong>，所以 Windows 會跳出警告。
-    欲家己確認檔案無予人換過，看<a href="/codesigning.html">程式碼簽章政策</a>內底的 SHA-256 驗證步數。
+    <strong>程式碼簽章政策 / Code signing policy</strong>：Windows 安裝檔的程式碼簽章由
+    <a href="https://about.signpath.io" rel="noopener">SignPath.io</a> 免費提供，憑證由
+    <a href="https://signpath.org" rel="noopener">SignPath Foundation</a> 核發
+    （Free code signing provided by SignPath.io, certificate by SignPath Foundation）。
+    <br>目前<strong>猶咧申請</strong>，憑證猶未核發，已經釋出的 Windows 版本攏未簽章 ——
+    請照<a href="/codesigning.html">程式碼簽章政策</a>內底的 SHA-256 步數家己確認檔案。
 
 # =============================================================================
 # Content - Sponsor Section
