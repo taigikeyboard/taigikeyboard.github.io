@@ -75,9 +75,9 @@ Taigi Keyboard is maintained by one person, who therefore holds all three:
 
 | Role | Who |
 | --- | --- |
-| Author — commits source and build scripts, requests a release | Soo Bîn-hiân 蘇民弦 — <https://github.com/siansiansu> |
-| Reviewer — reviews changes into `main` and the release artifact's provenance | Soo Bîn-hiân 蘇民弦 |
-| Approver — approves each release | Soo Bîn-hiân 蘇民弦 |
+| Author — commits source and build scripts, requests a release | Min-Sian Su (Soo Bîn-hiân 蘇民弦) — <https://github.com/siansiansu> |
+| Reviewer — reviews changes into `main` and the release artifact's provenance | Min-Sian Su (Soo Bîn-hiân 蘇民弦) |
+| Approver — approves each release | Min-Sian Su (Soo Bîn-hiân 蘇民弦) |
 
 Every maintainer of a source file or a build script in this repository is
 listed above. There are no other committers, and no contributor's change
