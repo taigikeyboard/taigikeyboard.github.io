@@ -44,78 +44,8 @@
 		{{ content }}
 	</main>
 
-	<footer>
-		<div class="footer-content">
-			<div class="footer-links">
-				<a href="{{ '/' | relative_url }}#features">{{ site.nav_labels.features }}</a>
-				<a href="{{ '/' | relative_url }}#screenshots">{{ site.nav_labels.screenshots }}</a>
-				<a href="{{ '/' | relative_url }}#install">{{ site.nav_labels.install }}</a>
-				<a href="{{ '/' | relative_url }}#sponsor">{{ site.nav_labels.sponsor }}</a>
-				<a href="{{ '/' | relative_url }}#issues">{{ site.nav_labels.issues }}</a>
-				<a href="{{ '/privacypolicy.html' | relative_url }}">{{ site.nav_labels.privacy_policy }}</a>
-				<a href="{{ '/codesigning.html' | relative_url }}">{{ site.nav_labels.code_signing }}</a>
-			</div>
-
-			{% if site.linkedin_username or site.github_username or site.email_address or site.twitter_username or
-			site.facebook_username or site.instagram_username or site.mastodon_link or site.discord_link %}
-			<div class="footer-social">
-				{% if site.linkedin_username %}
-				<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer"
-					aria-label="LinkedIn">
-					<i class="fab fa-linkedin"></i>
-				</a>
-				{% endif %}
-				{% if site.github_username %}
-				<a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer"
-					aria-label="GitHub">
-					<i class="fab fa-github"></i>
-				</a>
-				{% endif %}
-				{% if site.twitter_username %}
-				<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer"
-					aria-label="Twitter">
-					<i class="fab fa-twitter"></i>
-				</a>
-				{% endif %}
-				{% if site.facebook_username %}
-				<a href="https://facebook.com/{{ site.facebook_username }}" target="_blank" rel="noopener noreferrer"
-					aria-label="Facebook">
-					<i class="fab fa-facebook"></i>
-				</a>
-				{% endif %}
-				{% if site.instagram_username %}
-				<a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" rel="noopener noreferrer"
-					aria-label="Instagram">
-					<i class="fab fa-instagram"></i>
-				</a>
-				{% endif %}
-				{% if site.mastodon_link %}
-				<a href="{{ site.mastodon_link }}" target="_blank" rel="me noopener noreferrer" aria-label="Mastodon">
-					<i class="fab fa-mastodon"></i>
-				</a>
-				{% endif %}
-				{% if site.discord_link %}
-				<a href="{{ site.discord_link }}" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-					<i class="fab fa-discord"></i>
-				</a>
-				{% endif %}
-				{% if site.email_address %}
-				<a href="mailto:{{ site.email_address }}" aria-label="Email">
-					<i class="fas fa-envelope"></i>
-				</a>
-				{% endif %}
-			</div>
-			{% endif %}
-
-			{% if site.your_name %}
-			<p class="footer-author">Made by {% if site.your_link %}<a href="{{ site.your_link }}" target="_blank"
-					rel="noopener noreferrer">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}{% if
-				site.your_city %} in {{ site.your_city }}{% endif %}</p>
-			{% endif %}
-
-			<p class="footer-copyright">&copy; 2025 {{ site.app_name }}. All rights reserved.</p>
-		</div>
-	</footer>
+	{% assign home = '/' | relative_url %}
+	{% include footer.html anchor_base=home %}
 </body>
 
 </html>
