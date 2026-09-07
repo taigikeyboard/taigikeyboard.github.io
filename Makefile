@@ -33,22 +33,43 @@ webp: check-webp-tools
 		echo "Usage: make webp FILE=assets/image.png"; exit 1; \
 	fi
 
+# Images that must stay in their original format: a CSS background, the og:image
+# targets social scrapers may not decode as WebP, and the favicons. Add a new
+# og:image or favicon here so no unused .webp is generated beside it.
+WEBP_SKIP = assets/black.png \
+	assets/feature-1.png assets/feature-2.png assets/feature-3.png assets/feature-4.png \
+	assets/icon/16.png assets/icon/32.png assets/icon/48.png
+
 webp-all: check-webp-tools
-	@find assets -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) | while read f; do \
-		case "$$f" in \
-			assets/black.png|assets/feature-[1-4].png|assets/icon/16.png|assets/icon/32.png|assets/icon/48.png) continue ;; \
-		esac; \
+	@find assets -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) | while IFS= read -r f; do \
+		case " $(WEBP_SKIP) " in *" $$f "*) continue ;; esac; \
 		output="$${f%.*}.webp"; \
 		if [ ! -f "$$output" ] || [ "$$f" -nt "$$output" ]; then \
 			echo "Generating $$output"; \
 			cwebp -q 85 -quiet "$$f" -o "$$output" || exit 1; \
 		fi; \
 	done
-	@find assets -name "*.gif" -type f | while read f; do \
+	@find assets -name "*.gif" -type f | while IFS= read -r f; do \
+		case " $(WEBP_SKIP) " in *" $$f "*) continue ;; esac; \
 		output="$${f%.gif}.webp"; \
 		if [ ! -f "$$output" ] || [ "$$f" -nt "$$output" ]; then \
 			echo "Generating $$output"; \
 			gif2webp -q 85 -m 6 "$$f" -o "$$output" >/dev/null || exit 1; \
+		fi; \
+	done
+	@find assets -name "*.webp" -type f | while IFS= read -r f; do \
+		stem="$${f%.webp}"; \
+		source=""; \
+		for ext in png jpg jpeg gif; do \
+			candidate="$$stem.$$ext"; \
+			[ -f "$$candidate" ] || continue; \
+			case " $(WEBP_SKIP) " in *" $$candidate "*) continue ;; esac; \
+			source="$$candidate"; \
+			break; \
+		done; \
+		if [ -z "$$source" ]; then \
+			echo "Removing stale $$f"; \
+			rm -f "$$f" || exit 1; \
 		fi; \
 	done
 
