@@ -152,18 +152,16 @@ install:
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
 
   # signpath.org/terms.html, "Conditions for the website / repository": the term
-  # "Code signing policy" has to appear on the home page AND the download page,
-  # together with the attribution sentence. Shown under the install steps.
-  # The pending-application wording stays until a certificate is issued — the
-  # published installers really are unsigned, and saying otherwise here would be
-  # contradicted by the first person who checks one.
+  # "Code signing policy" and the attribution sentence both have to appear on the
+  # home page and the download page. The attribution is quoted in English rather
+  # than translated — it is a required string, and saying it twice was the bulk
+  # of what made this note long. The pending line stays until a certificate is
+  # issued; the published installers really are unsigned.
   signing_note_html: >-
-    <strong>程式碼簽章政策 / Code signing policy</strong>：Windows 安裝檔的程式碼簽章由
-    <a href="https://about.signpath.io" rel="noopener">SignPath.io</a> 免費提供，憑證由
-    <a href="https://signpath.org" rel="noopener">SignPath Foundation</a> 核發
-    （Free code signing provided by SignPath.io, certificate by SignPath Foundation）。
-    <br>目前<strong>猶咧申請</strong>，憑證猶未核發，已經釋出的 Windows 版本攏未簽章 ——
-    請照<a href="/codesigning.html">程式碼簽章政策</a>內底的 SHA-256 步數家己確認檔案。
+    <a href="/codesigning.html"><strong>程式碼簽章政策 / Code signing policy</strong></a>：Free
+    code signing provided by <a href="https://about.signpath.io" rel="noopener">SignPath.io</a>,
+    certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>。
+    <br>猶咧申請，目前的 Windows 版本攏未簽章。
 
 # =============================================================================
 # Content - Sponsor Section
