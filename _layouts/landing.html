@@ -22,6 +22,8 @@ machine-readable whether or not a button renders.
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
+
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
 	<script>
@@ -89,256 +91,250 @@ machine-readable whether or not a button renders.
 	}
 	</script>
 
-	<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-		integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
 	{% include navbar.html %}
 
-	<section id="hero" class="hero">
-		<div class="hero-container">
-			<!-- Phone demo kept for future use; hidden while hero uses the centered layout.
-			<div class="phone-preview">
-				<div class="phone-frame">
-					<div class="phone-screen">
-						<video autoplay loop muted playsinline preload="auto">
-							<source src="{{ '/assets/demo.mp4' | relative_url }}" type="video/mp4">
-						</video>
+	<main>
+		<section id="hero" class="hero">
+			<div class="hero-container">
+				<!-- Phone demo kept for future use; hidden while hero uses the centered layout.
+				<div class="phone-preview">
+					<div class="phone-frame">
+						<div class="phone-screen">
+							<video autoplay loop muted playsinline preload="auto">
+								<source src="{{ '/assets/demo.mp4' | relative_url }}" type="video/mp4">
+							</video>
+						</div>
 					</div>
 				</div>
-			</div>
-			-->
+				-->
 
-			<div class="hero-text">
-				<!-- <img src="{{ '/assets/icon/180.png' | relative_url }}" alt="台語齒盤 Logo" class="hero-logo" width="180"
-					height="180"> -->
-				<h1>{{ site.app_name }}</h1>
-				<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
+				<div class="hero-text">
+					<!-- <img src="{{ '/assets/icon/180.png' | relative_url }}" alt="台語齒盤 Logo" class="hero-logo" width="180"
+						height="180"> -->
+					<h1>{{ site.app_name }}</h1>
+					<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
 
-				<div id="download" class="download-buttons">
-					<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
-						<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-						<span class="download-btn-text">
-							<span class="download-btn-label">Download on</span>
-							<span class="download-btn-name">App Store</span>
-						</span>
-					</a>
-					{% if site.playstore_link %}
-					<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer"
-						class="download-btn font-google">
-						<img src="{{ '/assets/google-play-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-						<span class="download-btn-text">
-							<span class="download-btn-label">Download on</span>
-							<span class="download-btn-name">Google Play</span>
-						</span>
-					</a>
-					{% endif %}
+					<div id="download" class="download-buttons">
+						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
+							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">App Store</span>
+							</span>
+						</a>
+						{% if site.playstore_link %}
+						<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer"
+							class="download-btn font-google">
+							<img src="{{ '/assets/google-play-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Google Play</span>
+							</span>
+						</a>
+						{% endif %}
+						{% if macos_download_url != "" %}
+						<a href="{{ macos_download_url }}" class="download-btn font-apple">
+							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">macOS</span>
+							</span>
+						</a>
+						{% endif %}
+						{% if windows_download_url != "" %}
+						<a href="{{ windows_download_url }}" class="download-btn">
+							<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Windows</span>
+							</span>
+						</a>
+						{% endif %}
+					</div>
 					{% if macos_download_url != "" %}
-					<a href="{{ macos_download_url }}" class="download-btn font-apple">
-						<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-						<span class="download-btn-text">
-							<span class="download-btn-label">Download on</span>
-							<span class="download-btn-name">macOS</span>
-						</span>
-					</a>
+					<p class="download-note">macOS 需要 14 (Sonoma) 以上</p>
 					{% endif %}
 					{% if windows_download_url != "" %}
-					<a href="{{ windows_download_url }}" class="download-btn">
-						<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-						<span class="download-btn-text">
-							<span class="download-btn-label">Download on</span>
-							<span class="download-btn-name">Windows</span>
-						</span>
-					</a>
-					{% endif %}
-				</div>
-				{% if macos_download_url != "" %}
-				<p class="download-note">macOS 需要 14 (Sonoma) 以上</p>
-				{% endif %}
-				{% if windows_download_url != "" %}
-				<p class="download-note">Windows 需要 10 以上</p>
-				{% endif %}
-			</div>
-		</div>
-	</section>
-
-	<hr class="section-divider">
-
-	<section id="about" class="about-section">
-		<h2 class="section-title">{{ site.about.title }}</h2>
-		<div class="about-content">
-			{% for paragraph in site.about.paragraphs %}
-			<p>{{ paragraph }}</p>
-			{% endfor %}
-		</div>
-	</section>
-
-	<hr class="section-divider">
-
-	<section id="how-to-type" class="feature-section">
-		<h2 class="section-title">{{ site.nav_labels.how_to_type }}</h2>
-		<fieldset class="install-tablist">
-			<legend class="visually-hidden">揀你 ê 裝置</legend>
-			<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input"
-				value="desktop" checked>
-			<label for="typing-tab-desktop" class="install-tab">Desktop</label>
-			<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input"
-				value="mobile">
-			<label for="typing-tab-mobile" class="install-tab">Mobile</label>
-		</fieldset>
-		<div class="install-panels">
-			<div class="install-platform" role="region" aria-labelledby="typing-desktop-title">
-				<h3 id="typing-desktop-title" class="visually-hidden">Desktop</h3>
-				<div class="keyboard-layout-image">
-					<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
-						width="5284" height="3414" loading="lazy">
-				</div>
-			</div>
-			<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
-				<h3 id="typing-mobile-title" class="visually-hidden">Mobile</h3>
-				<div class="keyboard-layout-image">
-					<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="手機台語齒盤拍字速查表"
-						width="5284" height="3414" loading="lazy">
-				</div>
-			</div>
-		</div>
-	</section>
-	<hr class="section-divider">
-
-	<section id="install" class="install-section">
-		<span id="how-to-use" class="anchor-alias" aria-hidden="true"></span>
-		<h2 class="section-title">{{ site.nav_labels.install }}</h2>
-		<fieldset class="install-tablist">
-			<legend class="visually-hidden">揀你 ê 系統</legend>
-			{% for platform in site.install.platforms %}
-			{% unless platform.requires == "macos" and site.enable_macos_download != true %}
-			{% unless platform.requires == "windows" and site.enable_windows_download != true %}
-			<input type="radio" name="install-platform" id="install-tab-{{ platform.id }}" class="install-tab-input"
-				value="{{ platform.id }}" {% if forloop.first %}checked{% endif %}>
-			<label for="install-tab-{{ platform.id }}" class="install-tab">{{ platform.label }}</label>
-			{% endunless %}
-			{% endunless %}
-			{% endfor %}
-		</fieldset>
-
-		<div class="install-panels">
-			{% for platform in site.install.platforms %}
-			{% unless platform.requires == "macos" and site.enable_macos_download != true %}
-			{% unless platform.requires == "windows" and site.enable_windows_download != true %}
-			<div id="install-{{ platform.id }}" class="install-platform">
-				<h3 class="visually-hidden">{{ platform.label }}</h3>
-				<ol class="install-steps">
-					{% for step in platform.steps %}
-					<li class="install-step">
-						<span class="step-number" aria-hidden="true">{{ forloop.index }}</span>
-						<p class="step-description">{{ step.description }}</p>
-					</li>
-					{% endfor %}
-				</ol>
-			</div>
-			{% endunless %}
-			{% endunless %}
-			{% endfor %}
-		</div>
-
-		{% if site.install.signing_note_html %}
-		<p class="install-signing-note">{{ site.install.signing_note_html }}</p>
-		{% endif %}
-
-	</section>
-	<hr class="section-divider">
-
-	{% if site.enable_features %}
-	<section id="features" class="features-grid-section">
-		<h2 class="section-title">{{ site.nav_labels.features }}</h2>
-		<div class="features-grid">
-			{% for feature in site.features %}
-			{% if feature.title %}
-			<div class="feature-card">
-				<div class="feature-card-content">
-					<h3>{{ feature.title }}</h3>
-					{% if feature.slideshow %}
-					<div class="feature-image feature-slideshow" data-slideshow data-interval="700" tabindex="0" role="group"
-						aria-label="{{ feature.title }}圖片輪播">
-						<div class="feature-slideshow-viewport">
-							{% for slide in feature.slideshow %}
-							{% assign slide_webp = slide | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg',
-							'.webp' %}
-							<picture class="feature-slide{% if forloop.first %} is-active{% endif %}" data-slide{% unless
-								forloop.first %} hidden{% endunless %}>
-								<source srcset="{{ '/assets/' | append: slide_webp | relative_url }}" type="image/webp">
-								<img src="{{ '/assets/' | append: slide | relative_url }}"
-									alt="{{ feature.title }}（{{ forloop.index }}/{{ forloop.length }}）" loading="lazy">
-							</picture>
-							{% endfor %}
-						</div>
-						<div class="feature-slideshow-status" aria-hidden="true">
-							{% for slide in feature.slideshow %}
-							<span class="feature-slideshow-dot{% if forloop.first %} is-active{% endif %}"
-								data-slide-indicator></span>
-							{% endfor %}
-						</div>
-					</div>
-					{% elsif feature.image %}
-					<div class="feature-image">
-						{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace:
-						'.jpeg', '.webp' | replace: '.gif', '.webp' %}
-						<picture>
-							<source srcset="{{ '/assets/' | append: feature_webp | relative_url }}" type="image/webp">
-							<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="{{ feature.title }}"
-								loading="lazy">
-						</picture>
-					</div>
-					{% elsif feature.icon %}
-					<div class="feature-image feature-icon" aria-hidden="true">
-						<i class="{{ feature.icon }}"></i>
-					</div>
-					{% endif %}
-					{% if feature.description %}
-					{% if feature.description.first %}
-					{% for paragraph in feature.description %}
-					<p>{{ paragraph }}</p>
-					{% endfor %}
-					{% else %}
-					<p>{{ feature.description }}</p>
-					{% endif %}
+					<p class="download-note">Windows 需要 10 以上</p>
 					{% endif %}
 				</div>
 			</div>
-			{% endif %}
-			{% endfor %}
-		</div>
-	</section>
-	<hr class="section-divider">
+		</section>
 
-	{% endif %}
-	<section id="sponsor" class="feature-section" style="padding: 8rem 2rem;">
-		<div class="feature-item" style="margin-bottom: 0;">
-			<div class="feature-content">
-				<h2>{{ site.nav_labels.sponsor }}</h2>
-				{% for paragraph in site.sponsor.paragraphs %}
+		<hr class="section-divider">
+
+		<section id="about" class="about-section">
+			<h2 class="section-title">{{ site.about.title }}</h2>
+			<div class="about-content">
+				{% for paragraph in site.about.paragraphs %}
 				<p>{{ paragraph }}</p>
 				{% endfor %}
 			</div>
-			<a href="{{ site.sponsor.link }}" target="_blank" rel="noopener noreferrer" class="sponsor-button">{{
-				site.sponsor.button_text }}</a>
-		</div>
-	</section>
+		</section>
 
-	<hr class="section-divider">
+		<hr class="section-divider">
 
-	<section id="issues" class="issues-section">
-		<h2 class="section-title">{{ site.nav_labels.issues }}</h2>
-		<p class="section-note">無論是使用上拄著 ê 問題、感覺好用 ê 所在，抑是會當改進 ê 建議，攏歡迎寄批 info@taigikeyboard.tw 予我！</p>
-		{% if site.discord_link %}
-		<p class="section-note">➡️ 加入 <a href="{{ site.discord_link }}" target="_blank"
-				rel="noopener noreferrer">Discord</a>
-			回報問題。</p>
+		<section id="how-to-type" class="feature-section">
+			<h2 class="section-title">{{ site.nav_labels.how_to_type }}</h2>
+			<fieldset class="install-tablist">
+				<legend class="visually-hidden">揀你 ê 裝置</legend>
+				<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input"
+					value="desktop" checked>
+				<label for="typing-tab-desktop" class="install-tab">Desktop</label>
+				<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input"
+					value="mobile">
+				<label for="typing-tab-mobile" class="install-tab">Mobile</label>
+			</fieldset>
+			<div class="install-panels">
+				<div class="install-platform" role="region" aria-labelledby="typing-desktop-title">
+					<h3 id="typing-desktop-title" class="visually-hidden">Desktop</h3>
+					<div class="keyboard-layout-image">
+						<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
+							width="5284" height="3414" loading="lazy">
+					</div>
+				</div>
+				<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
+					<h3 id="typing-mobile-title" class="visually-hidden">Mobile</h3>
+					<div class="keyboard-layout-image">
+						<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="手機台語齒盤拍字速查表"
+							width="5284" height="3414" loading="lazy">
+					</div>
+				</div>
+			</div>
+		</section>
+		<hr class="section-divider">
+
+		<section id="install" class="install-section">
+			<span id="how-to-use" class="anchor-alias" aria-hidden="true"></span>
+			<h2 class="section-title">{{ site.nav_labels.install }}</h2>
+			<fieldset class="install-tablist">
+				<legend class="visually-hidden">揀你 ê 系統</legend>
+				{% for platform in site.install.platforms %}
+				{% unless platform.requires == "macos" and site.enable_macos_download != true %}
+				{% unless platform.requires == "windows" and site.enable_windows_download != true %}
+				<input type="radio" name="install-platform" id="install-tab-{{ platform.id }}" class="install-tab-input"
+					value="{{ platform.id }}" {% if forloop.first %}checked{% endif %}>
+				<label for="install-tab-{{ platform.id }}" class="install-tab">{{ platform.label }}</label>
+				{% endunless %}
+				{% endunless %}
+				{% endfor %}
+			</fieldset>
+
+			<div class="install-panels">
+				{% for platform in site.install.platforms %}
+				{% unless platform.requires == "macos" and site.enable_macos_download != true %}
+				{% unless platform.requires == "windows" and site.enable_windows_download != true %}
+				<div id="install-{{ platform.id }}" class="install-platform">
+					<h3 class="visually-hidden">{{ platform.label }}</h3>
+					<ol class="install-steps">
+						{% for step in platform.steps %}
+						<li class="install-step">
+							<span class="step-number" aria-hidden="true">{{ forloop.index }}</span>
+							<p class="step-description">{{ step.description }}</p>
+						</li>
+						{% endfor %}
+					</ol>
+				</div>
+				{% endunless %}
+				{% endunless %}
+				{% endfor %}
+			</div>
+
+			{% if site.install.signing_note_html %}
+			<p class="install-signing-note">{{ site.install.signing_note_html }}</p>
+			{% endif %}
+
+		</section>
+		<hr class="section-divider">
+
+		{% if site.enable_features %}
+		<section id="features" class="features-grid-section">
+			<h2 class="section-title">{{ site.nav_labels.features }}</h2>
+			<div class="features-grid">
+				{% for feature in site.features %}
+				{% if feature.title %}
+				<div class="feature-card">
+					<div class="feature-card-content">
+						<h3>{{ feature.title }}</h3>
+						{% if feature.slideshow %}
+						<div class="feature-image feature-slideshow" data-slideshow data-interval="700" tabindex="0" role="group"
+							aria-label="{{ feature.title }}圖片輪播">
+							<div class="feature-slideshow-viewport">
+								{% for slide in feature.slideshow %}
+								{% assign slide_webp = slide | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace: '.jpeg',
+								'.webp' %}
+								<picture class="feature-slide{% if forloop.first %} is-active{% endif %}" data-slide{% unless
+									forloop.first %} hidden{% endunless %}>
+									<source srcset="{{ '/assets/' | append: slide_webp | relative_url }}" type="image/webp">
+									<img src="{{ '/assets/' | append: slide | relative_url }}"
+										alt="{{ feature.title }}（{{ forloop.index }}/{{ forloop.length }}）" loading="lazy">
+								</picture>
+								{% endfor %}
+							</div>
+							<div class="feature-slideshow-status" aria-hidden="true">
+								{% for slide in feature.slideshow %}
+								<span class="feature-slideshow-dot{% if forloop.first %} is-active{% endif %}"
+									data-slide-indicator></span>
+								{% endfor %}
+							</div>
+						</div>
+						{% elsif feature.image %}
+						<div class="feature-image">
+							{% assign feature_webp = feature.image | replace: '.png', '.webp' | replace: '.jpg', '.webp' | replace:
+							'.jpeg', '.webp' | replace: '.gif', '.webp' %}
+							<picture>
+								<source srcset="{{ '/assets/' | append: feature_webp | relative_url }}" type="image/webp">
+								<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt=""
+									loading="lazy">
+							</picture>
+						</div>
+						{% endif %}
+						{% if feature.description %}
+						{% if feature.description.first %}
+						{% for paragraph in feature.description %}
+						<p>{{ paragraph }}</p>
+						{% endfor %}
+						{% else %}
+						<p>{{ feature.description }}</p>
+						{% endif %}
+						{% endif %}
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</section>
+		<hr class="section-divider">
+
 		{% endif %}
-	</section>
+		<section id="sponsor" class="feature-section" style="padding: 8rem 2rem;">
+			<div class="feature-item" style="margin-bottom: 0;">
+				<div class="feature-content">
+					<h2>{{ site.nav_labels.sponsor }}</h2>
+					{% for paragraph in site.sponsor.paragraphs %}
+					<p>{{ paragraph }}</p>
+					{% endfor %}
+				</div>
+				<a href="{{ site.sponsor.link }}" target="_blank" rel="noopener noreferrer" class="sponsor-button">{{
+					site.sponsor.button_text }}</a>
+			</div>
+		</section>
+
+		<hr class="section-divider">
+
+		<section id="issues" class="issues-section">
+			<h2 class="section-title">{{ site.nav_labels.issues }}</h2>
+			<p class="section-note">無論是使用上拄著 ê 問題、感覺好用 ê 所在，抑是會當改進 ê 建議，攏歡迎寄批 info@taigikeyboard.tw 予我！</p>
+			{% if site.discord_link %}
+			<p class="section-note">➡️ 加入 <a href="{{ site.discord_link }}" target="_blank"
+					rel="noopener noreferrer">Discord</a>
+				回報問題。</p>
+			{% endif %}
+		</section>
+	</main>
 
 	{% include footer.html %}
 	{% if site.enable_features %}

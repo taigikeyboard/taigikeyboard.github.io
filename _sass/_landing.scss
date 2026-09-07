@@ -7,7 +7,7 @@
 	--color-bg: #ffffff;
 	--color-surface: #fbfbfd;
 	--color-text-primary: #1d1d1f;
-	--color-text-secondary: #86868b;
+	--color-text-secondary: #6b6b70;
 	--color-border: rgba(0, 0, 0, 0.08);
 	--font-size-body: 2.1rem;
 }
@@ -311,15 +311,6 @@ section {
 .feature-slideshow-viewport {
 	width: 100%;
 	min-height: 0;
-}
-
-.feature-icon {
-	min-height: 180px;
-}
-
-.feature-icon i {
-	font-size: clamp(6rem, 8vw, 10rem);
-	color: var(--color-primary);
 }
 
 .feature-slide[hidden] {
@@ -654,8 +645,11 @@ footer {
 	background-color: rgba(0, 0, 0, 0.06);
 	color: var(--color-text-secondary);
 	text-decoration: none;
-	font-size: 1.8rem;
 	transition: all 0.3s ease;
+}
+
+.footer-social svg {
+	height: 1.8rem;
 }
 
 .footer-social a:hover {
