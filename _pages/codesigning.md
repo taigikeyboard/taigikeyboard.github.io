@@ -21,6 +21,49 @@ Windows releases being unsigned is the gap this policy exists to close. Until
 it is, the published SHA-256 is the only integrity check a user has, and it
 proves only that the file downloaded is the file published — not who built it.
 
+## Code signing policy — SignPath Foundation
+
+Free code signing provided by [SignPath.io](https://about.signpath.io),
+certificate by [SignPath Foundation](https://signpath.org).
+
+**Status: applied, no certificate issued yet.** Every Windows release published
+so far, up to and including 3.6.7, is unsigned — the table above says what each
+platform's artifacts actually carry today, and it is kept current. This section
+describes the arrangement the project has entered into, not a property the
+existing downloads have.
+
+Once a certificate is issued, signing happens inside the build that produces the
+artifact, and nowhere else:
+
+- The artifact is built by
+  [`.github/workflows/windows-build.yml`](https://github.com/taigikeyboard/taigikeyboard/blob/main/.github/workflows/windows-build.yml)
+  on a GitHub-hosted `windows-2025` runner, in the public repository
+  <https://github.com/taigikeyboard/taigikeyboard>, from the commit that
+  workflow run names.
+- Every external input that build pulls in — the toolchain, `protoc`, Inno
+  Setup — is pinned by version and by digest, and the run fails if the build
+  modified any tracked file. The artifact cannot have come from a tree other
+  than the one published at that commit.
+- The signing request is submitted from inside that same workflow run. A binary
+  that did not come through it is not a Taigi Keyboard release, whatever it
+  claims.
+- The private key is held by SignPath Foundation. The maintainer cannot sign
+  outside the automated build.
+
+`make windows-release` on a maintainer machine stays the local path for testing
+an installer. It produces nothing that is signed.
+
+## Privacy
+
+The applications transfer no information to any networked system except when the
+user asks for it. The desktop versions fetch a small update manifest from
+`taigikeyboard.tw` to learn whether a newer version exists; that request reveals
+the caller's IP address and user agent to the web server, as any HTTP request
+does. Nothing else leaves the device — dictionary lookups, user frequency data
+and custom words are stored locally and are never uploaded.
+
+Full statement: [privacy policy](/privacypolicy.html).
+
 ## Roles
 
 Releasing a binary splits into three roles: the **Author** who writes the code
