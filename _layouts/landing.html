@@ -341,7 +341,9 @@ machine-readable whether or not a button renders.
 	</section>
 
 	{% include footer.html %}
+	{% if site.enable_features %}
 	<script src="{{ '/assets/feature-slideshow.js' | relative_url }}" defer></script>
+	{% endif %}
 	<script src="{{ '/assets/install-tabs.js' | relative_url }}" defer></script>
 </body>
 
