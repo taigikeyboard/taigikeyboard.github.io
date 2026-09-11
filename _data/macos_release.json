@@ -1,6 +1,6 @@
 {
-  "version": "3.6.7",
-  "tag": "macos-v3.6.7",
-  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/download/macos-v3.6.7/TaigiKeyboard-3.6.7.pkg",
-  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard.github.io/releases/tag/macos-v3.6.7"
+  "version": "3.6.8",
+  "tag": "desktop-3.6.8",
+  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard/releases/download/desktop-3.6.8/TaigiKeyboard-3.6.8.pkg",
+  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.6.8"
 }
