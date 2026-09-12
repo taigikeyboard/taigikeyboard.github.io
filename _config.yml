@@ -48,6 +48,13 @@ google_analytics_id: G-9C1QYSMJGZ
 keywords: 台語, 臺語, 台文, 台語輸入法, 台語鍵盤, 台語齒盤, 台羅, Tâi-lô, 白話字, POJ, Pe̍h-ōe-jī, Tâi-gí, Taigi, Taiwanese, PhahTaigi, 粉圓字型, 台語APP, 台語軟體
 
 logo: /assets/icon/180.png
+# jekyll-seo-tag reads `page.image` only, so the OG cover is set as a
+# front-matter default for every page rather than a site-level key.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/og-cover.png
 twitter:
   card: summary_large_image
 
