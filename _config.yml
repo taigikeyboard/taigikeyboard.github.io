@@ -35,6 +35,14 @@ enable_macos_download: true
 # false until the Windows launch is meant to be public — same two consumers.
 enable_windows_download: true
 
+# Linux is the same: a `.deb` on the desktop GitHub release,
+# _data/linux_release.json filled by taigikeyboard's
+# scripts/announce-release.sh on every publish. There is no appcast — a `.deb`
+# is not updated in place. Keep this false until the Linux launch is meant to
+# be public: it hides the button, the install tab and the JSON-LD URL, not the
+# `.deb` itself, which is public the moment the release is published.
+enable_linux_download: false
+
 # =============================================================================
 # Analytics
 # =============================================================================
@@ -148,6 +156,16 @@ install:
         - description: 【設定與語言】>【語言與地區】>【選項】>【齒盤】>【已安裝的鍵盤】>【增加齒盤】。
         - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
         - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
+        - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
+
+    - id: linux
+      label: Linux
+      requires: linux
+      steps:
+        - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔（.deb，Ubuntu 24.04 amd64）。
+        - description: 拍開終端機，執行 sudo apt install ./taigikeyboard_版本_amd64.deb。
+        - description: 安裝了後，執行 fcitx5 -r（用 IBus 就執行 ibus restart），抑是登出/登入電腦一擺。
+        - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
 
   # signpath.org/terms.html, "Conditions for the website / repository": the term
