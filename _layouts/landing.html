@@ -14,6 +14,10 @@ machine-readable whether or not a button renders.
 {%- if site.enable_windows_download -%}
 {%- assign windows_download_url = site.data.windows_release.downloadURL | default: "" -%}
 {%- endif -%}
+{%- assign linux_download_url = "" -%}
+{%- if site.enable_linux_download -%}
+{%- assign linux_download_url = site.data.linux_release.downloadURL | default: "" -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -74,7 +78,8 @@ machine-readable whether or not a button renders.
 			"{{ site.appstore_link }}",
 			"{{ site.playstore_link }}"{% if macos_download_url != "" %},
 			"{{ macos_download_url }}"{% endif %}{% if windows_download_url != "" %},
-			"{{ windows_download_url }}"{% endif %}
+			"{{ windows_download_url }}"{% endif %}{% if linux_download_url != "" %},
+			"{{ linux_download_url }}"{% endif %}
 		],
 		"screenshot": "{{ site.url }}/assets/feature-1.png",
 		"softwareVersion": "1.0",
@@ -145,12 +150,24 @@ machine-readable whether or not a button renders.
 							</span>
 						</a>
 						{% endif %}
+						{% if linux_download_url != "" %}
+						<a href="{{ linux_download_url }}" class="download-btn">
+							<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Linux</span>
+							</span>
+						</a>
+						{% endif %}
 					</div>
 					{% if macos_download_url != "" %}
 					<p class="download-note">macOS 需要 14 (Sonoma) 以上</p>
 					{% endif %}
 					{% if windows_download_url != "" %}
 					<p class="download-note">Windows 需要 10 以上</p>
+					{% endif %}
+					{% if linux_download_url != "" %}
+					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5 抑是 IBus</p>
 					{% endif %}
 				</div>
 			</div>
@@ -205,20 +222,19 @@ machine-readable whether or not a button renders.
 			<fieldset class="install-tablist">
 				<legend class="visually-hidden">揀你 ê 系統</legend>
 				{% for platform in site.install.platforms %}
-				{% unless platform.requires == "macos" and site.enable_macos_download != true %}
-				{% unless platform.requires == "windows" and site.enable_windows_download != true %}
+				{% assign download_switch = "enable_" | append: platform.requires | append: "_download" %}
+				{% if platform.requires == nil or site[download_switch] == true %}
 				<input type="radio" name="install-platform" id="install-tab-{{ platform.id }}" class="install-tab-input"
 					value="{{ platform.id }}" {% if forloop.first %}checked{% endif %}>
 				<label for="install-tab-{{ platform.id }}" class="install-tab">{{ platform.label }}</label>
-				{% endunless %}
-				{% endunless %}
+				{% endif %}
 				{% endfor %}
 			</fieldset>
 
 			<div class="install-panels">
 				{% for platform in site.install.platforms %}
-				{% unless platform.requires == "macos" and site.enable_macos_download != true %}
-				{% unless platform.requires == "windows" and site.enable_windows_download != true %}
+				{% assign download_switch = "enable_" | append: platform.requires | append: "_download" %}
+				{% if platform.requires == nil or site[download_switch] == true %}
 				<div id="install-{{ platform.id }}" class="install-platform">
 					<h3 class="visually-hidden">{{ platform.label }}</h3>
 					<ol class="install-steps">
@@ -230,8 +246,7 @@ machine-readable whether or not a button renders.
 						{% endfor %}
 					</ol>
 				</div>
-				{% endunless %}
-				{% endunless %}
+				{% endif %}
 				{% endfor %}
 			</div>
 
