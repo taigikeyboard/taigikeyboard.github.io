@@ -1,0 +1,17 @@
+---
+layout: null
+# Rendered from _data/linux_release.json (the .deb's data file), which the
+# release flow (taigikeyboard's scripts/announce-release.sh) is the only
+# writer of — same shape as appcast/macos.json, for the reason recorded there.
+#
+# Contract for these fields lives in taigikeyboard's windows/updates/README.md
+# § Wire format; the reader is taigi-desktop-update::manifest in the Linux
+# settings window. Linux has no in-app install (a .deb / .rpm / Arch package
+# needs root, and three formats share one release), so the manifest names
+# only the version and the release page that lists all three packages: no
+# packageURL, and the reader offers the download page.
+---
+{
+  "version": {{ site.data.linux_release.version | jsonify }},
+  "downloadPageURL": {{ site.data.linux_release.releasePageURL | jsonify }}
+}
