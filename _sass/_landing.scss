@@ -91,6 +91,12 @@ body {
 	justify-content: center;
 }
 
+// Eight buttons (Linux split into Ubuntu / Debian, Fedora, Arch) as two rows
+// of four; below 992px two per row (the breakpoints below follow this rule).
+.download-buttons--four {
+	grid-template-columns: repeat(4, 200px);
+}
+
 .download-note {
 	margin-top: 1.2rem;
 	font-size: 1.4rem;
@@ -680,6 +686,10 @@ footer {
 }
 
 @media (max-width: 992px) {
+	.download-buttons--four {
+		grid-template-columns: repeat(2, 200px);
+	}
+
 	.features-grid {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
