@@ -83,8 +83,8 @@ body {
 
 .download-buttons {
 	display: grid;
-	// Four stores now that macOS and Windows ship: two columns pair them 2x2
-	// rather than leaving Windows alone on a second row.
+	// Two columns pair the buttons; the count is kept even (iPhone + iPad,
+	// Google Play, macOS, Windows, Linux) so no button sits alone on a row.
 	grid-template-columns: repeat(2, 200px);
 	gap: 1.25rem;
 	align-items: center;

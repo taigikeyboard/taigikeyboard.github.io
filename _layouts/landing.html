@@ -115,11 +115,22 @@ machine-readable whether or not a button renders.
 					<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
 
 					<div id="download" class="download-buttons">
+						{%- comment -%}
+						One universal App Store listing, shown as two buttons so iPad users
+						find theirs and the two-column grid stays even (six with Linux).
+						{%- endcomment -%}
 						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
 								<span class="download-btn-label">Download on</span>
-								<span class="download-btn-name">App Store</span>
+								<span class="download-btn-name">iPhone</span>
+							</span>
+						</a>
+						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
+							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">iPad</span>
 							</span>
 						</a>
 						{% if site.playstore_link %}
