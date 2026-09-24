@@ -35,10 +35,11 @@ enable_macos_download: true
 # false until the Windows launch is meant to be public — same two consumers.
 enable_windows_download: true
 
-# Linux is the same: a `.deb` on the desktop GitHub release,
-# _data/linux_release.json filled by taigikeyboard's
-# scripts/announce-release.sh on every publish. There is no appcast — a `.deb`
-# is not updated in place. Keep this false until the Linux launch is meant to
+# Linux is the same: a `.deb`, a Fedora `.rpm` and an Arch `.pkg.tar.zst` on
+# the desktop GitHub release, _data/linux_release.json /
+# linux_rpm_release.json / linux_arch_release.json filled by taigikeyboard's
+# scripts/announce-release.sh on every publish. There is no appcast — a Linux
+# package is not updated in place. Keep this false until the Linux launch is meant to
 # be public: it hides the button, the install tab and the JSON-LD URL, not the
 # `.deb` itself, which is public the moment the release is published.
 enable_linux_download: true
@@ -162,8 +163,8 @@ install:
       label: Linux
       requires: linux
       steps:
-        - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔（.deb，Ubuntu 24.04 amd64）。
-        - description: 拍開終端機，拍 sudo apt install ./taigikeyboard_版本_amd64.deb。
+        - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔：Ubuntu/Debian 用 .deb、Fedora 用 .rpm、Arch 用 .pkg.tar.zst（x86_64）。
+        - description: 拍開終端機，Ubuntu/Debian 拍 sudo apt install ./taigikeyboard_版本_amd64.deb；Fedora 拍 sudo dnf install ./taigikeyboard-版本-1.x86_64.rpm；Arch 拍 sudo pacman -U ./taigikeyboard-版本-1-x86_64.pkg.tar.zst。
         - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
         - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣

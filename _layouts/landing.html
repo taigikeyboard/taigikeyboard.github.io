@@ -18,6 +18,22 @@ machine-readable whether or not a button renders.
 {%- if site.enable_linux_download -%}
 {%- assign linux_download_url = site.data.linux_release.downloadURL | default: "" -%}
 {%- endif -%}
+{%- comment -%}
+Linux splits into three buttons (Ubuntu / Debian .deb, Fedora .rpm, Arch
+package) only when all three data files name the SAME release: an announcement
+that lacks one format leaves that file on its previous version. Otherwise the
+single .deb button stays, so the grid holds 6 or 8 buttons — never an odd count.
+{%- endcomment -%}
+{%- assign linux_rpm_download_url = "" -%}
+{%- assign linux_arch_download_url = "" -%}
+{%- if linux_download_url != "" and site.data.linux_rpm_release.tag == site.data.linux_release.tag and site.data.linux_arch_release.tag == site.data.linux_release.tag -%}
+{%- assign linux_rpm_download_url = site.data.linux_rpm_release.downloadURL | default: "" -%}
+{%- assign linux_arch_download_url = site.data.linux_arch_release.downloadURL | default: "" -%}
+{%- endif -%}
+{%- assign linux_split = false -%}
+{%- if linux_rpm_download_url != "" and linux_arch_download_url != "" -%}
+{%- assign linux_split = true -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -79,7 +95,9 @@ machine-readable whether or not a button renders.
 			"{{ site.playstore_link }}"{% if macos_download_url != "" %},
 			"{{ macos_download_url }}"{% endif %}{% if windows_download_url != "" %},
 			"{{ windows_download_url }}"{% endif %}{% if linux_download_url != "" %},
-			"{{ linux_download_url }}"{% endif %}
+			"{{ linux_download_url }}"{% endif %}{% if linux_split %},
+			"{{ linux_rpm_download_url }}",
+			"{{ linux_arch_download_url }}"{% endif %}
 		],
 		"screenshot": "{{ site.url }}/assets/feature-1.png",
 		"softwareVersion": "1.0",
@@ -114,7 +132,7 @@ machine-readable whether or not a button renders.
 					<h1>{{ site.app_name }}</h1>
 					<p class="hero-subtitle">{{ site.hero.subtitle }}</p>
 
-					<div id="download" class="download-buttons">
+					<div id="download" class="download-buttons{% if linux_split %} download-buttons--four{% endif %}">
 						{%- comment -%}
 						One universal App Store listing, shown as two buttons so iPad users
 						find theirs and the six buttons fill two rows of three.
@@ -163,7 +181,29 @@ machine-readable whether or not a button renders.
 							</span>
 						</a>
 						{% endif %}
-						{% if linux_download_url != "" %}
+						{% if linux_split %}
+						<a href="{{ linux_download_url }}" class="download-btn">
+							<img src="{{ '/assets/ubuntu-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Ubuntu / Debian</span>
+							</span>
+						</a>
+						<a href="{{ linux_rpm_download_url }}" class="download-btn">
+							<img src="{{ '/assets/fedora-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Fedora</span>
+							</span>
+						</a>
+						<a href="{{ linux_arch_download_url }}" class="download-btn">
+							<img src="{{ '/assets/archlinux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">Arch Linux</span>
+							</span>
+						</a>
+						{% elsif linux_download_url != "" %}
 						<a href="{{ linux_download_url }}" class="download-btn">
 							<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
@@ -179,7 +219,9 @@ machine-readable whether or not a button renders.
 					{% if windows_download_url != "" %}
 					<p class="download-note">Windows 需要 10 以上</p>
 					{% endif %}
-					{% if linux_download_url != "" %}
+					{% if linux_split %}
+					<p class="download-note">Linux（x86_64，Fcitx5/IBus）：Ubuntu 24.04+、Debian 13+、Fedora 44+、Arch</p>
+					{% elsif linux_download_url != "" %}
 					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5/IBus</p>
 					{% endif %}
 				</div>
