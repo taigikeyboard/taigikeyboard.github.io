@@ -41,7 +41,7 @@ enable_windows_download: true
 # is not updated in place. Keep this false until the Linux launch is meant to
 # be public: it hides the button, the install tab and the JSON-LD URL, not the
 # `.deb` itself, which is public the moment the release is published.
-enable_linux_download: false
+enable_linux_download: true
 
 # =============================================================================
 # Analytics
