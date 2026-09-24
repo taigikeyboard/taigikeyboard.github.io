@@ -83,9 +83,9 @@ body {
 
 .download-buttons {
 	display: grid;
-	// Two columns pair the buttons; the count is kept even (iPhone + iPad,
-	// Google Play, macOS, Windows, Linux) so no button sits alone on a row.
-	grid-template-columns: repeat(2, 200px);
+	// Six buttons (iPhone, iPad, Google Play, macOS, Windows, Linux) as two
+	// rows of three; narrower screens fall back to 3x2, then one per row.
+	grid-template-columns: repeat(3, 200px);
 	gap: 1.25rem;
 	align-items: center;
 	justify-content: center;
@@ -729,6 +729,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+	// Three columns need 625px; two fit every width down to 480px.
+	.download-buttons {
+		grid-template-columns: repeat(2, 200px);
+	}
+
 	.section-divider {
 		max-width: 600px;
 	}
@@ -833,7 +838,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-	// The 2x2 pair needs 412.5px, so it survives every width down to here;
+	// Two columns need 412.5px, so they survive every width down to here;
 	// below it the buttons stack one per row.
 	.download-buttons {
 		grid-template-columns: min(200px, 100%);
