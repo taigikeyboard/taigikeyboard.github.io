@@ -135,7 +135,10 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					<div id="download" class="download-buttons{% if linux_split %} download-buttons--four{% endif %}">
 						{%- comment -%}
 						One universal App Store listing, shown as two buttons so iPad users
-						find theirs and the six buttons fill two rows of three.
+						find theirs. Order: the Apple family (iPhone, iPad, macOS), then
+						Google Play, Windows and Linux — the first row is Apple in both the
+						3-column (6 buttons) and 4-column (8 buttons) grids, and the Linux
+						buttons stay together at the end.
 						{%- endcomment -%}
 						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
 							class="download-btn font-apple">
@@ -153,6 +156,15 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 								<span class="download-btn-name">iPad</span>
 							</span>
 						</a>
+						{% if macos_download_url != "" %}
+						<a href="{{ macos_download_url }}" class="download-btn font-apple">
+							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-name">macOS</span>
+							</span>
+						</a>
+						{% endif %}
 						{% if site.playstore_link %}
 						<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer"
 							class="download-btn font-google">
@@ -160,15 +172,6 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 							<span class="download-btn-text">
 								<span class="download-btn-label">Download on</span>
 								<span class="download-btn-name">Google Play</span>
-							</span>
-						</a>
-						{% endif %}
-						{% if macos_download_url != "" %}
-						<a href="{{ macos_download_url }}" class="download-btn font-apple">
-							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
-								<span class="download-btn-name">macOS</span>
 							</span>
 						</a>
 						{% endif %}
