@@ -117,16 +117,18 @@ machine-readable whether or not a button renders.
 					<div id="download" class="download-buttons">
 						{%- comment -%}
 						One universal App Store listing, shown as two buttons so iPad users
-						find theirs and the two-column grid stays even (six with Linux).
+						find theirs and the six buttons fill two rows of three.
 						{%- endcomment -%}
-						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
+						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
+							class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
 								<span class="download-btn-label">Download on</span>
 								<span class="download-btn-name">iPhone</span>
 							</span>
 						</a>
-						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer" class="download-btn font-apple">
+						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
+							class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
 								<span class="download-btn-label">Download on</span>
@@ -178,7 +180,7 @@ machine-readable whether or not a button renders.
 					<p class="download-note">Windows 需要 10 以上</p>
 					{% endif %}
 					{% if linux_download_url != "" %}
-					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5 抑是 IBus</p>
+					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5/IBus</p>
 					{% endif %}
 				</div>
 			</div>
@@ -201,26 +203,25 @@ machine-readable whether or not a button renders.
 			<h2 class="section-title">{{ site.nav_labels.how_to_type }}</h2>
 			<fieldset class="install-tablist">
 				<legend class="visually-hidden">揀你 ê 裝置</legend>
-				<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input"
-					value="desktop" checked>
+				<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input" value="desktop"
+					checked>
 				<label for="typing-tab-desktop" class="install-tab">Desktop</label>
-				<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input"
-					value="mobile">
+				<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input" value="mobile">
 				<label for="typing-tab-mobile" class="install-tab">Mobile</label>
 			</fieldset>
 			<div class="install-panels">
 				<div class="install-platform" role="region" aria-labelledby="typing-desktop-title">
 					<h3 id="typing-desktop-title" class="visually-hidden">Desktop</h3>
 					<div class="keyboard-layout-image">
-						<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表"
-							width="5284" height="3414" loading="lazy">
+						<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="台語齒盤拍字速查表" width="5284" height="3414"
+							loading="lazy">
 					</div>
 				</div>
 				<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
 					<h3 id="typing-mobile-title" class="visually-hidden">Mobile</h3>
 					<div class="keyboard-layout-image">
-						<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="手機台語齒盤拍字速查表"
-							width="5284" height="3414" loading="lazy">
+						<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="手機台語齒盤拍字速查表" width="5284" height="3414"
+							loading="lazy">
 					</div>
 				</div>
 			</div>
@@ -305,8 +306,7 @@ machine-readable whether or not a button renders.
 							'.jpeg', '.webp' | replace: '.gif', '.webp' %}
 							<picture>
 								<source srcset="{{ '/assets/' | append: feature_webp | relative_url }}" type="image/webp">
-								<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt=""
-									loading="lazy">
+								<img src="{{ '/assets/' | append: feature.image | relative_url }}" alt="" loading="lazy">
 							</picture>
 						</div>
 						{% endif %}

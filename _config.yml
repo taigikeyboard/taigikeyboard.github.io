@@ -163,8 +163,8 @@ install:
       requires: linux
       steps:
         - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔（.deb，Ubuntu 24.04 amd64）。
-        - description: 拍開終端機，執行 sudo apt install ./taigikeyboard_版本_amd64.deb。
-        - description: 安裝了後，執行 fcitx5 -r（用 IBus 就執行 ibus restart），抑是登出/登入電腦一擺。
+        - description: 拍開終端機，拍 sudo apt install ./taigikeyboard_版本_amd64.deb。
+        - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
         - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
         - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
 
