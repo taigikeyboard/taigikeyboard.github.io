@@ -1,7 +1,7 @@
 {
-  "version": "3.6.9",
-  "tag": "desktop-3.6.9",
-  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard/releases/download/desktop-3.6.9/taigikeyboard_3.6.9_amd64.deb",
-  "sha256": "473f20ea28b5767c2d0cdfb4d1aad1bbba19d62ebbbe3765c519dc9186278358",
-  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.6.9"
+  "version": "3.6.10",
+  "tag": "desktop-3.6.10",
+  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard/releases/download/desktop-3.6.10/taigikeyboard_3.6.10_amd64.deb",
+  "sha256": "cfa594d07b6b5d394fd8999736e36e4b3db5be165b5b84b71594ce2dae4e86ff",
+  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.6.10"
 }
