@@ -93,7 +93,6 @@ package it just uploaded is downloadable:
 |---|---|---|
 | `appcast/macos.json` | the installed macOS input method, polling for updates | newest published version + the release page to send the user to |
 | `_data/macos_release.json` | this site's macOS download button | the same version, plus the direct package URL the button links at |
-| `appcast/linux.json` | the installed Linux settings window, polling for updates | rendered from `_data/linux_release.json` (written by `scripts/announce-release.sh`): newest published version + the release page listing the .deb / .rpm / Arch packages — no package URL, Linux has no in-app install |
 
 The button links straight at the package so the download starts on one click,
 which means its URL carries the version and changes every release — hence the
