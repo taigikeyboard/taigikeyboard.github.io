@@ -160,7 +160,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 						<a href="{{ macos_download_url }}" class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.macos_release.version }}</span>
 								<span class="download-btn-name">macOS</span>
 							</span>
 						</a>
@@ -179,7 +179,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 						<a href="{{ windows_download_url }}" class="download-btn">
 							<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.windows_release.version }}</span>
 								<span class="download-btn-name">Windows</span>
 							</span>
 						</a>
@@ -188,21 +188,21 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 						<a href="{{ linux_download_url }}" class="download-btn">
 							<img src="{{ '/assets/ubuntu-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.linux_release.version }}</span>
 								<span class="download-btn-name">Ubuntu / Debian</span>
 							</span>
 						</a>
 						<a href="{{ linux_rpm_download_url }}" class="download-btn">
 							<img src="{{ '/assets/fedora-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.linux_rpm_release.version }}</span>
 								<span class="download-btn-name">Fedora</span>
 							</span>
 						</a>
 						<a href="{{ linux_arch_download_url }}" class="download-btn">
 							<img src="{{ '/assets/archlinux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.linux_arch_release.version }}</span>
 								<span class="download-btn-name">Arch Linux</span>
 							</span>
 						</a>
@@ -210,7 +210,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 						<a href="{{ linux_download_url }}" class="download-btn">
 							<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">Download on</span>
+								<span class="download-btn-label">Download {{ site.data.linux_release.version }}</span>
 								<span class="download-btn-name">Linux</span>
 							</span>
 						</a>
