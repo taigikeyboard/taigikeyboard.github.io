@@ -1,7 +1,7 @@
 {
   "version": "3.7.0",
   "tag": "desktop-3.7.0",
-  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard/releases/download/desktop-3.7.0/taigikeyboard_3.7.0_amd64.deb",
+  "downloadURL": "https://dl.taigikeyboard.tw/desktop/taigikeyboard_3.7.0_amd64.deb",
   "sha256": "99929d7b4ac9f7308a070756d858b33ccf22c3cd3f387c76ac2df558c614a297",
   "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.7.0"
 }

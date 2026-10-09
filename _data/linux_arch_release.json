@@ -1,7 +1,7 @@
 {
   "version": "3.7.0",
   "tag": "desktop-3.7.0",
-  "downloadURL": "https://github.com/taigikeyboard/taigikeyboard/releases/download/desktop-3.7.0/taigikeyboard-3.7.0-1-x86_64.pkg.tar.zst",
+  "downloadURL": "https://dl.taigikeyboard.tw/desktop/taigikeyboard-3.7.0-1-x86_64.pkg.tar.zst",
   "sha256": "c5a5f1397dc23ca46360dc60fdf60e68756ae45dba9326160e376fd7bfae0ced",
   "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.7.0"
 }
