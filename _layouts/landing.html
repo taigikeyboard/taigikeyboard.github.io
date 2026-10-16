@@ -44,15 +44,6 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 
 	<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
 
-	<!-- Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', '{{ site.google_analytics_id }}');
-	</script>
-
 	<title>{{ site.app_name }} - {{ site.app_description }}</title>
 	<meta name="keywords" content="{{ site.keywords }}">
 
