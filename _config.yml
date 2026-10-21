@@ -183,8 +183,15 @@ sponsor:
   paragraphs:
     - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。
     - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
-  button_text: 贊助台語齒盤
-  link: https://p.ecpay.com.tw/AA663DE
+  payment_methods:
+    - region: 台灣 / Taiwan
+      note: 僅限台灣使用 / Taiwan only
+      button_text: 綠界贊助 / ECPay
+      link: https://p.ecpay.com.tw/AA663DE
+    - region: 海外 / Overseas
+      note: 僅供海外贊助・美元計價 / Overseas only · USD
+      button_text: PayPal 贊助 / Support
+      link: https://www.paypal.com/ncp/payment/AZNAN8NSJXR7J
 
 # =============================================================================
 # Features

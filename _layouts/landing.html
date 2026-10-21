@@ -372,8 +372,16 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					<p>{{ paragraph }}</p>
 					{% endfor %}
 				</div>
-				<a href="{{ site.sponsor.link }}" target="_blank" rel="noopener noreferrer" class="sponsor-button">{{
-					site.sponsor.button_text }}</a>
+				<div class="sponsor-options">
+					{% for method in site.sponsor.payment_methods %}
+					<div class="sponsor-option">
+						<h3>{{ method.region }}</h3>
+						<p>{{ method.note }}</p>
+						<a href="{{ method.link }}" target="_blank" rel="noopener noreferrer"
+							class="sponsor-button">{{ method.button_text }}</a>
+					</div>
+					{% endfor %}
+				</div>
 			</div>
 		</section>
 
