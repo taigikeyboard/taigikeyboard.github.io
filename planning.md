@@ -18,3 +18,4 @@
 - Independent approach review passed. Validate locale completeness, production builds, generated metadata/internal links, baseurl handling, and download gating; request independent final review.
 - This branch depends on pending sponsorship PR #23. Do not merge or publish without user instruction.
 - Completed: three-locale production build/check, `/preview` baseurl build/check, desktop-download-disabled and features-enabled build/check. Open Graph locales corrected and independently re-reviewed: SHIP. Codex simplification checklist passed; browser visual QA unavailable because browser connection fails.
+- Design refinement requested: Apple-style language control using a quiet gray capsule, white active segment, restrained shadow, and compact system typography. Preserve native language links and current-language semantics; add keyboard focus and reduced-motion support without JavaScript.
