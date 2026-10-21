@@ -44,6 +44,7 @@ html {
 
 .navbar-menu {
 	display: flex;
+	margin-left: auto;
 	list-style: none;
 	gap: 2.5rem;
 	flex-wrap: wrap;
@@ -52,6 +53,7 @@ html {
 .language-switcher {
 	position: relative;
 	flex-shrink: 0;
+	margin-left: 1.2rem;
 	font-size: 1.4rem;
 	line-height: 1.2;
 }
@@ -155,7 +157,12 @@ html {
 	.navbar-menu {
 		order: 3;
 		width: 100%;
+		margin-left: 0;
 		gap: 1.5rem;
+	}
+
+	.language-switcher {
+		margin-left: 0;
 	}
 
 	.navbar-menu a {
