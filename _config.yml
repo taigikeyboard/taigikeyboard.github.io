@@ -185,11 +185,11 @@ sponsor:
     - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
   payment_methods:
     - region: 台灣 / Taiwan
-      note: 僅限台灣使用 / Taiwan only
+      note: 佇台灣使用 / Taiwan only
       button_text: 綠界贊助 / ECPay
       link: https://p.ecpay.com.tw/AA663DE
-    - region: 海外 / Overseas
-      note: 僅供海外贊助・美元計價 / Overseas only · USD
+    - region: 外國 / Overseas
+      note: 佇外國使用・用美金 / Overseas only · USD
       button_text: PayPal 贊助 / Support
       link: https://www.paypal.com/ncp/payment/AZNAN8NSJXR7J
 
