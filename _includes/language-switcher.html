@@ -1,5 +1,30 @@
-<div class="language-switcher" role="group" aria-label="{{ translation.ui.language }}">
+{% for language in site.data.languages %}
+	{% if page.language == language.id %}{% assign current_language = language %}{% endif %}
+{% endfor %}
+<details class="language-switcher">
+	<summary class="language-trigger" aria-label="{{ translation.ui.language }}: {{ current_language.label }}">
+		<svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+			<circle cx="12" cy="12" r="9" />
+			<ellipse cx="12" cy="12" rx="4" ry="9" />
+			<path d="M3 12h18" />
+		</svg>
+		<span>{{ current_language.label }}</span>
+		<svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+			<path d="m4 6 4 4 4-4" />
+		</svg>
+	</summary>
+	<ul class="language-menu">
 	{% for language in site.data.languages %}
-	<a href="{{ language.path | relative_url }}" lang="{{ language.tag }}" hreflang="{{ language.tag }}"{% if page.language == language.id %} aria-current="true"{% endif %}>{{ language.label }}</a>
+		<li>
+			<a href="{{ language.path | relative_url }}" lang="{{ language.tag }}" hreflang="{{ language.tag }}"{% if page.language == language.id %} aria-current="true"{% endif %}>
+				<span>{{ language.label }}</span>
+				{% if page.language == language.id %}
+				<svg class="language-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+					<path d="m3 8 3 3 7-7" />
+				</svg>
+				{% endif %}
+			</a>
+		</li>
 	{% endfor %}
-</div>
+	</ul>
+</details>
