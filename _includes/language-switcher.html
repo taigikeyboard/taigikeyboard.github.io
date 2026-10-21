@@ -1,0 +1,5 @@
+<div class="language-switcher" role="group" aria-label="{{ translation.ui.language }}">
+	{% for language in site.data.languages %}
+	<a href="{{ language.path | relative_url }}" lang="{{ language.tag }}" hreflang="{{ language.tag }}"{% if page.language == language.id %} aria-current="true"{% endif %}>{{ language.label }}</a>
+	{% endfor %}
+</div>

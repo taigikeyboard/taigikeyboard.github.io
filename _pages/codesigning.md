@@ -1,5 +1,9 @@
 ---
 layout: page
+language: en
+lang: en
+locale: en_US
+description: TaigiKeyboard code signing, release approval, and verification policy.
 title: 程式碼簽章政策 Code signing policy
 permalink: /codesigning
 ---

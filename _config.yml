@@ -5,15 +5,12 @@
 title: TaigiKeyboard 台語齒盤
 description: 台語齒盤是支援 iOS 佮 Android ê 免費台語輸入法，拍字 ia̋n-jín 由台灣人開發，會當使用白話字、教育部台羅、方音符號佮漢字輸入。無廣告，嘛袂推出付費功能。
 url: https://taigikeyboard.tw
-lang: zh-TW
+lang: nan-TW
 author: Bîn-hiân
 
 # =============================================================================
 # App Information
 # =============================================================================
-
-app_name: TaigiKeyboard 台語齒盤
-app_description: 台語輸入法
 
 ios_app_id: 6751871806
 ios_app_country: TW
@@ -62,159 +59,14 @@ twitter:
   card: summary_large_image
 
 # =============================================================================
-# Navigation Labels
+# Localized content lives in _data/locales/{nan,en,ja}.yml.
 # =============================================================================
 
-nav_labels:
-  about: 關於齒盤
-  features: 功能特色
-  how_to_type: 按怎拍字
-  install: 按怎安裝
-  issues: 問題回報
-  sponsor: 贊助支持
-  privacy_policy: 隱私政策
-  # signpath.org/terms.html requires the term "Code signing policy" on the home
-  # page; this label is the home page's link to it.
-  code_signing: 程式碼簽章政策 / Code signing policy
-
-# =============================================================================
-# Content - Hero Section
-# =============================================================================
-
-hero:
-  subtitle: 來寫咱 ê 台灣話
-
-# =============================================================================
-# Content - About Section
-# =============================================================================
-
-about:
-  title: 關於台語齒盤
-  paragraphs:
-    - 台語齒盤是一个自由、開源 ê 台語拍字家私，拍字 ia̋n-jín 由台灣人家己開發，照台語 ê 拍字習慣設計。支援 iOS、Android、macOS、Windows、Linux，會當用白話字、教育部台羅佮方音符號拍字。
-    - 台語齒盤永遠免費、無廣告，嘛袂推出付費功能。毋管是一般使用者、先生、學校抑是台語教育團體，攏會當自由使用。希望予逐家用台語、教台語 ê 時，免有額外 ê 負擔。
-    - 這个計畫目前由我一个人利用上班以外 ê 時間開發佮維護，所需要 ê 費用主要由我家己負擔，向望台語齒盤會當一直維持落去，予逐家想欲用母語拍字 ê 人，攏有一个好用 ê 家私。
-
-# =============================================================================
-# Content - How to Type Section
-# =============================================================================
-
-how_to_type:
-  notes:
-    - 若拍漢字，會自動使用全形標點符號，拍羅馬字會自動切去半形標點符號，建議 ê 候選詞會顯示佇頂頭，嘛會使褫開看較清楚。
-
-# =============================================================================
-# Content - Install Section
-#
-# One entry per platform. `requires` gates a platform on the matching
-# enable_*_download switch above, so an unlaunched platform's instructions stay
-# off the page along with its download button. Steps render without an image
-# until `image` is filled in, so text can ship before the screenshots exist.
-# =============================================================================
-
-install:
-  platforms:
-    - id: ios
-      label: iPhone / iPad
-      steps:
-        - description: 佇手機仔的 App Store 揣「台語齒盤」安裝。
-        - description: 安裝了後，去【設定】>【一般】>【齒盤】。
-        - description: 點【齒盤】>【加入台語齒盤】>【允准完整取用】。
-        - description: 當咧拍字的 APP 愛重開才會看著齒盤。
-        - description: 揤地球圖示看著「台語齒盤」，就是裝好矣。
-
-    - id: android
-      label: Android
-      steps:
-        - description: 佇手機仔的 Google Play Store 揣「台語齒盤」安裝。
-        - description: 安裝了後，去【設定】>【一般】>【齒盤】。
-        - description: 加入【台語齒盤】。
-        - description: 當咧拍字的 APP 愛重開才會看著齒盤。
-        - description: 揤地球圖示看著「台語齒盤」，就是裝好矣。
-
-    - id: macos
-      label: macOS
-      requires: macos
-      steps:
-        - description: 頂頭 táng-lóo 台語齒盤 macOS 安裝檔。
-        - description: 依照安裝畫面安裝。
-        - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
-        - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
-        - description: 揤 control + cmd + S 拍開齒盤設定、調整設定，就會使拍字矣
-
-    - id: windows
-      label: Windows
-      requires: windows
-      steps:
-        - description: 頂頭 táng-lóo 台語齒盤 Windows 安裝檔。
-        - description: 共安裝檔連紲點兩下，**電腦會跳出警告**，揤其他資訊 → 仍要執行。
-        - description: 【設定與語言】>【語言與地區】>【選項】>【齒盤】>【已安裝的鍵盤】>【增加齒盤】。
-        - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
-        - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
-        - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
-
-    - id: linux
-      label: Linux
-      requires: linux
-      steps:
-        - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔：Ubuntu/Debian 用 .deb、Fedora 用 .rpm、Arch 用 .pkg.tar.zst（x86_64）。
-        - description: 拍開終端機，Ubuntu/Debian 拍 sudo apt install ./taigikeyboard_版本_amd64.deb；Fedora 拍 sudo dnf install ./taigikeyboard-版本-1.x86_64.rpm；Arch 拍 sudo pacman -U ./taigikeyboard-版本-1-x86_64.pkg.tar.zst。
-        - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
-        - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
-        - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
-
-  # signpath.org/terms.html, "Conditions for the website / repository": the term
-  # "Code signing policy" and the attribution sentence both have to appear on the
-  # home page and the download page. The attribution is quoted in English rather
-  # than translated — it is a required string, and saying it twice was the bulk
-  # of what made this note long. The pending line stays until a certificate is
-  # issued; the published installers really are unsigned.
-  signing_note_html: >-
-    <a href="/codesigning.html"><strong>程式碼簽章政策 / Code signing policy</strong></a>：Free
-    code signing provided by <a href="https://about.signpath.io" rel="noopener">SignPath.io</a>,
-    certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>。
-    <br>猶咧申請，目前的 Windows 版本攏未簽章。
-
-# =============================================================================
-# Content - Sponsor Section
-# =============================================================================
-
-sponsor:
-  paragraphs:
-    - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。
-    - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
-  payment_methods:
-    - region: 台灣 / Taiwan
-      note: 佇台灣使用 / Taiwan only
-      button_text: 綠界贊助 / ECPay
-      link: https://p.ecpay.com.tw/AA663DE
-    - region: 外國 / Overseas
-      note: 佇外國使用・用美金 / Overseas only · USD
-      button_text: PayPal 贊助 / Support
-      link: https://www.paypal.com/ncp/payment/AZNAN8NSJXR7J
-
-# =============================================================================
-# Features
-# =============================================================================
-
-features:
-  - title: 支援 4 種拍字方式
-    description: 白話字、教育部台羅、方音符號佮英語，佇齒盤頂懸直接切換。
-
-  - title: 表情齒盤，拍出這馬 ê 心情
-    description: 毋免離開齒盤，直接揀表情、切換分類，揣著你想欲 ê 表情。
-
-  - title: 智慧選字，愈拍愈順
-    description: 齒盤會照你 ê 拍字習慣排列佮建議詞，齒盤愈用愈巧。
-
-  - title: 家己訂做齒盤
-    description: 自由揀色水、字型佮齒盤主題，設定合你慣勢 ê 拍字畫面。
-
-  - title: 無仝詞庫在你揀
-    description: 教育部用字、非教育部用字、在來字佮異用字，照家己 ê 習慣來揀。
-
-  - title: 無連網路，安心拍字
-    description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
+sponsor_payment_methods:
+  - id: taiwan
+    link: https://p.ecpay.com.tw/AA663DE
+  - id: overseas
+    link: https://www.paypal.com/ncp/payment/AZNAN8NSJXR7J
 
 # =============================================================================
 # Social & Contact
@@ -243,6 +95,8 @@ exclude:
   - Makefile
   - vendor
   - .bundle
+  - planning.md
+  - tools
 
 collections:
   pages:

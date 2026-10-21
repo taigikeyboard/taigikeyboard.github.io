@@ -1,0 +1,142 @@
+---
+app_name: TaigiKeyboard
+app_description: A Taiwanese input method
+nav_labels:
+  about: About
+  features: Features
+  how_to_type: Typing guide
+  install: Installation
+  issues: Feedback
+  sponsor: Support
+  privacy_policy: Privacy policy (English)
+  code_signing: Code signing policy (English)
+hero:
+  subtitle: Write in Taiwanese
+about:
+  title: About TaigiKeyboard
+  paragraphs:
+  - TaigiKeyboard is a free, open-source Taiwanese input method, built in Taiwan around
+    the needs of Taiwanese typing. It supports iOS, Android, macOS, Windows, and Linux,
+    with Pe̍h-ōe-jī (POJ), Tâi-lô (TL), and Taiwanese Phonetic Symbols (TPS).
+  - TaigiKeyboard will always be free, with no ads or paid features. Individuals,
+    teachers, schools, and Taiwanese-language education groups are welcome to use
+    it freely, without an extra cost for using or teaching the language.
+  - I develop and maintain this project on my own outside work, covering most costs
+    myself. I hope to keep it going so everyone who wants to type in their mother
+    tongue has a useful tool.
+how_to_type:
+  notes:
+  - Hanji input uses full-width punctuation; romanized input uses half-width punctuation.
+    Suggested words appear above the keyboard, and the candidate panel can be expanded.
+install:
+  platforms:
+  - id: ios
+    label: iPhone / iPad
+    steps:
+    - description: Find TaigiKeyboard in the App Store on your iPhone or iPad and
+        install it.
+    - description: After installation, open Settings > General > Keyboard.
+    - description: Open Keyboards > Add New Keyboard, choose TaigiKeyboard, and enable
+        Allow Full Access.
+    - description: Reopen the app you want to type in so it can load the keyboard.
+    - description: Tap the globe icon and select TaigiKeyboard.
+  - id: android
+    label: Android
+    steps:
+    - description: Find TaigiKeyboard in Google Play and install it.
+    - description: Open your device settings and find the keyboard or on-screen keyboard
+        settings. The location varies by device.
+    - description: Enable TaigiKeyboard in the keyboard list.
+    - description: Reopen the app you want to type in.
+    - description: Use the keyboard switcher to select TaigiKeyboard.
+  - id: macos
+    label: macOS
+    requires: macos
+    steps:
+    - description: Download the macOS installer above.
+    - description: Follow the installation instructions.
+    - description: Log out and back in so macOS can load the input method.
+    - description: Open the input source settings and add TaigiKeyboard (台語齒盤).
+    - description: Press Control + Command + S to open TaigiKeyboard settings, then
+        start typing.
+  - id: windows
+    label: Windows
+    requires: windows
+    steps:
+    - description: Download the Windows installer above.
+    - description: Run the installer. If Windows shows a warning, choose More info
+        > Run anyway.
+    - description: Open Settings > Time & language > Language & region > Language
+        options > Keyboards > Add a keyboard.
+    - description: Log out and back in so Windows can load the input method.
+    - description: Find TaigiKeyboard (台語齒盤) in the keyboard list and add it.
+    - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
+        typing.
+  - id: linux
+    label: Linux
+    requires: linux
+    steps:
+    - description: 'Download the Linux package above: .deb for Ubuntu/Debian, .rpm
+        for Fedora, or .pkg.tar.zst for Arch (x86_64).'
+    - description: In a terminal, run sudo apt install ./taigikeyboard_VERSION_amd64.deb
+        on Ubuntu/Debian, sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm on
+        Fedora, or sudo pacman -U ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst on
+        Arch. Replace VERSION with the downloaded version.
+    - description: Run fcitx5 -r (or ibus restart for IBus), or log out and back in.
+    - description: Open fcitx5-configtool for Fcitx5, or the system input source settings
+        for IBus, and add TaigiKeyboard (台語齒盤).
+    - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
+        typing.
+  signing_note_html: '<a href="/codesigning.html"><strong>Code signing policy (English)</strong></a>:
+    Free code signing provided by <a href="https://about.signpath.io" rel="noopener">SignPath.io</a>,
+    certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>.<br>Application
+    pending; current Windows releases are unsigned.'
+sponsor:
+  paragraphs:
+  - Maintaining TaigiKeyboard involves Apple and Google store fees, development tools,
+    website hosting, and other service costs. All contributions go toward development
+    and maintenance.
+  - If TaigiKeyboard helps you, please consider supporting the project. Your support
+    helps me keep up with operating system updates, fix problems, and improve the
+    typing experience.
+  payment_methods:
+    taiwan:
+      region: Taiwan
+      note: Taiwan only
+      button_text: Support with ECPay
+    overseas:
+      region: Outside Taiwan
+      note: Outside Taiwan only · USD
+      button_text: Support with PayPal
+features:
+- title: Four input modes
+  description: Switch between POJ, TL, TPS, and English directly on the keyboard.
+- title: Emoji keyboard
+  description: Browse and search emoji without leaving the keyboard.
+- title: Adaptive suggestions
+  description: Suggestions adapt to your typing habits.
+- title: Make it your own
+  description: Choose colors, fonts, and keyboard themes.
+- title: Dictionary choices
+  description: Choose vocabulary and character variants that suit your preferences.
+- title: Offline typing
+  description: No network connection or recording; what you type stays on your device.
+ui:
+  download_on: Download on
+  download: Download
+  macos_requirement: Requires macOS 14 (Sonoma) or later
+  windows_requirement: Requires Windows 10 or later
+  choose_device: Choose your device
+  choose_system: Choose your operating system
+  desktop: Desktop
+  mobile: Mobile
+  desktop_chart: TaigiKeyboard desktop typing reference
+  mobile_chart: TaigiKeyboard mobile typing reference
+  chart_note: The typing reference charts are in Taiwanese.
+  slideshow: image slideshow
+  issues: Questions, problems, or ideas for improvement? Email me at info@taigikeyboard.tw.
+  discord_before: Join
+  discord_after: to report a problem.
+  language: Choose language
+  made_by: Made by
+  rights: All rights reserved.

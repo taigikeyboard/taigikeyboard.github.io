@@ -1,0 +1,7 @@
+{%- assign translation = site.data.locales[page.language] -%}
+{%- assign home_path = '/' -%}
+{%- for language in site.data.languages -%}
+  {%- if language.id == page.language -%}
+    {%- assign home_path = language.path -%}
+  {%- endif -%}
+{%- endfor -%}
