@@ -1,21 +1,22 @@
 <nav class="navbar">
 	<div class="navbar-container">
-		<a href="{{ '/' | relative_url }}" class="navbar-brand" aria-label="{{ site.app_name }}">
+		<a href="{{ home_path | relative_url }}" class="navbar-brand" aria-label="{{ translation.app_name }}">
 			<picture>
 				<source srcset="{{ '/assets/icon/180.webp' | relative_url }}" type="image/webp">
 				<img src="{{ '/assets/icon/180.png' | relative_url }}" alt="" width="180" height="180">
 			</picture>
-			<span>{{ site.app_name }}</span>
+			<span>{{ translation.app_name }}</span>
 		</a>
 		<ul class="navbar-menu">
-			<li><a href="{{ '/' | relative_url }}#about">{{ site.nav_labels.about }}</a></li>
-			<li><a href="{{ '/' | relative_url }}#how-to-type">{{ site.nav_labels.how_to_type }}</a></li>
-			<li><a href="{{ '/' | relative_url }}#install">{{ site.nav_labels.install }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#about">{{ translation.nav_labels.about }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#how-to-type">{{ translation.nav_labels.how_to_type }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#install">{{ translation.nav_labels.install }}</a></li>
 			{% if site.enable_features %}
-			<li><a href="{{ '/' | relative_url }}#features">{{ site.nav_labels.features }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#features">{{ translation.nav_labels.features }}</a></li>
 			{% endif %}
-			<li><a href="{{ '/' | relative_url }}#sponsor">{{ site.nav_labels.sponsor }}</a></li>
-			<li><a href="{{ '/' | relative_url }}#issues">{{ site.nav_labels.issues }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#sponsor">{{ translation.nav_labels.sponsor }}</a></li>
+			<li><a href="{{ home_path | relative_url }}#issues">{{ translation.nav_labels.issues }}</a></li>
 		</ul>
+		{% include language-switcher.html %}
 	</div>
 </nav>

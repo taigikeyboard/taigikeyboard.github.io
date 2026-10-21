@@ -1,0 +1,4 @@
+{% for language in site.data.languages %}
+<link rel="alternate" hreflang="{{ language.tag }}" href="{{ language.path | absolute_url }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">

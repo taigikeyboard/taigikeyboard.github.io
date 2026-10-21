@@ -1,0 +1,12 @@
+- id: nan
+  label: 台語
+  tag: nan-TW
+  path: /
+- id: en
+  label: English
+  tag: en
+  path: /en/
+- id: ja
+  label: 日本語
+  tag: ja
+  path: /ja/

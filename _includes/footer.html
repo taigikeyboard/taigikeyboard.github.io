@@ -8,15 +8,15 @@ back at the landing page instead of at an anchor that page does not have:
 <footer>
 	<div class="footer-content">
 		<div class="footer-links">
-			<a href="{{ include.anchor_base }}#how-to-type">{{ site.nav_labels.how_to_type }}</a>
-			<a href="{{ include.anchor_base }}#install">{{ site.nav_labels.install }}</a>
+			<a href="{{ include.anchor_base }}#how-to-type">{{ translation.nav_labels.how_to_type }}</a>
+			<a href="{{ include.anchor_base }}#install">{{ translation.nav_labels.install }}</a>
 			{% if site.enable_features %}
-			<a href="{{ include.anchor_base }}#features">{{ site.nav_labels.features }}</a>
+			<a href="{{ include.anchor_base }}#features">{{ translation.nav_labels.features }}</a>
 			{% endif %}
-			<a href="{{ include.anchor_base }}#sponsor">{{ site.nav_labels.sponsor }}</a>
-			<a href="{{ include.anchor_base }}#issues">{{ site.nav_labels.issues }}</a>
-			<a href="{{ '/privacypolicy.html' | relative_url }}">{{ site.nav_labels.privacy_policy }}</a>
-			<a href="{{ '/codesigning.html' | relative_url }}">{{ site.nav_labels.code_signing }}</a>
+			<a href="{{ include.anchor_base }}#sponsor">{{ translation.nav_labels.sponsor }}</a>
+			<a href="{{ include.anchor_base }}#issues">{{ translation.nav_labels.issues }}</a>
+			<a href="{{ '/privacypolicy.html' | relative_url }}">{{ translation.nav_labels.privacy_policy }}</a>
+			<a href="{{ '/codesigning.html' | relative_url }}">{{ translation.nav_labels.code_signing }}</a>
 		</div>
 
 		{% if site.linkedin_username or site.github_username or site.email_address or site.twitter_username or
@@ -88,12 +88,12 @@ back at the landing page instead of at an anchor that page does not have:
 		{% endif %}
 
 		{% if site.your_name %}
-		<p class="footer-author">Made by {% if site.your_link %}<a href="{{ site.your_link }}" target="_blank"
+		<p class="footer-author">{{ translation.ui.made_by }} {% if site.your_link %}<a href="{{ site.your_link }}" target="_blank"
 				rel="noopener noreferrer">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}{% if
 			site.your_city %} in
 			{{ site.your_city }}{% endif %}</p>
 		{% endif %}
 
-		<p class="footer-copyright">&copy; 2025 {{ site.app_name }}. All rights reserved.</p>
+		<p class="footer-copyright">&copy; 2025 {{ translation.app_name }}. {{ translation.ui.rights }}</p>
 	</div>
 </footer>

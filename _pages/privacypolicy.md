@@ -1,5 +1,9 @@
 ---
 layout: page
+language: en
+lang: en
+locale: en_US
+description: Privacy policy for TaigiKeyboard.
 title: Privacy Policy
 permalink: /privacypolicy
 ---

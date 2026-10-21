@@ -1,0 +1,120 @@
+---
+app_name: TaigiKeyboard 台語齒盤
+app_description: 台湾語入力メソッド
+nav_labels:
+  about: 台語齒盤について
+  features: 機能
+  how_to_type: 入力ガイド
+  install: インストール
+  issues: お問い合わせ
+  sponsor: 開発を支援
+  privacy_policy: プライバシーポリシー（英語）
+  code_signing: コード署名ポリシー / Code signing policy（英語）
+hero:
+  subtitle: 台湾語で書こう
+about:
+  title: TaigiKeyboardについて
+  paragraphs:
+  - TaigiKeyboard（台語齒盤）は、台湾語を入力するための無料のオープンソース入力メソッドです。台湾の開発者が台湾語の入力に合わせて設計しました。iOS、Android、macOS、Windows、Linuxに対応し、白話字（POJ）、教育部台湾語ローマ字（TL）、台湾語方音符号（TPS）で入力できます。
+  - 今後も無料で提供し、広告や有料機能を導入する予定はありません。個人、教員、学校、台湾語教育団体など、どなたでも自由にご利用いただけます。台湾語の使用や教育に、余分な費用がかからないことを目指しています。
+  - このプロジェクトは、私が仕事以外の時間に一人で開発・保守し、必要な費用の多くを自己負担しています。母語で文字を入力したいすべての人に使いやすい道具を届けられるよう、開発を続けていきたいと考えています。
+how_to_type:
+  notes:
+  - 漢字入力では全角、ローマ字入力では半角の句読点に自動で切り替わります。変換候補はキーボードの上に表示され、候補欄を広げることもできます。
+install:
+  platforms:
+  - id: ios
+    label: iPhone / iPad
+    steps:
+    - description: iPhoneまたはiPadのApp Storeで「TaigiKeyboard」または「台語齒盤」を検索し、インストールします。
+    - description: "「設定」>「一般」>「キーボード」を開きます。"
+    - description: "「キーボード」>「新しいキーボードを追加」でTaigiKeyboardを選び、「フルアクセスを許可」を有効にします。"
+    - description: 入力に使うアプリを開き直してください。
+    - description: 地球のアイコンをタップしてTaigiKeyboardを選ぶと、入力できます。
+  - id: android
+    label: Android
+    steps:
+    - description: Google Playで「TaigiKeyboard」または「台語齒盤」を検索し、インストールします。
+    - description: 端末の設定でキーボード、または画面キーボードの設定を開きます。設定の場所は端末によって異なります。
+    - description: キーボード一覧でTaigiKeyboardを有効にします。
+    - description: 入力に使うアプリを開き直してください。
+    - description: キーボード切り替えボタンでTaigiKeyboardを選びます。
+  - id: macos
+    label: macOS
+    requires: macos
+    steps:
+    - description: 上のボタンからmacOS用インストーラーをダウンロードします。
+    - description: 画面の案内に従ってインストールします。
+    - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
+    - description: 入力ソースの設定を開き、TaigiKeyboard（台語齒盤）を追加します。
+    - description: Control + Command + Sで設定を開き、調整してから入力を始めます。
+  - id: windows
+    label: Windows
+    requires: windows
+    steps:
+    - description: 上のボタンからWindows用インストーラーをダウンロードします。
+    - description: インストーラーを実行します。Windowsの警告が表示された場合は「詳細情報」>「実行」を選びます。
+    - description: "「設定」>「時刻と言語」>「言語と地域」>「言語のオプション」>「キーボード」>「キーボードの追加」を開きます。"
+    - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
+    - description: キーボード一覧からTaigiKeyboard（台語齒盤）を追加します。
+    - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
+  - id: linux
+    label: Linux
+    requires: linux
+    steps:
+    - description: 上のボタンからLinux用パッケージをダウンロードします。Ubuntu/Debianは.deb、Fedoraは.rpm、Archは.pkg.tar.zst（x86_64）を選びます。
+    - description: 端末で、Ubuntu/Debianは sudo apt install ./taigikeyboard_VERSION_amd64.deb、Fedoraは
+        sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm、Archは sudo pacman -U
+        ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst を実行します。VERSIONはダウンロードしたバージョンに置き換えてください。
+    - description: fcitx5 -r（IBusの場合は ibus restart）を実行するか、ログアウトしてからログインし直します。
+    - description: Fcitx5は fcitx5-configtool、IBusはシステムの入力ソース設定を開き、TaigiKeyboard（台語齒盤）を追加します。
+    - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
+  signing_note_html: <a href="/codesigning.html"><strong>コード署名ポリシー / Code signing
+    policy（英語）</strong></a>：Free code signing provided by <a href="https://about.signpath.io"
+    rel="noopener">SignPath.io</a>, certificate by <a href="https://signpath.org"
+    rel="noopener">SignPath Foundation</a>.<br>現在申請中です。現在のWindows版にはコード署名がありません。
+sponsor:
+  paragraphs:
+  - TaigiKeyboardの維持には、Apple・Googleのストア費用、開発用の機材やツール、ウェブサイトなどの費用がかかります。いただいたご支援は、開発と保守に活用します。
+  - TaigiKeyboardがお役に立ちましたら、開発へのご支援をご検討ください。OSの更新への対応、不具合の修正、入力機能の改善を続ける力になります。
+  payment_methods:
+    taiwan:
+      region: 台湾
+      note: 台湾からのご支援
+      button_text: ECPayで支援
+    overseas:
+      region: 台湾以外
+      note: 台湾以外からのご支援・米ドル決済
+      button_text: PayPalで支援
+features:
+- title: 4つの入力モード
+  description: 白話字、教育部台羅、方音符号、英語をキーボードから切り替えられます。
+- title: 絵文字キーボード
+  description: キーボードを閉じずに絵文字を検索し、分類から選べます。
+- title: 入力に合わせた候補
+  description: 入力の習慣に合わせて候補の順序やおすすめが変わります。
+- title: 自分好みのキーボード
+  description: 色、フォント、テーマを自由に選べます。
+- title: 選べる辞書
+  description: 教育部の表記、従来の表記、異体字など、好みに合わせて選べます。
+- title: オフラインで入力
+  description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
+ui:
+  download_on: ダウンロード
+  download: ダウンロード
+  macos_requirement: macOS 14（Sonoma）以降が必要です
+  windows_requirement: Windows 10以降が必要です
+  choose_device: 端末を選択
+  choose_system: OSを選択
+  desktop: パソコン
+  mobile: スマートフォン
+  desktop_chart: TaigiKeyboard パソコン版の入力早見表
+  mobile_chart: TaigiKeyboard スマートフォン版の入力早見表
+  chart_note: 入力早見表内の説明は台湾語です。
+  slideshow: 画像スライドショー
+  issues: ご質問、不具合、ご意見は info@taigikeyboard.tw までお寄せください。
+  discord_before: ''
+  discord_after: でも不具合をご報告いただけます。
+  language: 言語を選択
+  made_by: 制作：
+  rights: 無断転載を禁じます。

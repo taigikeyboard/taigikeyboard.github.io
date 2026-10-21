@@ -35,12 +35,18 @@ body {
 
 
 .hero {
-	margin-top: 60px;
 	padding: 6rem 2rem 8rem;
 	background: #ffffff;
 	min-height: 85vh;
 	display: flex;
 	align-items: center;
+}
+
+.policy-content {
+	padding: 4rem 2rem;
+	max-width: 1400px;
+	margin: 0 auto;
+	overflow-wrap: anywhere;
 }
 
 .hero-container {
