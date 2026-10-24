@@ -1,3 +1,11 @@
+# Donation chooser
+
+- User approved (2026-10-24): one primary support button; choose payment in centered desktop dialog / mobile bottom sheet, quiet rows with separators and arrows.
+- Reuse payment configuration and one translated link list. Native details provides no-JavaScript access; enhance same content into native modal dialog.
+- Native dialog supplies focus containment and Escape; localize heading/close, restore trigger focus, dismiss backdrop safely, cap sheet height and respect safe areas.
+- Best practices: code-review rules §1–5; existing shared template/data model, no payment SDK, no duplicated links. Independent approach review passed with accessibility and typography checks to validate.
+- Validate production/locales, browser desktop/mobile/short landscape, keyboard/close/backdrop, no-JavaScript, payment URLs. Update existing PR #25; merge remains user-gated.
+
 # Ko-fi donation link
 
 - Scope: add the supplied Ko-fi URL alongside ECPay and PayPal in all three languages.

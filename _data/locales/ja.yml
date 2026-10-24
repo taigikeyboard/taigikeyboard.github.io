@@ -74,22 +74,22 @@ install:
     rel="noopener">SignPath.io</a>, certificate by <a href="https://signpath.org"
     rel="noopener">SignPath Foundation</a>.<br>現在申請中です。現在のWindows版にはコード署名がありません。
 sponsor:
+  action: 開発を支援
+  choose_method: 支援方法を選ぶ
+  close: 閉じる
   paragraphs:
   - TaigiKeyboardの維持には、Apple・Googleのストア費用、開発用の機材やツール、ウェブサイトなどの費用がかかります。いただいたご支援は、開発と保守に活用します。
   - TaigiKeyboardがお役に立ちましたら、開発へのご支援をご検討ください。OSの更新への対応、不具合の修正、入力機能の改善を続ける力になります。
   payment_methods:
     taiwan:
-      region: 台湾
+      provider: 綠界 ECPay
       note: 台湾からのご支援
-      button_text: ECPayで支援
     overseas:
-      region: 台湾以外
+      provider: PayPal
       note: 台湾以外からのご支援・米ドル決済
-      button_text: PayPalで支援
     kofi:
-      region: Ko-fi
+      provider: Ko-fi
       note: 開発と保守へのご支援
-      button_text: Ko-fiで支援
 features:
 - title: 4つの入力モード
   description: 白話字、教育部台羅、方音符号、英語をキーボードから切り替えられます。

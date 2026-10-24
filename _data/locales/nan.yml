@@ -75,22 +75,22 @@ install:
     certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>。
     <br>猶咧申請，目前的 Windows 版本攏未簽章。
 sponsor:
+  action: 贊助支持
+  choose_method: 揀贊助方式
+  close: 關起來
   paragraphs:
   - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。
   - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
   payment_methods:
     taiwan:
-      region: 台灣 / Taiwan
+      provider: 綠界 ECPay
       note: 佇台灣使用 / Taiwan only
-      button_text: 綠界贊助 / ECPay
     overseas:
-      region: 外國 / Overseas
+      provider: PayPal
       note: 佇外國使用・用美金 / Overseas only · USD
-      button_text: PayPal 贊助 / Support
     kofi:
-      region: Ko-fi
+      provider: Ko-fi
       note: 贊助台語齒盤 ê 開發佮維護
-      button_text: Ko-fi 贊助 / Support
 features:
 - title: 支援 4 種拍字方式
   description: 白話字、教育部台羅、方音符號佮英語，佇齒盤頂懸直接切換。

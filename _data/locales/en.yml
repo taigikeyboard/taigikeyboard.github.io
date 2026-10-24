@@ -92,6 +92,9 @@ install:
     certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>.<br>Application
     pending; current Windows releases are unsigned.'
 sponsor:
+  action: Support the project
+  choose_method: Choose how to support
+  close: Close
   paragraphs:
   - Maintaining TaigiKeyboard involves Apple and Google store fees, development tools,
     website hosting, and other service costs. All contributions go toward development
@@ -101,17 +104,14 @@ sponsor:
     typing experience.
   payment_methods:
     taiwan:
-      region: Taiwan
+      provider: ECPay
       note: Taiwan only
-      button_text: Support with ECPay
     overseas:
-      region: Outside Taiwan
+      provider: PayPal
       note: Outside Taiwan only · USD
-      button_text: Support with PayPal
     kofi:
-      region: Ko-fi
+      provider: Ko-fi
       note: Support development and maintenance
-      button_text: Support with Ko-fi
 features:
 - title: Four input modes
   description: Switch between POJ, TL, TPS, and English directly on the keyboard.

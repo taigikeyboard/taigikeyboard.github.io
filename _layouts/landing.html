@@ -376,17 +376,24 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					<p>{{ paragraph }}</p>
 					{% endfor %}
 				</div>
-				<div class="sponsor-options">
+				<details class="sponsor-chooser">
+					<summary class="sponsor-button">{{ translation.sponsor.action }} <span aria-hidden="true">↗</span></summary>
+					<div class="sponsor-panel">
+						<div class="sponsor-panel-header">
+							<h3 id="sponsor-dialog-title">{{ translation.sponsor.choose_method }}</h3>
+							<button class="sponsor-close" type="button" aria-label="{{ translation.sponsor.close }}" hidden><span aria-hidden="true">×</span></button>
+						</div>
+						<div class="sponsor-methods">
 					{% for payment in site.sponsor_payment_methods %}
 					{% assign method = translation.sponsor.payment_methods[payment.id] %}
-					<div class="sponsor-option">
-						<h3>{{ method.region }}</h3>
-						<p>{{ method.note }}</p>
-						<a href="{{ payment.link }}" target="_blank" rel="noopener noreferrer"
-							class="sponsor-button">{{ method.button_text }}</a>
-					</div>
+							<a href="{{ payment.link }}" target="_blank" rel="noopener noreferrer" class="sponsor-method">
+								<span><span class="sponsor-provider">{{ method.provider }}</span><span class="sponsor-note">{{ method.note }}</span></span>
+								<span class="sponsor-arrow" aria-hidden="true">↗</span>
+							</a>
 					{% endfor %}
-				</div>
+						</div>
+					</div>
+				</details>
 			</div>
 		</section>
 
@@ -409,6 +416,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 	{% endif %}
 	<script src="{{ '/assets/install-tabs.js' | relative_url }}" defer></script>
 	<script src="{{ '/assets/language-switcher.js' | relative_url }}" defer></script>
+	<script src="{{ '/assets/sponsor-dialog.js' | relative_url }}" defer></script>
 </body>
 
 </html>
