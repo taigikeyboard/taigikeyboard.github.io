@@ -1,3 +1,17 @@
+# Accepted website refinements
+
+- Retain original all-platform download layout. Detected-device download experiment reverted; about typography and hero imagery skipped by user.
+- Accepted: remove typing guide section/navigation, compact mobile navigation, consistent prose links, color-only download/social hover, compact footer/localized policy labels, Windows-only concise signing note, tighter install spacing, policy command wrapping.
+- Include user's Taiwanese sponsor paragraph/Ko-fi copy edits. Locale checker permits differing counts of prose strings while preserving object-array structure/type checks.
+- Validate final production/baseurl builds, locales, JS syntax, independent full-diff review and server-free desktop/mobile checks. User requested commit/push2026-10-24; update PR25 scope, merge still requires user instruction. Do not start/restart servers.
+
+# Mobile navigation preview
+
+- User approved2026-10-24: mobile one-row logo/language/menu; expand chapter links on demand, desktop and original downloads preserved; no sliding animation. User owns server starts/restarts.
+- Reuse one navigation list, localized accessible toggle and native language disclosure. Progressive enhancement retains visible links without JavaScript. Escape/outside/link/focus-leave close; language/navigation mutually exclusive; reset at breakpoint.
+- Best practices: shared code-review rules §1–5; standard button/disclosure semantics, no duplicate links/dependencies. Validate all locales, desktop/mobile widths, keyboard, language switching, no-JavaScript and legal pages using server-free Chrome.
+- Keep local for user inspection/revert; preserve earlier typing-guide removal and user's Taiwanese copy edits.
+
 # Donation chooser
 
 - User approved (2026-10-24): one primary support button; choose payment in centered desktop dialog / mobile bottom sheet, quiet rows with separators and arrows.

@@ -8,8 +8,8 @@ nav_labels:
   install: 按怎安裝
   issues: 問題回報
   sponsor: 贊助支持
-  privacy_policy: 隱私政策（英語）
-  code_signing: 程式碼簽章政策 / Code signing policy（英語）
+  privacy_policy: 隱私政策
+  code_signing: 程式碼簽章政策
 hero:
   subtitle: 來寫咱 ê 台灣話
 about:
@@ -70,17 +70,16 @@ install:
     - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
     - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
     - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
-  signing_note_html: <a href="/codesigning.html"><strong>程式碼簽章政策 / Code signing policy</strong></a>：Free
-    code signing provided by <a href="https://about.signpath.io" rel="noopener">SignPath.io</a>,
-    certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>。
-    <br>猶咧申請，目前的 Windows 版本攏未簽章。
+  signing_note_html: >-
+    Windows 版本目前猶未簽章。<a href="/codesigning.html">程式碼簽章政策</a>
+    <br>簽章服務：<a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·
+    憑證：<a href="https://signpath.org" rel="noopener">SignPath Foundation</a>
 sponsor:
   action: 贊助支持
   choose_method: 揀贊助方式
   close: 關起來
   paragraphs:
-  - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。
-  - 若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
+  - 維持台語齒盤需要納 Apple 佮 Google ê 商店費，嘛有開發家私、網站佮其他服務 ê 開銷。逐个贊助攏會用佇台語齒盤 ê 開發佮維護。若台語齒盤對你有幫助，歡迎贊助鬥相共。你 ê 支持會當予我繼續配合手機系統更新、修理問題，閣一步一步改善拍字功能。
   payment_methods:
     taiwan:
       provider: 綠界 ECPay
@@ -90,7 +89,7 @@ sponsor:
       note: 佇外國使用・用美金 / Overseas only · USD
     kofi:
       provider: Ko-fi
-      note: 贊助台語齒盤 ê 開發佮維護
+      note: 使用 Ko-fi 網站贊助
 features:
 - title: 支援 4 種拍字方式
   description: 白話字、教育部台羅、方音符號佮英語，佇齒盤頂懸直接切換。
@@ -105,6 +104,7 @@ features:
 - title: 無連網路，安心拍字
   description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
 ui:
+  navigation_menu: 網站選單
   download_on: Táng-lóo
   download: Táng-lóo
   macos_requirement: macOS 愛 14 (Sonoma) 以上

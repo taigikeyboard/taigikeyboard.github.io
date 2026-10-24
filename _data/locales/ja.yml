@@ -8,8 +8,8 @@ nav_labels:
   install: インストール
   issues: お問い合わせ
   sponsor: 開発を支援
-  privacy_policy: プライバシーポリシー（英語）
-  code_signing: コード署名ポリシー / Code signing policy（英語）
+  privacy_policy: プライバシーポリシー
+  code_signing: コード署名ポリシー
 hero:
   subtitle: 台湾語で書こう
 about:
@@ -69,10 +69,10 @@ install:
     - description: fcitx5 -r（IBusの場合は ibus restart）を実行するか、ログアウトしてからログインし直します。
     - description: Fcitx5は fcitx5-configtool、IBusはシステムの入力ソース設定を開き、TaigiKeyboard（台語齒盤）を追加します。
     - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
-  signing_note_html: <a href="/codesigning.html"><strong>コード署名ポリシー / Code signing
-    policy（英語）</strong></a>：Free code signing provided by <a href="https://about.signpath.io"
-    rel="noopener">SignPath.io</a>, certificate by <a href="https://signpath.org"
-    rel="noopener">SignPath Foundation</a>.<br>現在申請中です。現在のWindows版にはコード署名がありません。
+  signing_note_html: >-
+    現在のWindows版は未署名です。<a href="/codesigning.html">コード署名ポリシー</a>
+    <br>署名サービス：<a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·
+    証明書：<a href="https://signpath.org" rel="noopener">SignPath Foundation</a>
 sponsor:
   action: 開発を支援
   choose_method: 支援方法を選ぶ
@@ -104,6 +104,7 @@ features:
 - title: オフラインで入力
   description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
 ui:
+  navigation_menu: ナビゲーションメニュー
   download_on: ダウンロード
   download: ダウンロード
   macos_requirement: macOS 14（Sonoma）以降が必要です

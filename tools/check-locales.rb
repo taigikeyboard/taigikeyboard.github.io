@@ -13,7 +13,9 @@ locales = languages.to_h { |language| [language['id'], YAML.safe_load_file("#{ro
 def shape(value)
   case value
   when Hash then value.transform_values { |child| shape(child) }
-  when Array then value.map { |child| shape(child) }
+  when Array
+    items = value.map { |child| shape(child) }
+    value.all? { |child| child.is_a?(String) } ? items.uniq : items
   else value.class.name
   end
 end

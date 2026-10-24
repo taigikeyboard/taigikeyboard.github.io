@@ -8,8 +8,8 @@ nav_labels:
   install: Installation
   issues: Feedback
   sponsor: Support
-  privacy_policy: Privacy policy (English)
-  code_signing: Code signing policy (English)
+  privacy_policy: Privacy policy
+  code_signing: Code signing policy
 hero:
   subtitle: Write in Taiwanese
 about:
@@ -87,10 +87,10 @@ install:
         for IBus, and add TaigiKeyboard (台語齒盤).
     - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
         typing.
-  signing_note_html: '<a href="/codesigning.html"><strong>Code signing policy (English)</strong></a>:
-    Free code signing provided by <a href="https://about.signpath.io" rel="noopener">SignPath.io</a>,
-    certificate by <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>.<br>Application
-    pending; current Windows releases are unsigned.'
+  signing_note_html: >-
+    Windows releases are currently unsigned. <a href="/codesigning.html">Code signing policy</a>
+    <br>Signing: <a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·
+    Certificate: <a href="https://signpath.org" rel="noopener">SignPath Foundation</a>
 sponsor:
   action: Support the project
   choose_method: Choose how to support
@@ -126,6 +126,7 @@ features:
 - title: Offline typing
   description: No network connection or recording; what you type stays on your device.
 ui:
+  navigation_menu: Navigation menu
   download_on: Download on
   download: Download
   macos_requirement: Requires macOS 14 (Sonoma) or later
