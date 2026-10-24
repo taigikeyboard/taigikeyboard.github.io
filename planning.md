@@ -1,3 +1,12 @@
+# Ko-fi donation link
+
+- Scope: add the supplied Ko-fi URL alongside ECPay and PayPal in all three languages.
+- Approach: extend existing payment configuration and locale entries; reuse template and responsive styles.
+- Alignment: existing data-driven rendering; no new integration or abstraction (code-review rules §1–4).
+- Validation: production Jekyll build, locale checks, rendered Ko-fi links in all three languages, whitespace check.
+- Mechanical configuration/content addition: Codex simplification checklist; no design review sandwich needed.
+- Publication: prepare PR; merge requires user instruction.
+
 # Regional sponsorship links
 
 - Scope: preserve ECPay for Taiwan only; add hosted PayPal link for overseas support in USD.

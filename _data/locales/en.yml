@@ -108,6 +108,10 @@ sponsor:
       region: Outside Taiwan
       note: Outside Taiwan only · USD
       button_text: Support with PayPal
+    kofi:
+      region: Ko-fi
+      note: Support development and maintenance
+      button_text: Support with Ko-fi
 features:
 - title: Four input modes
   description: Switch between POJ, TL, TPS, and English directly on the keyboard.

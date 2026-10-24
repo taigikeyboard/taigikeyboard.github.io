@@ -87,6 +87,10 @@ sponsor:
       region: 外國 / Overseas
       note: 佇外國使用・用美金 / Overseas only · USD
       button_text: PayPal 贊助 / Support
+    kofi:
+      region: Ko-fi
+      note: 贊助台語齒盤 ê 開發佮維護
+      button_text: Ko-fi 贊助 / Support
 features:
 - title: 支援 4 種拍字方式
   description: 白話字、教育部台羅、方音符號佮英語，佇齒盤頂懸直接切換。

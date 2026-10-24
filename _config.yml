@@ -67,6 +67,8 @@ sponsor_payment_methods:
     link: https://p.ecpay.com.tw/AA663DE
   - id: overseas
     link: https://www.paypal.com/ncp/payment/AZNAN8NSJXR7J
+  - id: kofi
+    link: https://ko-fi.com/taigikeyboard
 
 # =============================================================================
 # Social & Contact

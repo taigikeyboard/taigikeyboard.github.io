@@ -86,6 +86,10 @@ sponsor:
       region: 台湾以外
       note: 台湾以外からのご支援・米ドル決済
       button_text: PayPalで支援
+    kofi:
+      region: Ko-fi
+      note: 開発と保守へのご支援
+      button_text: Ko-fiで支援
 features:
 - title: 4つの入力モード
   description: 白話字、教育部台羅、方音符号、英語をキーボードから切り替えられます。
