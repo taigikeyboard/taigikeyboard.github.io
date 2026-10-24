@@ -1,3 +1,34 @@
+# Accepted website refinements
+
+- Retain original all-platform download layout. Detected-device download experiment reverted; about typography and hero imagery skipped by user.
+- Accepted: remove typing guide section/navigation, compact mobile navigation, consistent prose links, color-only download/social hover, compact footer/localized policy labels, Windows-only concise signing note, tighter install spacing, policy command wrapping.
+- Include user's Taiwanese sponsor paragraph/Ko-fi copy edits. Locale checker permits differing counts of prose strings while preserving object-array structure/type checks.
+- Validate final production/baseurl builds, locales, JS syntax, independent full-diff review and server-free desktop/mobile checks. User requested commit/push2026-10-24; update PR25 scope, merge still requires user instruction. Do not start/restart servers.
+
+# Mobile navigation preview
+
+- User approved2026-10-24: mobile one-row logo/language/menu; expand chapter links on demand, desktop and original downloads preserved; no sliding animation. User owns server starts/restarts.
+- Reuse one navigation list, localized accessible toggle and native language disclosure. Progressive enhancement retains visible links without JavaScript. Escape/outside/link/focus-leave close; language/navigation mutually exclusive; reset at breakpoint.
+- Best practices: shared code-review rules §1–5; standard button/disclosure semantics, no duplicate links/dependencies. Validate all locales, desktop/mobile widths, keyboard, language switching, no-JavaScript and legal pages using server-free Chrome.
+- Keep local for user inspection/revert; preserve earlier typing-guide removal and user's Taiwanese copy edits.
+
+# Donation chooser
+
+- User approved (2026-10-24): one primary support button; choose payment in centered desktop dialog / mobile bottom sheet, quiet rows with separators and arrows.
+- Reuse payment configuration and one translated link list. Native details provides no-JavaScript access; enhance same content into native modal dialog.
+- Native dialog supplies focus containment and Escape; localize heading/close, restore trigger focus, dismiss backdrop safely, cap sheet height and respect safe areas.
+- Best practices: code-review rules §1–5; existing shared template/data model, no payment SDK, no duplicated links. Independent approach review passed with accessibility and typography checks to validate.
+- Validate production/locales, browser desktop/mobile/short landscape, keyboard/close/backdrop, no-JavaScript, payment URLs. Update existing PR #25; merge remains user-gated.
+
+# Ko-fi donation link
+
+- Scope: add the supplied Ko-fi URL alongside ECPay and PayPal in all three languages.
+- Approach: extend existing payment configuration and locale entries; reuse template and responsive styles.
+- Alignment: existing data-driven rendering; no new integration or abstraction (code-review rules §1–4).
+- Validation: production Jekyll build, locale checks, rendered Ko-fi links in all three languages, whitespace check.
+- Mechanical configuration/content addition: Codex simplification checklist; no design review sandwich needed.
+- Publication: prepare PR; merge requires user instruction.
+
 # Regional sponsorship links
 
 - Scope: preserve ECPay for Taiwan only; add hosted PayPal link for overseas support in USD.

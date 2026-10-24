@@ -238,36 +238,6 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 
 		<hr class="section-divider">
 
-		<section id="how-to-type" class="feature-section">
-			<h2 class="section-title">{{ translation.nav_labels.how_to_type }}</h2>
-			<p class="section-note">{{ translation.ui.chart_note }}</p>
-			<fieldset class="install-tablist">
-				<legend class="visually-hidden">{{ translation.ui.choose_device }}</legend>
-				<input type="radio" name="typing-platform" id="typing-tab-desktop" class="install-tab-input" value="desktop"
-					checked>
-				<label for="typing-tab-desktop" class="install-tab">{{ translation.ui.desktop }}</label>
-				<input type="radio" name="typing-platform" id="typing-tab-mobile" class="install-tab-input" value="mobile">
-				<label for="typing-tab-mobile" class="install-tab">{{ translation.ui.mobile }}</label>
-			</fieldset>
-			<div class="install-panels">
-				<div class="install-platform" role="region" aria-labelledby="typing-desktop-title">
-					<h3 id="typing-desktop-title" class="visually-hidden">{{ translation.ui.desktop }}</h3>
-					<div class="keyboard-layout-image">
-						<img src="{{ '/assets/typing-cheatsheet.svg' | relative_url }}" alt="{{ translation.ui.desktop_chart }}" width="5284" height="3414"
-							loading="lazy">
-					</div>
-				</div>
-				<div class="install-platform" role="region" aria-labelledby="typing-mobile-title">
-					<h3 id="typing-mobile-title" class="visually-hidden">{{ translation.ui.mobile }}</h3>
-					<div class="keyboard-layout-image">
-						<img src="{{ '/assets/typing-mobile.svg' | relative_url }}" alt="{{ translation.ui.mobile_chart }}" width="5284" height="3414"
-							loading="lazy">
-					</div>
-				</div>
-			</div>
-		</section>
-		<hr class="section-divider">
-
 		<section id="install" class="install-section">
 			<span id="how-to-use" class="anchor-alias" aria-hidden="true"></span>
 			<h2 class="section-title">{{ translation.nav_labels.install }}</h2>
@@ -297,14 +267,13 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 						</li>
 						{% endfor %}
 					</ol>
+					{% if platform.id == 'windows' and translation.install.signing_note_html %}
+					<p class="install-signing-note">{{ translation.install.signing_note_html | replace: '/codesigning.html', signing_policy_url }}</p>
+					{% endif %}
 				</div>
 				{% endif %}
 				{% endfor %}
 			</div>
-
-			{% if translation.install.signing_note_html %}
-			<p class="install-signing-note">{{ translation.install.signing_note_html | replace: '/codesigning.html', signing_policy_url }}</p>
-			{% endif %}
 
 		</section>
 		<hr class="section-divider">
@@ -376,17 +345,24 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					<p>{{ paragraph }}</p>
 					{% endfor %}
 				</div>
-				<div class="sponsor-options">
+				<details class="sponsor-chooser">
+					<summary class="sponsor-button">{{ translation.sponsor.action }}</summary>
+					<div class="sponsor-panel">
+						<div class="sponsor-panel-header">
+							<h3 id="sponsor-dialog-title">{{ translation.sponsor.choose_method }}</h3>
+							<button class="sponsor-close" type="button" aria-label="{{ translation.sponsor.close }}" hidden><span aria-hidden="true">×</span></button>
+						</div>
+						<div class="sponsor-methods">
 					{% for payment in site.sponsor_payment_methods %}
 					{% assign method = translation.sponsor.payment_methods[payment.id] %}
-					<div class="sponsor-option">
-						<h3>{{ method.region }}</h3>
-						<p>{{ method.note }}</p>
-						<a href="{{ payment.link }}" target="_blank" rel="noopener noreferrer"
-							class="sponsor-button">{{ method.button_text }}</a>
-					</div>
+							<a href="{{ payment.link }}" target="_blank" rel="noopener noreferrer" class="sponsor-method">
+								<span><span class="sponsor-provider">{{ method.provider }}</span><span class="sponsor-note">{{ method.note }}</span></span>
+								<span class="sponsor-arrow" aria-hidden="true">↗</span>
+							</a>
 					{% endfor %}
-				</div>
+						</div>
+					</div>
+				</details>
 			</div>
 		</section>
 
@@ -409,6 +385,8 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 	{% endif %}
 	<script src="{{ '/assets/install-tabs.js' | relative_url }}" defer></script>
 	<script src="{{ '/assets/language-switcher.js' | relative_url }}" defer></script>
+	<script src="{{ '/assets/navbar.js' | relative_url }}" defer></script>
+	<script src="{{ '/assets/sponsor-dialog.js' | relative_url }}" defer></script>
 </body>
 
 </html>
