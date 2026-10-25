@@ -1084,18 +1084,8 @@ footer {
 	}
 }
 
-.follow-community {
-	margin-top: 4rem;
-	padding-top: 3rem;
-	border-top: 1px solid var(--color-border);
-	text-align: center;
-}
-
-.follow-community h3 {
-	margin: 0 0 2rem;
-	font-size: 1.8rem;
-	font-weight: 500;
-	color: var(--color-text-secondary);
+footer .social-links {
+	margin-bottom: 2rem;
 }
 
 .issues-section .section-note {
