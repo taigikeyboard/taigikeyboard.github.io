@@ -1,6 +1,6 @@
 # Social links — 2026-10-25
 
-- Separate contact icons (Email, LINE, Discord, Facebook group, GitHub Issues) from footer icons (Facebook page, Instagram, Threads), without a heading. Remove LinkedIn.
+- Separate contact icons (Email, LINE, Discord, Facebook group, GitHub Issues) from footer icons (Facebook page, Instagram, Threads, GitHub repository), without a heading. Remove LinkedIn.
 - Reuse inline Font Awesome SVG and monochrome hover styling; use icons only, with localized accessible names and title hints for Facebook destinations. Wrap on mobile, retain focus outlines and 44px targets.
 - Grounded in `_includes/footer.html`, `_sass/_landing.scss`, `_config.yml`; aligns with code-review rules §1–5. No dependency or JavaScript added.
 - Verify production/baseurl builds, locale checker, exact destinations and server-free desktop/mobile Chrome rendering. Independent pre/post review; Codex simplification checklist. Merge remains user-gated.

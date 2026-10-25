@@ -1,6 +1,6 @@
 <!-- Social icons from Font Awesome Free 7.3.1 (https://fontawesome.com), CC BY 4.0. Copyright Fonticons, Inc. -->
 {% if include.group == 'follow' %}
-{% if site.facebook_link or site.facebook_username or site.instagram_username or site.threads_link %}
+{% if site.facebook_link or site.facebook_username or site.instagram_username or site.threads_link or site.github_link %}
 <div class="social-links">
 	{% if site.facebook_link or site.facebook_username %}
 	<a href="{% if site.facebook_link %}{{ site.facebook_link }}{% else %}https://facebook.com/{{ site.facebook_username }}{% endif %}" target="_blank" rel="noopener noreferrer"
@@ -21,6 +21,14 @@
 	{% if site.threads_link %}
 	<a href="{{ site.threads_link }}" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads">
 		<svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M340.8 238c-.6-69.6-38.3-111.5-102-111.5-42.5 0-78.3 19.2-97.1 49.9l41.2 28.7c10.7-16.8 25.4-30.8 52.4-30.8 30.5 0 46.3 17 50.8 48.5-14.7-2.3-29.5-3.5-44.6-3.5-82.4 0-121.1 37.3-121.1 86.6s38.8 79.7 95.9 79.7c62.7 0 100.1-42.2 115.4-94.5 15.9 7.2 26.9 24 26.9 49.3 0 67.6-78 104.5-144.1 104.5-97.5 0-161.3-64-161.3-168.2 0-127.6 84.3-209.4 197.6-209.4 76 0 113.6 33.4 139.2 78.1L432 115.9c-27.8-58-89.9-99.5-183.1-99.5-148.5 0-249.5 105.4-249.5 258.2 0 139.8 98.9 220.9 216.7 220.9 97.4 0 195.8-56.8 195.8-154 0-50.8-29.2-84.5-71.2-103.5zM214.4 334.9c-21.5 0-40.4-10.2-40.4-29 0-29.6 36.4-38.6 72-38.6 13.5 0 26.8 .9 38.5 3.5-8.4 38.5-33.4 64.2-70 64.2l0 0z"/></svg>
+	</a>
+	{% endif %}
+	{% if site.github_link %}
+	<a href="{{ site.github_link }}" target="_blank" rel="noopener noreferrer"
+		aria-label="GitHub" title="GitHub">
+		<svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+			<path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5l0 52C323 491.5 335.5 500 350.5 494 441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5l0-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21z" />
+		</svg>
 	</a>
 	{% endif %}
 </div>
