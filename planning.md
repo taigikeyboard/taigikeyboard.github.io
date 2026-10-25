@@ -1,6 +1,6 @@
 # Social links — 2026-10-25
 
-- Add supplied Facebook page/group, LINE, Discord, Instagram, Threads and GitHub repository to problem-report section only; footer keeps navigation and copyright. Retain existing email and LinkedIn.
+- Separate contact icons (Email, LINE, Discord, Facebook group, GitHub Issues) from follow icons (Facebook page, Instagram, Threads). Remove LinkedIn; keep footer free of social icons.
 - Reuse inline Font Awesome SVG and monochrome hover styling; use icons only, with localized accessible names and title hints for Facebook destinations. Wrap on mobile, retain focus outlines and 44px targets.
 - Grounded in `_includes/footer.html`, `_sass/_landing.scss`, `_config.yml`; aligns with code-review rules §1–5. No dependency or JavaScript added.
 - Verify production/baseurl builds, locale checker, exact destinations and server-free desktop/mobile Chrome rendering. Independent pre/post review; Codex simplification checklist. Merge remains user-gated.

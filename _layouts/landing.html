@@ -372,6 +372,12 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 			<h2 class="section-title">{{ translation.nav_labels.issues }}</h2>
 			<p class="section-note">{{ translation.ui.issues }}</p>
 			{% include social-links.html %}
+			{% if site.facebook_link or site.facebook_username or site.instagram_username or site.threads_link %}
+			<div class="follow-community">
+				<h3>{{ translation.social.follow }}</h3>
+				{% include social-links.html group='follow' %}
+			</div>
+			{% endif %}
 		</section>
 	</main>
 
