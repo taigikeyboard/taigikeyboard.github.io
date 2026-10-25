@@ -83,10 +83,10 @@ sponsor:
   payment_methods:
     taiwan:
       provider: 綠界 ECPay
-      note: 佇台灣使用 / Taiwan only
+      note: 佇台灣使用
     overseas:
       provider: PayPal
-      note: 佇外國使用・用美金 / Overseas only · USD
+      note: 佇外國使用・用美金
     kofi:
       provider: Ko-fi
       note: 使用 Ko-fi 網站贊助
