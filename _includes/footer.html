@@ -18,8 +18,6 @@ back at the landing page instead of at an anchor that page does not have:
 			<a href="{{ '/codesigning.html' | relative_url }}">{{ translation.nav_labels.code_signing }}</a>
 		</div>
 
-		{% include social-links.html class="footer-social" %}
-
 		{% if site.your_name %}
 		<p class="footer-author">&copy; 2025 {% if site.your_link %}<a href="{{ site.your_link }}" target="_blank"
 				rel="noopener noreferrer">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}</p>
