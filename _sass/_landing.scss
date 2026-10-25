@@ -54,7 +54,7 @@ body {
 }
 
 :is(.policy-content, .about-content, .install-steps, .install-signing-note,
-	.feature-content, .feature-card-content, .issues-section) a[href] {
+	.feature-content, .feature-card-content, .issues-section) a[href]:not(.social-links a) {
 	color: var(--color-secondary);
 	font-weight: 500;
 	text-decoration: none;
@@ -814,23 +814,26 @@ footer {
 }
 
 .footer-links a:focus-visible,
-.footer-social a:focus-visible,
+.social-links a:focus-visible,
 .footer-author a:focus-visible {
 	outline: 2px solid var(--color-secondary);
 	outline-offset: 3px;
 }
 
 .footer-social {
-	display: flex;
-	justify-content: center;
-	gap: 1.5rem;
 	margin-bottom: 2rem;
 	padding-top: 2rem;
 	border-top: 1px solid var(--color-border);
+}
+
+.social-links {
+	display: flex;
+	justify-content: center;
+	gap: 1.5rem;
 	flex-wrap: wrap;
 }
 
-.footer-social a {
+.social-links a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -843,13 +846,13 @@ footer {
 	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.footer-social svg {
+.social-links svg {
 	width: 1.8rem;
 	flex-shrink: 0;
 	height: 1.8rem;
 }
 
-.footer-social a:hover {
+.social-links a:hover {
 	background-color: var(--color-primary);
 	color: #ffffff;
 }
@@ -1051,9 +1054,6 @@ footer {
 		grid-column: 1 / -1;
 	}
 
-	.footer-social {
-		gap: 1.5rem;
-	}
 }
 
 @media (max-width: 480px) {
