@@ -371,11 +371,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 		<section id="issues" class="issues-section">
 			<h2 class="section-title">{{ translation.nav_labels.issues }}</h2>
 			<p class="section-note">{{ translation.ui.issues }}</p>
-			{% if site.discord_link %}
-			<p class="section-note">{{ translation.ui.discord_before }} <a href="{{ site.discord_link }}" target="_blank"
-					rel="noopener noreferrer">Discord</a>
-				{{ translation.ui.discord_after }}</p>
-			{% endif %}
+			{% include social-links.html %}
 		</section>
 	</main>
 
