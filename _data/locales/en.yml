@@ -145,3 +145,7 @@ ui:
   language: Choose language
   made_by: Made by
   rights: All rights reserved.
+
+social:
+  facebook_page: Page
+  facebook_group: Group

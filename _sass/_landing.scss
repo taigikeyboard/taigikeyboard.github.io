@@ -834,8 +834,8 @@ footer {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 42px;
-	height: 42px;
+	width: 44px;
+	height: 44px;
 	border-radius: 50%;
 	background-color: rgba(0, 0, 0, 0.06);
 	color: var(--color-text-secondary);
@@ -843,7 +843,17 @@ footer {
 	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.footer-social .footer-social-labeled {
+	width: auto;
+	gap: 0.7rem;
+	padding: 0 1.2rem;
+	border-radius: 22px;
+	font-size: 1.3rem;
+}
+
 .footer-social svg {
+	width: 1.8rem;
+	flex-shrink: 0;
 	height: 1.8rem;
 }
 

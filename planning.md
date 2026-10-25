@@ -1,3 +1,10 @@
+# Social links — 2026-10-25
+
+- Add supplied Facebook page/group, LINE, Discord, Instagram, Threads and GitHub repository to shared footer. Retain existing email and LinkedIn.
+- Reuse inline Font Awesome SVG and monochrome hover styling; distinguish Facebook destinations with localized labels. Wrap on mobile, retain focus outlines and 44px targets.
+- Grounded in `_includes/footer.html`, `_sass/_landing.scss`, `_config.yml`; aligns with code-review rules §1–5. No dependency or JavaScript added.
+- Verify production/baseurl builds, locale checker, exact destinations and server-free desktop/mobile Chrome rendering. Independent pre/post review; Codex simplification checklist. Merge remains user-gated.
+
 # Accepted website refinements
 
 - Retain original all-platform download layout. Detected-device download experiment reverted; about typography and hero imagery skipped by user.
