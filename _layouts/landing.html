@@ -293,9 +293,14 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					</ol>
 					{% if platform.requires %}
 					<div class="install-controls" hidden>
-						<button type="button" data-install-previous>{{ translation.install.previous }}</button>
-						<p class="install-progress" role="status" aria-live="polite" aria-atomic="true"><span class="visually-hidden">{{ translation.install.step_label }} </span><span data-install-progress></span></p>
-						<button type="button" data-install-next>{{ translation.install.next }}</button>
+						<div class="install-progress-dots" aria-hidden="true">
+							{% for step in platform.steps %}<span class="install-progress-dot" data-install-dot></span>{% endfor %}
+						</div>
+						<p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"><span>{{ translation.install.step_label }} </span><span data-install-progress></span></p>
+						<div class="install-arrows">
+							<button type="button" data-install-previous aria-label="{{ translation.install.previous }}" title="{{ translation.install.previous }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6" /></svg></button>
+							<button type="button" data-install-next aria-label="{{ translation.install.next }}" title="{{ translation.install.next }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 6 6 6-6 6" /></svg></button>
+						</div>
 					</div>
 					{% endif %}
 					{% if platform.id == 'windows' and translation.install.signing_note_html %}

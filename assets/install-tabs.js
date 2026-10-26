@@ -27,11 +27,13 @@
 		var previous = guide.querySelector('[data-install-previous]');
 		var next = guide.querySelector('[data-install-next]');
 		var progress = guide.querySelector('[data-install-progress]');
+		var dots = guide.querySelectorAll('[data-install-dot]');
 		var current = 0;
 
 		function renderStep() {
 			steps.forEach(function (step, index) {
 				step.hidden = index !== current;
+				dots[index].classList.toggle('is-current', index === current);
 			});
 			progress.textContent = (current + 1) + ' / ' + steps.length;
 			previous.disabled = current === 0;
