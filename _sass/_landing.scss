@@ -634,8 +634,21 @@ section {
 	color: var(--color-text-secondary);
 }
 
+// Reserve the tallest step so the arrow targets stay in place while navigating.
+.install-guide-enhanced .install-steps {
+	display: grid;
+}
+
+.install-guide-enhanced .install-step {
+	grid-area: 1 / 1;
+	align-self: start;
+	margin-bottom: 0;
+}
+
 .install-guide-enhanced .install-step[hidden] {
-	display: none;
+	display: grid;
+	visibility: hidden;
+	pointer-events: none;
 }
 
 .install-guide-enhanced .step-description {
@@ -743,8 +756,17 @@ section {
 }
 
 @media print {
+	.install-guide-enhanced .install-steps {
+		display: block;
+	}
+
+	.install-guide-enhanced .install-step {
+		margin-bottom: 2.4rem;
+	}
+
 	.install-guide-enhanced .install-step[hidden] {
 		display: grid;
+		visibility: visible;
 	}
 
 	.install-controls:not([hidden]) {
