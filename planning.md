@@ -1,5 +1,8 @@
 # Installation screenshots — 2026-10-26
 
+- User approved compact revision: manual previous/next viewer, one screenshot per step, 3–4 steps per desktop platform. Gray stage with fine border, fixed 420px desktop / 300px mobile image area; no autoplay. Retain mobile instructions and no-JS/print full guide.
+- Consolidate copy; move Linux package commands into native disclosure. Reuse existing script with independent viewer initialization, localized live counter, disabled end controls and retained platform progress. Independent pre-review passed; verify all step transitions, locale mapping, no-JS, print, responsive bounds and download gates.
+
 - Add selected macOS, Windows and Ubuntu/Fcitx5 screenshots to existing steps; omit progress/completion duplicates. Preserve platform tabs and mobile instructions.
 - Store optional stable screenshot keys beside localized steps, shared dimensions/accessible captions in data. Taiwanese uses zh-TW captures; English/Japanese use corresponding captures.
 - Match current Apple-inspired typography and white space; native image links, lazy loading, generated WebP, no new script/dependency. Best practices: code-review rules §1–5, semantic links and responsive intrinsic image sizing.

@@ -23,6 +23,9 @@ how_to_type:
   notes:
   - 若拍漢字，會自動使用全形標點符號，拍羅馬字會自動切去半形標點符號，建議 ê 候選詞會顯示佇頂頭，嘛會使褫開看較清楚。
 install:
+  previous: 頂一步
+  next: 下一步
+  step_label: 步驟
   platforms:
   - id: ios
     label: iPhone / iPad
@@ -44,39 +47,38 @@ install:
     label: macOS
     requires: macos
     steps:
-    - description: 頂頭 táng-lóo 台語齒盤 macOS 安裝檔。
-    - description: 拍開安裝檔，揤「繼續」→「安裝」。
+    - description: Táng-lóo 頂頭的 macOS 安裝檔，拍開後揤「繼續」→「安裝」。
       screenshots: macos-install
-    - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
-    - description: 拍開「系統設定」→「鍵盤」→「輸入方式」→「編輯」，揤 +，揣「台語」加入。
-      screenshots: macos-input-source
-    - description: 揤 control + cmd + S 拍開齒盤設定、調整設定，就會使拍字矣
+    - description: 拍開「系統設定」→「鍵盤」，揤「輸入方式」的「編輯」。
+      screenshots: macos-settings
+    - description: 揤 +，揣「台語」，揀「台語齒盤」加入。
+      screenshots: macos-add
+    - description: 佇輸入法選單揀「台語齒盤」。若無出現，登出閣登入；Control + Command + S 拍開齒盤設定。
+      screenshots: macos-done
   - id: windows
     label: Windows
     requires: windows
     steps:
-    - description: 頂頭 táng-lóo 台語齒盤 Windows 安裝檔。
-    - description: 拍開安裝檔。若出現 Windows 警告，揤「其他資訊」→「仍要執行」，確認了後安裝。
-      screenshots: windows-security
-    - description: "拍開「設定」→「時間與語言」→「語言與地區」，揀「繁體中文（台灣）」的「語言選項」。"
+    - description: Táng-lóo 頂頭的 Windows 安裝檔。若出現警告，揤「其他資訊」→「仍要執行」，確認了後安裝。
+      screenshots: windows-run
+    - description: 拍開「設定」→「時間與語言」→「語言與地區」，揀「繁體中文（台灣）」的「語言選項」。
       screenshots: windows-language-options
-    - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
     - description: 確認「已安裝的鍵盤」有「台語齒盤」；若無，揤「新增鍵盤」加入。
       screenshots: windows-keyboard
-    - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
+    - description: 揤 Windows + 空白鍵切換「台語齒盤」。若無出現，登出閣登入；Control + Alt + S 拍開齒盤設定。
+      screenshots: windows-switch
   - id: linux
     label: Linux
     requires: linux
     steps:
-    - description: 頂頭 táng-lóo 台語齒盤 Linux 安裝檔：Ubuntu/Debian 用 .deb、Fedora 用 .rpm、Arch
-        用 .pkg.tar.zst（x86_64）。
-    - description: 拍開終端機，Ubuntu/Debian 拍 sudo apt install ./taigikeyboard_版本_amd64.deb；Fedora
-        拍 sudo dnf install ./taigikeyboard-版本-1.x86_64.rpm；Arch 拍 sudo pacman -U ./taigikeyboard-版本-1-x86_64.pkg.tar.zst。
+    - description: Táng-lóo 頂頭符合發行版的套件，佇終端機安裝。了後重新啟動輸入法，抑是登出閣登入。
       screenshots: linux-install
-    - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
-    - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
-      screenshots: linux-input-method
-    - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
+      commands_label: 安裝指令
+      commands_note: VERSION 換做下載的版本。
+    - description: Fcitx5 用 fcitx5-configtool，取消語言篩選，揣 taigi；IBus 佇系統輸入來源加入「台語齒盤」。
+      screenshots: linux-find
+    - description: 揀「台語齒盤」，揤向左箭頭加入閣揤 Apply。Control + Alt + S 拍開齒盤設定。
+      screenshots: linux-add
   signing_note_html: >-
     Windows 版本目前猶未簽章。<a href="/codesigning.html">程式碼簽章政策</a>
     <br>簽章服務：<a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·

@@ -1,10 +1,4 @@
-/**
- * Pre-selects the install tab matching the visitor's own system, so someone on
- * an iPhone lands on the iPhone steps instead of whatever tab happens to be
- * first. Switching itself is pure CSS (see .install-tablist in _landing.scss) —
- * this only moves the initial choice, and does nothing if the visitor's system
- * has no tab on the page.
- */
+// Selects the visitor's platform and adds manual navigation to desktop installation guides.
 (function () {
 	'use strict';
 
@@ -24,8 +18,46 @@
 	}
 
 	var platform = detectPlatform();
-	if (!platform) return;
-
 	var input = document.getElementById('install-tab-' + platform);
 	if (input) input.checked = true;
+
+	document.querySelectorAll('[data-install-guide]').forEach(function (guide) {
+		var steps = Array.from(guide.querySelectorAll('.install-step'));
+		var controls = guide.querySelector('.install-controls');
+		var previous = guide.querySelector('[data-install-previous]');
+		var next = guide.querySelector('[data-install-next]');
+		var progress = guide.querySelector('[data-install-progress]');
+		var current = 0;
+
+		function renderStep() {
+			steps.forEach(function (step, index) {
+				step.hidden = index !== current;
+			});
+			progress.textContent = (current + 1) + ' / ' + steps.length;
+			previous.disabled = current === 0;
+			next.disabled = current === steps.length - 1;
+		}
+
+		previous.addEventListener('click', function () {
+			if (current > 0) current -= 1;
+			renderStep();
+		});
+		next.addEventListener('click', function () {
+			if (current < steps.length - 1) current += 1;
+			renderStep();
+		});
+		guide.classList.add('install-guide-enhanced');
+		renderStep();
+		controls.hidden = false;
+	});
+
+	var printCommands = [];
+	window.addEventListener('beforeprint', function () {
+		printCommands = Array.from(document.querySelectorAll('.install-commands:not([open])'));
+		printCommands.forEach(function (commands) { commands.open = true; });
+	});
+	window.addEventListener('afterprint', function () {
+		printCommands.forEach(function (commands) { commands.open = false; });
+		printCommands = [];
+	});
 })();

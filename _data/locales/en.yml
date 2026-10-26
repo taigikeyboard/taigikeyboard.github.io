@@ -29,6 +29,9 @@ how_to_type:
   - Hanji input uses full-width punctuation; romanized input uses half-width punctuation.
     Suggested words appear above the keyboard, and the candidate panel can be expanded.
 install:
+  previous: Previous
+  next: Next
+  step_label: Step
   platforms:
   - id: ios
     label: iPhone / iPad
@@ -53,46 +56,47 @@ install:
     label: macOS
     requires: macos
     steps:
-    - description: Download the macOS installer above.
-    - description: Open the installer. Click Continue, then Install.
+    - description: Download the macOS installer above. Open it, then choose Continue →
+        Install.
       screenshots: macos-install
-    - description: Log out and back in so macOS can load the input method.
-    - description: Open the input source settings and add TaigiKeyboard (台語齒盤).
-      screenshots: macos-input-source
-    - description: Press Control + Command + S to open TaigiKeyboard settings, then
-        start typing.
+    - description: Open System Settings → Keyboard → Input Sources → Edit.
+      screenshots: macos-settings
+    - description: Click +, search taigi and add TaigiKeyboard.
+      screenshots: macos-add
+    - description: Select TaigiKeyboard from the input menu. If missing, log out and back
+        in. Control + Command + S opens keyboard settings.
+      screenshots: macos-done
   - id: windows
     label: Windows
     requires: windows
     steps:
-    - description: Download the Windows installer above.
-    - description: Run the installer. If Windows shows a warning, choose More info
-        > Run anyway.
-      screenshots: windows-security
-    - description: Open Settings > Time & language > Language & region. Choose Language options beside Chinese (Traditional, Taiwan).
+    - description: Download and run the Windows installer above. If a warning appears,
+        choose More info → Run anyway, then confirm installation.
+      screenshots: windows-run
+    - description: Open Settings → Time & language → Language & region. Choose Language
+        options beside Chinese (Traditional, Taiwan).
       screenshots: windows-language-options
-    - description: Log out and back in so Windows can load the input method.
-    - description: Confirm TaigiKeyboard appears under Installed keyboards. If missing, choose Add a keyboard.
+    - description: Look for TaigiKeyboard under Installed keyboards. If missing, choose
+        Add a keyboard.
       screenshots: windows-keyboard
-    - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
-        typing.
+    - description: Press Windows + Space to select TaigiKeyboard. If missing, log out
+        and back in. Control + Alt + S opens keyboard settings.
+      screenshots: windows-switch
   - id: linux
     label: Linux
     requires: linux
     steps:
-    - description: 'Download the Linux package above: .deb for Ubuntu/Debian, .rpm
-        for Fedora, or .pkg.tar.zst for Arch (x86_64).'
-    - description: In a terminal, run sudo apt install ./taigikeyboard_VERSION_amd64.deb
-        on Ubuntu/Debian, sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm on
-        Fedora, or sudo pacman -U ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst on
-        Arch. Replace VERSION with the downloaded version.
+    - description: Download the package for your distribution and install it in a terminal.
+        Restart the input method, or log out and back in.
       screenshots: linux-install
-    - description: Run fcitx5 -r (or ibus restart for IBus), or log out and back in.
-    - description: Open fcitx5-configtool for Fcitx5, or the system input source settings
-        for IBus, and add TaigiKeyboard (台語齒盤).
-      screenshots: linux-input-method
-    - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
-        typing.
+      commands_label: Installation commands
+      commands_note: Replace VERSION with the downloaded version.
+    - description: For Fcitx5, open fcitx5-configtool, clear Only Show Current Language
+        and search taigi. For IBus, add TaigiKeyboard in system input sources.
+      screenshots: linux-find
+    - description: Select TaigiKeyboard, click the left arrow, then Apply. Control + Alt
+        + S opens keyboard settings.
+      screenshots: linux-add
   signing_note_html: >-
     Windows releases are currently unsigned. <a href="/codesigning.html">Code signing policy</a>
     <br>Signing: <a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·

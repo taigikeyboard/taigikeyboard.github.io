@@ -15,63 +15,6 @@ macos-install:
     width: 620
     height: 448
     alt: "「インストール」をクリックしてホームフォルダにインストールします。"
-macos-input-source:
-  zh-TW:
-  - path: install/macos/zh-TW/07-keyboard-settings.png
-    width: 507
-    height: 863
-    alt: 開啟「系統設定」→「鍵盤」，按「輸入方式」旁的「編輯⋯」。
-  - path: install/macos/zh-TW/09-find-source.png
-    width: 547
-    height: 392
-    alt: 搜尋「台語」，選擇「Multiple languages」與「台語齒盤」，再按「加入」。
-  en:
-  - path: install/macos/en/07-keyboard-settings.png
-    width: 507
-    height: 863
-    alt: Open System Settings → Keyboard, then Edit beside Input Sources.
-  - path: install/macos/en/09-find-source.png
-    width: 547
-    height: 392
-    alt: Search taigi, select Multiple languages, then TaigiKeyboard, and click Add.
-  ja:
-  - path: install/macos/ja/07-keyboard-settings.png
-    width: 507
-    height: 863
-    alt: "「システム設定」→「キーボード」を開き、「入力ソース」の「編集…」をクリックします。"
-  - path: install/macos/ja/09-find-source.png
-    width: 547
-    height: 392
-    alt: "「台湾語」を検索し、「Multiple languages」から「台湾語キーボード」を選んで「追加」をクリックします。"
-windows-security:
-  zh-TW:
-  - path: install/windows/zh-TW/smartscreen-block.png
-    width: 665
-    height: 622
-    alt: 出現「Windows 已保護您的電腦」時，按「其他資訊」。
-  - path: install/windows/zh-TW/smartscreen-more-info.png
-    width: 665
-    height: 622
-    alt: 確認應用程式是剛下載的 TaigiKeyboard 安裝檔，按「仍要執行」，接著在電腦上確認 UAC 提示。
-  en:
-  - path: install/windows/en/smartscreen-block.png
-    width: 665
-    height: 622
-    alt: If Windows protected your PC appears, click More info.
-  - path: install/windows/en/smartscreen-more-info.png
-    width: 665
-    height: 622
-    alt: Confirm the application is the downloaded TaigiKeyboard installer, then click
-      Run anyway. Approve the following UAC prompt on the computer.
-  ja:
-  - path: install/windows/ja/smartscreen-block.png
-    width: 665
-    height: 622
-    alt: "「Windows によって PC が保護されました」と表示されたら、「詳細情報」をクリックします。"
-  - path: install/windows/ja/smartscreen-more-info.png
-    width: 665
-    height: 622
-    alt: ダウンロードした TaigiKeyboard インストーラーであることを確認し、「実行」をクリックします。続いてパソコン上で UAC の確認に応答します。
 windows-language-options:
   zh-TW:
   - path: install/windows/zh-TW/05-language-options-menu.png
@@ -124,32 +67,117 @@ linux-install:
     width: 1000
     height: 640
     alt: Ubuntu／Debian 用パッケージの保存先で端末を開き、インストールコマンドを実行します。
-linux-input-method:
+macos-settings:
+  zh-TW:
+  - path: install/macos/zh-TW/07-keyboard-settings.png
+    width: 507
+    height: 863
+    alt: 開啟「系統設定」→「鍵盤」，按「輸入方式」旁的「編輯⋯」。
+  en:
+  - path: install/macos/en/07-keyboard-settings.png
+    width: 507
+    height: 863
+    alt: Open System Settings → Keyboard, then Edit beside Input Sources.
+  ja:
+  - path: install/macos/ja/07-keyboard-settings.png
+    width: 507
+    height: 863
+    alt: "「システム設定」→「キーボード」を開き、「入力ソース」の「編集…」をクリックします。"
+macos-add:
+  zh-TW:
+  - path: install/macos/zh-TW/09-find-source.png
+    width: 547
+    height: 392
+    alt: 搜尋「台語」，選擇「Multiple languages」與「台語齒盤」，再按「加入」。
+  en:
+  - path: install/macos/en/09-find-source.png
+    width: 547
+    height: 392
+    alt: Search taigi, select Multiple languages, then TaigiKeyboard, and click Add.
+  ja:
+  - path: install/macos/ja/09-find-source.png
+    width: 547
+    height: 392
+    alt: "「台湾語」を検索し、「Multiple languages」から「台湾語キーボード」を選んで「追加」をクリックします。"
+windows-run:
+  zh-TW:
+  - path: install/windows/zh-TW/smartscreen-more-info.png
+    width: 665
+    height: 622
+    alt: 確認應用程式是剛下載的 TaigiKeyboard 安裝檔，按「仍要執行」，接著在電腦上確認 UAC 提示。
+  en:
+  - path: install/windows/en/smartscreen-more-info.png
+    width: 665
+    height: 622
+    alt: Confirm the application is the downloaded TaigiKeyboard installer, then click
+      Run anyway. Approve the following UAC prompt on the computer.
+  ja:
+  - path: install/windows/ja/smartscreen-more-info.png
+    width: 665
+    height: 622
+    alt: ダウンロードした TaigiKeyboard インストーラーであることを確認し、「実行」をクリックします。続いてパソコン上で UAC の確認に応答します。
+linux-find:
   zh-TW:
   - path: install/linux/zh-TW/04-find-input-method.png
     width: 800
     height: 600
     alt: 開啟 Fcitx 設定，取消只顯示目前語言的篩選，搜尋 taigi。
-  - path: install/linux/zh-TW/05-select-input-method.png
-    width: 800
-    height: 600
-    alt: 在右側選取「台語齒盤」，按向左箭頭加入。
   en:
   - path: install/linux/en/04-find-input-method.png
     width: 800
     height: 600
     alt: Open Fcitx Configuration. Clear Only Show Current Language and search for
       taigi.
-  - path: install/linux/en/05-select-input-method.png
-    width: 800
-    height: 600
-    alt: Select TaigiKeyboard in the list on the right and click the left arrow.
   ja:
   - path: install/linux/ja/04-find-input-method.png
     width: 800
     height: 600
     alt: Fcitx の設定を開き、現在の言語だけを表示する設定を解除して taigi を検索します。
+linux-add:
+  zh-TW:
+  - path: install/linux/zh-TW/05-select-input-method.png
+    width: 800
+    height: 600
+    alt: 在右側選取「台語齒盤」，按向左箭頭加入。
+  en:
+  - path: install/linux/en/05-select-input-method.png
+    width: 800
+    height: 600
+    alt: Select TaigiKeyboard in the list on the right and click the left arrow.
+  ja:
   - path: install/linux/ja/05-select-input-method.png
     width: 800
     height: 600
     alt: 右側の一覧から「台語齒盤」を選び、左向きの矢印をクリックします。
+macos-done:
+  zh-TW:
+  - path: install/macos/zh-TW/10-source-added.png
+    width: 640
+    height: 596
+    alt: 輸入方式清單內的台語齒盤。
+  en:
+  - path: install/macos/en/10-source-added.png
+    width: 640
+    height: 596
+    alt: TaigiKeyboard in the input source list.
+  ja:
+  - path: install/macos/ja/10-source-added.png
+    width: 640
+    height: 596
+    alt: 入力ソース一覧の台湾語キーボード。
+windows-switch:
+  zh-TW:
+  - path: install/windows/zh-TW/07-switch-input-method.png
+    width: 449
+    height: 378
+    alt: Windows 輸入法選單內的台語齒盤。
+  en:
+  - path: install/windows/en/07-switch-input-method.png
+    width: 449
+    height: 386
+    alt: TaigiKeyboard in the Windows input menu.
+  ja:
+  - path: install/windows/ja/07-switch-input-method.png
+    width: 449
+    height: 378
+    alt: Windowsの入力メニューにある台湾語キーボード。

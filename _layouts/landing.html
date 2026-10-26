@@ -257,7 +257,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 				{% for platform in translation.install.platforms %}
 				{% assign download_switch = "enable_" | append: platform.requires | append: "_download" %}
 				{% if platform.requires == nil or site[download_switch] == true %}
-				<div id="install-{{ platform.id }}" class="install-platform">
+				<div id="install-{{ platform.id }}" class="install-platform"{% if platform.requires %} data-install-guide{% endif %}>
 					<h3 class="visually-hidden">{{ platform.label }}</h3>
 					<ol class="install-steps">
 						{% for step in platform.steps %}
@@ -278,9 +278,26 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 								{% endfor %}
 							</div>
 							{% endif %}
+							{% if step.commands_label %}
+							<details class="install-commands">
+								<summary>{{ step.commands_label }}</summary>
+								<p>{{ step.commands_note }}</p>
+								<p>Ubuntu / Debian<br><code>sudo apt install ./taigikeyboard_VERSION_amd64.deb</code></p>
+								<p>Fedora<br><code>sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm</code></p>
+								<p>Arch<br><code>sudo pacman -U ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst</code></p>
+								<p>Fcitx5: <code>fcitx5 -r</code> · IBus: <code>ibus restart</code></p>
+							</details>
+							{% endif %}
 						</li>
 						{% endfor %}
 					</ol>
+					{% if platform.requires %}
+					<div class="install-controls" hidden>
+						<button type="button" data-install-previous>{{ translation.install.previous }}</button>
+						<p class="install-progress" role="status" aria-live="polite" aria-atomic="true"><span class="visually-hidden">{{ translation.install.step_label }} </span><span data-install-progress></span></p>
+						<button type="button" data-install-next>{{ translation.install.next }}</button>
+					</div>
+					{% endif %}
 					{% if platform.id == 'windows' and translation.install.signing_note_html %}
 					<p class="install-signing-note">{{ translation.install.signing_note_html | replace: '/codesigning.html', signing_policy_url }}</p>
 					{% endif %}
