@@ -1,5 +1,7 @@
 # Installation screenshots — 2026-10-26
 
+- Fix reviewed composition: CSS focus windows on macOS Input Sources and Windows language/keyboard controls, with locale-specific bounds and original-image links. Full-width stage centers with progress dots;360px/240px stage improves proportions. Shared caption/image/command rows via subgrid reserve actual text height rather than fixed oversized caption minimums. Restore normal print flow. Independent pre-review approved; verify every locale focus plus fixed-arrow and noJS/print cases.
+
 - Apple control reference verified against live apple.com/mac IconControl:36px circle, #e8e8ed, icon black56%, hover #ececf0, disabled42%. Adapt with preserved44px targets/fixed layout,18px thinner chevrons; no animation. User requested actual Apple website feel.
 
 - Fix arrow position shifts: reproduced Linux disclosure-height jump and final-step spacing delta. Reserve tallest enhanced step using shared CSS grid area/inactive visibility; normalize margins; restore flow for print. Independent diagnosis confirmed. Verify forward/backward positions across locales/widths and expanded commands.

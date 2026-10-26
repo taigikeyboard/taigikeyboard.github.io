@@ -269,10 +269,12 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 							<div class="install-screenshots">
 								{% for screenshot in site.data.install_screenshots[step.screenshots][screenshot_locale] %}
 								<a class="install-screenshot" href="{{ '/assets/' | append: screenshot.path | relative_url }}">
+									{% if screenshot.crop %}<span class="install-image-crop" style="--crop-x: {{ screenshot.crop.x }}; --crop-y: {{ screenshot.crop.y }}; --crop-width: {{ screenshot.crop.width }}; --crop-height: {{ screenshot.crop.height }}; --image-width: {{ screenshot.width }}">{% endif %}
 									<picture>
 										<source srcset="{{ '/assets/' | append: screenshot.path | replace: '.png', '.webp' | relative_url }}" type="image/webp">
 										<img src="{{ '/assets/' | append: screenshot.path | relative_url }}" alt="{{ screenshot.alt | escape }}" width="{{ screenshot.width }}" height="{{ screenshot.height }}" loading="lazy" decoding="async">
 									</picture>
+									{% if screenshot.crop %}</span>{% endif %}
 								</a>
 								{% endfor %}
 							</div>

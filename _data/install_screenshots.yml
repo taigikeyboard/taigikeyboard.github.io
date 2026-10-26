@@ -21,35 +21,65 @@ windows-language-options:
     width: 982
     height: 933
     alt: 按「繁體中文（台灣）」旁的選單，選擇「語言選項」。
+    crop:
+      x: 720
+      "y": 340
+      width: 235
+      height: 295
   en:
   - path: install/windows/en/05-language-options-menu.png
     width: 982
     height: 933
     alt: Open the menu beside Chinese (Traditional, Taiwan), then choose Language
       options.
+    crop:
+      x: 680
+      "y": 495
+      width: 275
+      height: 275
   ja:
   - path: install/windows/ja/05-language-options-menu.png
     width: 982
     height: 933
     alt: "「繁体中国語 (台湾)」のメニューから「言語のオプション」を開きます。"
+    crop:
+      x: 700
+      "y": 490
+      width: 255
+      height: 275
 windows-keyboard:
   zh-TW:
   - path: install/windows/zh-TW/06-keyboard-installed.png
     width: 982
     height: 933
     alt: 確認「已安裝的鍵盤」中有「台語齒盤」。若沒有，按「新增鍵盤」加入。按 Windows + 空白鍵切換輸入法。
+    crop:
+      x: 40
+      "y": 410
+      width: 905
+      height: 405
   en:
   - path: install/windows/en/06-keyboard-installed.png
     width: 982
     height: 933
     alt: Confirm TaigiKeyboard appears under Installed keyboards. If it is missing,
       click Add a keyboard. Press Windows + Space to switch to it.
+    crop:
+      x: 40
+      "y": 410
+      width: 905
+      height: 405
   ja:
   - path: install/windows/ja/06-keyboard-installed.png
     width: 982
     height: 933
     alt: "「インストールされているキーボード」に「台湾語キーボード」があることを確認します。なければ「キーボードの追加」から追加します。Windows +
       Space キーで切り替えます。"
+    crop:
+      x: 40
+      "y": 490
+      width: 905
+      height: 405
 linux-install:
   zh-TW:
   - path: install/linux/zh-TW/01-install-command.png
@@ -73,16 +103,31 @@ macos-settings:
     width: 507
     height: 863
     alt: 開啟「系統設定」→「鍵盤」，按「輸入方式」旁的「編輯⋯」。
+    crop:
+      x: 0
+      "y": 425
+      width: 507
+      height: 160
   en:
   - path: install/macos/en/07-keyboard-settings.png
     width: 507
     height: 863
     alt: Open System Settings → Keyboard, then Edit beside Input Sources.
+    crop:
+      x: 0
+      "y": 425
+      width: 507
+      height: 160
   ja:
   - path: install/macos/ja/07-keyboard-settings.png
     width: 507
     height: 863
     alt: "「システム設定」→「キーボード」を開き、「入力ソース」の「編集…」をクリックします。"
+    crop:
+      x: 0
+      "y": 440
+      width: 507
+      height: 160
 macos-add:
   zh-TW:
   - path: install/macos/zh-TW/09-find-source.png
