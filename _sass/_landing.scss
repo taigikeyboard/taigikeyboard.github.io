@@ -588,6 +588,244 @@ section {
 	margin-bottom: 0;
 }
 
+.install-screenshots {
+	grid-column: 1 / -1;
+	min-width: 0;
+	display: grid;
+	gap: 1.2rem;
+	margin: 2rem 0 0;
+	padding: 2.4rem;
+	border: 1px solid var(--color-border);
+	border-radius: 16px;
+	background: #f5f5f7;
+}
+
+.install-screenshot {
+	--stage-height: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: var(--stage-height);
+	border-radius: 8px;
+}
+
+.install-screenshot picture {
+	display: contents;
+}
+
+.install-screenshot img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+// Focus the preview on the relevant controls; the link retains the complete capture.
+.install-image-crop {
+	position: relative;
+	display: block;
+	width: min(100%, calc(var(--crop-width) * 1.4px), calc(var(--stage-height) * var(--crop-width) / var(--crop-height)));
+	aspect-ratio: var(--crop-width) / var(--crop-height);
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.install-image-crop img {
+	position: absolute;
+	left: calc(-100% * var(--crop-x) / var(--crop-width));
+	top: calc(-100% * var(--crop-y) / var(--crop-height));
+	width: calc(100% * var(--image-width) / var(--crop-width));
+	max-width: none;
+	max-height: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.install-screenshot:focus-visible {
+	outline: 2px solid var(--color-text-primary);
+	outline-offset: 5px;
+}
+
+// Reserve the tallest step so the arrow targets stay in place while navigating.
+.install-guide-enhanced .install-steps {
+	display: grid;
+	grid-template-rows: auto auto auto;
+}
+
+.install-guide-enhanced .install-step {
+	grid-area: 1 / 1 / 4 / 2;
+	grid-template-rows: subgrid;
+	align-self: stretch;
+	align-items: start;
+	margin-bottom: 0;
+}
+
+.install-guide-enhanced .install-step[hidden] {
+	display: grid;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.install-guide-enhanced .step-number,
+.install-guide-enhanced .step-description {
+	grid-row: 1;
+}
+
+.install-guide-enhanced .install-screenshots {
+	grid-row: 2;
+}
+
+.install-guide-enhanced .install-commands {
+	grid-row: 3;
+}
+
+.install-controls:not([hidden]) {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 1.6rem;
+	margin-top: 2rem;
+}
+
+.install-progress-dots {
+	grid-column: 2;
+	display: flex;
+	gap: 8px;
+}
+
+.install-progress-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #c7c7cc;
+}
+
+.install-progress-dot.is-current {
+	background: var(--color-text-primary);
+}
+
+.install-arrows {
+	grid-column: 3;
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.install-controls button {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: rgba(0, 0, 0, 0.56);
+	cursor: pointer;
+}
+
+.install-controls button::before {
+	content: "";
+	grid-area: 1 / 1;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: #e8e8ed;
+}
+
+.install-controls button svg {
+	grid-area: 1 / 1;
+	position: relative;
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.install-controls button:hover:not(:disabled) {
+	color: rgba(0, 0, 0, 0.64);
+}
+
+.install-controls button:hover:not(:disabled)::before {
+	background: #ececf0;
+}
+
+.install-controls button:active:not(:disabled)::before {
+	background: #dfdfe4;
+}
+
+.install-controls button:disabled {
+	opacity: 0.42;
+	cursor: default;
+}
+
+.install-controls button:focus-visible {
+	outline: 2px solid var(--color-secondary);
+	outline-offset: 2px;
+}
+
+.install-commands {
+	grid-column: 2;
+	margin-top: 1.6rem;
+	font-size: 1.5rem;
+	overflow-wrap: anywhere;
+}
+
+.install-commands summary {
+	cursor: pointer;
+}
+
+.install-commands p {
+	margin-top: 1.2rem;
+}
+
+@media (max-width: 768px) {
+	.install-screenshots {
+		grid-column: 1 / -1;
+		padding: 1.6rem;
+	}
+
+	.install-screenshot {
+		--stage-height: 240px;
+	}
+}
+
+@media print {
+	.install-guide-enhanced .install-steps {
+		display: block;
+	}
+
+	.install-guide-enhanced .install-step {
+		grid-area: auto;
+		grid-template-rows: none;
+		margin-bottom: 2.4rem;
+	}
+
+	.install-guide-enhanced .step-number,
+	.install-guide-enhanced .step-description,
+	.install-guide-enhanced .install-screenshots,
+	.install-guide-enhanced .install-commands {
+		grid-row: auto;
+	}
+
+	.install-guide-enhanced .install-step[hidden] {
+		display: grid;
+		visibility: visible;
+	}
+
+	.install-controls:not([hidden]) {
+		display: none;
+	}
+}
+
 .install-signing-note {
 	margin: 2.4rem 0 0;
 	font-size: 1.5rem;

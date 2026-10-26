@@ -257,16 +257,53 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 				{% for platform in translation.install.platforms %}
 				{% assign download_switch = "enable_" | append: platform.requires | append: "_download" %}
 				{% if platform.requires == nil or site[download_switch] == true %}
-				<div id="install-{{ platform.id }}" class="install-platform">
+				<div id="install-{{ platform.id }}" class="install-platform"{% if platform.requires %} data-install-guide{% endif %}>
 					<h3 class="visually-hidden">{{ platform.label }}</h3>
 					<ol class="install-steps">
 						{% for step in platform.steps %}
 						<li class="install-step">
 							<span class="step-number" aria-hidden="true">{{ forloop.index }}</span>
 							<p class="step-description">{{ step.description }}</p>
+							{% if step.screenshots %}
+							{% assign screenshot_locale = page.language | replace: 'nan', 'zh-TW' %}
+							<div class="install-screenshots">
+								{% for screenshot in site.data.install_screenshots[step.screenshots][screenshot_locale] %}
+								<a class="install-screenshot" href="{{ '/assets/' | append: screenshot.path | relative_url }}">
+									{% if screenshot.crop %}<span class="install-image-crop" style="--crop-x: {{ screenshot.crop.x }}; --crop-y: {{ screenshot.crop.y }}; --crop-width: {{ screenshot.crop.width }}; --crop-height: {{ screenshot.crop.height }}; --image-width: {{ screenshot.width }}">{% endif %}
+									<picture>
+										<source srcset="{{ '/assets/' | append: screenshot.path | replace: '.png', '.webp' | relative_url }}" type="image/webp">
+										<img src="{{ '/assets/' | append: screenshot.path | relative_url }}" alt="{{ screenshot.alt | escape }}" width="{{ screenshot.width }}" height="{{ screenshot.height }}" loading="lazy" decoding="async">
+									</picture>
+									{% if screenshot.crop %}</span>{% endif %}
+								</a>
+								{% endfor %}
+							</div>
+							{% endif %}
+							{% if step.commands_label %}
+							<details class="install-commands">
+								<summary>{{ step.commands_label }}</summary>
+								<p>{{ step.commands_note }}</p>
+								<p>Ubuntu / Debian<br><code>sudo apt install ./taigikeyboard_VERSION_amd64.deb</code></p>
+								<p>Fedora<br><code>sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm</code></p>
+								<p>Arch<br><code>sudo pacman -U ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst</code></p>
+								<p>Fcitx5: <code>fcitx5 -r</code> · IBus: <code>ibus restart</code></p>
+							</details>
+							{% endif %}
 						</li>
 						{% endfor %}
 					</ol>
+					{% if platform.requires %}
+					<div class="install-controls" hidden>
+						<div class="install-progress-dots" aria-hidden="true">
+							{% for step in platform.steps %}<span class="install-progress-dot" data-install-dot></span>{% endfor %}
+						</div>
+						<p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"><span>{{ translation.install.step_label }} </span><span data-install-progress></span></p>
+						<div class="install-arrows">
+							<button type="button" data-install-previous aria-label="{{ translation.install.previous }}" title="{{ translation.install.previous }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6" /></svg></button>
+							<button type="button" data-install-next aria-label="{{ translation.install.next }}" title="{{ translation.install.next }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 6 6 6-6 6" /></svg></button>
+						</div>
+					</div>
+					{% endif %}
 					{% if platform.id == 'windows' and translation.install.signing_note_html %}
 					<p class="install-signing-note">{{ translation.install.signing_note_html | replace: '/codesigning.html', signing_policy_url }}</p>
 					{% endif %}

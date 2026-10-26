@@ -1,3 +1,21 @@
+# Installation screenshots — 2026-10-26
+
+- Fix reviewed composition: CSS focus windows on macOS Input Sources and Windows language/keyboard controls, with locale-specific bounds and original-image links. Full-width stage centers with progress dots;360px/240px stage improves proportions. Shared caption/image/command rows via subgrid reserve actual text height rather than fixed oversized caption minimums. Restore normal print flow. Independent pre-review approved; verify every locale focus plus fixed-arrow and noJS/print cases.
+
+- Apple control reference verified against live apple.com/mac IconControl:36px circle, #e8e8ed, icon black56%, hover #ececf0, disabled42%. Adapt with preserved44px targets/fixed layout,18px thinner chevrons; no animation. User requested actual Apple website feel.
+
+- Fix arrow position shifts: reproduced Linux disclosure-height jump and final-step spacing delta. Reserve tallest enhanced step using shared CSS grid area/inactive visibility; normalize margins; restore flow for print. Independent diagnosis confirmed. Verify forward/backward positions across locales/widths and expanded commands.
+
+- Refine navigation after user rejected visible Previous/Step fraction/Next: decorative centered progress dots, right-aligned circular chevrons, localized accessible names and hidden live status, 44px targets. No animation or additional interaction.
+
+- User approved compact revision: manual previous/next viewer, one screenshot per step, 3–4 steps per desktop platform. Gray stage with fine border, fixed 420px desktop / 300px mobile image area; no autoplay. Retain mobile instructions and no-JS/print full guide.
+- Consolidate copy; move Linux package commands into native disclosure. Reuse existing script with independent viewer initialization, localized live counter, disabled end controls and retained platform progress. Independent pre-review passed; verify all step transitions, locale mapping, no-JS, print, responsive bounds and download gates.
+
+- Add selected macOS, Windows and Ubuntu/Fcitx5 screenshots to existing steps; omit progress/completion duplicates. Preserve platform tabs and mobile instructions.
+- Store optional stable screenshot keys beside localized steps, shared dimensions/accessible captions in data. Taiwanese uses zh-TW captures; English/Japanese use corresponding captures.
+- Match current Apple-inspired typography and white space; native image links, lazy loading, generated WebP, no new script/dependency. Best practices: code-review rules §1–5, semantic links and responsive intrinsic image sizing.
+- Independent pre-review passed with Linux scope label and Windows confirmation-copy corrections. Verify production/baseurl builds, locales and desktop/mobile image layout. User owns preview servers; merge remains user-gated.
+
 # Social links — 2026-10-25
 
 - Separate contact icons (Email, LINE, Discord, Facebook group, GitHub Issues) from footer icons (Facebook page, Instagram, Threads, GitHub repository), without a heading. Remove LinkedIn.

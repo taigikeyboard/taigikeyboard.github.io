@@ -11,7 +11,7 @@ nav_labels:
   privacy_policy: プライバシーポリシー
   code_signing: コード署名ポリシー
 hero:
-  subtitle: 自由に使える、無料・オープンソースの台湾語入力ツール
+  subtitle: 無料・オープンソースで、幅広いOSに対応する台湾語入力ツール
 about:
   title: TaigiKeyboardについて
   paragraphs:
@@ -22,6 +22,9 @@ how_to_type:
   notes:
   - 漢字入力では全角、ローマ字入力では半角の句読点に自動で切り替わります。変換候補はキーボードの上に表示され、候補欄を広げることもできます。
 install:
+  previous: 前へ
+  next: 次へ
+  step_label: 手順
   platforms:
   - id: ios
     label: iPhone / iPad
@@ -43,32 +46,38 @@ install:
     label: macOS
     requires: macos
     steps:
-    - description: 上のボタンからmacOS用インストーラーをダウンロードします。
-    - description: 画面の案内に従ってインストールします。
-    - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
-    - description: 入力ソースの設定を開き、TaigiKeyboard（台語齒盤）を追加します。
-    - description: Control + Command + Sで設定を開き、調整してから入力を始めます。
+    - description: 上のmacOS用インストーラーを開き、「続ける」→「インストール」を選びます。
+      screenshots: macos-install
+    - description: "「システム設定」→「キーボード」から入力ソースの「編集」を開きます。"
+      screenshots: macos-settings
+    - description: "＋を押し、「台湾語」を検索して「台湾語キーボード」を追加します。"
+      screenshots: macos-add
+    - description: 入力メニューから選びます。表示されなければ再ログインします。Control + Command + Sで設定を開きます。
+      screenshots: macos-done
   - id: windows
     label: Windows
     requires: windows
     steps:
-    - description: 上のボタンからWindows用インストーラーをダウンロードします。
-    - description: インストーラーを実行します。Windowsの警告が表示された場合は「詳細情報」>「実行」を選びます。
-    - description: "「設定」>「時刻と言語」>「言語と地域」>「言語のオプション」>「キーボード」>「キーボードの追加」を開きます。"
-    - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
-    - description: キーボード一覧からTaigiKeyboard（台語齒盤）を追加します。
-    - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
+    - description: 上のWindows用インストーラーを開きます。警告が出たら「詳細情報」→「実行」を選び、確認してインストールします。
+      screenshots: windows-run
+    - description: "「設定」→「時刻と言語」→「言語と地域」で、「繁体中国語 (台湾)」の「言語のオプション」を開きます。"
+      screenshots: windows-language-options
+    - description: キーボード一覧を確認し、なければ「キーボードの追加」から追加します。
+      screenshots: windows-keyboard
+    - description: Windows + Spaceで切り替えます。表示されなければ再ログインします。Control + Alt + Sで設定を開きます。
+      screenshots: windows-switch
   - id: linux
     label: Linux
     requires: linux
     steps:
-    - description: 上のボタンからLinux用パッケージをダウンロードします。Ubuntu/Debianは.deb、Fedoraは.rpm、Archは.pkg.tar.zst（x86_64）を選びます。
-    - description: 端末で、Ubuntu/Debianは sudo apt install ./taigikeyboard_VERSION_amd64.deb、Fedoraは
-        sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm、Archは sudo pacman -U
-        ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst を実行します。VERSIONはダウンロードしたバージョンに置き換えてください。
-    - description: fcitx5 -r（IBusの場合は ibus restart）を実行するか、ログアウトしてからログインし直します。
-    - description: Fcitx5は fcitx5-configtool、IBusはシステムの入力ソース設定を開き、TaigiKeyboard（台語齒盤）を追加します。
-    - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
+    - description: ディストリビューションに合ったパッケージを端末でインストールし、入力メソッドを再起動するか再ログインします。
+      screenshots: linux-install
+      commands_label: インストールコマンド
+      commands_note: VERSIONをダウンロードしたバージョンに置き換えてください。
+    - description: Fcitx5はfcitx5-configtoolで言語の絞り込みを解除し、taigiを検索します。IBusはシステムの入力ソースから追加します。
+      screenshots: linux-find
+    - description: キーボードを選び、左矢印→「適用」を押します。Control + Alt + Sで設定を開きます。
+      screenshots: linux-add
   signing_note_html: >-
     現在のWindows版は未署名です。<a href="/codesigning.html">コード署名ポリシー</a>
     <br>署名サービス：<a href="https://about.signpath.io" rel="noopener">SignPath.io</a> ·
