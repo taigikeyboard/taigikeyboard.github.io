@@ -267,7 +267,6 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 							{% if step.screenshots %}
 							{% assign screenshot_locale = page.language | replace: 'nan', 'zh-TW' %}
 							<div class="install-screenshots">
-								{% if platform.id == 'linux' %}<p class="install-screenshot-context">Ubuntu · Fcitx5</p>{% endif %}
 								{% for screenshot in site.data.install_screenshots[step.screenshots][screenshot_locale] %}
 								<a class="install-screenshot" href="{{ '/assets/' | append: screenshot.path | relative_url }}">
 									<picture>

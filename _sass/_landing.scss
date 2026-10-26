@@ -628,12 +628,6 @@ section {
 	outline-offset: 5px;
 }
 
-.install-screenshot-context {
-	margin: 0;
-	font-size: 1.4rem;
-	color: var(--color-text-secondary);
-}
-
 // Reserve the tallest step so the arrow targets stay in place while navigating.
 .install-guide-enhanced .install-steps {
 	display: grid;
