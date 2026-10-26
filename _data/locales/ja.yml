@@ -44,9 +44,11 @@ install:
     requires: macos
     steps:
     - description: 上のボタンからmacOS用インストーラーをダウンロードします。
-    - description: 画面の案内に従ってインストールします。
+    - description: インストーラーを開き、「続ける」→「インストール」を選びます。
+      screenshots: macos-install
     - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
     - description: 入力ソースの設定を開き、TaigiKeyboard（台語齒盤）を追加します。
+      screenshots: macos-input-source
     - description: Control + Command + Sで設定を開き、調整してから入力を始めます。
   - id: windows
     label: Windows
@@ -54,9 +56,12 @@ install:
     steps:
     - description: 上のボタンからWindows用インストーラーをダウンロードします。
     - description: インストーラーを実行します。Windowsの警告が表示された場合は「詳細情報」>「実行」を選びます。
-    - description: "「設定」>「時刻と言語」>「言語と地域」>「言語のオプション」>「キーボード」>「キーボードの追加」を開きます。"
+      screenshots: windows-security
+    - description: "「設定」→「時刻と言語」→「言語と地域」を開き、「繁体中国語 (台湾)」の「言語のオプション」を選びます。"
+      screenshots: windows-language-options
     - description: 入力メソッドを読み込むため、一度ログアウトしてからログインし直します。
-    - description: キーボード一覧からTaigiKeyboard（台語齒盤）を追加します。
+    - description: キーボード一覧にTaigiKeyboardがあることを確認します。なければ「キーボードの追加」から追加します。
+      screenshots: windows-keyboard
     - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
   - id: linux
     label: Linux
@@ -66,8 +71,10 @@ install:
     - description: 端末で、Ubuntu/Debianは sudo apt install ./taigikeyboard_VERSION_amd64.deb、Fedoraは
         sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm、Archは sudo pacman -U
         ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst を実行します。VERSIONはダウンロードしたバージョンに置き換えてください。
+      screenshots: linux-install
     - description: fcitx5 -r（IBusの場合は ibus restart）を実行するか、ログアウトしてからログインし直します。
     - description: Fcitx5は fcitx5-configtool、IBusはシステムの入力ソース設定を開き、TaigiKeyboard（台語齒盤）を追加します。
+      screenshots: linux-input-method
     - description: Control + Alt + Sで設定を開き、調整してから入力を始めます。
   signing_note_html: >-
     現在のWindows版は未署名です。<a href="/codesigning.html">コード署名ポリシー</a>

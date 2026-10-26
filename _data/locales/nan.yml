@@ -45,19 +45,24 @@ install:
     requires: macos
     steps:
     - description: 頂頭 táng-lóo 台語齒盤 macOS 安裝檔。
-    - description: 依照安裝畫面安裝。
+    - description: 拍開安裝檔，揤「繼續」→「安裝」。
+      screenshots: macos-install
     - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
-    - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
+    - description: 拍開「系統設定」→「鍵盤」→「輸入方式」→「編輯」，揤 +，揣「台語」加入。
+      screenshots: macos-input-source
     - description: 揤 control + cmd + S 拍開齒盤設定、調整設定，就會使拍字矣
   - id: windows
     label: Windows
     requires: windows
     steps:
     - description: 頂頭 táng-lóo 台語齒盤 Windows 安裝檔。
-    - description: 共安裝檔連紲點兩下，**電腦會跳出警告**，揤其他資訊 → 仍要執行。
-    - description: "【設定與語言】>【語言與地區】>【選項】>【齒盤】>【已安裝的鍵盤】>【增加齒盤】。"
+    - description: 拍開安裝檔。若出現 Windows 警告，揤「其他資訊」→「仍要執行」，確認了後安裝。
+      screenshots: windows-security
+    - description: "拍開「設定」→「時間與語言」→「語言與地區」，揀「繁體中文（台灣）」的「語言選項」。"
+      screenshots: windows-language-options
     - description: 安裝了後，登出/登入電腦一擺，予系統重新掠輸入法。
-    - description: 拍開電腦設定，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
+    - description: 確認「已安裝的鍵盤」有「台語齒盤」；若無，揤「新增鍵盤」加入。
+      screenshots: windows-keyboard
     - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
   - id: linux
     label: Linux
@@ -67,8 +72,10 @@ install:
         用 .pkg.tar.zst（x86_64）。
     - description: 拍開終端機，Ubuntu/Debian 拍 sudo apt install ./taigikeyboard_版本_amd64.deb；Fedora
         拍 sudo dnf install ./taigikeyboard-版本-1.x86_64.rpm；Arch 拍 sudo pacman -U ./taigikeyboard-版本-1-x86_64.pkg.tar.zst。
+      screenshots: linux-install
     - description: 安裝了後，拍 fcitx5 -r（用 IBus 就用 ibus restart），抑是登出/登入電腦一擺。
     - description: Fcitx5 拍開 fcitx5-configtool、IBus 拍開系統設定的輸入來源，揣【台語齒盤】加入，若電腦英語揣 taigikeyboard。
+      screenshots: linux-input-method
     - description: 揤 control + alt + S 拍開齒盤設定、調整設定，就會使拍字矣
   signing_note_html: >-
     Windows 版本目前猶未簽章。<a href="/codesigning.html">程式碼簽章政策</a>

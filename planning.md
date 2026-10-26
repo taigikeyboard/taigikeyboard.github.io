@@ -1,3 +1,10 @@
+# Installation screenshots — 2026-10-26
+
+- Add selected macOS, Windows and Ubuntu/Fcitx5 screenshots to existing steps; omit progress/completion duplicates. Preserve platform tabs and mobile instructions.
+- Store optional stable screenshot keys beside localized steps, shared dimensions/accessible captions in data. Taiwanese uses zh-TW captures; English/Japanese use corresponding captures.
+- Match current Apple-inspired typography and white space; native image links, lazy loading, generated WebP, no new script/dependency. Best practices: code-review rules §1–5, semantic links and responsive intrinsic image sizing.
+- Independent pre-review passed with Linux scope label and Windows confirmation-copy corrections. Verify production/baseurl builds, locales and desktop/mobile image layout. User owns preview servers; merge remains user-gated.
+
 # Social links — 2026-10-25
 
 - Separate contact icons (Email, LINE, Discord, Facebook group, GitHub Issues) from footer icons (Facebook page, Instagram, Threads, GitHub repository), without a heading. Remove LinkedIn.

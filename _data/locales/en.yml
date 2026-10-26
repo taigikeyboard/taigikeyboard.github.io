@@ -54,9 +54,11 @@ install:
     requires: macos
     steps:
     - description: Download the macOS installer above.
-    - description: Follow the installation instructions.
+    - description: Open the installer. Click Continue, then Install.
+      screenshots: macos-install
     - description: Log out and back in so macOS can load the input method.
     - description: Open the input source settings and add TaigiKeyboard (台語齒盤).
+      screenshots: macos-input-source
     - description: Press Control + Command + S to open TaigiKeyboard settings, then
         start typing.
   - id: windows
@@ -66,10 +68,12 @@ install:
     - description: Download the Windows installer above.
     - description: Run the installer. If Windows shows a warning, choose More info
         > Run anyway.
-    - description: Open Settings > Time & language > Language & region > Language
-        options > Keyboards > Add a keyboard.
+      screenshots: windows-security
+    - description: Open Settings > Time & language > Language & region. Choose Language options beside Chinese (Traditional, Taiwan).
+      screenshots: windows-language-options
     - description: Log out and back in so Windows can load the input method.
-    - description: Find TaigiKeyboard (台語齒盤) in the keyboard list and add it.
+    - description: Confirm TaigiKeyboard appears under Installed keyboards. If missing, choose Add a keyboard.
+      screenshots: windows-keyboard
     - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
         typing.
   - id: linux
@@ -82,9 +86,11 @@ install:
         on Ubuntu/Debian, sudo dnf install ./taigikeyboard-VERSION-1.x86_64.rpm on
         Fedora, or sudo pacman -U ./taigikeyboard-VERSION-1-x86_64.pkg.tar.zst on
         Arch. Replace VERSION with the downloaded version.
+      screenshots: linux-install
     - description: Run fcitx5 -r (or ibus restart for IBus), or log out and back in.
     - description: Open fcitx5-configtool for Fcitx5, or the system input source settings
         for IBus, and add TaigiKeyboard (台語齒盤).
+      screenshots: linux-input-method
     - description: Press Control + Alt + S to open TaigiKeyboard settings, then start
         typing.
   signing_note_html: >-

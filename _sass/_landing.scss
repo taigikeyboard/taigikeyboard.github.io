@@ -588,6 +588,40 @@ section {
 	margin-bottom: 0;
 }
 
+.install-screenshots {
+	grid-column: 2;
+	min-width: 0;
+	display: grid;
+	gap: 2.4rem;
+	margin: 2rem 0 2.4rem;
+	max-width: 640px;
+}
+
+.install-screenshot {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	border-radius: 8px;
+}
+
+.install-screenshot img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.install-screenshot:focus-visible {
+	outline: 2px solid var(--color-text-primary);
+	outline-offset: 5px;
+}
+
+.install-screenshot-context {
+	margin: 0;
+	font-size: 1.4rem;
+	color: var(--color-text-secondary);
+}
+
 .install-signing-note {
 	margin: 2.4rem 0 0;
 	font-size: 1.5rem;
