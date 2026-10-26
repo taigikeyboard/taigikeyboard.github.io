@@ -1,5 +1,7 @@
 # Installation screenshots — 2026-10-26
 
+- Apple control reference verified against live apple.com/mac IconControl:36px circle, #e8e8ed, icon black56%, hover #ececf0, disabled42%. Adapt with preserved44px targets/fixed layout,18px thinner chevrons; no animation. User requested actual Apple website feel.
+
 - Fix arrow position shifts: reproduced Linux disclosure-height jump and final-step spacing delta. Reserve tallest enhanced step using shared CSS grid area/inactive visibility; normalize margins; restore flow for print. Independent diagnosis confirmed. Verify forward/backward positions across locales/widths and expanded commands.
 
 - Refine navigation after user rejected visible Previous/Step fraction/Next: decorative centered progress dots, right-aligned circular chevrons, localized accessible names and hidden live status, 44px targets. No animation or additional interaction.
