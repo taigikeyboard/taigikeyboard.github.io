@@ -10,20 +10,21 @@ permalink: /codesigning
 
 # 程式碼簽章政策 / Code signing policy
 
-Who may release a signed Taigi Keyboard binary, what gets signed, and what a
+Who may release a signed TaigiKeyboard binary, what gets signed, and what a
 user can verify for themselves.
 
 ## Current signing status
 
 | Platform | Artifact | Status |
 | --- | --- | --- |
-| Windows | `TaigiKeyboard-<version>.exe` (Inno Setup installer), `taigi_windows_tsf.dll`, `TaigiKeyboardSettings.exe` | **Unsigned.** Integrity rests on the SHA-256 digest published in the update manifest. |
+| Windows | `TaigiKeyboard-<version>.exe` (Inno Setup installer), `TaigiKeyboard.dll`, `TaigiKeyboard32.dll`, `TaigiKeyboardSettings.exe` | **Unsigned.** Integrity rests on the SHA-256 digest published in the update manifest. |
+| Linux | `taigikeyboard_<version>_amd64.deb`, `taigikeyboard-<version>-1.x86_64.rpm`, `taigikeyboard-<version>-1-x86_64.pkg.tar.zst` | **Unsigned.** Integrity rests on the `.sha256` attached beside each package on the release (`docs/architecture/linux-release.md`). |
 | macOS | `TaigiKeyboard-<version>.pkg` | Signed and notarized with an Apple Developer ID. |
 | iOS / Android | App Store / Google Play builds | Signed by the respective store pipeline. |
 
-Windows releases being unsigned is the gap this policy exists to close. Until
-it is, the published SHA-256 is the only integrity check a user has, and it
-proves only that the file downloaded is the file published — not who built it.
+Windows releases being unsigned is the gap this policy exists to close. What
+that costs a user (SmartScreen, Smart App Control) and what the published
+SHA-256 does and does not prove: [`docs/architecture/windows-release.md` § Signing status](https://github.com/taigikeyboard/taigikeyboard/blob/main/docs/architecture/windows-release.md#signing-status--unsigned-is-the-current-channel).
 
 ## Code signing policy — SignPath Foundation
 
@@ -31,10 +32,9 @@ Free code signing provided by [SignPath.io](https://about.signpath.io),
 certificate by [SignPath Foundation](https://signpath.org).
 
 **Status: applied, no certificate issued yet.** Every Windows release published
-so far, up to and including 3.6.7, is unsigned — the table above says what each
-platform's artifacts actually carry today, and it is kept current. This section
-describes the arrangement the project has entered into, not a property the
-existing downloads have.
+so far is unsigned. The table above says what each platform's artifacts actually
+carry today, and it is kept current. This section describes how signing will work
+once a certificate is issued, not a property the existing downloads have.
 
 Once a certificate is issued, signing happens inside the build that produces the
 artifact, and nowhere else:
@@ -44,29 +44,27 @@ artifact, and nowhere else:
   on a GitHub-hosted `windows-2025` runner, in the public repository
   <https://github.com/taigikeyboard/taigikeyboard>, from the commit that
   workflow run names.
-- Every external input that build pulls in — the toolchain, `protoc`, Inno
-  Setup — is pinned by version and by digest, and the run fails if the build
-  modified any tracked file. The artifact cannot have come from a tree other
-  than the one published at that commit.
+- Every external input that build pulls in is pinned. The Rust toolchain is pinned
+  by version, the crates by `Cargo.lock`, and `protoc`, Inno Setup and the Windows
+  App Runtime packages by version and digest. The run fails if the build modified
+  any tracked file.
 - The signing request is submitted from inside that same workflow run. A binary
-  that did not come through it is not a Taigi Keyboard release, whatever it
-  claims.
-- The private key is held by SignPath Foundation. The maintainer cannot sign
-  outside the automated build.
+  that did not come through it is not a TaigiKeyboard release, whatever it claims.
+- The private key is held by SignPath Foundation. Maintainers cannot sign outside
+  the automated build.
 
 `make windows-release` on a maintainer machine stays the local path for testing
 an installer. It produces nothing that is signed.
 
 ## Privacy
 
-The applications transfer no information to any networked system except when the
-user asks for it. The desktop versions fetch a small update manifest from
-`taigikeyboard.tw` to learn whether a newer version exists; that request reveals
-the caller's IP address and user agent to the web server, as any HTTP request
-does. Nothing else leaves the device — dictionary lookups, user frequency data
-and custom words are stored locally and are never uploaded.
-
 Full statement: [privacy policy](/privacypolicy.html).
+
+The macOS and Windows applications check a small update manifest once a day, and
+download a new version only when the user asks. Those requests go to
+GitHub Pages and Cloudflare, which host the manifest and the packages. Nothing the
+user types is ever sent. The Linux input method and the mobile apps make no such
+request.
 
 ## Roles
 
@@ -75,39 +73,49 @@ and requests a release, the **Reviewer** who reviews what goes into the source
 tree and the artifact built from it, and the **Approver** who approves the
 release itself.
 
-Taigi Keyboard is maintained by one person, who therefore holds all three:
+TaigiKeyboard has two maintainers, who share the first two roles. The Approver
+role stays with one of them:
 
 | Role | Who |
 | --- | --- |
-| Author — commits source and build scripts, requests a release | Min-Sian Su (Soo Bîn-hiân 蘇民弦) — <https://github.com/siansiansu> |
-| Reviewer — reviews changes into `main` and the release artifact's provenance | Min-Sian Su (Soo Bîn-hiân 蘇民弦) |
+| Author — commits source and build scripts, requests a release | Min-Sian Su (Soo Bîn-hiân 蘇民弦) — <https://github.com/siansiansu>; madmaxieee — <https://github.com/madmaxieee> |
+| Reviewer — reviews changes into `main` and the release artifact's provenance | Min-Sian Su (Soo Bîn-hiân 蘇民弦); madmaxieee |
 | Approver — approves each release | Min-Sian Su (Soo Bîn-hiân 蘇民弦) |
 
 Every maintainer of a source file or a build script in this repository is
-listed above. There are no other committers, and no contributor's change
-reaches a signed binary without passing through the review below.
+listed above. There are no other committers, and no other contributor's change
+reaches a signed binary without the Approver's review.
 
-One person cannot separate these roles, and this policy does not claim
-otherwise. What stands in for that separation is that every step is recorded
-where a third party can read it:
+These roles are not strictly separated, and this policy does not claim
+otherwise: the Approver also authors changes, and as repository admin can merge
+them without a second review. What stands in for that separation is that every
+step is recorded where a third party can read it, and that review, release tags
+and release secrets stay behind the Approver:
 
-- Every change lands on `main` through a pull request from a branch, so the
-  diff that entered a release is public and dated.
-- The release script refuses to run on a dirty working tree, and the engine and
-  dictionary it links are pre-built artifacts committed to the repository, so a
-  release ships exactly what the released commit contains.
+- Changes land on `main` through a pull request from a branch, and the Approver
+  must approve it as code owner (`.github/CODEOWNERS`). GitHub enforces both for
+  everyone except the repository admin, who may also commit directly; that
+  exception is used for docs, version bumps, release prep, and small data or
+  string changes. Either way, the diff that entered a release is public and
+  dated.
+- Only the repository admin can create, move or delete a release tag, and the
+  release secrets open only after the Approver approves the run.
+- Releases published from 2026-11-04 on are immutable on GitHub: their tag and
+  assets cannot be changed afterwards.
+- The release scripts refuse a dirty working tree. The dictionary artifacts are
+  committed to the repository; the engine binaries are not (they are generated
+  and gitignored), so every release rebuilds them from the released commit.
 - Each release's artifact digest is published in the update manifest and read
   back from the served file, so it attests what the download URL actually
   serves rather than what was built locally.
 
-Stated plainly because it bears on provenance: Windows releases are built by the
-maintainer on their own Windows machine, not on a hosted build server, and the
-source repository is not public. Nothing here asks the reader to take that on
-trust — the published SHA-256 below is what a user can actually check, and it
-proves only that the file downloaded is the file published.
+Stated plainly because it bears on provenance: Windows installers are built
+from the public source repository on a GitHub-hosted runner
+(`.github/workflows/windows-build.yml`), not on a maintainer's machine;
+`docs/architecture/windows-release.md` § Building on a GitHub-hosted runner
+owns that procedure.
 
-If a second maintainer joins, this table is updated in the same commit that
-grants them access.
+This table changes whenever a maintainer joins or leaves.
 
 ## Approval
 
@@ -128,16 +136,19 @@ Only first-party binaries produced by this project's own release scripts:
 - `windows/scripts/publish-release.sh` — publishes the installer and records
   its digest
 
-Third-party dependencies are statically linked into those binaries and are not
-separately signed. Bundled data files — fonts, the compiled dictionary — are
-not executable and are not signed.
+Third-party Rust dependencies are statically linked into those binaries and are
+not separately signed. The installer also carries Microsoft's Windows App Runtime
+and WebView2 projection beside the settings executable; they are Microsoft's own
+binaries, and this project does not sign them (`THIRD_PARTY_LICENSES.md`).
+Bundled data files — fonts, the compiled dictionary — are not executable and are
+not signed.
 
 Nothing built from another project's source is ever signed with this project's
 certificate.
 
 ## What the software does
 
-Taigi Keyboard is an input method. It converts what the user types into
+TaigiKeyboard is an input method. It converts what the user types into
 Taiwanese text, entirely on-device.
 
 - No keystroke, and no text, leaves the device.
@@ -150,8 +161,9 @@ Taiwanese text, entirely on-device.
   HTTPS requests, so the server necessarily sees the client's IP address and
   user agent, as it would for any web page; nothing in the application adds to
   that or correlates it across requests.
-- Learned data — word frequency, word association, custom dictionary — stays
-  in app-private storage and is excluded from OS automatic backup.
+- Learned data — word frequency, word association, learned phrases, custom
+  dictionary — stays in app-private storage and is excluded from OS automatic
+  backup.
 
 It contains no vulnerability scanning, no exploitation capability, and no
 remote administration feature.
@@ -161,7 +173,7 @@ input method to work or to be updated, and all of it reversed on uninstall:
 
 | Change | Why |
 | --- | --- |
-| Registers `taigi_windows_tsf.dll` as a TSF text service (`regsvr32`, x64 and x86) | This is what makes the keyboard selectable at all. |
+| Registers `TaigiKeyboard.dll` and `TaigiKeyboard32.dll` as a TSF text service (`regsvr32`, x64 and x86) | This is what makes the keyboard selectable at all. |
 | Creates the scheduled task `TaigiKeyboard Update Check` | Fetches the update manifest so the user is told a new version exists. Deleted by the uninstaller. |
 | Writes a Start-menu shortcut and the usual uninstall registry entry | Standard for an installed application. |
 
@@ -170,8 +182,8 @@ The installer requires administrator rights because `regsvr32` writes to
 installs no driver, no service, and no browser extension, and changes no
 system-wide setting outside its own registration.
 
-`SECURITY.md` carries the full privacy statement and the vulnerability
-reporting address.
+The [privacy policy](/privacypolicy.html) carries the full statement, and
+[`SECURITY.md`](https://github.com/taigikeyboard/taigikeyboard/blob/main/SECURITY.md) the vulnerability reporting address.
 
 ## Verifying a release yourself
 
@@ -184,21 +196,16 @@ locally, so it attests the file that URL actually serves.
 Get-FileHash .\TaigiKeyboard-<version>.exe -Algorithm SHA256
 ```
 
-If Windows releases are signed in future, the in-app updater additionally
-verifies the downloaded package's Authenticode signature before offering to
-install it — that path already exists and activates as soon as a running copy
-carries a signature of its own.
-
 ## Why Windows releases are unsigned
 
-An Authenticode certificate costs a few hundred US dollars a year, and the free
-programme for open source projects requires the whole product — including the
-data it bundles — to be open source. Taigi Keyboard bundles Taiwanese-language
-dictionary data whose sources carry their own, non-open-source terms, so that
-route is closed. Signing may be revisited; until then this page describes what
-a user can verify instead.
+An Authenticode certificate costs a few hundred US dollars a year, so signing
+goes through SignPath Foundation's free programme for open-source projects.
+Until a certificate is issued, this page describes what a user can verify
+instead.
 
 ## Licence
 
-Source code: Apache License, Version 2.0 — see `LICENSE`.
-Third-party components: `THIRD_PARTY_LICENSES.md`.
+Source code: Apache License, Version 2.0 — see [`LICENSE`](https://github.com/taigikeyboard/taigikeyboard/blob/main/LICENSE).
+Third-party components: [`THIRD_PARTY_LICENSES.md`](https://github.com/taigikeyboard/taigikeyboard/blob/main/THIRD_PARTY_LICENSES.md).
+Dictionary data: [`dictionary/LICENSE`](https://github.com/taigikeyboard/taigikeyboard/blob/main/dictionary/LICENSE) — **not** Apache-2.0, and several sources
+carry non-commercial terms.
