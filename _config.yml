@@ -70,6 +70,16 @@ sponsor_payment_methods:
   - id: kofi
     link: https://ko-fi.com/taigikeyboard
 
+# Side projects built on TaigiKeyboard; names and notes live in
+# _data/locales/*.yml under projects, keyed by id.
+side_projects:
+  - id: web
+    link: https://taigikeyboard.tw/web/
+  - id: kautian_mirror
+    link: https://taigikeyboard.tw/kautian-mirror/
+  - id: kautian_search
+    link: https://chromewebstore.google.com/detail/%E6%95%99%E5%85%B8%E9%AC%A5%E6%90%9C%E6%8F%A3/ioagpnnbmmpmbdndjloaadpocgfolpjj
+
 # =============================================================================
 # Social & Contact
 # =============================================================================

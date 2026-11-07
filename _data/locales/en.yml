@@ -7,6 +7,7 @@ nav_labels:
   how_to_type: Typing guide
   install: Installation
   issues: Feedback
+  projects: More projects
   sponsor: Support
   privacy_policy: Privacy policy
   code_signing: Code signing policy
@@ -135,6 +136,16 @@ features:
   description: Choose vocabulary and character variants that suit your preferences.
 - title: Offline typing
   description: No network connection or recording; what you type stays on your device.
+projects:
+  web:
+    name: TaigiKeyboard Web
+    note: Type Taiwanese in your browser, nothing to install
+  kautian_mirror:
+    name: MOE Dictionary Mirror
+    note: Simple and fast; use it whenever the MOE dictionary is down
+  kautian_search:
+    name: Kàu-tián Search Helper
+    note: Chrome extension · Better search for the MOE dictionary
 ui:
   navigation_menu: Navigation menu
   download_on: Download on

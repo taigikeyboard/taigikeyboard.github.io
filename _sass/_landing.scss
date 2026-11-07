@@ -877,7 +877,8 @@ section {
 
 .sponsor-button:focus-visible,
 .sponsor-close:focus-visible,
-.sponsor-method:focus-visible {
+.sponsor-method:focus-visible,
+.project-link:focus-visible {
 	outline: 2px solid var(--color-secondary);
 	outline-offset: 4px;
 }
@@ -890,7 +891,8 @@ section {
 	margin-top: 2.4rem;
 }
 
-.sponsor-panel {
+.sponsor-panel,
+.project-list {
 	padding: 2.4rem;
 	background: var(--color-bg);
 	border: 1px solid var(--color-border);
@@ -927,7 +929,8 @@ section {
 	cursor: pointer;
 }
 
-.sponsor-method {
+.sponsor-method,
+.project-link {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -937,33 +940,40 @@ section {
 	text-decoration: none;
 }
 
-.sponsor-method + .sponsor-method {
+.sponsor-method + .sponsor-method,
+.project-link + .project-link {
 	border-top: 1px solid var(--color-border);
 }
 
-.sponsor-method:hover {
+.sponsor-method:hover,
+.project-link:hover {
 	background: var(--color-surface);
 }
 
 .sponsor-provider,
-.sponsor-note {
+.sponsor-note,
+.project-name,
+.project-note {
 	display: block;
 	overflow-wrap: anywhere;
 }
 
-.sponsor-provider {
+.sponsor-provider,
+.project-name {
 	font-size: 1.8rem;
 	font-weight: 500;
 }
 
-.sponsor-note {
+.sponsor-note,
+.project-note {
 	margin-top: 0.4rem;
 	font-size: 1.4rem;
 	line-height: 1.5;
 	color: var(--color-text-secondary);
 }
 
-.sponsor-arrow {
+.sponsor-arrow,
+.project-arrow {
 	font-size: 2rem;
 	color: var(--color-text-secondary);
 }
@@ -1326,6 +1336,7 @@ footer .social-links {
 	margin-bottom: 2rem;
 }
 
+.projects-section,
 .issues-section {
 	padding: 8rem 2rem;
 	max-width: 800px;
@@ -1333,6 +1344,7 @@ footer .social-links {
 }
 
 @media (max-width: 768px) {
+	.projects-section,
 	.issues-section {
 		padding: 6rem 2rem;
 	}

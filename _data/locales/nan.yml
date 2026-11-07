@@ -7,6 +7,7 @@ nav_labels:
   how_to_type: 按怎拍字
   install: 按怎安裝
   issues: 問題回報
+  projects: 其他作品
   sponsor: 贊助支持
   privacy_policy: 隱私政策
   code_signing: 程式碼簽章政策
@@ -112,6 +113,16 @@ features:
   description: 教育部用字、非教育部用字、在來字佮異用字，照家己 ê 習慣來揀。
 - title: 無連網路，安心拍字
   description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
+projects:
+  web:
+    name: 台語齒盤線頂版
+    note: 免安裝，用瀏覽器就會當拍台語
+  kautian_mirror:
+    name: 教典備援網站
+    note: 設計簡單、速度緊，若教典又閣 siooh-tooh 會當來遮使用
+  kautian_search:
+    name: 教典鬥搜揣
+    note: Chrome 擴充功能・改善教典的搜揣功能
 ui:
   navigation_menu: 網站選單
   download_on: Táng-lóo

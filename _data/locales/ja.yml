@@ -7,6 +7,7 @@ nav_labels:
   how_to_type: 入力ガイド
   install: インストール
   issues: お問い合わせ
+  projects: その他の作品
   sponsor: 開発を支援
   privacy_policy: プライバシーポリシー
   code_signing: コード署名ポリシー
@@ -112,6 +113,16 @@ features:
   description: 教育部の表記、従来の表記、異体字など、好みに合わせて選べます。
 - title: オフラインで入力
   description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
+projects:
+  web:
+    name: 台語齒盤 Web版
+    note: インストール不要、ブラウザで台湾語を入力
+  kautian_mirror:
+    name: 教典ミラーサイト
+    note: シンプルで高速。教典がつながらないときにご利用ください
+  kautian_search:
+    name: 教典鬥搜揣
+    note: Chrome拡張機能・教典の検索機能を改善
 ui:
   navigation_menu: ナビゲーションメニュー
   download_on: ダウンロード

@@ -315,6 +315,21 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 		</section>
 		<hr class="section-divider">
 
+		<section id="projects" class="projects-section">
+			<h2 class="section-title">{{ translation.nav_labels.projects }}</h2>
+			<div class="project-list">
+				{% for project in site.side_projects %}
+				{% assign item = translation.projects[project.id] %}
+				<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link">
+					<span><span class="project-name">{{ item.name }}</span><span class="project-note">{{ item.note }}</span></span>
+					<span class="project-arrow" aria-hidden="true">↗</span>
+				</a>
+				{% endfor %}
+			</div>
+		</section>
+
+		<hr class="section-divider">
+
 		{% if site.enable_features %}
 		<section id="features" class="features-grid-section">
 			<h2 class="section-title">{{ translation.nav_labels.features }}</h2>
