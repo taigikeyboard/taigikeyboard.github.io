@@ -138,7 +138,7 @@ features:
   description: No network connection or recording; what you type stays on your device.
 projects:
   web:
-    name: TaigiKeyboard Web
+    name: TaigiKeyboard Web Beta
     note: Type Taiwanese in your browser, nothing to install
   kautian_mirror:
     name: MOE Dictionary Mirror

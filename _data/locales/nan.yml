@@ -115,7 +115,7 @@ features:
   description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
 projects:
   web:
-    name: 台語齒盤線頂版
+    name: 台語齒盤線頂 Beta 版
     note: 免安裝，用瀏覽器就會當拍台語
   kautian_mirror:
     name: 教典備援網站

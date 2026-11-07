@@ -115,7 +115,7 @@ features:
   description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
 projects:
   web:
-    name: 台語齒盤 Web版
+    name: 台語齒盤 Web版 ベータ
     note: インストール不要、ブラウザで台湾語を入力
   kautian_mirror:
     name: 教典ミラーサイト
