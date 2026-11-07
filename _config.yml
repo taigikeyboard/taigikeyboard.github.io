@@ -79,6 +79,8 @@ side_projects:
     link: https://taigikeyboard.tw/kautian-mirror/
   - id: kautian_search
     link: https://chromewebstore.google.com/detail/%E6%95%99%E5%85%B8%E9%AC%A5%E6%90%9C%E6%8F%A3/ioagpnnbmmpmbdndjloaadpocgfolpjj
+  - id: taigi_converter
+    link: https://taigikeyboard.tw/taigi-converter/
 
 # =============================================================================
 # Social & Contact

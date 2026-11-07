@@ -146,6 +146,9 @@ projects:
   kautian_search:
     name: Kàu-tián Search Helper
     note: Chrome extension · Better search for the MOE dictionary
+  taigi_converter:
+    name: Taiwanese Script Converter
+    note: Convert between TL, POJ, TPS, braille and tone numbers instantly
 ui:
   navigation_menu: Navigation menu
   download_on: Download on

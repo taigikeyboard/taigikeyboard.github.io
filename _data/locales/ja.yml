@@ -123,6 +123,9 @@ projects:
   kautian_search:
     name: 教典鬥搜揣
     note: Chrome拡張機能・教典の検索機能を改善
+  taigi_converter:
+    name: 台湾語表記変換ツール
+    note: 台湾ローマ字・白話字・方音符号・点字・声調数字を即時変換
 ui:
   navigation_menu: ナビゲーションメニュー
   download_on: ダウンロード

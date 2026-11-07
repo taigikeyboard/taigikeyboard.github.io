@@ -123,6 +123,9 @@ projects:
   kautian_search:
     name: 教典鬥搜揣
     note: Chrome 擴充功能・改善教典的搜揣功能
+  taigi_converter:
+    name: 台語文字轉換器
+    note: 台羅、白話字、方音符號、點字、聲調數字隨時互換
 ui:
   navigation_menu: 網站選單
   download_on: Táng-lóo
