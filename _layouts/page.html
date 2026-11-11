@@ -23,6 +23,9 @@
 	{% endif %}
 
 	{% seo title=false %}
+	{% if page.noindex %}
+	<meta name="robots" content="noindex">
+	{% endif %}
 
 </head>
 
