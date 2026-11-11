@@ -27,9 +27,7 @@ published release data already names is over, so it is hidden.
 {% if beta.version and published == false %}
 **{{ beta.version }}** · `{{ beta.commit | slice: 0, 7 }}`
 
-| File | SHA-256 |
-| --- | --- |
-{% for asset in beta.assets %}| [{{ asset.name }}]({{ asset.url }}) | `{{ asset.sha256 }}` |
+{% for asset in beta.assets %}- [{{ asset.name }}]({{ asset.url }})
 {% endfor %}
 {% else %}
 No beta build.
