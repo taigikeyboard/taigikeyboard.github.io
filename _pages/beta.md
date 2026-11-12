@@ -17,7 +17,7 @@ published release data already names is over, so it is hidden.
 {% endcomment %}
 {% assign beta = site.data.beta_release %}
 {% assign published = false %}
-{% assign release_files = "macos_release,windows_release,linux_release,linux_rpm_release,linux_arch_release" | split: "," %}
+{% assign release_files = "macos_release,windows_release,linux_release,linux_rpm_release,linux_arch_release,chromeos_release" | split: "," %}
 {% for name in release_files %}
 {% if site.data[name].version == beta.version %}{% assign published = true %}{% endif %}
 {% endfor %}
@@ -27,7 +27,9 @@ published release data already names is over, so it is hidden.
 {% if beta.version and published == false %}
 **{{ beta.version }}** · `{{ beta.commit | slice: 0, 7 }}`
 
-{% for asset in beta.assets %}- [{{ asset.name }}]({{ asset.url }})
+{% comment %}`label` / `requires`: the OS and the oldest version it runs on,
+from DESKTOP_ASSET_ROWS in taigikeyboard's tools/release/lib/desktop-release.sh.{% endcomment %}
+{% for asset in beta.assets %}- **{{ asset.label }}** ({{ asset.requires }}): [{{ asset.name }}]({{ asset.url }})
 {% endfor %}
 {% else %}
 No beta build.
