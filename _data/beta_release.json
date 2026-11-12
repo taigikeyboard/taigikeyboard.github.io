@@ -5,27 +5,37 @@
     {
       "name": "TaigiKeyboard-3.9.0.pkg",
       "url": "https://dl.taigikeyboard.tw/beta/3.9.0-1065180-43085890878/TaigiKeyboard-3.9.0.pkg",
-      "sha256": "f17705f1fdbbd325e4f815fd2a9b1b04fd33567ecdb7596a10fc6958e8237f05"
+      "sha256": "f17705f1fdbbd325e4f815fd2a9b1b04fd33567ecdb7596a10fc6958e8237f05",
+      "label": "macOS",
+      "requires": "macOS 14 or later"
     },
     {
       "name": "TaigiKeyboard-3.9.0.exe",
       "url": "https://dl.taigikeyboard.tw/beta/3.9.0-1065180-43085890878/TaigiKeyboard-3.9.0.exe",
-      "sha256": "39bd94efe801d597f4239a867447b3f3e49755e672bfd5e1f293cbf89c17a95d"
+      "sha256": "39bd94efe801d597f4239a867447b3f3e49755e672bfd5e1f293cbf89c17a95d",
+      "label": "Windows",
+      "requires": "Windows 10 1809 or later; Arm64 needs Windows 11"
     },
     {
       "name": "taigikeyboard_3.9.0_amd64.deb",
       "url": "https://dl.taigikeyboard.tw/beta/3.9.0-1065180-43085890878/taigikeyboard_3.9.0_amd64.deb",
-      "sha256": "8d95ed086f1657698fe9b960fbc606fda7505b6430d0bf2a358320aaa9d220ac"
+      "sha256": "8d95ed086f1657698fe9b960fbc606fda7505b6430d0bf2a358320aaa9d220ac",
+      "label": "Linux (.deb)",
+      "requires": "Ubuntu 24.04+ / Debian 13+"
     },
     {
       "name": "taigikeyboard-3.9.0-1.x86_64.rpm",
       "url": "https://dl.taigikeyboard.tw/beta/3.9.0-1065180-43085890878/taigikeyboard-3.9.0-1.x86_64.rpm",
-      "sha256": "99e856b1401f92b0001aa41c6c7be8b42752725d3f14902e05b6ba6a3b922bde"
+      "sha256": "99e856b1401f92b0001aa41c6c7be8b42752725d3f14902e05b6ba6a3b922bde",
+      "label": "Fedora (.rpm)",
+      "requires": "Fedora 44 or later"
     },
     {
       "name": "taigikeyboard-3.9.0-1-x86_64.pkg.tar.zst",
       "url": "https://dl.taigikeyboard.tw/beta/3.9.0-1065180-43085890878/taigikeyboard-3.9.0-1-x86_64.pkg.tar.zst",
-      "sha256": "e396b096bf295c5fbdb760f57ac6018e25cf2df361dd4b8a4ea225903c00e09e"
+      "sha256": "e396b096bf295c5fbdb760f57ac6018e25cf2df361dd4b8a4ea225903c00e09e",
+      "label": "Arch",
+      "requires": "current Arch Linux"
     }
   ]
 }
