@@ -1,0 +1,7 @@
+{
+  "version": "3.9.0",
+  "tag": "desktop-3.9.0",
+  "downloadURL": "https://dl.taigikeyboard.tw/desktop/TaigiKeyboard-3.9.0-chromeos.zip",
+  "sha256": "a3f3e6079143d7b8159cee3776b52256d47c36624f09d47212388347dce2439a",
+  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.9.0"
+}

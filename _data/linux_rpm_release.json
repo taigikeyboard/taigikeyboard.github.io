@@ -1,7 +1,7 @@
 {
-  "version": "3.8.0",
-  "tag": "desktop-3.8.0",
-  "downloadURL": "https://dl.taigikeyboard.tw/desktop/taigikeyboard-3.8.0-1.x86_64.rpm",
-  "sha256": "c7a82c17e6ab2c55433c0c2b1c26829659a7b4ceb7718a03d8241dbfdddc217c",
-  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.8.0"
+  "version": "3.9.0",
+  "tag": "desktop-3.9.0",
+  "downloadURL": "https://dl.taigikeyboard.tw/desktop/taigikeyboard-3.9.0-1.x86_64.rpm",
+  "sha256": "f8c7fe0ba653953799f0076d4f0fb35b409b3f3114fa0a8068a0b300243ddb27",
+  "releasePageURL": "https://github.com/taigikeyboard/taigikeyboard/releases/tag/desktop-3.9.0"
 }
