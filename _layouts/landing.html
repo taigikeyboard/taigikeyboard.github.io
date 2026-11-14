@@ -175,8 +175,8 @@ single .deb row stays.
 						Unsigned builds of main, overwritten every night under these fixed
 						names by taigikeyboard's .github/workflows/desktop-nightly.yml
 						(docs/architecture/nightly-builds.md there has the install notes).
-						Fixed URLs, so no site data per night. The train's beta is for
-						internal Discord testing and is not listed here.
+						Fixed URLs, so no site data per night. The train's beta is posted
+						to Discord only and is not listed here.
 						{%- endcomment -%}
 						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS" | split: "," %}
 						{% assign nightly_meta = "Unsigned · rebuilt nightly" %}
