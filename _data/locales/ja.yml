@@ -13,6 +13,7 @@ nav_labels:
   code_signing: コード署名ポリシー
 hero:
   subtitle: 無料・オープンソースで、幅広いOSに対応する台湾語入力ツール
+  try_web: ブラウザで試す
 about:
   title: TaigiKeyboardについて
   paragraphs:
@@ -114,9 +115,6 @@ features:
 - title: オフラインで入力
   description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
 projects:
-  web:
-    name: 台語齒盤 Web版 ベータ
-    note: インストール不要、ブラウザで台湾語を入力
   kautian_mirror:
     name: 教典ミラーサイト
     note: シンプルで高速。教典がつながらないときにご利用ください

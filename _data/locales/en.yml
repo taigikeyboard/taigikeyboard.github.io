@@ -13,6 +13,7 @@ nav_labels:
   code_signing: Code signing policy
 hero:
   subtitle: A free, open-source, cross-platform Taiwanese input method
+  try_web: Try it in your browser
 about:
   title: About TaigiKeyboard
   paragraphs:
@@ -137,9 +138,6 @@ features:
 - title: Offline typing
   description: No network connection or recording; what you type stays on your device.
 projects:
-  web:
-    name: TaigiKeyboard Web Beta
-    note: Type Taiwanese in your browser, nothing to install
   kautian_mirror:
     name: MOE Dictionary Mirror
     note: Simple and fast; use it whenever the MOE dictionary is down

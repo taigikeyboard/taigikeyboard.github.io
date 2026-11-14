@@ -11,7 +11,7 @@
 	var closeButton = panel.querySelector('.sponsor-close');
 	var trigger = document.createElement('button');
 	trigger.type = 'button';
-	trigger.className = 'sponsor-button';
+	trigger.className = 'button';
 	trigger.innerHTML = summary.innerHTML;
 	trigger.setAttribute('aria-haspopup', 'dialog');
 	trigger.setAttribute('aria-controls', 'sponsor-dialog');

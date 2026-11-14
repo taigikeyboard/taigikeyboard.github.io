@@ -122,6 +122,12 @@ single .deb row stays.
 			-->
 			<h1>{{ translation.app_name }}</h1>
 			<p class="hero-subtitle">{{ translation.hero.subtitle }}</p>
+			<a class="button" href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer">{{ translation.hero.try_web }}</a>
+			{%- comment -%}Rendered from tools/og-cover.html#hero at 2x; see the note in that file.{%- endcomment -%}
+			<picture class="hero-cover">
+				<source srcset="{{ '/assets/hero-cover.webp' | relative_url }}" type="image/webp">
+				<img src="{{ '/assets/hero-cover.png' | relative_url }}" alt="" width="2400" height="800">
+			</picture>
 
 			<div id="download" class="download-center">
 				<div class="download-group">
@@ -341,7 +347,7 @@ single .deb row stays.
 				{% endfor %}
 			</div>
 			<details class="sponsor-chooser">
-				<summary class="sponsor-button">{{ translation.sponsor.action }}</summary>
+				<summary class="button">{{ translation.sponsor.action }}</summary>
 				<div class="sponsor-panel">
 					<div class="sponsor-panel-header">
 						<h3 id="sponsor-dialog-title">{{ translation.sponsor.choose_method }}</h3>

@@ -13,6 +13,7 @@ nav_labels:
   code_signing: 程式碼簽章政策
 hero:
   subtitle: 免費、開源、跨裝置 ê 台灣話拍字家私
+  try_web: 免安裝，線頂試用
 about:
   title: 關於台語齒盤
   paragraphs:
@@ -114,9 +115,6 @@ features:
 - title: 無連網路，安心拍字
   description: 台語齒盤無連網路、無錄音，拍 ê 內容嘛袂送出去，資料攏佇手機仔內底。
 projects:
-  web:
-    name: 台語齒盤線頂 Beta 版
-    note: 免安裝，用瀏覽器就會當拍台語
   kautian_mirror:
     name: 教典備援網站
     note: 設計簡單、速度緊，若教典又閣 siooh-tooh 會當來遮使用

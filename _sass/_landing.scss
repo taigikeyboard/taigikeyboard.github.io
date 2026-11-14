@@ -92,9 +92,17 @@ body {
 .hero-subtitle {
 	font-size: 2.6rem;
 	color: var(--color-text-secondary);
-	margin-bottom: 5.6rem;
+	margin-bottom: 3.2rem;
 	font-weight: 400;
 	line-height: 1.45;
+}
+
+.hero-cover img {
+	display: block;
+	width: 100%;
+	max-width: 100rem;
+	height: auto;
+	margin: 4.8rem auto 5.6rem;
 }
 
 // Download center: a centred column, one group per device class with its
@@ -798,8 +806,9 @@ section {
 	text-align: left;
 }
 
-.sponsor-button {
+.button {
 	display: inline-block;
+	text-decoration: none;
 	padding: 1.4rem 2.8rem;
 	border: 0;
 	font: inherit;
@@ -813,15 +822,15 @@ section {
 	cursor: pointer;
 }
 
-.sponsor-button::-webkit-details-marker {
+.button::-webkit-details-marker {
 	display: none;
 }
 
-.sponsor-button:hover {
+.button:hover {
 	background-color: #424245;
 }
 
-.sponsor-button:focus-visible,
+.button:focus-visible,
 .sponsor-close:focus-visible,
 .sponsor-method:focus-visible,
 a.download-row:focus-visible {
@@ -1188,7 +1197,11 @@ footer {
 
 	.hero-subtitle {
 		font-size: 1.8rem;
-		margin-bottom: 3.2rem;
+		margin-bottom: 2.4rem;
+	}
+
+	.hero-cover img {
+		margin: 3.2rem auto;
 	}
 
 	.phone-preview {

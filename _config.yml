@@ -17,6 +17,8 @@ ios_app_country: TW
 appstore_link: https://apps.apple.com/app/id6751871806
 playstore_link: https://play.google.com/store/apps/details?id=com.siansiansu.taigikeyboard
 chromeos_link: https://chromewebstore.google.com/detail/alkppnijpfcahccbkcgpacejljlnidgc?utm_source=item-share-cb
+# Browser version, offered in the hero as the no-install trial.
+web_link: https://taigikeyboard.tw/web/
 
 enable_smart_app_banner: true
 enable_features: false
@@ -74,8 +76,6 @@ sponsor_payment_methods:
 # Side projects built on TaigiKeyboard; names and notes live in
 # _data/locales/*.yml under projects, keyed by id.
 side_projects:
-  - id: web
-    link: https://taigikeyboard.tw/web/
   - id: kautian_mirror
     link: https://taigikeyboard.tw/kautian-mirror/
   - id: kautian_search
