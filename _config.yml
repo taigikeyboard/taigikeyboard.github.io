@@ -23,6 +23,14 @@ web_link: https://taigikeyboard.tw/web/
 enable_smart_app_banner: true
 enable_features: false
 
+# Screenshots for the feature highlights below the hero, paired by position
+# with `features` in _data/locales/*.yml; a feature without one is not shown.
+feature_highlights:
+  - feature-4.png
+  - feature-1.png
+  - feature-2.png
+  - feature-3.png
+
 # macOS is distributed from a GitHub release rather than a store, and the
 # release flow fills _data/macos_release.json as soon as any package is
 # published. Keep this false until the macOS launch is meant to be public: it

@@ -127,6 +127,27 @@ single .deb row stays.
 
 		<hr class="section-divider">
 
+		<section id="highlights" class="highlights">
+			{%- comment -%}
+			One row per entry of site.feature_highlights, pairing a screenshot with
+			the locale feature at the same position; sides alternate row by row.
+			{%- endcomment -%}
+			{% for image in site.feature_highlights %}
+			{% assign feature = translation.features[forloop.index0] %}
+			<div class="highlight">
+				<div class="highlight-text">
+					<h2>{{ feature.title }}</h2>
+					<p>{{ feature.description }}</p>
+				</div>
+				<div class="highlight-visual">
+					<img src="{{ '/assets/' | append: image | relative_url }}" alt="" width="866" height="1792" loading="lazy" decoding="async">
+				</div>
+			</div>
+			{% endfor %}
+		</section>
+
+		<hr class="section-divider">
+
 		<section id="download">
 			<h2 class="section-title">{{ translation.nav_labels.download }}</h2>
 			<div class="download-center">
