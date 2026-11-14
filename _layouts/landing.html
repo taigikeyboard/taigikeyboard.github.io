@@ -163,7 +163,8 @@ single .deb row stays.
 						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta=meta %}
 						{% endif %}
 						{% if site.chromeos_link %}
-						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta='Chrome Web Store' external=true %}
+						{% assign meta = site.data.chromeos_release.version | append: ' · ChromeOS 116+' %}
+						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta=meta external=true %}
 						{% endif %}
 					</ul>
 				</div>
