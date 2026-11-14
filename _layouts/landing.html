@@ -169,26 +169,21 @@ single .deb row stays.
 				</div>
 
 				<div class="download-group">
-					<h3 class="download-group-title">Beta</h3>
+					<h3 class="download-group-title">{{ translation.ui.nightly }}</h3>
 					<ul class="download-list">
 						{%- comment -%}
-						Every installer in _data/beta_release.json, shown even when a
-						published release carries the same version. Icons and names follow
-						the asset label written by taigikeyboard's release script, with
-						names matching the desktop group above.
+						Unsigned builds of main, overwritten every night under these fixed
+						names by taigikeyboard's .github/workflows/desktop-nightly.yml
+						(docs/architecture/nightly-builds.md there has the install notes).
+						Fixed URLs, so no site data per night. The train's beta is posted
+						to Discord only and is not listed here.
 						{%- endcomment -%}
-						{% for asset in site.data.beta_release.assets %}
-						{% assign name = asset.label %}
-						{% case asset.label %}
-						{% when 'macOS' %}{% assign icon = 'apple-logo.svg' %}
-						{% when 'Windows' %}{% assign icon = 'windows-logo.svg' %}
-						{% when 'Linux (.deb)' %}{% assign icon = 'ubuntu-logo.svg' %}{% assign name = 'Ubuntu / Debian' %}
-						{% when 'Fedora (.rpm)' %}{% assign icon = 'fedora-logo.svg' %}{% assign name = 'Fedora' %}
-						{% when 'Arch' %}{% assign icon = 'archlinux-logo.svg' %}{% assign name = 'Arch Linux' %}
-						{% when 'ChromeOS' %}{% assign icon = 'chrome-logo.svg' %}
-						{% else %}{% assign icon = 'linux-logo.svg' %}
-						{% endcase %}
-						{% include download-row.html href=asset.url icon=icon name=name meta=site.data.beta_release.version %}
+						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|Windows 10+,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+" | split: "," %}
+						{% for row in nightly_rows %}
+						{% assign cells = row | split: "|" %}
+						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
+						{% assign icon = cells[1] %}{% assign name = cells[2] %}{% assign meta = cells[3] %}
+						{% include download-row.html href=href icon=icon name=name meta=meta %}
 						{% endfor %}
 					</ul>
 				</div>
@@ -198,7 +193,7 @@ single .deb row stays.
 					<ul class="download-list">
 						{% for project in site.side_projects %}
 						{% assign item = translation.projects[project.id] %}
-						{% include download-row.html href=project.link name=item.name meta=item.note external=true %}
+						{% include download-row.html href=project.link icon=project.icon name=item.name meta=item.note external=true %}
 						{% endfor %}
 					</ul>
 				</div>
