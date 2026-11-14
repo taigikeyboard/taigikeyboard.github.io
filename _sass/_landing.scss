@@ -139,7 +139,7 @@ body {
 	align-items: center;
 	min-height: 5.4rem;
 	padding: 1rem 1.2rem;
-	border-radius: 10px;
+	border-radius: 8px;
 	line-height: 1.5;
 	color: var(--color-text-primary);
 	text-decoration: none;
@@ -147,7 +147,7 @@ body {
 }
 
 .download-row:hover {
-	background: var(--color-surface);
+	background: #f5f5f7;
 }
 
 // Name and meta sit in their own grid columns; the wrapper only groups
@@ -219,7 +219,7 @@ body {
 }
 
 section {
-	padding: 8rem 2rem;
+	padding: 12rem 2rem;
 	max-width: calc(var(--content-width) + 4rem);
 	margin: 0 auto;
 }
@@ -462,7 +462,7 @@ section {
 	display: inline-block;
 	padding: 1rem 2.4rem;
 	border: 1px solid var(--color-border);
-	border-radius: 999px;
+	border-radius: 8px;
 	font-size: 1.6rem;
 	color: var(--color-text-secondary);
 	cursor: pointer;
@@ -470,8 +470,7 @@ section {
 
 .install-tab-input:checked + .install-tab {
 	border-color: var(--color-primary);
-	background-color: var(--color-primary);
-	color: #ffffff;
+	color: var(--color-text-primary);
 }
 
 .install-tab-input:focus-visible + .install-tab {
@@ -880,7 +879,7 @@ section {
 	padding: 2.4rem;
 	background: var(--color-bg);
 	border: 1px solid var(--color-border);
-	border-radius: 20px;
+	border-radius: 16px;
 	text-align: left;
 }
 
@@ -967,7 +966,7 @@ section {
 	max-height: calc(100dvh - 4rem);
 	padding: 0;
 	border: 0;
-	border-radius: 20px;
+	border-radius: 16px;
 	background: var(--color-bg);
 	color: var(--color-text-primary);
 	font: inherit;
@@ -990,7 +989,7 @@ section {
 		margin: 0;
 		width: 100%;
 		max-height: calc(100dvh - 2rem);
-		border-radius: 20px 20px 0 0;
+		border-radius: 16px 16px 0 0;
 	}
 
 	.sponsor-dialog .sponsor-panel {
@@ -1029,7 +1028,6 @@ footer {
 	font-size: 1.4rem;
 	line-height: 1.5;
 	overflow-wrap: anywhere;
-	transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -1061,7 +1059,6 @@ footer {
 	background-color: rgba(0, 0, 0, 0.06);
 	color: var(--color-text-secondary);
 	text-decoration: none;
-	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .social-links svg {
@@ -1084,7 +1081,6 @@ footer {
 .footer-author a {
 	color: var(--color-text-primary);
 	text-decoration: none;
-	transition: color 0.2s;
 }
 
 .footer-author a:hover {
@@ -1138,7 +1134,7 @@ footer {
 
 @media (max-width: 768px) {
 	section {
-		padding: 6rem 2rem;
+		padding: 8rem 2rem;
 	}
 
 	.section-title {
