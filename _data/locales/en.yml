@@ -3,6 +3,7 @@ app_name: TaigiKeyboard
 app_description: A Taiwanese input method
 nav_labels:
   about: About
+  download: Download
   features: Features
   how_to_type: Typing guide
   install: Installation
@@ -13,6 +14,7 @@ nav_labels:
   code_signing: Code signing policy
 hero:
   subtitle: A free, open-source, cross-platform Taiwanese input method
+  try_web: Try it in your browser
 about:
   title: About TaigiKeyboard
   paragraphs:
@@ -137,9 +139,6 @@ features:
 - title: Offline typing
   description: No network connection or recording; what you type stays on your device.
 projects:
-  web:
-    name: TaigiKeyboard Web Beta
-    note: Type Taiwanese in your browser, nothing to install
   kautian_mirror:
     name: MOE Dictionary Mirror
     note: Simple and fast; use it whenever the MOE dictionary is down
@@ -151,10 +150,7 @@ projects:
     note: Convert between TL, POJ, TPS, braille and tone numbers instantly
 ui:
   navigation_menu: Navigation menu
-  download_on: Download on
-  download: Download
-  macos_requirement: Requires macOS 14 (Sonoma) or later
-  windows_requirement: Requires Windows 10 or later
+  mobile_tablet: Phone & tablet
   choose_device: Choose your device
   choose_system: Choose your operating system
   desktop: Desktop

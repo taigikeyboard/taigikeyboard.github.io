@@ -10,6 +10,12 @@
 	--color-text-secondary: #6b6b70;
 	--color-border: rgba(0, 0, 0, 0.08);
 	--font-size-body: 2.1rem;
+	// Shared by the navbar, every section and the footer; excludes the 2rem
+	// side gutters.
+	--content-width: 106rem;
+	// Reading measure for prose inside the wider content column.
+	--prose-width: 76rem;
+	--navbar-height: 7rem;
 }
 
 * {
@@ -34,17 +40,21 @@ body {
 }
 
 
+// The hero alone fills the first screen below the sticky navbar
+// (--navbar-height tracks its one-row and two-row layouts).
 .hero {
-	padding: 6rem 2rem 8rem;
-	background: #ffffff;
-	min-height: 85vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	min-height: calc(100svh - var(--navbar-height));
+	padding: 6rem 2rem 10rem;
+	text-align: center;
 }
 
 .policy-content {
 	padding: 4rem 2rem;
-	max-width: 1400px;
+	max-width: calc(var(--content-width) + 4rem);
 	margin: 0 auto;
 	overflow-wrap: anywhere;
 }
@@ -53,8 +63,8 @@ body {
 	white-space: pre-wrap;
 }
 
-:is(.policy-content, .about-content, .install-steps, .install-signing-note,
-	.feature-content, .feature-card-content, .issues-section) a[href]:not(.social-links a) {
+:is(.policy-content, .prose, .install-steps, .install-signing-note,
+	.feature-card-content, .issues-section) a[href]:not(.social-links a) {
 	color: var(--color-secondary);
 	font-weight: 500;
 	text-decoration: none;
@@ -71,20 +81,6 @@ body {
 	}
 }
 
-.hero-container {
-	max-width: 900px;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-}
-
-.hero-text {
-	text-align: center;
-	padding: 2rem 0;
-}
-
 .hero-logo {
 	width: 68px;
 	height: 68px;
@@ -96,7 +92,7 @@ body {
 	font-size: 5.6rem;
 	font-weight: 500;
 	line-height: 1.2;
-	margin-bottom: 2.4rem;
+	margin-bottom: 3.6rem;
 	color: var(--color-text-primary);
 	letter-spacing: -0.015em;
 }
@@ -104,84 +100,84 @@ body {
 .hero-subtitle {
 	font-size: 2.6rem;
 	color: var(--color-text-secondary);
-	margin-bottom: 3.5rem;
+	margin-bottom: 8rem;
 	font-weight: 400;
 	line-height: 1.45;
 }
 
-.download-buttons {
-	display: grid;
-	// Six buttons (iPhone, iPad, Google Play, macOS, Windows, Linux) as two
-	// rows of three; narrower screens fall back to 3x2, then one per row.
-	grid-template-columns: repeat(3, 200px);
-	gap: 1.25rem;
-	align-items: center;
-	justify-content: center;
-}
-
-// Eight buttons (Linux split into Ubuntu / Debian, Fedora, Arch) as two rows
-// of four; below 992px two per row (the breakpoints below follow this rule).
-.download-buttons--four {
-	grid-template-columns: repeat(4, 200px);
-}
-
-.download-note {
-	margin-top: 1.2rem;
-	font-size: 1.4rem;
-	color: var(--color-text-secondary);
-	text-align: center;
-}
-
-// One note per desktop platform: they read as one block, not two.
-.download-note + .download-note {
-	margin-top: 0.3rem;
-}
-
-.download-btn {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	width: 200px;
-	height: 60px;
-	padding: 0.15rem 0.5rem;
-	background: #ffffff;
-	color: #444444;
-	text-decoration: none;
-	border: 1px solid #444444;
-	border-radius: 10px;
-	box-sizing: border-box;
-}
-
-.download-btn:hover {
-	background-color: var(--color-surface);
-	border-color: var(--color-primary);
-}
-
-.download-btn-icon {
-	width: 24px;
-	height: 24px;
-	flex-shrink: 0;
-	opacity: 0.85;
-}
-
-.download-btn-text {
-	display: flex;
-	white-space: nowrap;
-	flex-direction: column;
+// Download center: a centred column, one group per device class with its
+// title above its rows.
+.download-center {
+	max-width: var(--prose-width);
+	margin: 0 auto;
 	text-align: left;
-	line-height: 1.1;
 }
 
-.download-btn-label {
-	font-size: 1.1rem;
-	font-weight: 400;
-	letter-spacing: 0.03em;
-	text-transform: uppercase;
+.download-group {
+	padding: 4rem 0;
+	border-top: 1px solid var(--color-border);
 }
 
-.download-btn-name {
-	font-size: 1.5rem;
+.download-group-title {
+	padding: 0 0 1.6rem;
+	text-align: center;
+	font-size: 1.7rem;
 	font-weight: 600;
+	line-height: 1.5;
+}
+
+.download-list {
+	list-style: none;
+}
+
+// The icon column stays reserved in rows without an icon, so names line up
+// across every group.
+.download-row {
+	display: grid;
+	grid-template-columns: 2.4rem minmax(0, 26rem) minmax(0, 1fr) 2rem;
+	column-gap: 1.6rem;
+	align-items: center;
+	min-height: 5.4rem;
+	padding: 1rem 1.2rem;
+	border-radius: 8px;
+	line-height: 1.5;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+.download-row:hover {
+	background: #f5f5f7;
+}
+
+// Name and meta sit in their own grid columns; the wrapper only groups
+// them for the stacked narrow layout.
+.download-row-text {
+	display: contents;
+}
+
+.download-row-icon {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.download-row-name {
+	grid-column: 2;
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+.download-row-meta {
+	grid-column: 3;
+	font-size: 1.5rem;
+	color: var(--color-text-secondary);
+}
+
+.download-row-arrow {
+	grid-column: 4;
+	font-size: 1.8rem;
+	text-align: right;
+	color: var(--color-text-secondary);
 }
 
 .phone-preview {
@@ -223,17 +219,9 @@ body {
 }
 
 section {
-	padding: 8rem 2rem;
-	max-width: 1400px;
+	padding: 12rem 2rem;
+	max-width: calc(var(--content-width) + 4rem);
 	margin: 0 auto;
-}
-
-.section-divider {
-	max-width: 800px;
-	margin: 0 auto;
-	border: none;
-	height: 1px;
-	background: linear-gradient(to right, transparent, var(--color-border), transparent);
 }
 
 .section-title {
@@ -241,29 +229,24 @@ section {
 	font-weight: 500;
 	text-align: center;
 	color: var(--color-text-primary);
-	margin-bottom: 6rem;
+	margin-bottom: 4rem;
 	letter-spacing: -0.01em;
 	line-height: 1.2;
 }
 
-.about-section {
-	padding: 8rem 2rem;
-	max-width: 900px;
+.prose {
+	max-width: var(--prose-width);
 	margin: 0 auto;
 }
 
-.about-content {
-	text-align: left;
-}
-
-.about-content p {
+.prose p {
 	font-size: var(--font-size-body);
 	color: var(--color-text-secondary);
 	line-height: 1.8;
 	margin-bottom: 2rem;
 }
 
-.about-content p:last-child {
+.prose p:last-child {
 	margin-bottom: 0;
 }
 
@@ -391,47 +374,6 @@ section {
 	margin-bottom: 0;
 }
 
-.feature-section {
-	padding: 12rem 2rem;
-}
-
-.feature-item {
-	margin-bottom: 16rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-}
-
-.feature-item:last-child {
-	margin-bottom: 0;
-}
-
-.feature-content {
-	max-width: 900px;
-	margin-bottom: 5rem;
-}
-
-.feature-item h2 {
-	font-size: 4.8rem;
-	font-weight: 500;
-	line-height: 1.1;
-	margin-bottom: 2rem;
-	color: var(--color-text-primary);
-	letter-spacing: -0.01em;
-}
-
-.feature-item p {
-	font-size: var(--font-size-body);
-	color: var(--color-text-secondary);
-	line-height: 1.6;
-	margin-bottom: 2rem;
-}
-
-.feature-item p:last-child {
-	margin-bottom: 0;
-}
-
 .feature-image {
 	max-width: 1100px;
 	width: 100%;
@@ -445,17 +387,13 @@ section {
 	display: block;
 }
 
-.feature-item:nth-child(even) {
-	background-color: #f5f5f7;
-}
-
 .section-note {
-	text-align: center;
 	color: var(--color-text-secondary);
 	font-size: var(--font-size-body);
-	margin: 2rem auto 4rem;
-	max-width: 700px;
+	margin: 0 auto 3.2rem;
+	max-width: var(--prose-width);
 	line-height: 1.6;
+	text-align: center;
 }
 
 .keyboard-layout-image {
@@ -469,14 +407,10 @@ section {
 	display: block;
 }
 
-.install-section {
-	padding: 8rem 2rem;
-	max-width: 900px;
+// The step viewer keeps the width it had in the former 900px section.
+.install-panels {
+	max-width: 86rem;
 	margin: 0 auto;
-}
-
-.install-section .section-title {
-	margin-bottom: 4rem;
 }
 
 // Keeps the pre-rename #how-to-use links landing below the sticky navbar.
@@ -515,24 +449,31 @@ section {
 	pointer-events: none;
 }
 
+// Flat filled controls, shared look with .button: soft grey at rest, the
+// accent colour for the chosen tab.
 .install-tab {
 	display: inline-block;
-	padding: 1rem 2.4rem;
-	border: 1px solid var(--color-border);
-	border-radius: 999px;
-	font-size: 1.6rem;
-	color: var(--color-text-secondary);
+	padding: 0.8rem 1.8rem;
+	border-radius: 8px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: #424245;
+	background-color: #f5f5f7;
 	cursor: pointer;
 }
 
+.install-tab:hover {
+	background-color: #ececf0;
+}
+
 .install-tab-input:checked + .install-tab {
-	border-color: var(--color-primary);
-	background-color: var(--color-primary);
+	background-color: var(--color-secondary);
 	color: #ffffff;
 }
 
 .install-tab-input:focus-visible + .install-tab {
-	outline: 2px solid var(--color-primary);
+	outline: 2px solid var(--color-secondary);
 	outline-offset: 2px;
 }
 
@@ -852,51 +793,93 @@ section {
 	text-align: left;
 }
 
-.sponsor-button {
+.button {
 	display: inline-block;
-	padding: 1.4rem 2.8rem;
+	padding: 1rem 2.4rem;
 	border: 0;
 	font: inherit;
-	font-size: 1.8rem;
-	font-weight: 500;
+	font-size: 1.7rem;
+	font-weight: 600;
 	line-height: 1.5;
 	color: #ffffff;
-	background-color: var(--color-primary);
-	border-radius: 12px;
+	background-color: var(--color-secondary);
+	border-radius: 8px;
 	list-style: none;
 	cursor: pointer;
 }
 
-.sponsor-button::-webkit-details-marker {
+// The hero's only action: a plain text link, its arrow marking that it
+// leaves the page.
+.hero-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	min-height: 44px;
+	font-size: 2.2rem;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--color-secondary);
+	text-decoration: none;
+	text-underline-offset: 0.2em;
+}
+
+.hero-action:hover {
+	text-decoration: underline;
+}
+
+.hero-action svg {
+	width: 0.9em;
+	height: 0.9em;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2.2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.button::-webkit-details-marker {
 	display: none;
 }
 
-.sponsor-button:hover {
-	background-color: #424245;
+.button:hover {
+	background-color: #0077ed;
 }
 
-.sponsor-button:focus-visible,
+.button:focus-visible,
+.hero-action:focus-visible,
 .sponsor-close:focus-visible,
 .sponsor-method:focus-visible,
-.project-link:focus-visible {
+.download-row:focus-visible {
 	outline: 2px solid var(--color-secondary);
 	outline-offset: 4px;
 }
 
+// Margin sits on the prose: the script swaps the chooser for a plain button.
+.sponsor-section .prose {
+	margin-bottom: 3.2rem;
+}
+
 .sponsor-chooser {
 	width: min(100%, 44rem);
+	margin: 0 auto;
+}
+
+// Centred under the left-aligned prose, as a <summary> or as the script's button.
+.sponsor-section .button {
+	display: block;
+	width: fit-content;
+	margin: 0 auto;
 }
 
 .sponsor-chooser[open] .sponsor-panel {
 	margin-top: 2.4rem;
 }
 
-.sponsor-panel,
-.project-list {
+.sponsor-panel {
 	padding: 2.4rem;
 	background: var(--color-bg);
 	border: 1px solid var(--color-border);
-	border-radius: 20px;
+	border-radius: 16px;
 	text-align: left;
 }
 
@@ -929,8 +912,7 @@ section {
 	cursor: pointer;
 }
 
-.sponsor-method,
-.project-link {
+.sponsor-method {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -940,40 +922,33 @@ section {
 	text-decoration: none;
 }
 
-.sponsor-method + .sponsor-method,
-.project-link + .project-link {
+.sponsor-method + .sponsor-method {
 	border-top: 1px solid var(--color-border);
 }
 
-.sponsor-method:hover,
-.project-link:hover {
+.sponsor-method:hover {
 	background: var(--color-surface);
 }
 
 .sponsor-provider,
-.sponsor-note,
-.project-name,
-.project-note {
+.sponsor-note {
 	display: block;
 	overflow-wrap: anywhere;
 }
 
-.sponsor-provider,
-.project-name {
+.sponsor-provider {
 	font-size: 1.8rem;
 	font-weight: 500;
 }
 
-.sponsor-note,
-.project-note {
+.sponsor-note {
 	margin-top: 0.4rem;
 	font-size: 1.4rem;
 	line-height: 1.5;
 	color: var(--color-text-secondary);
 }
 
-.sponsor-arrow,
-.project-arrow {
+.sponsor-arrow {
 	font-size: 2rem;
 	color: var(--color-text-secondary);
 }
@@ -991,7 +966,7 @@ section {
 	max-height: calc(100dvh - 4rem);
 	padding: 0;
 	border: 0;
-	border-radius: 20px;
+	border-radius: 16px;
 	background: var(--color-bg);
 	color: var(--color-text-primary);
 	font: inherit;
@@ -1014,7 +989,7 @@ section {
 		margin: 0;
 		width: 100%;
 		max-height: calc(100dvh - 2rem);
-		border-radius: 20px 20px 0 0;
+		border-radius: 16px 16px 0 0;
 	}
 
 	.sponsor-dialog .sponsor-panel {
@@ -1030,7 +1005,7 @@ footer {
 }
 
 .footer-content {
-	max-width: 980px;
+	max-width: var(--content-width);
 	margin: 0 auto;
 }
 
@@ -1053,7 +1028,6 @@ footer {
 	font-size: 1.4rem;
 	line-height: 1.5;
 	overflow-wrap: anywhere;
-	transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -1085,7 +1059,6 @@ footer {
 	background-color: rgba(0, 0, 0, 0.06);
 	color: var(--color-text-secondary);
 	text-decoration: none;
-	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .social-links svg {
@@ -1108,7 +1081,6 @@ footer {
 .footer-author a {
 	color: var(--color-text-primary);
 	text-decoration: none;
-	transition: color 0.2s;
 }
 
 .footer-author a:hover {
@@ -1121,22 +1093,9 @@ footer {
 }
 
 @media (max-width: 992px) {
-	.download-buttons--four {
-		grid-template-columns: repeat(2, 200px);
-	}
-
 	.features-grid {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
-	}
-
-	.hero {
-		min-height: auto;
-		padding: 4rem 2rem 6rem;
-	}
-
-	.hero-text {
-		text-align: center;
 	}
 
 	.phone-preview {
@@ -1174,18 +1133,29 @@ footer {
 }
 
 @media (max-width: 768px) {
-	// Three columns need 625px; two fit every width down to 480px.
-	.download-buttons {
-		grid-template-columns: repeat(2, 200px);
-	}
-
-	.section-divider {
-		max-width: 600px;
+	section {
+		padding: 8rem 2rem;
 	}
 
 	.section-title {
 		font-size: 3.6rem;
-		margin-bottom: 4rem;
+		margin-bottom: 3.2rem;
+	}
+
+	// Name over meta, with the icon and arrow centred beside the pair; a row
+	// without an icon starts at the left edge.
+	.download-row {
+		display: flex;
+		gap: 1.6rem;
+		padding: 1rem 0;
+		border-radius: 0;
+	}
+
+	.download-row-text {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-width: 0;
 	}
 
 	.section-note {
@@ -1195,14 +1165,6 @@ footer {
 	.features-grid {
 		grid-template-columns: 1fr;
 		gap: 2.5rem;
-	}
-
-	.install-section {
-		padding: 6rem 1.6rem;
-	}
-
-	.install-section .section-title {
-		margin-bottom: 3.2rem;
 	}
 
 	.install-tablist {
@@ -1232,12 +1194,13 @@ footer {
 		font-size: 1.6rem;
 	}
 
-	.hero {
-		padding: 3rem 2rem 4rem;
+	.download-group {
+		padding: 2.4rem 0;
 	}
 
 	.hero h1 {
 		font-size: 2.8rem;
+		margin-bottom: 2.8rem;
 	}
 
 	.hero-logo {
@@ -1247,6 +1210,7 @@ footer {
 
 	.hero-subtitle {
 		font-size: 1.8rem;
+		margin-bottom: 5.6rem;
 	}
 
 	.phone-preview {
@@ -1263,22 +1227,6 @@ footer {
 		left: 19px;
 		width: 221px;
 		height: 479px;
-	}
-
-	.feature-section {
-		padding: 8rem 2rem;
-	}
-
-	.feature-item {
-		margin-bottom: 10rem;
-	}
-
-	.feature-item h2 {
-		font-size: 3.2rem;
-	}
-
-	.feature-item p {
-		font-size: 1.8rem;
 	}
 
 	.footer-links {
@@ -1299,13 +1247,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-	// Two columns need 412.5px, so they survive every width down to here;
-	// below it the buttons stack one per row.
-	.download-buttons {
-		grid-template-columns: min(200px, 100%);
-		justify-content: center;
-	}
-
 	.hero h1 {
 		font-size: 2.4rem;
 	}
@@ -1319,14 +1260,6 @@ footer {
 		font-size: 1.6rem;
 	}
 
-	.feature-item h2 {
-		font-size: 2.8rem;
-	}
-
-	.feature-item p {
-		font-size: 1.6rem;
-	}
-
 	.section-note {
 		font-size: 1.6rem;
 	}
@@ -1334,18 +1267,4 @@ footer {
 
 footer .social-links {
 	margin-bottom: 2rem;
-}
-
-.projects-section,
-.issues-section {
-	padding: 8rem 2rem;
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-	.projects-section,
-	.issues-section {
-		padding: 6rem 2rem;
-	}
 }

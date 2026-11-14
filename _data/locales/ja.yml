@@ -3,6 +3,7 @@ app_name: TaigiKeyboard 台語齒盤
 app_description: 台湾語入力メソッド
 nav_labels:
   about: 台語齒盤について
+  download: ダウンロード
   features: 機能
   how_to_type: 入力ガイド
   install: インストール
@@ -13,6 +14,7 @@ nav_labels:
   code_signing: コード署名ポリシー
 hero:
   subtitle: 無料・オープンソースで、幅広いOSに対応する台湾語入力ツール
+  try_web: ブラウザで試す
 about:
   title: TaigiKeyboardについて
   paragraphs:
@@ -114,9 +116,6 @@ features:
 - title: オフラインで入力
   description: ネット接続や録音は不要です。入力内容は端末内に保存されます。
 projects:
-  web:
-    name: 台語齒盤 Web版 ベータ
-    note: インストール不要、ブラウザで台湾語を入力
   kautian_mirror:
     name: 教典ミラーサイト
     note: シンプルで高速。教典がつながらないときにご利用ください
@@ -128,10 +127,7 @@ projects:
     note: 台湾ローマ字・白話字・方音符号・点字・声調数字を即時変換
 ui:
   navigation_menu: ナビゲーションメニュー
-  download_on: ダウンロード
-  download: ダウンロード
-  macos_requirement: macOS 14（Sonoma）以降が必要です
-  windows_requirement: Windows 10以降が必要です
+  mobile_tablet: スマホ・タブレット
   choose_device: 端末を選択
   choose_system: OSを選択
   desktop: パソコン
