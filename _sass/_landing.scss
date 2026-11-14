@@ -10,8 +10,8 @@
 	--color-text-secondary: #6b6b70;
 	--color-border: rgba(0, 0, 0, 0.08);
 	--font-size-body: 2.1rem;
-	// Shared by the navbar, every section and the footer so left edges align;
-	// excludes the 2rem side gutters.
+	// Shared by the navbar, every section and the footer; excludes the 2rem
+	// side gutters.
 	--content-width: 106rem;
 	// Reading measure for prose inside the wider content column.
 	--prose-width: 76rem;
@@ -41,6 +41,7 @@ body {
 
 .hero {
 	padding: 7rem 2rem 8rem;
+	text-align: center;
 }
 
 .policy-content {
@@ -96,18 +97,22 @@ body {
 	line-height: 1.45;
 }
 
-// Download center: one group per device class, its title in the left column
-// and its rows on the right; below 992px the title stacks above the rows.
+// Download center: a centred column, one group per device class with its
+// title above its rows.
+.download-center {
+	max-width: var(--prose-width);
+	margin: 0 auto;
+	text-align: left;
+}
+
 .download-group {
-	display: grid;
-	grid-template-columns: 20rem minmax(0, 1fr);
-	column-gap: 4rem;
 	padding: 2rem 0;
 	border-top: 1px solid var(--color-border);
 }
 
 .download-group-title {
-	padding: 1.4rem 0;
+	padding: 0.8rem 0;
+	text-align: center;
 	font-size: 1.7rem;
 	font-weight: 600;
 	line-height: 1.5;
@@ -152,6 +157,12 @@ a.download-row:hover {
 	grid-column: 2;
 	font-size: 1.8rem;
 	font-weight: 500;
+}
+
+// The placeholder row has no columns to fill, so it sits under the centred title.
+div.download-row {
+	display: block;
+	text-align: center;
 }
 
 div.download-row .download-row-name {
@@ -228,6 +239,7 @@ section {
 .section-title {
 	font-size: 4.8rem;
 	font-weight: 500;
+	text-align: center;
 	color: var(--color-text-primary);
 	margin-bottom: 4rem;
 	letter-spacing: -0.01em;
@@ -236,6 +248,7 @@ section {
 
 .prose {
 	max-width: var(--prose-width);
+	margin: 0 auto;
 }
 
 .prose p {
@@ -389,9 +402,10 @@ section {
 .section-note {
 	color: var(--color-text-secondary);
 	font-size: var(--font-size-body);
-	margin-bottom: 3.2rem;
+	margin: 0 auto 3.2rem;
 	max-width: var(--prose-width);
 	line-height: 1.6;
+	text-align: center;
 }
 
 .keyboard-layout-image {
@@ -408,6 +422,7 @@ section {
 // The step viewer keeps the width it had in the former 900px section.
 .install-panels {
 	max-width: 86rem;
+	margin: 0 auto;
 }
 
 // Keeps the pre-rename #how-to-use links landing below the sticky navbar.
@@ -433,6 +448,7 @@ section {
 .install-tablist {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 1rem;
 	margin: 0 0 4rem;
 	padding: 0;
@@ -761,6 +777,7 @@ section {
 	font-size: 1.5rem;
 	line-height: 1.7;
 	opacity: 0.75;
+	text-align: center;
 }
 
 .install-step .step-number {
@@ -812,6 +829,10 @@ a.download-row:focus-visible {
 	outline-offset: 4px;
 }
 
+.sponsor-section {
+	text-align: center;
+}
+
 // Margin sits on the prose: the script swaps the chooser for a plain button.
 .sponsor-section .prose {
 	margin-bottom: 3.2rem;
@@ -819,6 +840,7 @@ a.download-row:focus-visible {
 
 .sponsor-chooser {
 	width: min(100%, 44rem);
+	margin: 0 auto;
 }
 
 .sponsor-chooser[open] .sponsor-panel {
@@ -951,6 +973,7 @@ footer {
 	background: #f5f5f7;
 	border-top: 1px solid var(--color-border);
 	padding: 4rem 2rem;
+	text-align: center;
 }
 
 .footer-content {
@@ -960,6 +983,7 @@ footer {
 
 .footer-links {
 	display: flex;
+	justify-content: center;
 	gap: 0.4rem 2.4rem;
 	margin-bottom: 2rem;
 	flex-wrap: wrap;
@@ -968,6 +992,7 @@ footer {
 .footer-links a {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	min-height: 44px;
 	min-width: 0;
 	color: #424245;
@@ -992,6 +1017,7 @@ footer {
 
 .social-links {
 	display: flex;
+	justify-content: center;
 	gap: 1.5rem;
 	flex-wrap: wrap;
 }
@@ -1042,16 +1068,6 @@ footer {
 }
 
 @media (max-width: 992px) {
-	// Title above its rows: beside them the meta column gets too narrow.
-	.download-group {
-		grid-template-columns: minmax(0, 1fr);
-		padding: 1.6rem 0;
-	}
-
-	.download-group-title {
-		padding: 0.8rem 0;
-	}
-
 	.features-grid {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
@@ -1196,6 +1212,10 @@ footer {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 0.4rem 2.4rem;
 		text-align: left;
+	}
+
+	.footer-links a {
+		justify-content: flex-start;
 	}
 
 	.footer-links a:last-child:nth-child(odd) {
