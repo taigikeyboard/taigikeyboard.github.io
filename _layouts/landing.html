@@ -123,10 +123,15 @@ single .deb row stays.
 			<h1>{{ translation.app_name }}</h1>
 			<p class="hero-subtitle">{{ translation.hero.subtitle }}</p>
 			<a class="button" href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer">{{ translation.hero.try_web }}</a>
+		</section>
 
-			<div id="download" class="download-center">
+		<hr class="section-divider">
+
+		<section id="download">
+			<h2 class="section-title">{{ translation.nav_labels.download }}</h2>
+			<div class="download-center">
 				<div class="download-group">
-					<h2 class="download-group-title">{{ translation.ui.mobile_tablet }}</h2>
+					<h3 class="download-group-title">{{ translation.ui.mobile_tablet }}</h3>
 					<ul class="download-list">
 						{%- comment -%}One universal App Store listing, shown as two rows so iPad users find theirs.{%- endcomment -%}
 						{% include download-row.html href=site.appstore_link icon='apple-logo.svg' name='iPhone' meta='App Store' external=true %}
@@ -138,7 +143,7 @@ single .deb row stays.
 				</div>
 
 				<div class="download-group">
-					<h2 class="download-group-title">{{ translation.ui.desktop }}</h2>
+					<h3 class="download-group-title">{{ translation.ui.desktop }}</h3>
 					<ul class="download-list">
 						{% if macos_download_url != "" %}
 						{% assign meta = site.data.macos_release.version | append: ' · macOS 14+' %}
@@ -166,7 +171,7 @@ single .deb row stays.
 				</div>
 
 				<div class="download-group">
-					<h2 class="download-group-title">Beta</h2>
+					<h3 class="download-group-title">Beta</h3>
 					<ul class="download-list">
 						{%- comment -%}Placeholder: no href renders a plain, non-interactive row.{%- endcomment -%}
 						{% include download-row.html name=translation.ui.beta_placeholder %}
@@ -174,7 +179,7 @@ single .deb row stays.
 				</div>
 
 				<div id="projects" class="download-group">
-					<h2 class="download-group-title">{{ translation.nav_labels.projects }}</h2>
+					<h3 class="download-group-title">{{ translation.nav_labels.projects }}</h3>
 					<ul class="download-list">
 						{% for project in site.side_projects %}
 						{% assign item = translation.projects[project.id] %}

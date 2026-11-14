@@ -3,6 +3,7 @@ app_name: TaigiKeyboard 台語齒盤
 app_description: 台湾語入力メソッド
 nav_labels:
   about: 台語齒盤について
+  download: ダウンロード
   features: 機能
   how_to_type: 入力ガイド
   install: インストール

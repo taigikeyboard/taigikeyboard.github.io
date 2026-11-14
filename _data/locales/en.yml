@@ -3,6 +3,7 @@ app_name: TaigiKeyboard
 app_description: A Taiwanese input method
 nav_labels:
   about: About
+  download: Download
   features: Features
   how_to_type: Typing guide
   install: Installation
