@@ -125,8 +125,6 @@ single .deb row stays.
 			<a class="hero-action" href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer">{{ translation.hero.try_web }}<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" /></svg></a>
 		</section>
 
-		<hr class="section-divider">
-
 		<section id="download">
 			<h2 class="section-title">{{ translation.nav_labels.download }}</h2>
 			<div class="download-center">
@@ -175,20 +173,22 @@ single .deb row stays.
 					<ul class="download-list">
 						{%- comment -%}
 						Every installer in _data/beta_release.json, shown even when a
-						published release carries the same version. Icons follow the
-						asset label written by taigikeyboard's release script.
+						published release carries the same version. Icons and names follow
+						the asset label written by taigikeyboard's release script, with
+						names matching the desktop group above.
 						{%- endcomment -%}
 						{% for asset in site.data.beta_release.assets %}
+						{% assign name = asset.label %}
 						{% case asset.label %}
 						{% when 'macOS' %}{% assign icon = 'apple-logo.svg' %}
 						{% when 'Windows' %}{% assign icon = 'windows-logo.svg' %}
-						{% when 'Linux (.deb)' %}{% assign icon = 'ubuntu-logo.svg' %}
-						{% when 'Fedora (.rpm)' %}{% assign icon = 'fedora-logo.svg' %}
-						{% when 'Arch' %}{% assign icon = 'archlinux-logo.svg' %}
+						{% when 'Linux (.deb)' %}{% assign icon = 'ubuntu-logo.svg' %}{% assign name = 'Ubuntu / Debian' %}
+						{% when 'Fedora (.rpm)' %}{% assign icon = 'fedora-logo.svg' %}{% assign name = 'Fedora' %}
+						{% when 'Arch' %}{% assign icon = 'archlinux-logo.svg' %}{% assign name = 'Arch Linux' %}
 						{% when 'ChromeOS' %}{% assign icon = 'chrome-logo.svg' %}
 						{% else %}{% assign icon = 'linux-logo.svg' %}
 						{% endcase %}
-						{% include download-row.html href=asset.url icon=icon name=asset.label meta=site.data.beta_release.version %}
+						{% include download-row.html href=asset.url icon=icon name=name meta=site.data.beta_release.version %}
 						{% endfor %}
 					</ul>
 				</div>
@@ -205,8 +205,6 @@ single .deb row stays.
 			</div>
 		</section>
 
-		<hr class="section-divider">
-
 		<section id="about">
 			<h2 class="section-title">{{ translation.about.title }}</h2>
 			<div class="prose">
@@ -215,8 +213,6 @@ single .deb row stays.
 				{% endfor %}
 			</div>
 		</section>
-
-		<hr class="section-divider">
 
 		<section id="install">
 			<span id="how-to-use" class="anchor-alias" aria-hidden="true"></span>
@@ -293,8 +289,6 @@ single .deb row stays.
 			</div>
 
 		</section>
-		<hr class="section-divider">
-
 		{% if site.enable_features %}
 		<section id="features" class="features-grid-section">
 			<h2 class="section-title">{{ translation.nav_labels.features }}</h2>
@@ -351,8 +345,6 @@ single .deb row stays.
 				{% endfor %}
 			</div>
 		</section>
-		<hr class="section-divider">
-
 		{% endif %}
 		<section id="sponsor" class="sponsor-section">
 			<h2 class="section-title">{{ translation.nav_labels.sponsor }}</h2>
@@ -380,8 +372,6 @@ single .deb row stays.
 				</div>
 			</details>
 		</section>
-
-		<hr class="section-divider">
 
 		<section id="issues" class="issues-section">
 			<h2 class="section-title">{{ translation.nav_labels.issues }}</h2>

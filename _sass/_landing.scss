@@ -224,15 +224,6 @@ section {
 	margin: 0 auto;
 }
 
-.section-divider {
-	width: calc(100% - 4rem);
-	max-width: var(--content-width);
-	margin: 0 auto;
-	border: none;
-	height: 1px;
-	background: var(--color-border);
-}
-
 .section-title {
 	font-size: 4.8rem;
 	font-weight: 500;
@@ -857,10 +848,6 @@ section {
 	outline-offset: 4px;
 }
 
-.sponsor-section {
-	text-align: center;
-}
-
 // Margin sits on the prose: the script swaps the chooser for a plain button.
 .sponsor-section .prose {
 	margin-bottom: 3.2rem;
@@ -868,6 +855,13 @@ section {
 
 .sponsor-chooser {
 	width: min(100%, 44rem);
+	margin: 0 auto;
+}
+
+// Centred under the left-aligned prose, as a <summary> or as the script's button.
+.sponsor-section .button {
+	display: block;
+	width: fit-content;
 	margin: 0 auto;
 }
 
