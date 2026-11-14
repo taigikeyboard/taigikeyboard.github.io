@@ -36,18 +36,6 @@ Otherwise it links the .deb directly.
 {%- if linux_rpm_download_url != "" and linux_arch_download_url != "" -%}
 {%- assign linux_split = true -%}
 {%- endif -%}
-{%- comment -%}
-Every desktop platform ships from the same desktop-* release, so one line under
-the buttons carries the version and its release notes for all of them.
-{%- endcomment -%}
-{%- assign desktop_release = nil -%}
-{%- if macos_download_url != "" -%}
-{%- assign desktop_release = site.data.macos_release -%}
-{%- elsif windows_download_url != "" -%}
-{%- assign desktop_release = site.data.windows_release -%}
-{%- elsif linux_download_url != "" -%}
-{%- assign desktop_release = site.data.linux_release -%}
-{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
 
@@ -169,7 +157,7 @@ the buttons carries the version and its release notes for all of them.
 						<a href="{{ macos_download_url }}" class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }}</span>
+								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.macos_release.version }}</span>
 								<span class="download-btn-name">macOS</span>
 							</span>
 						</a>
@@ -178,7 +166,7 @@ the buttons carries the version and its release notes for all of them.
 						<a href="{{ windows_download_url }}" class="download-btn">
 							<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }}</span>
+								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.windows_release.version }}</span>
 								<span class="download-btn-name">Windows</span>
 							</span>
 						</a>
@@ -188,7 +176,7 @@ the buttons carries the version and its release notes for all of them.
 							<summary class="download-btn">
 								<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 								<span class="download-btn-text">
-									<span class="download-btn-label">{{ translation.ui.download }}</span>
+									<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_release.version }}</span>
 									<span class="download-btn-name">Linux</span>
 								</span>
 								<svg class="download-menu-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg>
@@ -212,7 +200,7 @@ the buttons carries the version and its release notes for all of them.
 						<a href="{{ linux_download_url }}" class="download-btn">
 							<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }}</span>
+								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_release.version }}</span>
 								<span class="download-btn-name">Linux</span>
 							</span>
 						</a>
@@ -227,11 +215,6 @@ the buttons carries the version and its release notes for all of them.
 						</a>
 						{% endif %}
 					</div>
-					{% if desktop_release.version %}
-					<p class="download-version">
-						<a href="{{ desktop_release.releasePageURL }}" target="_blank" rel="noopener noreferrer">{{ translation.ui.desktop_version }} <strong>{{ desktop_release.version }}</strong> · {{ translation.ui.release_notes }} <span aria-hidden="true">↗</span></a>
-					</p>
-					{% endif %}
 					{% if macos_download_url != "" %}
 					<p class="download-note">{{ translation.ui.macos_requirement }}</p>
 					{% endif %}
@@ -243,30 +226,13 @@ the buttons carries the version and its release notes for all of them.
 					{% elsif linux_download_url != "" %}
 					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5/IBus</p>
 					{% endif %}
-					{% if site.web_link %}
-					<a href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer" class="download-web">
-						<span><span class="project-name">{{ translation.projects.web.name }}</span><span class="project-note">{{ translation.projects.web.note }}</span></span>
-						<span class="project-arrow" aria-hidden="true">↗</span>
-					</a>
-					{% endif %}
+					<div class="hero-links">
+						{% if site.web_link %}
+						<p><a href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer">{{ translation.projects.web.name }}</a><span class="hero-links-note">{{ translation.projects.web.note }}</span></p>
+						{% endif %}
+						<p id="projects"><span class="hero-links-label">{{ translation.nav_labels.projects }}</span>{% for project in site.side_projects %}{% assign item = translation.projects[project.id] %}<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" title="{{ item.note | escape }}">{{ item.name }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+					</div>
 				</div>
-			</div>
-		</section>
-
-		{%- comment -%}
-		Right under the hero so the side projects are seen: one row of cards, the
-		web version excluded (it sits with the download buttons above).
-		{%- endcomment -%}
-		<section id="projects" class="projects-section">
-			<h2 class="projects-title">{{ translation.nav_labels.projects }}</h2>
-			<div class="project-list">
-				{% for project in site.side_projects %}
-				{% assign item = translation.projects[project.id] %}
-				<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link">
-					<span><span class="project-name">{{ item.name }}</span><span class="project-note">{{ item.note }}</span></span>
-					<span class="project-arrow" aria-hidden="true">↗</span>
-				</a>
-				{% endfor %}
 			</div>
 		</section>
 

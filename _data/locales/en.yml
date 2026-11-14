@@ -153,8 +153,6 @@ ui:
   navigation_menu: Navigation menu
   download_on: Download on
   download: Download
-  desktop_version: Desktop
-  release_notes: What's new
   macos_requirement: Requires macOS 14 (Sonoma) or later
   windows_requirement: Requires Windows 10 or later
   choose_device: Choose your device

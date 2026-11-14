@@ -179,51 +179,35 @@ body {
 	}
 }
 
-// The one place the version shows: every desktop installer is the same release.
-.download-version {
-	margin-top: 2.4rem;
-	font-size: 1.6rem;
+// Web version and side projects: two plain lines of links under the notes.
+.hero-links {
+	margin-top: 3.2rem;
+	font-size: 1.5rem;
+	line-height: 1.8;
+	color: var(--color-text-secondary);
 
 	a {
+		white-space: nowrap;
 		color: var(--color-text-primary);
-		text-decoration: none;
+		text-decoration: underline;
+		text-decoration-color: var(--color-border);
+		text-underline-offset: 0.2em;
 
 		&:hover,
 		&:focus-visible {
-			text-decoration: underline;
-			text-underline-offset: 0.18em;
+			text-decoration-color: currentColor;
 		}
-	}
-
-	strong {
-		font-weight: 600;
 	}
 }
 
-// The web version under the download buttons, styled like a project row.
-.download-web {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 2rem;
-	width: min(100%, calc(3 * 200px + 2 * 1.25rem));
-	margin: 3.2rem auto 0;
-	padding: 1.6rem 2rem;
-	border: 1px solid var(--color-border);
-	border-radius: 14px;
-	color: var(--color-text-primary);
-	text-align: left;
-	text-decoration: none;
-	box-sizing: border-box;
+.hero-links-note,
+.hero-links-label {
+	display: inline-block;
+	margin: 0 0.6em;
+}
 
-	&:hover {
-		background: var(--color-surface);
-	}
-
-	&:focus-visible {
-		outline: 2px solid var(--color-secondary);
-		outline-offset: 4px;
-	}
+.hero-links-label {
+	margin-left: 0;
 }
 
 .download-note {
@@ -1432,6 +1416,7 @@ footer .social-links {
 	margin-bottom: 2rem;
 }
 
+.projects-section,
 .issues-section {
 	padding: 8rem 2rem;
 	max-width: 800px;
@@ -1439,63 +1424,8 @@ footer .social-links {
 }
 
 @media (max-width: 768px) {
+	.projects-section,
 	.issues-section {
 		padding: 6rem 2rem;
-	}
-}
-
-// Side projects: one quiet row of cards right under the hero, not a full
-// section, so it reads as "also from here" without pushing About down.
-.projects-section {
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 0 2rem 6rem;
-}
-
-.projects-title {
-	margin-bottom: 1.6rem;
-	font-size: 1.4rem;
-	font-weight: 500;
-	letter-spacing: 0.04em;
-	color: var(--color-text-secondary);
-	text-align: center;
-}
-
-.projects-section .project-list {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1.2rem;
-	padding: 0;
-	border: 0;
-	background: none;
-}
-
-.projects-section .project-link {
-	align-items: flex-start;
-	gap: 1.2rem;
-	padding: 1.6rem 1.8rem;
-	border: 1px solid var(--color-border);
-	border-radius: 14px;
-}
-
-.projects-section .project-link + .project-link {
-	border-top: 1px solid var(--color-border);
-}
-
-.projects-section .project-name {
-	font-size: 1.6rem;
-}
-
-.projects-section .project-note {
-	font-size: 1.3rem;
-}
-
-.projects-section .project-arrow {
-	font-size: 1.6rem;
-}
-
-@media (max-width: 768px) {
-	.projects-section .project-list {
-		grid-template-columns: 1fr;
 	}
 }
