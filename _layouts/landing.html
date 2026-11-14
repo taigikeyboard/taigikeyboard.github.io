@@ -178,13 +178,12 @@ single .deb row stays.
 						Fixed URLs, so no site data per night. The train's beta is posted
 						to Discord only and is not listed here.
 						{%- endcomment -%}
-						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS" | split: "," %}
-						{% assign nightly_meta = translation.ui.nightly_note %}
+						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|Windows 10+,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+" | split: "," %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
 						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
-						{% assign icon = cells[1] %}{% assign name = cells[2] %}
-						{% include download-row.html href=href icon=icon name=name meta=nightly_meta %}
+						{% assign icon = cells[1] %}{% assign name = cells[2] %}{% assign meta = cells[3] %}
+						{% include download-row.html href=href icon=icon name=name meta=meta %}
 						{% endfor %}
 					</ul>
 				</div>
