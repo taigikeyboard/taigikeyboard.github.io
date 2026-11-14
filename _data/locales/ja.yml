@@ -131,7 +131,8 @@ ui:
   choose_device: 端末を選択
   choose_system: OSを選択
   desktop: パソコン・安定版
-  nightly: 毎日更新・試験版
+  nightly: パソコン・試験版
+  nightly_note: 署名なし、毎日更新
   mobile: スマートフォン
   desktop_chart: TaigiKeyboard パソコン版の入力早見表
   mobile_chart: TaigiKeyboard スマートフォン版の入力早見表

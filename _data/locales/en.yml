@@ -154,7 +154,8 @@ ui:
   choose_device: Choose your device
   choose_system: Choose your operating system
   desktop: Desktop · Stable
-  nightly: Nightly · Preview
+  nightly: Desktop · Preview
+  nightly_note: Unsigned, updated daily
   mobile: Mobile
   desktop_chart: TaigiKeyboard desktop typing reference
   mobile_chart: TaigiKeyboard mobile typing reference

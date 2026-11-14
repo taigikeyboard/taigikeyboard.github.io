@@ -179,7 +179,7 @@ single .deb row stays.
 						to Discord only and is not listed here.
 						{%- endcomment -%}
 						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS" | split: "," %}
-						{% assign nightly_meta = "Unsigned · rebuilt nightly" %}
+						{% assign nightly_meta = translation.ui.nightly_note %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
 						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
