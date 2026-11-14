@@ -2,12 +2,12 @@
 One row of the download center, wrapped in its <li>.
   href      destination
   external  true for a store or site (new tab, ↗); otherwise a file download (↓)
-  icon      file name under /assets/; omitted leaves the icon column empty on
-            wide screens so names stay aligned across groups
+  icon      file name under /assets/; omitted, the name starts at the left edge
+            (the icon column) on every screen width
   name, meta
 {%- endcomment -%}
 <li>
-	<a class="download-row" href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+	<a class="download-row{% unless include.icon %} download-row--no-icon{% endunless %}" href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
 		{% if include.icon %}<img class="download-row-icon" src="{{ '/assets/' | append: include.icon | relative_url }}" alt="" width="24" height="24">{% endif %}
 		<span class="download-row-text">
 			<span class="download-row-name">{{ include.name }}</span>
