@@ -806,27 +806,36 @@ section {
 	line-height: 1.5;
 	color: var(--color-secondary);
 	background-color: transparent;
-	border-radius: 999px;
+	border-radius: 8px;
 	list-style: none;
 	cursor: pointer;
 }
 
-// The hero's only action: wide, so it reads as the page's main step.
-.hero .button {
-	min-width: min(100%, 32rem);
-	padding: 1.5rem 4rem;
-	font-size: 1.9rem;
+// The hero's only action: a plain text link, its arrow marking that it
+// leaves the page.
+.hero-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	min-height: 44px;
+	font-size: 2.2rem;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--color-secondary);
+	text-decoration: none;
+	text-underline-offset: 0.2em;
 }
 
-// Marks a button that leaves the page.
-.button-icon {
-	width: 1.6rem;
-	height: 1.6rem;
-	margin-left: 0.6rem;
-	vertical-align: -0.2rem;
+.hero-action:hover {
+	text-decoration: underline;
+}
+
+.hero-action svg {
+	width: 0.9em;
+	height: 0.9em;
 	fill: none;
 	stroke: currentColor;
-	stroke-width: 1.8;
+	stroke-width: 2.2;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
@@ -841,6 +850,7 @@ section {
 }
 
 .button:focus-visible,
+.hero-action:focus-visible,
 .sponsor-close:focus-visible,
 .sponsor-method:focus-visible,
 .download-row:focus-visible {
