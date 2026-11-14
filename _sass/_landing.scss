@@ -34,10 +34,10 @@ body {
 }
 
 
+// No min-height: the side-project row right below should show on first load.
 .hero {
-	padding: 6rem 2rem 8rem;
+	padding: 10rem 2rem 6rem;
 	background: #ffffff;
-	min-height: 85vh;
 	display: flex;
 	align-items: center;
 }
@@ -109,20 +109,121 @@ body {
 	line-height: 1.45;
 }
 
+// Six buttons as two rows of three; below 768px two per row. Flex rather than
+// grid so a short row (a platform switched off) stays centred.
 .download-buttons {
-	display: grid;
-	// Six buttons (iPhone, iPad, Google Play, macOS, Windows, Linux) as two
-	// rows of three; narrower screens fall back to 3x2, then one per row.
-	grid-template-columns: repeat(3, 200px);
+	display: flex;
+	flex-wrap: wrap;
 	gap: 1.25rem;
-	align-items: center;
 	justify-content: center;
+	max-width: calc(3 * 200px + 2 * 1.25rem);
+	margin: 0 auto;
 }
 
-// Eight buttons (Linux split into Ubuntu / Debian, Fedora, Arch) as two rows
-// of four; below 992px two per row (the breakpoints below follow this rule).
-.download-buttons--four {
-	grid-template-columns: repeat(4, 200px);
+// Linux: the button opens its three packages below it, over the page.
+.download-menu {
+	position: relative;
+}
+
+.download-menu > summary {
+	list-style: none;
+	cursor: pointer;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+}
+
+.download-menu-chevron {
+	width: 16px;
+	height: 16px;
+	margin-left: auto;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	transition: transform 0.15s;
+}
+
+.download-menu[open] .download-menu-chevron {
+	transform: rotate(180deg);
+}
+
+.download-menu-panel {
+	position: absolute;
+	z-index: 10;
+	top: calc(100% + 0.6rem);
+	left: 0;
+	width: 100%;
+	padding: 0.4rem;
+	background: #ffffff;
+	border: 1px solid #444444;
+	border-radius: 10px;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.download-menu-item {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	padding: 1rem 0.8rem;
+	border-radius: 6px;
+	color: #444444;
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-decoration: none;
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--color-surface);
+	}
+}
+
+// The one place the version shows: every desktop installer is the same release.
+.download-version {
+	margin-top: 2.4rem;
+	font-size: 1.6rem;
+
+	a {
+		color: var(--color-text-primary);
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			text-decoration: underline;
+			text-underline-offset: 0.18em;
+		}
+	}
+
+	strong {
+		font-weight: 600;
+	}
+}
+
+// The web version under the download buttons, styled like a project row.
+.download-web {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	width: min(100%, calc(3 * 200px + 2 * 1.25rem));
+	margin: 3.2rem auto 0;
+	padding: 1.6rem 2rem;
+	border: 1px solid var(--color-border);
+	border-radius: 14px;
+	color: var(--color-text-primary);
+	text-align: left;
+	text-decoration: none;
+	box-sizing: border-box;
+
+	&:hover {
+		background: var(--color-surface);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-secondary);
+		outline-offset: 4px;
+	}
 }
 
 .download-note {
@@ -1121,10 +1222,6 @@ footer {
 }
 
 @media (max-width: 992px) {
-	.download-buttons--four {
-		grid-template-columns: repeat(2, 200px);
-	}
-
 	.features-grid {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 3rem;
@@ -1176,7 +1273,7 @@ footer {
 @media (max-width: 768px) {
 	// Three columns need 625px; two fit every width down to 480px.
 	.download-buttons {
-		grid-template-columns: repeat(2, 200px);
+		max-width: calc(2 * 200px + 1.25rem);
 	}
 
 	.section-divider {
@@ -1302,8 +1399,7 @@ footer {
 	// Two columns need 412.5px, so they survive every width down to here;
 	// below it the buttons stack one per row.
 	.download-buttons {
-		grid-template-columns: min(200px, 100%);
-		justify-content: center;
+		max-width: min(200px, 100%);
 	}
 
 	.hero h1 {
@@ -1336,7 +1432,6 @@ footer .social-links {
 	margin-bottom: 2rem;
 }
 
-.projects-section,
 .issues-section {
 	padding: 8rem 2rem;
 	max-width: 800px;
@@ -1344,8 +1439,63 @@ footer .social-links {
 }
 
 @media (max-width: 768px) {
-	.projects-section,
 	.issues-section {
 		padding: 6rem 2rem;
+	}
+}
+
+// Side projects: one quiet row of cards right under the hero, not a full
+// section, so it reads as "also from here" without pushing About down.
+.projects-section {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 2rem 6rem;
+}
+
+.projects-title {
+	margin-bottom: 1.6rem;
+	font-size: 1.4rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: var(--color-text-secondary);
+	text-align: center;
+}
+
+.projects-section .project-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.2rem;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+.projects-section .project-link {
+	align-items: flex-start;
+	gap: 1.2rem;
+	padding: 1.6rem 1.8rem;
+	border: 1px solid var(--color-border);
+	border-radius: 14px;
+}
+
+.projects-section .project-link + .project-link {
+	border-top: 1px solid var(--color-border);
+}
+
+.projects-section .project-name {
+	font-size: 1.6rem;
+}
+
+.projects-section .project-note {
+	font-size: 1.3rem;
+}
+
+.projects-section .project-arrow {
+	font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+	.projects-section .project-list {
+		grid-template-columns: 1fr;
 	}
 }

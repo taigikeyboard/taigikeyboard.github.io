@@ -70,11 +70,18 @@ sponsor_payment_methods:
   - id: kofi
     link: https://ko-fi.com/taigikeyboard
 
+# The ChromeOS input method's Chrome Web Store listing. The ChromeOS button
+# (and its JSON-LD URL) shows only when this is set: the release's .zip is an
+# unpacked extension for testers, not something to send a visitor to.
+# chromeos_store_link: https://chromewebstore.google.com/detail/<id>
+
+# The web version, shown with the download buttons (it is a way to type, not a
+# side project); its name and note live in _data/locales/*.yml under projects.web.
+web_link: https://taigikeyboard.tw/web/
+
 # Side projects built on TaigiKeyboard; names and notes live in
 # _data/locales/*.yml under projects, keyed by id.
 side_projects:
-  - id: web
-    link: https://taigikeyboard.tw/web/
   - id: kautian_mirror
     link: https://taigikeyboard.tw/kautian-mirror/
   - id: kautian_search

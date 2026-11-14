@@ -8,9 +8,9 @@
 			<span>{{ translation.app_name }}</span>
 		</a>
 		<ul class="navbar-menu" id="navbar-links">
+			<li><a href="{{ home_path | relative_url }}#projects">{{ translation.nav_labels.projects }}</a></li>
 			<li><a href="{{ home_path | relative_url }}#about">{{ translation.nav_labels.about }}</a></li>
 			<li><a href="{{ home_path | relative_url }}#install">{{ translation.nav_labels.install }}</a></li>
-			<li><a href="{{ home_path | relative_url }}#projects">{{ translation.nav_labels.projects }}</a></li>
 			{% if site.enable_features %}
 			<li><a href="{{ home_path | relative_url }}#features">{{ translation.nav_labels.features }}</a></li>
 			{% endif %}

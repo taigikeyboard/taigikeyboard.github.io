@@ -21,10 +21,10 @@ machine-readable whether or not a button renders.
 {%- assign linux_download_url = site.data.linux_release.downloadURL | default: "" -%}
 {%- endif -%}
 {%- comment -%}
-Linux splits into three buttons (Ubuntu / Debian .deb, Fedora .rpm, Arch
-package) only when all three data files name the SAME release: an announcement
-that lacks one format leaves that file on its previous version. Otherwise the
-single .deb button stays, so the grid holds 6 or 8 buttons — never an odd count.
+The Linux button opens a menu of three packages (Ubuntu / Debian .deb, Fedora
+.rpm, Arch package) only when all three data files name the SAME release: an
+announcement that lacks one format leaves that file on its previous version.
+Otherwise it links the .deb directly.
 {%- endcomment -%}
 {%- assign linux_rpm_download_url = "" -%}
 {%- assign linux_arch_download_url = "" -%}
@@ -35,6 +35,18 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 {%- assign linux_split = false -%}
 {%- if linux_rpm_download_url != "" and linux_arch_download_url != "" -%}
 {%- assign linux_split = true -%}
+{%- endif -%}
+{%- comment -%}
+Every desktop platform ships from the same desktop-* release, so one line under
+the buttons carries the version and its release notes for all of them.
+{%- endcomment -%}
+{%- assign desktop_release = nil -%}
+{%- if macos_download_url != "" -%}
+{%- assign desktop_release = site.data.macos_release -%}
+{%- elsif windows_download_url != "" -%}
+{%- assign desktop_release = site.data.windows_release -%}
+{%- elsif linux_download_url != "" -%}
+{%- assign desktop_release = site.data.linux_release -%}
 {%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
@@ -91,7 +103,8 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 			"{{ windows_download_url }}"{% endif %}{% if linux_download_url != "" %},
 			"{{ linux_download_url }}"{% endif %}{% if linux_split %},
 			"{{ linux_rpm_download_url }}",
-			"{{ linux_arch_download_url }}"{% endif %}
+			"{{ linux_arch_download_url }}"{% endif %}{% if site.chromeos_store_link %},
+			"{{ site.chromeos_store_link }}"{% endif %}
 		],
 		"screenshot": "{{ site.url }}/assets/feature-1.png",
 		"softwareVersion": "1.0",
@@ -126,39 +139,22 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					<h1>{{ translation.app_name }}</h1>
 					<p class="hero-subtitle">{{ translation.hero.subtitle }}</p>
 
-					<div id="download" class="download-buttons{% if linux_split %} download-buttons--four{% endif %}">
+					<div id="download" class="download-buttons">
 						{%- comment -%}
-						One universal App Store listing, shown as two buttons so iPad users
-						find theirs. Order: the Apple family (iPhone, iPad, macOS), then
-						Google Play, Windows and Linux — the first row is Apple in both the
-						3-column (6 buttons) and 4-column (8 buttons) grids, and the Linux
-						buttons stay together at the end.
+						Six buttons, one per platform family, as two rows of three: the
+						Apple Store listing (iPhone and iPad share it), Google Play, macOS,
+						then Windows, Linux and ChromeOS. Linux opens a menu of its three
+						package formats when all three name the same release. The version
+						lives once, in the line below the grid, not on every button.
 						{%- endcomment -%}
 						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
 							class="download-btn font-apple">
 							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
 								<span class="download-btn-label">{{ translation.ui.download_on }}</span>
-								<span class="download-btn-name">iPhone</span>
+								<span class="download-btn-name">iPhone / iPad</span>
 							</span>
 						</a>
-						<a href="{{ site.appstore_link }}" target="_blank" rel="noopener noreferrer"
-							class="download-btn font-apple">
-							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download_on }}</span>
-								<span class="download-btn-name">iPad</span>
-							</span>
-						</a>
-						{% if macos_download_url != "" %}
-						<a href="{{ macos_download_url }}" class="download-btn font-apple">
-							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.macos_release.version }}</span>
-								<span class="download-btn-name">macOS</span>
-							</span>
-						</a>
-						{% endif %}
 						{% if site.playstore_link %}
 						<a href="{{ site.playstore_link }}" target="_blank" rel="noopener noreferrer"
 							class="download-btn font-google">
@@ -169,47 +165,73 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 							</span>
 						</a>
 						{% endif %}
+						{% if macos_download_url != "" %}
+						<a href="{{ macos_download_url }}" class="download-btn font-apple">
+							<img src="{{ '/assets/apple-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">{{ translation.ui.download }}</span>
+								<span class="download-btn-name">macOS</span>
+							</span>
+						</a>
+						{% endif %}
 						{% if windows_download_url != "" %}
 						<a href="{{ windows_download_url }}" class="download-btn">
 							<img src="{{ '/assets/windows-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.windows_release.version }}</span>
+								<span class="download-btn-label">{{ translation.ui.download }}</span>
 								<span class="download-btn-name">Windows</span>
 							</span>
 						</a>
 						{% endif %}
 						{% if linux_split %}
-						<a href="{{ linux_download_url }}" class="download-btn">
-							<img src="{{ '/assets/ubuntu-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_release.version }}</span>
-								<span class="download-btn-name">Ubuntu / Debian</span>
-							</span>
-						</a>
-						<a href="{{ linux_rpm_download_url }}" class="download-btn">
-							<img src="{{ '/assets/fedora-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_rpm_release.version }}</span>
-								<span class="download-btn-name">Fedora</span>
-							</span>
-						</a>
-						<a href="{{ linux_arch_download_url }}" class="download-btn">
-							<img src="{{ '/assets/archlinux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
-							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_arch_release.version }}</span>
-								<span class="download-btn-name">Arch Linux</span>
-							</span>
-						</a>
+						<details class="download-menu">
+							<summary class="download-btn">
+								<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+								<span class="download-btn-text">
+									<span class="download-btn-label">{{ translation.ui.download }}</span>
+									<span class="download-btn-name">Linux</span>
+								</span>
+								<svg class="download-menu-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg>
+							</summary>
+							<div class="download-menu-panel">
+								<a href="{{ linux_download_url }}" class="download-menu-item">
+									<img src="{{ '/assets/ubuntu-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+									<span>Ubuntu / Debian</span>
+								</a>
+								<a href="{{ linux_rpm_download_url }}" class="download-menu-item">
+									<img src="{{ '/assets/fedora-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+									<span>Fedora</span>
+								</a>
+								<a href="{{ linux_arch_download_url }}" class="download-menu-item">
+									<img src="{{ '/assets/archlinux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+									<span>Arch Linux</span>
+								</a>
+							</div>
+						</details>
 						{% elsif linux_download_url != "" %}
 						<a href="{{ linux_download_url }}" class="download-btn">
 							<img src="{{ '/assets/linux-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
 							<span class="download-btn-text">
-								<span class="download-btn-label">{{ translation.ui.download }} {{ site.data.linux_release.version }}</span>
+								<span class="download-btn-label">{{ translation.ui.download }}</span>
 								<span class="download-btn-name">Linux</span>
 							</span>
 						</a>
 						{% endif %}
+						{% if site.chromeos_store_link %}
+						<a href="{{ site.chromeos_store_link }}" target="_blank" rel="noopener noreferrer" class="download-btn">
+							<img src="{{ '/assets/chromeos-logo.svg' | relative_url }}" alt="" class="download-btn-icon">
+							<span class="download-btn-text">
+								<span class="download-btn-label">{{ translation.ui.download_on }}</span>
+								<span class="download-btn-name">ChromeOS</span>
+							</span>
+						</a>
+						{% endif %}
 					</div>
+					{% if desktop_release.version %}
+					<p class="download-version">
+						<a href="{{ desktop_release.releasePageURL }}" target="_blank" rel="noopener noreferrer">{{ translation.ui.desktop_version }} <strong>{{ desktop_release.version }}</strong> · {{ translation.ui.release_notes }} <span aria-hidden="true">↗</span></a>
+					</p>
+					{% endif %}
 					{% if macos_download_url != "" %}
 					<p class="download-note">{{ translation.ui.macos_requirement }}</p>
 					{% endif %}
@@ -221,7 +243,30 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 					{% elsif linux_download_url != "" %}
 					<p class="download-note">Linux：Ubuntu 24.04（amd64），Fcitx5/IBus</p>
 					{% endif %}
+					{% if site.web_link %}
+					<a href="{{ site.web_link }}" target="_blank" rel="noopener noreferrer" class="download-web">
+						<span><span class="project-name">{{ translation.projects.web.name }}</span><span class="project-note">{{ translation.projects.web.note }}</span></span>
+						<span class="project-arrow" aria-hidden="true">↗</span>
+					</a>
+					{% endif %}
 				</div>
+			</div>
+		</section>
+
+		{%- comment -%}
+		Right under the hero so the side projects are seen: one row of cards, the
+		web version excluded (it sits with the download buttons above).
+		{%- endcomment -%}
+		<section id="projects" class="projects-section">
+			<h2 class="projects-title">{{ translation.nav_labels.projects }}</h2>
+			<div class="project-list">
+				{% for project in site.side_projects %}
+				{% assign item = translation.projects[project.id] %}
+				<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link">
+					<span><span class="project-name">{{ item.name }}</span><span class="project-note">{{ item.note }}</span></span>
+					<span class="project-arrow" aria-hidden="true">↗</span>
+				</a>
+				{% endfor %}
 			</div>
 		</section>
 
@@ -312,20 +357,6 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 				{% endfor %}
 			</div>
 
-		</section>
-		<hr class="section-divider">
-
-		<section id="projects" class="projects-section">
-			<h2 class="section-title">{{ translation.nav_labels.projects }}</h2>
-			<div class="project-list">
-				{% for project in site.side_projects %}
-				{% assign item = translation.projects[project.id] %}
-				<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link">
-					<span><span class="project-name">{{ item.name }}</span><span class="project-note">{{ item.note }}</span></span>
-					<span class="project-arrow" aria-hidden="true">↗</span>
-				</a>
-				{% endfor %}
-			</div>
 		</section>
 
 		<hr class="section-divider">
@@ -431,6 +462,7 @@ single .deb button stays, so the grid holds 6 or 8 buttons — never an odd coun
 	{% if site.enable_features %}
 	<script src="{{ '/assets/feature-slideshow.js' | relative_url }}" defer></script>
 	{% endif %}
+	<script src="{{ '/assets/download-menu.js' | relative_url }}" defer></script>
 	<script src="{{ '/assets/install-tabs.js' | relative_url }}" defer></script>
 	<script src="{{ '/assets/language-switcher.js' | relative_url }}" defer></script>
 	<script src="{{ '/assets/navbar.js' | relative_url }}" defer></script>

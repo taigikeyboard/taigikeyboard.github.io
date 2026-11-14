@@ -130,6 +130,8 @@ ui:
   navigation_menu: 網站選單
   download_on: Táng-lóo
   download: Táng-lóo
+  desktop_version: 電腦版
+  release_notes: 更新內容
   macos_requirement: macOS 愛 14 (Sonoma) 以上
   windows_requirement: Windows 愛 10 以上
   choose_device: 揀你 ê 裝置
