@@ -453,7 +453,7 @@ section {
 	display: inline-block;
 	padding: 1rem 2.4rem;
 	border: 1px solid var(--color-border);
-	border-radius: 8px;
+	border-radius: 999px;
 	font-size: 1.6rem;
 	color: var(--color-text-secondary);
 	cursor: pointer;
@@ -461,7 +461,8 @@ section {
 
 .install-tab-input:checked + .install-tab {
 	border-color: var(--color-primary);
-	color: var(--color-text-primary);
+	background-color: var(--color-primary);
+	color: #ffffff;
 }
 
 .install-tab-input:focus-visible + .install-tab {
