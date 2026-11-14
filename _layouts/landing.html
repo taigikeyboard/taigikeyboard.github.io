@@ -190,28 +190,23 @@ single .deb row stays.
 						{% endcase %}
 						{% include download-row.html href=asset.url icon=icon name=name meta=site.data.beta_release.version %}
 						{% endfor %}
-					</ul>
-				</div>
-
-				<div class="download-group">
-					<h3 class="download-group-title">Nightly</h3>
-					<ul class="download-list">
 						{%- comment -%}
-						Unsigned builds of main, overwritten every night under these fixed
-						names by taigikeyboard's .github/workflows/desktop-nightly.yml
-						(docs/architecture/nightly-builds.md there, which also has the
-						install notes). Fixed URLs, so no site data changes per night.
+						Then the nightly builds of main: unsigned, overwritten every night
+						under these fixed names by taigikeyboard's
+						.github/workflows/desktop-nightly.yml (docs/architecture/nightly-builds.md
+						there has the install notes). Fixed URLs, so no site data per night.
 						{%- endcomment -%}
 						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS" | split: "," %}
-						{% assign nightly_meta = "Unsigned · rebuilt nightly" %}
+						{% assign nightly_meta = "Nightly · unsigned" %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
-						{% assign href = "https://nightly.taigikeyboard.tw/latest/" | append: cells[0] %}
+						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
 						{% assign icon = cells[1] %}{% assign name = cells[2] %}
 						{% include download-row.html href=href icon=icon name=name meta=nightly_meta %}
 						{% endfor %}
 					</ul>
 				</div>
+
 
 				<div id="projects" class="download-group">
 					<h3 class="download-group-title">{{ translation.nav_labels.projects }}</h3>
