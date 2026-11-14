@@ -105,71 +105,6 @@ body {
 	line-height: 1.45;
 }
 
-// Feature highlights: text beside a screenshot on a soft tinted panel, the
-// sides alternating row by row; below 768px each row stacks, text first.
-.highlight {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-	align-items: center;
-	column-gap: 8rem;
-	max-width: 96rem;
-	margin: 0 auto;
-}
-
-.highlight + .highlight {
-	margin-top: 12rem;
-}
-
-.highlight:nth-child(even) .highlight-text {
-	order: 2;
-}
-
-.highlight-text h2 {
-	font-size: 3.6rem;
-	font-weight: 600;
-	line-height: 1.25;
-	letter-spacing: -0.01em;
-	margin-bottom: 2rem;
-}
-
-.highlight-text p {
-	color: var(--color-text-secondary);
-	line-height: 1.7;
-}
-
-.highlight-visual {
-	display: flex;
-	justify-content: center;
-	padding: 5.6rem 2rem 0;
-	border-radius: 32px;
-	overflow: hidden;
-	background: var(--highlight-tint);
-}
-
-// The panel crops the phone below the keyboard, so only its top shows.
-.highlight-visual img {
-	display: block;
-	width: min(100%, 28rem);
-	height: auto;
-	margin-bottom: -5rem;
-}
-
-.highlight:nth-child(4n + 1) {
-	--highlight-tint: #e9f0ea;
-}
-
-.highlight:nth-child(4n + 2) {
-	--highlight-tint: #f5ede2;
-}
-
-.highlight:nth-child(4n + 3) {
-	--highlight-tint: #e7eef6;
-}
-
-.highlight:nth-child(4n + 4) {
-	--highlight-tint: #f4e9ee;
-}
-
 // Download center: a centred column, one group per device class with its
 // title above its rows.
 .download-center {
@@ -1185,24 +1120,6 @@ footer {
 @media (max-width: 768px) {
 	section {
 		padding: 6rem 2rem;
-	}
-
-	.highlight {
-		grid-template-columns: minmax(0, 1fr);
-		row-gap: 3.2rem;
-		text-align: center;
-	}
-
-	.highlight + .highlight {
-		margin-top: 8rem;
-	}
-
-	.highlight:nth-child(even) .highlight-text {
-		order: 0;
-	}
-
-	.highlight-text h2 {
-		font-size: 2.8rem;
 	}
 
 	.section-title {
