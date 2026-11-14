@@ -449,24 +449,31 @@ section {
 	pointer-events: none;
 }
 
+// Flat filled controls, shared look with .button: soft grey at rest, the
+// accent colour for the chosen tab.
 .install-tab {
 	display: inline-block;
-	padding: 1rem 2.4rem;
-	border: 1px solid var(--color-border);
-	border-radius: 999px;
-	font-size: 1.6rem;
-	color: var(--color-text-secondary);
+	padding: 0.8rem 1.8rem;
+	border-radius: 8px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: #424245;
+	background-color: #f5f5f7;
 	cursor: pointer;
 }
 
+.install-tab:hover {
+	background-color: #ececf0;
+}
+
 .install-tab-input:checked + .install-tab {
-	border-color: var(--color-primary);
-	background-color: var(--color-primary);
+	background-color: var(--color-secondary);
 	color: #ffffff;
 }
 
 .install-tab-input:focus-visible + .install-tab {
-	outline: 2px solid var(--color-primary);
+	outline: 2px solid var(--color-secondary);
 	outline-offset: 2px;
 }
 
@@ -788,15 +795,15 @@ section {
 
 .button {
 	display: inline-block;
-	padding: 1.4rem 2.8rem;
+	padding: 1rem 2.4rem;
 	border: 0;
 	font: inherit;
-	font-size: 1.8rem;
-	font-weight: 500;
+	font-size: 1.7rem;
+	font-weight: 600;
 	line-height: 1.5;
 	color: #ffffff;
-	background-color: var(--color-primary);
-	border-radius: 12px;
+	background-color: var(--color-secondary);
+	border-radius: 8px;
 	list-style: none;
 	cursor: pointer;
 }
@@ -835,7 +842,7 @@ section {
 }
 
 .button:hover {
-	background-color: #424245;
+	background-color: #0077ed;
 }
 
 .button:focus-visible,
