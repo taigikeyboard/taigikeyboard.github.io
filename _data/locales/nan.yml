@@ -128,10 +128,8 @@ projects:
     note: 台羅、白話字、方音符號、點字、聲調數字隨時互換
 ui:
   navigation_menu: 網站選單
-  download_on: Táng-lóo
-  download: Táng-lóo
-  macos_requirement: macOS 愛 14 (Sonoma) 以上
-  windows_requirement: Windows 愛 10 以上
+  mobile_tablet: 手機仔・平板
+  beta_placeholder: 當咧準備
   choose_device: 揀你 ê 裝置
   choose_system: 揀你 ê 系統
   desktop: 電腦

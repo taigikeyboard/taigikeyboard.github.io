@@ -16,7 +16,7 @@ html {
 }
 
 .navbar-container {
-	max-width: 1400px;
+	max-width: var(--content-width);
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;

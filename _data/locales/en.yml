@@ -151,10 +151,8 @@ projects:
     note: Convert between TL, POJ, TPS, braille and tone numbers instantly
 ui:
   navigation_menu: Navigation menu
-  download_on: Download on
-  download: Download
-  macos_requirement: Requires macOS 14 (Sonoma) or later
-  windows_requirement: Requires Windows 10 or later
+  mobile_tablet: Phone & tablet
+  beta_placeholder: Coming soon
   choose_device: Choose your device
   choose_system: Choose your operating system
   desktop: Desktop

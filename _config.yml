@@ -16,6 +16,7 @@ ios_app_id: 6751871806
 ios_app_country: TW
 appstore_link: https://apps.apple.com/app/id6751871806
 playstore_link: https://play.google.com/store/apps/details?id=com.siansiansu.taigikeyboard
+chromeos_link: https://chromewebstore.google.com/detail/alkppnijpfcahccbkcgpacejljlnidgc?utm_source=item-share-cb
 
 enable_smart_app_banner: true
 enable_features: false
@@ -23,7 +24,7 @@ enable_features: false
 # macOS is distributed from a GitHub release rather than a store, and the
 # release flow fills _data/macos_release.json as soon as any package is
 # published. Keep this false until the macOS launch is meant to be public: it
-# hides the download button AND keeps the package URL out of the page's
+# hides the download row AND keeps the package URL out of the page's
 # structured data.
 enable_macos_download: true
 
@@ -37,7 +38,7 @@ enable_windows_download: true
 # linux_rpm_release.json / linux_arch_release.json filled by taigikeyboard's
 # scripts/announce-release.sh on every publish. There is no appcast — a Linux
 # package is not updated in place. Keep this false until the Linux launch is meant to
-# be public: it hides the button, the install tab and the JSON-LD URL, not the
+# be public: it hides the row, the install tab and the JSON-LD URL, not the
 # `.deb` itself, which is public the moment the release is published.
 enable_linux_download: true
 
