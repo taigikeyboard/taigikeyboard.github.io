@@ -40,7 +40,7 @@ body {
 
 
 .hero {
-	padding: 7rem 2rem 8rem;
+	padding: 14rem 2rem 12rem;
 	text-align: center;
 }
 
@@ -84,7 +84,7 @@ body {
 	font-size: 5.6rem;
 	font-weight: 500;
 	line-height: 1.2;
-	margin-bottom: 1.6rem;
+	margin-bottom: 2rem;
 	color: var(--color-text-primary);
 	letter-spacing: -0.015em;
 }
@@ -92,34 +92,26 @@ body {
 .hero-subtitle {
 	font-size: 2.6rem;
 	color: var(--color-text-secondary);
-	margin-bottom: 3.2rem;
+	margin-bottom: 4.8rem;
 	font-weight: 400;
 	line-height: 1.45;
-}
-
-.hero-cover img {
-	display: block;
-	width: 100%;
-	max-width: 100rem;
-	height: auto;
-	margin: 4.8rem auto 5.6rem;
 }
 
 // Download center: a centred column, one group per device class with its
 // title above its rows.
 .download-center {
 	max-width: var(--prose-width);
-	margin: 0 auto;
+	margin: 12rem auto 0;
 	text-align: left;
 }
 
 .download-group {
-	padding: 2rem 0;
+	padding: 4rem 0;
 	border-top: 1px solid var(--color-border);
 }
 
 .download-group-title {
-	padding: 0.8rem 0;
+	padding: 0 0 1.6rem;
 	text-align: center;
 	font-size: 1.7rem;
 	font-weight: 600;
@@ -809,15 +801,15 @@ section {
 .button {
 	display: inline-block;
 	text-decoration: none;
-	padding: 1.4rem 2.8rem;
-	border: 0;
+	padding: 1.1rem 2.6rem;
+	border: 1px solid var(--color-secondary);
 	font: inherit;
-	font-size: 1.8rem;
-	font-weight: 500;
+	font-size: 1.7rem;
+	font-weight: 400;
 	line-height: 1.5;
-	color: #ffffff;
-	background-color: var(--color-primary);
-	border-radius: 12px;
+	color: var(--color-secondary);
+	background-color: transparent;
+	border-radius: 999px;
 	list-style: none;
 	cursor: pointer;
 }
@@ -827,7 +819,8 @@ section {
 }
 
 .button:hover {
-	background-color: #424245;
+	color: #ffffff;
+	background-color: var(--color-secondary);
 }
 
 .button:focus-visible,
@@ -1083,7 +1076,7 @@ footer {
 	}
 
 	.hero {
-		padding: 5rem 2rem 6rem;
+		padding: 10rem 2rem 9rem;
 	}
 
 	.phone-preview {
@@ -1183,7 +1176,15 @@ footer {
 	}
 
 	.hero {
-		padding: 3rem 2rem 4rem;
+		padding: 7rem 2rem 6rem;
+	}
+
+	.download-center {
+		margin-top: 7rem;
+	}
+
+	.download-group {
+		padding: 2.4rem 0;
 	}
 
 	.hero h1 {
@@ -1198,10 +1199,6 @@ footer {
 	.hero-subtitle {
 		font-size: 1.8rem;
 		margin-bottom: 2.4rem;
-	}
-
-	.hero-cover img {
-		margin: 3.2rem auto;
 	}
 
 	.phone-preview {
