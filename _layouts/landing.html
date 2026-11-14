@@ -194,7 +194,7 @@ single .deb row stays.
 					<ul class="download-list">
 						{% for project in site.side_projects %}
 						{% assign item = translation.projects[project.id] %}
-						{% include download-row.html href=project.link name=item.name meta=item.note external=true %}
+						{% include download-row.html href=project.link icon=project.icon name=item.name meta=item.note external=true %}
 						{% endfor %}
 					</ul>
 				</div>
