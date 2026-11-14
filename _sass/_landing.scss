@@ -811,6 +811,13 @@ section {
 	cursor: pointer;
 }
 
+// The hero's only action: wide, so it reads as the page's main step.
+.hero .button {
+	min-width: min(100%, 32rem);
+	padding: 1.5rem 4rem;
+	font-size: 1.9rem;
+}
+
 // Marks a button that leaves the page.
 .button-icon {
 	width: 1.6rem;
