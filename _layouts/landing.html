@@ -144,11 +144,11 @@ single .deb row stays.
 					<h3 class="download-group-title">{{ translation.ui.desktop }}</h3>
 					<ul class="download-list">
 						{% if macos_download_url != "" %}
-						{% assign meta = site.data.macos_release.version | append: ' · macOS 14+' %}
+						{% assign meta = site.data.macos_release.version | append: ' · macOS 14+ · Apple Silicon / Intel' %}
 						{% include download-row.html href=macos_download_url icon='apple-logo.svg' name='macOS' meta=meta %}
 						{% endif %}
 						{% if windows_download_url != "" %}
-						{% assign meta = site.data.windows_release.version | append: ' · Windows 10+' %}
+						{% assign meta = site.data.windows_release.version | append: ' · x64: Windows 10+ · Arm64: Windows 11' %}
 						{% include download-row.html href=windows_download_url icon='windows-logo.svg' name='Windows' meta=meta %}
 						{% endif %}
 						{% if linux_split %}
@@ -159,11 +159,11 @@ single .deb row stays.
 						{% assign meta = site.data.linux_arch_release.version | append: ' · x86_64' %}
 						{% include download-row.html href=linux_arch_download_url icon='archlinux-logo.svg' name='Arch Linux' meta=meta %}
 						{% elsif linux_download_url != "" %}
-						{% assign meta = site.data.linux_release.version | append: ' · Ubuntu 24.04+ · amd64' %}
+						{% assign meta = site.data.linux_release.version | append: ' · Ubuntu 24.04+ · x86_64' %}
 						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta=meta %}
 						{% endif %}
 						{% if site.chromeos_link %}
-						{% assign meta = site.data.chromeos_release.version | append: ' · ChromeOS 116+' %}
+						{% assign meta = site.data.chromeos_release.version | append: ' · ChromeOS 116+ · Arm / x86' %}
 						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta=meta external=true %}
 						{% endif %}
 					</ul>
@@ -179,7 +179,7 @@ single .deb row stays.
 						Fixed URLs, so no site data per night. The train's beta is posted
 						to Discord only and is not listed here.
 						{%- endcomment -%}
-						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|Windows 10+,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+" | split: "," %}
+						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+ · Apple Silicon / Intel,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|x64: Windows 10+ · Arm64: Windows 11,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+ · Arm / x86" | split: "," %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
 						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
