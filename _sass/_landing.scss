@@ -788,16 +788,15 @@ section {
 
 .button {
 	display: inline-block;
-	text-decoration: none;
-	padding: 1.1rem 2.6rem;
-	border: 1px solid var(--color-secondary);
+	padding: 1.4rem 2.8rem;
+	border: 0;
 	font: inherit;
-	font-size: 1.7rem;
-	font-weight: 400;
+	font-size: 1.8rem;
+	font-weight: 500;
 	line-height: 1.5;
-	color: var(--color-secondary);
-	background-color: transparent;
-	border-radius: 8px;
+	color: #ffffff;
+	background-color: var(--color-primary);
+	border-radius: 12px;
 	list-style: none;
 	cursor: pointer;
 }
@@ -836,8 +835,7 @@ section {
 }
 
 .button:hover {
-	color: #ffffff;
-	background-color: var(--color-secondary);
+	background-color: #424245;
 }
 
 .button:focus-visible,
