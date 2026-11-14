@@ -173,8 +173,23 @@ single .deb row stays.
 				<div class="download-group">
 					<h3 class="download-group-title">Beta</h3>
 					<ul class="download-list">
-						{%- comment -%}Placeholder: no href renders a plain, non-interactive row.{%- endcomment -%}
-						{% include download-row.html name=translation.ui.beta_placeholder %}
+						{%- comment -%}
+						Every installer in _data/beta_release.json, shown even when a
+						published release carries the same version. Icons follow the
+						asset label written by taigikeyboard's release script.
+						{%- endcomment -%}
+						{% for asset in site.data.beta_release.assets %}
+						{% case asset.label %}
+						{% when 'macOS' %}{% assign icon = 'apple-logo.svg' %}
+						{% when 'Windows' %}{% assign icon = 'windows-logo.svg' %}
+						{% when 'Linux (.deb)' %}{% assign icon = 'ubuntu-logo.svg' %}
+						{% when 'Fedora (.rpm)' %}{% assign icon = 'fedora-logo.svg' %}
+						{% when 'Arch' %}{% assign icon = 'archlinux-logo.svg' %}
+						{% when 'ChromeOS' %}{% assign icon = 'chrome-logo.svg' %}
+						{% else %}{% assign icon = 'linux-logo.svg' %}
+						{% endcase %}
+						{% include download-row.html href=asset.url icon=icon name=asset.label meta=site.data.beta_release.version %}
+						{% endfor %}
 					</ul>
 				</div>
 

@@ -128,7 +128,6 @@ projects:
 ui:
   navigation_menu: ナビゲーションメニュー
   mobile_tablet: スマホ・タブレット
-  beta_placeholder: 準備中
   choose_device: 端末を選択
   choose_system: OSを選択
   desktop: パソコン

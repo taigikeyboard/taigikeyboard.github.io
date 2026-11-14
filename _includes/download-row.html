@@ -1,18 +1,18 @@
 {%- comment -%}
 One row of the download center, wrapped in its <li>.
-  href      destination; omitted for a placeholder row, which renders no link
+  href      destination
   external  true for a store or site (new tab, ↗); otherwise a file download (↓)
   icon      file name under /assets/; omitted leaves the icon column empty on
             wide screens so names stay aligned across groups
   name, meta
 {%- endcomment -%}
 <li>
-	{% if include.href %}<a class="download-row" href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{% else %}<div class="download-row">{% endif %}
+	<a class="download-row" href="{{ include.href }}"{% if include.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
 		{% if include.icon %}<img class="download-row-icon" src="{{ '/assets/' | append: include.icon | relative_url }}" alt="" width="24" height="24">{% endif %}
 		<span class="download-row-text">
 			<span class="download-row-name">{{ include.name }}</span>
 			{% if include.meta %}<span class="download-row-meta">{{ include.meta }}</span>{% endif %}
 		</span>
-		{% if include.href %}<span class="download-row-arrow" aria-hidden="true">{% if include.external %}↗{% else %}↓{% endif %}</span>{% endif %}
-	{% if include.href %}</a>{% else %}</div>{% endif %}
+		<span class="download-row-arrow" aria-hidden="true">{% if include.external %}↗{% else %}↓{% endif %}</span>
+	</a>
 </li>

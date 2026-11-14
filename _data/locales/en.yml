@@ -151,7 +151,6 @@ projects:
 ui:
   navigation_menu: Navigation menu
   mobile_tablet: Phone & tablet
-  beta_placeholder: Coming soon
   choose_device: Choose your device
   choose_system: Choose your operating system
   desktop: Desktop

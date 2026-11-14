@@ -128,7 +128,6 @@ projects:
 ui:
   navigation_menu: 網站選單
   mobile_tablet: 手機仔・平板
-  beta_placeholder: 當咧準備
   choose_device: 揀你 ê 裝置
   choose_system: 揀你 ê 系統
   desktop: 電腦

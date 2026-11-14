@@ -146,7 +146,7 @@ body {
 	overflow-wrap: anywhere;
 }
 
-a.download-row:hover {
+.download-row:hover {
 	background: var(--color-surface);
 }
 
@@ -165,17 +165,6 @@ a.download-row:hover {
 	grid-column: 2;
 	font-size: 1.8rem;
 	font-weight: 500;
-}
-
-// The placeholder row has no columns to fill, so it sits under the centred title.
-div.download-row {
-	display: block;
-	text-align: center;
-}
-
-div.download-row .download-row-name {
-	font-weight: 400;
-	color: var(--color-text-secondary);
 }
 
 .download-row-meta {
@@ -847,7 +836,7 @@ section {
 .button:focus-visible,
 .sponsor-close:focus-visible,
 .sponsor-method:focus-visible,
-a.download-row:focus-visible {
+.download-row:focus-visible {
 	outline: 2px solid var(--color-secondary);
 	outline-offset: 4px;
 }
