@@ -132,6 +132,7 @@ ui:
   choose_system: OSを選択
   desktop: パソコン・安定版
   nightly: パソコン・試験版（毎日更新、署名なし）
+  browser_extension: ブラウザ拡張機能
   mobile: スマートフォン
   desktop_chart: TaigiKeyboard パソコン版の入力早見表
   mobile_chart: TaigiKeyboard スマートフォン版の入力早見表

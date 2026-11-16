@@ -186,6 +186,8 @@ single .deb row stays.
 						{% assign icon = cells[1] %}{% assign name = cells[2] %}{% assign meta = cells[3] %}
 						{% include download-row.html href=href icon=icon name=name meta=meta %}
 						{% endfor %}
+						{%- comment -%} Browser extension (Chrome now, Firefox later): its name is translated, so it sits outside the OS-named rows above. {%- endcomment -%}
+						{% include download-row.html href="https://nightly.taigikeyboard.tw/TaigiKeyboard-nightly-extension.zip" icon="extension-logo.svg" name=translation.ui.browser_extension meta="Chrome 120+" %}
 					</ul>
 				</div>
 

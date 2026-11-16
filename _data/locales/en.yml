@@ -155,6 +155,7 @@ ui:
   choose_system: Choose your operating system
   desktop: Desktop · Stable
   nightly: Desktop · Preview (daily, unsigned)
+  browser_extension: Browser extension
   mobile: Mobile
   desktop_chart: TaigiKeyboard desktop typing reference
   mobile_chart: TaigiKeyboard mobile typing reference
