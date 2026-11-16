@@ -179,13 +179,15 @@ single .deb row stays.
 						Fixed URLs, so no site data per night. The train's beta is posted
 						to Discord only and is not listed here.
 						{%- endcomment -%}
-						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+ · Apple Silicon / Intel,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|x64: Windows 10+ · Arm64: Windows 11,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+ · Arm / x86,TaigiKeyboard-nightly-extension.zip|chrome-logo.svg|Chrome|Chrome 120+ · Windows / macOS / Linux" | split: "," %}
+						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+ · Apple Silicon / Intel,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|x64: Windows 10+ · Arm64: Windows 11,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+ · x86_64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+ · x86_64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux|x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+ · Arm / x86" | split: "," %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
 						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
 						{% assign icon = cells[1] %}{% assign name = cells[2] %}{% assign meta = cells[3] %}
 						{% include download-row.html href=href icon=icon name=name meta=meta %}
 						{% endfor %}
+						{%- comment -%} Browser extension (Chrome now, Firefox later): its name is translated, so it sits outside the OS-named rows above. {%- endcomment -%}
+						{% include download-row.html href="https://nightly.taigikeyboard.tw/TaigiKeyboard-nightly-extension.zip" icon="chrome-logo.svg" name=translation.ui.browser_extension meta="Chrome 120+" %}
 					</ul>
 				</div>
 
