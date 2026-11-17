@@ -87,7 +87,8 @@ single .deb row stays.
 		"downloadUrl": [
 			"{{ site.appstore_link }}",
 			"{{ site.playstore_link }}"{% if site.chromeos_link %},
-			"{{ site.chromeos_link | split: '?' | first }}"{% endif %}{% if macos_download_url != "" %},
+			"{{ site.chromeos_link | split: '?' | first }}"{% endif %}{% if site.extension_link %},
+			"{{ site.extension_link }}"{% endif %}{% if macos_download_url != "" %},
 			"{{ macos_download_url }}"{% endif %}{% if windows_download_url != "" %},
 			"{{ windows_download_url }}"{% endif %}{% if linux_download_url != "" %},
 			"{{ linux_download_url }}"{% endif %}{% if linux_split %},
@@ -165,6 +166,11 @@ single .deb row stays.
 						{% if site.chromeos_link %}
 						{% assign meta = site.data.chromeos_release.version | append: ' · ChromeOS 116+ · Arm / x86' %}
 						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta=meta external=true %}
+						{% endif %}
+						{% if site.extension_link %}
+						{%- comment -%} The release announcement writes extension_release.json; until the first one the row shows the browser floor only. {%- endcomment -%}
+						{% if site.data.extension_release %}{% assign meta = site.data.extension_release.version | append: ' · Chrome 120+' %}{% else %}{% assign meta = 'Chrome 120+' %}{% endif %}
+						{% include download-row.html href=site.extension_link icon='extension-logo.svg' name=translation.ui.browser_extension meta=meta external=true %}
 						{% endif %}
 					</ul>
 				</div>
