@@ -181,7 +181,7 @@ when their own data file names the same release too (no Arch arm64).
 						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta='ChromeOS 116+' arch='Arm / x86' version=site.data.chromeos_release.version external=true %}
 						{% endif %}
 						{% if site.extension_link %}
-						{%- comment -%} The release announcement writes extension_release.json; until the first one the row shows the browser floor only. {%- endcomment -%}
+						{%- comment -%} The release announcement writes extension_release.json. 3.9.0 was published to the store by hand, so its file was seeded with the version only; the next announcement writes the full shape. {%- endcomment -%}
 						{% include download-row.html href=site.extension_link icon='extension-logo.svg' name=translation.ui.browser_extension meta='Chrome 120+' version=site.data.extension_release.version external=true %}
 						{% endif %}
 					</ul>
