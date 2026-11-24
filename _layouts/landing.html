@@ -166,12 +166,21 @@ when their own data file names the same release too (no Arch arm64).
 						{% endif %}
 						{% if linux_split %}
 						{% include download-row.html href=linux_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='amd64' version=site.data.linux_release.version %}
+						{%- comment -%}
+						Temporary, remove after the first release carrying arm64 packages is
+						announced (desktop 3.10.0): until its data file exists, the arm64 rows
+						point at the nightly build. Linux packages are unsigned either way.
+						{%- endcomment -%}
 						{% if linux_arm64_download_url != "" %}
 						{% include download-row.html href=linux_arm64_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='arm64' version=site.data.linux_arm64_release.version %}
+						{% else %}
+						{% include download-row.html href='https://nightly.taigikeyboard.tw/taigikeyboard-nightly_arm64.deb' icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='arm64' version='latest' %}
 						{% endif %}
 						{% include download-row.html href=linux_rpm_download_url icon='fedora-logo.svg' name='Fedora' meta='Fedora 44+' arch='x86_64' version=site.data.linux_rpm_release.version %}
 						{% if linux_rpm_arm64_download_url != "" %}
 						{% include download-row.html href=linux_rpm_arm64_download_url icon='fedora-logo.svg' name='Fedora' meta='Fedora 44+' arch='aarch64' version=site.data.linux_rpm_arm64_release.version %}
+						{% else %}
+						{% include download-row.html href='https://nightly.taigikeyboard.tw/taigikeyboard-nightly.aarch64.rpm' icon='fedora-logo.svg' name='Fedora' meta='Fedora 44+' arch='aarch64' version='latest' %}
 						{% endif %}
 						{% include download-row.html href=linux_arch_download_url icon='archlinux-logo.svg' name='Arch Linux' arch='x86_64' version=site.data.linux_arch_release.version %}
 						{% elsif linux_download_url != "" %}
