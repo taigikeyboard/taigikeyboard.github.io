@@ -131,10 +131,11 @@ body {
 }
 
 // The icon column stays reserved in rows without an icon, so names line up
-// across every group.
+// across every group. Every row is its own grid, so the columns are fixed
+// widths: that is what lines the cells up from row to row.
 .download-row {
 	display: grid;
-	grid-template-columns: 2.4rem minmax(0, 26rem) minmax(0, 1fr) 2rem;
+	grid-template-columns: 2.4rem minmax(0, 20rem) minmax(0, 1fr) 15rem 6rem 2rem;
 	column-gap: 1.6rem;
 	align-items: center;
 	min-height: 5.4rem;
@@ -173,8 +174,29 @@ body {
 	color: var(--color-text-secondary);
 }
 
-.download-row-arrow {
+// Store and project rows carry no architecture or version: their text takes
+// the whole width up to the arrow.
+.download-row-meta:last-child {
+	grid-column: 3 / 6;
+}
+
+.download-row-arch,
+.download-row-version {
+	font-size: 1.5rem;
+	color: var(--color-text-secondary);
+}
+
+.download-row-arch {
 	grid-column: 4;
+}
+
+.download-row-version {
+	grid-column: 5;
+	font-variant-numeric: tabular-nums;
+}
+
+.download-row-arrow {
+	grid-column: 6;
 	font-size: 1.8rem;
 	text-align: right;
 	color: var(--color-text-secondary);
