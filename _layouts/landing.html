@@ -147,10 +147,10 @@ when their own data file names the same release too (no Arch arm64).
 					<h3 class="download-group-title">{{ translation.ui.mobile_tablet }}</h3>
 					<ul class="download-list">
 						{%- comment -%}One universal App Store listing, shown as two rows so iPad users find theirs.{%- endcomment -%}
-						{% include download-row.html href=site.appstore_link icon='apple-logo.svg' name='iPhone' meta='App Store' external=true %}
-						{% include download-row.html href=site.appstore_link icon='apple-logo.svg' name='iPad' meta='App Store' external=true %}
+						{% include download-row.html href=site.appstore_link icon='apple-logo.svg' name='iPhone' meta='iOS 17+' arch='App Store' version=site.mobile_version external=true %}
+						{% include download-row.html href=site.appstore_link icon='apple-logo.svg' name='iPad' meta='iPadOS 17+' arch='App Store' version=site.mobile_version external=true %}
 						{% if site.playstore_link %}
-						{% include download-row.html href=site.playstore_link icon='google-play-logo.svg' name='Android' meta='Google Play' external=true %}
+						{% include download-row.html href=site.playstore_link icon='google-play-logo.svg' name='Android' meta='Android 9+' arch='Google Play' version=site.mobile_version external=true %}
 						{% endif %}
 					</ul>
 				</div>

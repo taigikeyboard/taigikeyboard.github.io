@@ -19,6 +19,10 @@ playstore_link: https://play.google.com/store/apps/details?id=com.siansiansu.tai
 chromeos_link: https://chromewebstore.google.com/detail/alkppnijpfcahccbkcgpacejljlnidgc?utm_source=item-share-cb
 # The browser extension's Chrome Web Store item (taigikeyboard web/extension).
 extension_link: https://chromewebstore.google.com/detail/macjldjheiajcimfcjdcegagaemcelkf
+# The version both stores currently serve, shown on the phone and tablet
+# rows. No release flow writes it: update it by hand once a mobile release is
+# live in the App Store and on Google Play.
+mobile_version: 3.9.0
 # Browser version, offered in the hero as the no-install trial.
 web_link: https://taigikeyboard.tw/web/
 
