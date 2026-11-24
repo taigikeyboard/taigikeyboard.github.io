@@ -35,10 +35,11 @@ enable_macos_download: true
 # false until the Windows launch is meant to be public — same two consumers.
 enable_windows_download: true
 
-# Linux is the same: a `.deb`, a Fedora `.rpm` and an Arch `.pkg.tar.zst` on
-# the desktop GitHub release, _data/linux_release.json /
-# linux_rpm_release.json / linux_arch_release.json filled by taigikeyboard's
-# scripts/announce-release.sh on every publish. There is no appcast — a Linux
+# Linux is the same: a `.deb`, a Fedora `.rpm` (each x86_64 and arm64) and an
+# Arch `.pkg.tar.zst` on the desktop GitHub release, _data/linux_release.json /
+# linux_arm64_release.json / linux_rpm_release.json / linux_rpm_arm64_release.json
+# / linux_arch_release.json filled by taigikeyboard's
+# tools/release/announce-release.sh on every publish. There is no appcast — a Linux
 # package is not updated in place. Keep this false until the Linux launch is meant to
 # be public: it hides the row, the install tab and the JSON-LD URL, not the
 # `.deb` itself, which is public the moment the release is published.
