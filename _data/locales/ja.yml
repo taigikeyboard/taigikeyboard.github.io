@@ -126,6 +126,10 @@ projects:
     name: 台湾語表記変換ツール
     note: 台湾ローマ字・白話字・方音符号・点字・声調数字を即時変換
 ui:
+  platform: プラットフォーム
+  requirement: 動作環境
+  architecture: アーキテクチャ
+  version: バージョン
   navigation_menu: ナビゲーションメニュー
   mobile_tablet: スマホ・タブレット
   choose_device: 端末を選択

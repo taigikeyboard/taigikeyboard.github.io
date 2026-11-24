@@ -149,6 +149,10 @@ projects:
     name: Taiwanese Script Converter
     note: Convert between TL, POJ, TPS, braille and tone numbers instantly
 ui:
+  platform: Platform
+  requirement: Requirements
+  architecture: Architecture
+  version: Version
   navigation_menu: Navigation menu
   mobile_tablet: Phone & tablet
   choose_device: Choose your device
