@@ -132,29 +132,10 @@ body {
 
 // The icon column stays reserved in rows without an icon, so names line up
 // across every group. Every row is its own grid, so the columns are fixed
-// widths: that is what keeps them under the header's names.
-.download-list,
-.download-header {
-	--download-columns: 2.4rem minmax(0, 20rem) minmax(0, 1fr) 15rem 6rem 2rem;
-}
-
-.download-header {
-	display: grid;
-	grid-template-columns: var(--download-columns);
-	column-gap: 1.6rem;
-	padding: 0 1.2rem 0.4rem;
-	font-size: 1.3rem;
-	color: var(--color-text-secondary);
-}
-
-.download-header-name { grid-column: 2; }
-.download-header-meta { grid-column: 3; }
-.download-header-arch { grid-column: 4; }
-.download-header-version { grid-column: 5; }
-
+// widths: that is what lines the cells up from row to row.
 .download-row {
 	display: grid;
-	grid-template-columns: var(--download-columns);
+	grid-template-columns: 2.4rem minmax(0, 20rem) minmax(0, 1fr) 15rem 6rem 2rem;
 	column-gap: 1.6rem;
 	align-items: center;
 	min-height: 5.4rem;
@@ -191,6 +172,12 @@ body {
 	grid-column: 3;
 	font-size: 1.5rem;
 	color: var(--color-text-secondary);
+}
+
+// Store and project rows carry no architecture or version: their text takes
+// the whole width up to the arrow.
+.download-row-meta:last-child {
+	grid-column: 3 / 6;
 }
 
 .download-row-arch,
@@ -1191,18 +1178,6 @@ footer {
 		flex: 1;
 		flex-direction: column;
 		min-width: 0;
-	}
-
-	// No header row here: each cell names itself.
-	.download-header {
-		display: none;
-	}
-
-	.download-row-text [data-label]::before {
-		content: attr(data-label);
-		margin-right: 0.6rem;
-		font-size: 1.3rem;
-		opacity: 0.75;
 	}
 
 	.section-note {

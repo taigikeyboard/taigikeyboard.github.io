@@ -126,10 +126,6 @@ projects:
     name: 台語文字轉換器
     note: 台羅、白話字、方音符號、點字、聲調數字隨時互換
 ui:
-  platform: 平台
-  requirement: 系統需求
-  architecture: 架構
-  version: 版本
   navigation_menu: 網站選單
   mobile_tablet: 手機仔・平板
   choose_device: 揀你 ê 裝置

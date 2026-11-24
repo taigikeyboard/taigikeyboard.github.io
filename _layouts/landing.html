@@ -157,7 +157,6 @@ when their own data file names the same release too (no Arch arm64).
 
 				<div class="download-group">
 					<h3 class="download-group-title">{{ translation.ui.desktop }}</h3>
-					{% include download-header.html %}
 					<ul class="download-list">
 						{% if macos_download_url != "" %}
 						{% include download-row.html href=macos_download_url icon='apple-logo.svg' name='macOS' meta='macOS 14+' arch='Apple Silicon / Intel' version=site.data.macos_release.version %}
@@ -190,7 +189,6 @@ when their own data file names the same release too (no Arch arm64).
 
 				<div class="download-group">
 					<h3 class="download-group-title">{{ translation.ui.nightly }}</h3>
-					{% include download-header.html version=false %}
 					<ul class="download-list">
 						{%- comment -%}
 						Unsigned builds of main, overwritten every night under these fixed
