@@ -145,32 +145,24 @@ single .deb row stays.
 					<h3 class="download-group-title">{{ translation.ui.desktop }}</h3>
 					<ul class="download-list">
 						{% if macos_download_url != "" %}
-						{% assign meta = site.data.macos_release.version | append: ' · macOS 14+ · Apple Silicon / Intel' %}
-						{% include download-row.html href=macos_download_url icon='apple-logo.svg' name='macOS' meta=meta %}
+						{% include download-row.html href=macos_download_url icon='apple-logo.svg' name='macOS' meta='macOS 14+ · Apple Silicon / Intel' version=site.data.macos_release.version %}
 						{% endif %}
 						{% if windows_download_url != "" %}
-						{% assign meta = site.data.windows_release.version | append: ' · x64: Windows 10+ · Arm64: Windows 11' %}
-						{% include download-row.html href=windows_download_url icon='windows-logo.svg' name='Windows' meta=meta %}
+						{% include download-row.html href=windows_download_url icon='windows-logo.svg' name='Windows' meta='x64: Windows 10+ · Arm64: Windows 11' version=site.data.windows_release.version %}
 						{% endif %}
 						{% if linux_split %}
-						{% assign meta = site.data.linux_release.version | append: ' · Ubuntu 24.04+ / Debian 13+ · x86_64' %}
-						{% include download-row.html href=linux_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta=meta %}
-						{% assign meta = site.data.linux_rpm_release.version | append: ' · Fedora 44+ · x86_64' %}
-						{% include download-row.html href=linux_rpm_download_url icon='fedora-logo.svg' name='Fedora' meta=meta %}
-						{% assign meta = site.data.linux_arch_release.version | append: ' · x86_64' %}
-						{% include download-row.html href=linux_arch_download_url icon='archlinux-logo.svg' name='Arch Linux' meta=meta %}
+						{% include download-row.html href=linux_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+ · x86_64' version=site.data.linux_release.version %}
+						{% include download-row.html href=linux_rpm_download_url icon='fedora-logo.svg' name='Fedora' meta='Fedora 44+ · x86_64' version=site.data.linux_rpm_release.version %}
+						{% include download-row.html href=linux_arch_download_url icon='archlinux-logo.svg' name='Arch Linux' meta='x86_64' version=site.data.linux_arch_release.version %}
 						{% elsif linux_download_url != "" %}
-						{% assign meta = site.data.linux_release.version | append: ' · Ubuntu 24.04+ · x86_64' %}
-						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta=meta %}
+						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta='Ubuntu 24.04+ · x86_64' version=site.data.linux_release.version %}
 						{% endif %}
 						{% if site.chromeos_link %}
-						{% assign meta = site.data.chromeos_release.version | append: ' · ChromeOS 116+ · Arm / x86' %}
-						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta=meta external=true %}
+						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta='ChromeOS 116+ · Arm / x86' version=site.data.chromeos_release.version external=true %}
 						{% endif %}
 						{% if site.extension_link %}
 						{%- comment -%} The release announcement writes extension_release.json; until the first one the row shows the browser floor only. {%- endcomment -%}
-						{% if site.data.extension_release %}{% assign meta = site.data.extension_release.version | append: ' · Chrome 120+' %}{% else %}{% assign meta = 'Chrome 120+' %}{% endif %}
-						{% include download-row.html href=site.extension_link icon='extension-logo.svg' name=translation.ui.browser_extension meta=meta external=true %}
+						{% include download-row.html href=site.extension_link icon='extension-logo.svg' name=translation.ui.browser_extension meta='Chrome 120+' version=site.data.extension_release.version external=true %}
 						{% endif %}
 					</ul>
 				</div>

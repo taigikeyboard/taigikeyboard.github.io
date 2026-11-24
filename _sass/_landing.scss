@@ -134,7 +134,7 @@ body {
 // across every group.
 .download-row {
 	display: grid;
-	grid-template-columns: 2.4rem minmax(0, 26rem) minmax(0, 1fr) 2rem;
+	grid-template-columns: 2.4rem minmax(0, 26rem) minmax(0, 1fr) auto 2rem;
 	column-gap: 1.6rem;
 	align-items: center;
 	min-height: 5.4rem;
@@ -173,8 +173,16 @@ body {
 	color: var(--color-text-secondary);
 }
 
-.download-row-arrow {
+// The release version gets its own column, apart from what the row needs.
+.download-row-version {
 	grid-column: 4;
+	font-size: 1.4rem;
+	color: var(--color-text-secondary);
+	font-variant-numeric: tabular-nums;
+}
+
+.download-row-arrow {
+	grid-column: 5;
 	font-size: 1.8rem;
 	text-align: right;
 	color: var(--color-text-secondary);
