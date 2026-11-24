@@ -165,7 +165,7 @@ when their own data file names the same release too (no Arch arm64).
 						{% include download-row.html href=windows_download_url icon='windows-logo.svg' name='Windows' meta='Windows 10+ / 11 (Arm64)' arch='x64 / Arm64' version=site.data.windows_release.version %}
 						{% endif %}
 						{% if linux_split %}
-						{% include download-row.html href=linux_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='x86_64' version=site.data.linux_release.version %}
+						{% include download-row.html href=linux_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='amd64' version=site.data.linux_release.version %}
 						{% if linux_arm64_download_url != "" %}
 						{% include download-row.html href=linux_arm64_download_url icon='ubuntu-logo.svg' name='Ubuntu / Debian' meta='Ubuntu 24.04+ / Debian 13+' arch='arm64' version=site.data.linux_arm64_release.version %}
 						{% endif %}
@@ -175,7 +175,7 @@ when their own data file names the same release too (no Arch arm64).
 						{% endif %}
 						{% include download-row.html href=linux_arch_download_url icon='archlinux-logo.svg' name='Arch Linux' arch='x86_64' version=site.data.linux_arch_release.version %}
 						{% elsif linux_download_url != "" %}
-						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta='Ubuntu 24.04+' arch='x86_64' version=site.data.linux_release.version %}
+						{% include download-row.html href=linux_download_url icon='linux-logo.svg' name='Linux' meta='Ubuntu 24.04+' arch='amd64' version=site.data.linux_release.version %}
 						{% endif %}
 						{% if site.chromeos_link %}
 						{% include download-row.html href=site.chromeos_link icon='chrome-logo.svg' name='ChromeOS' meta='ChromeOS 116+' arch='Arm / x86' version=site.data.chromeos_release.version external=true %}
@@ -197,7 +197,7 @@ when their own data file names the same release too (no Arch arm64).
 						Fixed URLs, so no site data per night. The train's beta is posted
 						to Discord only and is not listed here.
 						{%- endcomment -%}
-						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+|Apple Silicon / Intel,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|Windows 10+ / 11 (Arm64)|x64 / Arm64,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+|x86_64,taigikeyboard-nightly_arm64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+|arm64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+|x86_64,taigikeyboard-nightly.aarch64.rpm|fedora-logo.svg|Fedora|Fedora 44+|aarch64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux||x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+|Arm / x86" | split: "," %}
+						{% assign nightly_rows = "TaigiKeyboard-nightly.pkg|apple-logo.svg|macOS|macOS 14+|Apple Silicon / Intel,TaigiKeyboard-nightly.exe|windows-logo.svg|Windows|Windows 10+ / 11 (Arm64)|x64 / Arm64,taigikeyboard-nightly_amd64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+|amd64,taigikeyboard-nightly_arm64.deb|ubuntu-logo.svg|Ubuntu / Debian|Ubuntu 24.04+ / Debian 13+|arm64,taigikeyboard-nightly.x86_64.rpm|fedora-logo.svg|Fedora|Fedora 44+|x86_64,taigikeyboard-nightly.aarch64.rpm|fedora-logo.svg|Fedora|Fedora 44+|aarch64,taigikeyboard-nightly-x86_64.pkg.tar.zst|archlinux-logo.svg|Arch Linux||x86_64,TaigiKeyboard-nightly-chromeos.zip|chrome-logo.svg|ChromeOS|ChromeOS 116+|Arm / x86" | split: "," %}
 						{% for row in nightly_rows %}
 						{% assign cells = row | split: "|" %}
 						{% assign href = "https://nightly.taigikeyboard.tw/" | append: cells[0] %}
