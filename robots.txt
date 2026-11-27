@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://taigikeyboard.tw/sitemap.xml
+Sitemap: https://taigikeyboard.tw/community-dictionary/sitemap.xml
