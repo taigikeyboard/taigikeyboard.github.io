@@ -150,6 +150,7 @@ social:
 
 translate:
   title: 台語齒盤翻譯校對計畫
+  notice_title: 提醒
   notice: 需要 GitHub 口座才會使修正。
   notice_link: 揤遮去 GitHub 辦口座
   search: 揣文字
