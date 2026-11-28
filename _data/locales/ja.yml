@@ -149,9 +149,9 @@ social:
   facebook_group: グループ
 
 translate:
+  title: 台語齒盤 翻訳校正プロジェクト
   intro:
-  - TaigiKeyboard 台語齒盤に表示されるすべてのテキストをここで見られます。おかしな表現や、よりよい言い方に気づいたら「提案」を押してください。GitHub のフォームが開きます。提案はすべて手作業で確認します。
-  - 提案を送るには GitHub アカウントが必要です。
+  - GitHub アカウントが必要です。
   search: テキストやキーで検索
   all: すべて
   section: 分類

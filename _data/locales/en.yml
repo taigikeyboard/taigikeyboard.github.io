@@ -172,9 +172,9 @@ social:
   facebook_group: Group
 
 translate:
+  title: TaigiKeyboard Translation Review Project
   intro:
-  - Every piece of text TaigiKeyboard shows is listed here. If a phrase reads wrong or you know a better way to say it, press Suggest to open a GitHub form. Each suggestion is read by hand.
-  - Sending a suggestion needs a GitHub account.
+  - You need a GitHub account.
   search: Search text or key
   all: All
   section: Section

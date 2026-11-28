@@ -149,9 +149,9 @@ social:
   facebook_group: 社團
 
 translate:
+  title: 台語齒盤翻譯校對計畫
   intro:
-  - 台語齒盤畫面頂的文字攏佇遮。看著無好勢的講法，揤「建議」會拍開 GitHub 的表單，送出了後我會逐項看過。
-  - 送建議需要 GitHub 帳號。
+  - 需要先辦一个 GitHub 口座。
   search: 揣文字抑是代號
   all: 全部
   section: 分類

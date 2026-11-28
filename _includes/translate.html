@@ -7,7 +7,7 @@ with the `key`, `language` and `current` fields prefilled.
 {% include locale.html %}
 {% assign t = translation.translate %}
 <div class="translate-page">
-	<h1>{{ translation.nav_labels.translate }}</h1>
+	<h1>{{ t.title }}</h1>
 	{% for paragraph in t.intro %}
 	<p class="translate-intro">{{ paragraph }}</p>
 	{% endfor %}
