@@ -12,6 +12,7 @@ nav_labels:
   sponsor: 贊助支持
   privacy_policy: 隱私政策
   code_signing: 程式碼簽章政策
+  translate: 翻譯建議
 hero:
   subtitle: 免費、開源、跨裝置 ê 台灣話拍字家私
   try_web: 台語齒盤網頁版
@@ -146,3 +147,29 @@ ui:
 social:
   facebook_page: 粉絲專頁
   facebook_group: 社團
+
+translate:
+  title: 台語齒盤翻譯校對計畫
+  notice: 需要 GitHub 口座才會使修正。
+  notice_link: 揤遮去 GitHub 辦口座
+  search: 揣文字
+  all: 全部
+  section: 分類
+  suggest: 修正
+  confirm: 確定
+  cancel: 取消
+  error_empty: 修正的文字是空的。
+  error_same: 修正的文字佮原本仝款。
+  error_long: 修正的文字傷長，上濟 3,000 字。
+  error_url: 文字傷長，無法度送出，請縮短一寡。
+  error_character: 修正的文字內底有看袂著抑是無支援的字元。
+  note: 說明（英文）
+  loading: 當咧讀取……
+  error: 文字讀取失敗，請小等一下才閣試。
+  empty: 揣無相符的文字。
+  languages:
+    hanji: 漢字
+    tailo: 台羅
+    poj: 白話字
+    en: 英文
+    ja: 日文

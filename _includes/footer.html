@@ -16,6 +16,7 @@ back at the landing page instead of at an anchor that page does not have:
 			<a href="{{ include.anchor_base }}#issues">{{ translation.nav_labels.issues }}</a>
 			<a href="{{ '/privacypolicy.html' | relative_url }}">{{ translation.nav_labels.privacy_policy }}</a>
 			<a href="{{ '/codesigning.html' | relative_url }}">{{ translation.nav_labels.code_signing }}</a>
+			<a href="{{ home_path | append: 'translate/' | relative_url }}">{{ translation.nav_labels.translate }}</a>
 		</div>
 
 		{% include social-links.html group='follow' %}

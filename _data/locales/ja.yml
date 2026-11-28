@@ -12,6 +12,7 @@ nav_labels:
   sponsor: 開発を支援
   privacy_policy: プライバシーポリシー
   code_signing: コード署名ポリシー
+  translate: 翻訳に協力
 hero:
   subtitle: 無料・オープンソースで、幅広いOSに対応する台湾語入力ツール
   try_web: ブラウザで試す
@@ -146,3 +147,29 @@ ui:
 social:
   facebook_page: 公式ページ
   facebook_group: グループ
+
+translate:
+  title: 台語齒盤 翻訳校正プロジェクト
+  notice: 修正するには GitHub アカウントが必要です。
+  notice_link: GitHub で登録する
+  search: テキストを検索
+  all: すべて
+  section: 分類
+  suggest: 修正
+  confirm: 確定
+  cancel: キャンセル
+  error_empty: 修正後のテキストが空です。
+  error_same: 修正後のテキストが現在のテキストと同じです。
+  error_long: 修正後のテキストが 3,000 文字を超えています。
+  error_url: テキストが長すぎて送信できません。短くしてください。
+  error_character: 修正後のテキストに見えない文字または使えない文字が含まれています。
+  note: 説明（英語）
+  loading: 読み込み中…
+  error: テキストを読み込めませんでした。しばらくしてからもう一度お試しください。
+  empty: 一致するテキストはありません。
+  languages:
+    hanji: 漢字
+    tailo: 台羅
+    poj: 白話字
+    en: 英語
+    ja: 日本語

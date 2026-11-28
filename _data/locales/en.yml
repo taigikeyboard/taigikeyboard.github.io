@@ -12,6 +12,7 @@ nav_labels:
   sponsor: Support
   privacy_policy: Privacy policy
   code_signing: Code signing policy
+  translate: Help translate
 hero:
   subtitle: A free, open-source, cross-platform Taiwanese input method
   try_web: Try it in your browser
@@ -169,3 +170,29 @@ ui:
 social:
   facebook_page: Page
   facebook_group: Group
+
+translate:
+  title: TaigiKeyboard Translation Review Project
+  notice: You need a GitHub account to make fixes.
+  notice_link: Sign up on GitHub
+  search: Search text
+  all: All
+  section: Section
+  suggest: Fix
+  confirm: Confirm
+  cancel: Cancel
+  error_empty: The new text is empty.
+  error_same: The new text is the same as the current text.
+  error_long: The new text is longer than 3,000 characters.
+  error_url: The text is too long to send. Please shorten it.
+  error_character: The new text contains an invisible or unsupported character.
+  note: Note
+  loading: Loading…
+  error: The text could not be loaded. Try again in a moment.
+  empty: No matching text.
+  languages:
+    hanji: Hanji
+    tailo: Tâi-lô
+    poj: Pe̍h-ōe-jī
+    en: English
+    ja: Japanese
