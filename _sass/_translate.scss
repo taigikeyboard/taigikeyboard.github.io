@@ -96,15 +96,88 @@
 	}
 }
 
-// Colour and hover underline come from the shared .policy-content link rule.
+// A button that reads like the page's links.
 .translate-suggest {
 	flex: none;
+	font: inherit;
 	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--color-secondary);
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+
+	&:hover,
+	&:focus-visible {
+		text-decoration: underline;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-secondary);
+		outline-offset: 3px;
+	}
+}
+
+.translate-values .translate-editor {
+	grid-column: 2;
+	display: block;
+	margin-bottom: 0.8rem;
+
+	textarea {
+		width: 100%;
+		font: inherit;
+		font-size: 1.7rem;
+		line-height: 1.5;
+		padding: 0.8rem 1.2rem;
+		border: 1px solid var(--color-secondary);
+		border-radius: 8px;
+		background: var(--color-bg);
+		color: inherit;
+		resize: vertical;
+	}
+}
+
+.translate-problem {
+	font-size: 1.5rem;
+	color: #c4271e;
+	min-height: 1.5em;
+	margin: 0.4rem 0;
+}
+
+.translate-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+
+	button {
+		font: inherit;
+		font-size: 1.5rem;
+		padding: 0.6rem 1.6rem;
+		border-radius: 8px;
+		cursor: pointer;
+	}
+}
+
+.translate-cancel {
+	background: none;
+	border: 1px solid var(--color-border);
+	color: inherit;
+}
+
+.translate-confirm {
+	background: var(--color-secondary);
+	border: 1px solid var(--color-secondary);
+	color: #ffffff;
 }
 
 @media (max-width: 600px) {
 	.translate-values {
 		grid-template-columns: 1fr;
+
+		.translate-editor {
+			grid-column: 1;
+		}
 
 		dd {
 			margin-bottom: 0.6rem;

@@ -179,6 +179,12 @@ translate:
   all: All
   section: Section
   suggest: Fix
+  confirm: Confirm
+  cancel: Cancel
+  error_empty: The new text is empty.
+  error_same: The new text is the same as the current text.
+  error_long: The new text is longer than 3,000 characters.
+  error_character: The new text contains an invisible character.
   note: Note
   count: "{n} items"
   loading: Loading…

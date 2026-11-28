@@ -1,6 +1,6 @@
 // Translation suggestions page: lists every i18n key of the TaigiKeyboard app,
-// read live from the main branch, with a Suggest link per language that opens
-// the repository's translation issue form prefilled.
+// read live from the main branch. Each value's Fix button opens an inline editor;
+// Confirm opens the repository's translation issue form with every field filled.
 (function () {
 	'use strict';
 
@@ -17,6 +17,13 @@
 	var LISTING_CACHE_KEY = 'translate-i18n-listing';
 	// Developer-facing text left out of the list: the web page's inspector panel, a testing aid.
 	var HIDDEN_KEY = /^web\.inspector/;
+	// Same limits tools/i18n/apply_suggestion.py enforces, checked here first so the
+	// contributor hears about them before leaving the page.
+	var MAX_LENGTH = 3000;
+	var REJECTED_CHARACTER = /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}\p{Cs}\p{Co}\p{Cn}]/u;
+	// Past this the current text is left out of the URL (the form's field is optional and
+	// the automation reads the source file); GitHub answers 414 past its server limit.
+	var MAX_URL_LENGTH = 8000;
 
 	var strings = JSON.parse(document.getElementById('translate-strings').textContent);
 	var search = document.getElementById('translate-search');
@@ -47,17 +54,29 @@
 		});
 	}
 
-	// The current text rides in the URL. The longest today is about 4,200
-	// characters; GitHub answers 414 past its server limit.
-	function suggestUrl(id, language, current) {
+	// Field ids of .github/ISSUE_TEMPLATE/translation.yml: key, language, current, suggestion.
+	function issueUrl(id, language, current, suggestion) {
 		var params = new URLSearchParams({
 			template: 'translation.yml',
 			title: '[i18n] ' + id + ' (' + language + ')',
 			key: id,
 			language: language,
-			current: current
+			current: current,
+			suggestion: suggestion
 		});
+		var url = ISSUE_URL + '?' + params.toString();
+		if (url.length <= MAX_URL_LENGTH) return url;
+		params.delete('current');
 		return ISSUE_URL + '?' + params.toString();
+	}
+
+	// Returns the reason the new text cannot be sent, or '' when it can.
+	function problemWith(text, current) {
+		if (!text) return strings.error_empty;
+		if (text === current) return strings.error_same;
+		if (text.length > MAX_LENGTH) return strings.error_long;
+		if (REJECTED_CHARACTER.test(text.replace(/\n/g, ''))) return strings.error_character;
+		return '';
 	}
 
 	function element(tag, className, text) {
@@ -65,6 +84,67 @@
 		if (className) node.className = className;
 		if (text !== undefined) node.textContent = text;
 		return node;
+	}
+
+	function openEditor(cell, button, entry, language) {
+		if (cell.nextSibling && cell.nextSibling.classList.contains('translate-editor')) {
+			cell.nextSibling.querySelector('textarea').focus();
+			return;
+		}
+		var current = entry.values[language] || '';
+		var editor = element('dd', 'translate-editor');
+		var input = element('textarea');
+		input.value = current;
+		input.lang = LANGUAGE_TAGS[language];
+		input.rows = Math.min(8, current.split('\n').length + 1);
+		input.setAttribute('aria-label', strings.suggest + ' ' + entry.id + ' ' + strings.languages[language]);
+		var problem = element('p', 'translate-problem');
+		problem.setAttribute('role', 'alert');
+		var actions = element('div', 'translate-actions');
+		var cancel = element('button', 'translate-cancel', strings.cancel);
+		cancel.type = 'button';
+		var confirm = element('button', 'translate-confirm', strings.confirm);
+		confirm.type = 'button';
+		actions.appendChild(cancel);
+		actions.appendChild(confirm);
+		editor.appendChild(input);
+		editor.appendChild(problem);
+		editor.appendChild(actions);
+		cell.after(editor);
+		button.setAttribute('aria-expanded', 'true');
+
+		function close() {
+			editor.remove();
+			button.setAttribute('aria-expanded', 'false');
+			button.focus();
+		}
+
+		function send() {
+			var text = input.value.replace(/\r\n?/g, '\n').trim();
+			var reason = problemWith(text, current);
+			problem.textContent = reason;
+			if (reason) {
+				input.focus();
+				return;
+			}
+			window.open(issueUrl(entry.id, language, current, text), '_blank', 'noopener');
+			close();
+		}
+
+		cancel.addEventListener('click', close);
+		confirm.addEventListener('click', send);
+		input.addEventListener('input', function () { problem.textContent = ''; });
+		input.addEventListener('keydown', function (event) {
+			if (event.key === 'Escape') {
+				event.preventDefault();
+				close();
+			} else if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+				event.preventDefault();
+				send();
+			}
+		});
+		input.focus();
+		input.setSelectionRange(input.value.length, input.value.length);
 	}
 
 	function renderEntry(entry) {
@@ -84,12 +164,12 @@
 			var text = element('span', 'translate-value', value);
 			text.lang = LANGUAGE_TAGS[language];
 			cell.appendChild(text);
-			var link = element('a', 'translate-suggest', strings.suggest);
-			link.href = suggestUrl(entry.id, language, value);
-			link.target = '_blank';
-			link.rel = 'noopener noreferrer';
-			link.setAttribute('aria-label', strings.suggest + ' ' + entry.id + ' ' + strings.languages[language]);
-			cell.appendChild(link);
+			var button = element('button', 'translate-suggest', strings.suggest);
+			button.type = 'button';
+			button.setAttribute('aria-expanded', 'false');
+			button.setAttribute('aria-label', strings.suggest + ' ' + entry.id + ' ' + strings.languages[language]);
+			button.addEventListener('click', function () { openEditor(cell, button, entry, language); });
+			cell.appendChild(button);
 			rows.appendChild(cell);
 		});
 		card.appendChild(rows);
