@@ -15,6 +15,8 @@
 	// fetches do not count. One listing per tab session keeps reloads and language
 	// switches off that budget.
 	var LISTING_CACHE_KEY = 'translate-i18n-listing';
+	// Developer-facing text left out of the list: the web page's inspector panel, a testing aid.
+	var HIDDEN_KEY = /^web\.inspector/;
 
 	var strings = JSON.parse(document.getElementById('translate-strings').textContent);
 	var search = document.getElementById('translate-search');
@@ -111,7 +113,9 @@
 
 	function render(documents) {
 		documents.forEach(function (doc) {
-			Object.keys(doc.keys).forEach(function (key) {
+			Object.keys(doc.keys).filter(function (key) {
+				return !HIDDEN_KEY.test(doc.namespace + '.' + key);
+			}).forEach(function (key) {
 				var spec = doc.keys[key];
 				var values = spec.values || {};
 				var entry = {
