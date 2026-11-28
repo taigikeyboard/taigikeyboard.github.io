@@ -21,9 +21,7 @@
 	// contributor hears about them before leaving the page.
 	var MAX_LENGTH = 3000;
 	var REJECTED_CHARACTER = /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}\p{Cs}\p{Co}\p{Cn}]/u;
-	// Past this the current text is left out of the URL (the form's field is optional and
-	// the automation reads the source file); a URL still longer is refused, since GitHub
-	// answers 414 past its server limit. About 890 Hanji fill it.
+	// A longer URL is refused, since GitHub answers 414 past its server limit. About 890 Hanji fill it.
 	var MAX_URL_LENGTH = 8000;
 
 	var strings = JSON.parse(document.getElementById('translate-strings').textContent);
@@ -54,20 +52,15 @@
 		});
 	}
 
-	// Field ids of .github/ISSUE_TEMPLATE/translation.yml: key, language, current, suggestion.
-	function issueUrl(id, language, current, suggestion) {
+	// The title names the text (tools/i18n/apply_suggestion.py parses it); `suggestion` is the
+	// form's one prefilled field (.github/ISSUE_TEMPLATE/translation.yml).
+	function issueUrl(id, language, suggestion) {
 		var params = new URLSearchParams({
 			template: 'translation.yml',
 			title: '[i18n] ' + id + ' (' + language + ')',
-			key: id,
-			language: language,
-			current: current,
 			suggestion: suggestion
 		});
 		var url = ISSUE_URL + '?' + params.toString();
-		if (url.length <= MAX_URL_LENGTH) return url;
-		params.delete('current');
-		url = ISSUE_URL + '?' + params.toString();
 		return url.length <= MAX_URL_LENGTH ? url : '';
 	}
 
@@ -138,7 +131,7 @@
 		function send() {
 			var text = input.value.trim();
 			var reason = problemWith(text, current);
-			var url = reason ? '' : issueUrl(entry.id, language, current, text);
+			var url = reason ? '' : issueUrl(entry.id, language, text);
 			if (!reason && !url) reason = strings.error_url;
 			if (reason) {
 				report(reason);
