@@ -1,6 +1,6 @@
 // Translation suggestions page: lists every i18n key of the TaigiKeyboard app,
 // read live from the main branch. Each value's Fix button opens an inline editor;
-// Confirm opens the repository's translation issue form with every field filled.
+// Confirm opens the repository's translation issue form with the title and suggested text filled.
 (function () {
 	'use strict';
 
