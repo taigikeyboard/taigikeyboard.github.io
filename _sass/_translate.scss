@@ -9,10 +9,17 @@
 	}
 }
 
-.translate-intro {
+// Notification-bar style: a tinted block with the sign-up link.
+.translate-notice {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.4rem 1.6rem;
 	max-width: var(--prose-width);
-	color: var(--color-text-secondary);
-	margin-bottom: 0.8rem;
+	padding: 1.2rem 1.6rem;
+	border-radius: 10px;
+	background: rgba(0, 113, 227, 0.08);
+	font-size: 1.8rem;
 }
 
 .translate-toolbar {

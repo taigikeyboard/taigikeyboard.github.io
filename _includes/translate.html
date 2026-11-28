@@ -8,9 +8,10 @@ here. Each Fix button opens an inline editor; Confirm opens taigikeyboard's
 {% assign t = translation.translate %}
 <div class="translate-page">
 	<h1>{{ t.title }}</h1>
-	{% for paragraph in t.intro %}
-	<p class="translate-intro">{{ paragraph }}</p>
-	{% endfor %}
+	<p class="translate-notice">
+		{{ t.notice }}
+		<a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">{{ t.notice_link }}</a>
+	</p>
 
 	<div class="translate-toolbar">
 		<input type="search" id="translate-search" placeholder="{{ t.search }}" aria-label="{{ t.search }}" autocomplete="off" disabled>

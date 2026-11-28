@@ -173,8 +173,8 @@ social:
 
 translate:
   title: TaigiKeyboard Translation Review Project
-  intro:
-  - You need a GitHub account.
+  notice: You need a GitHub account.
+  notice_link: Sign up on GitHub
   search: Search text
   all: All
   section: Section
