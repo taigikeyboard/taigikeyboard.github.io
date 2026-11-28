@@ -29,7 +29,6 @@
 	var strings = JSON.parse(document.getElementById('translate-strings').textContent);
 	var search = document.getElementById('translate-search');
 	var namespaceSelect = document.getElementById('translate-namespace');
-	var count = document.getElementById('translate-count');
 	var status = document.getElementById('translate-status');
 	var list = document.getElementById('translate-list');
 	var entries = [];
@@ -216,7 +215,6 @@
 			entry.node.hidden = !visible;
 			if (visible) shown += 1;
 		});
-		count.textContent = strings.count.replace('{n}', shown);
 		status.textContent = shown ? '' : strings.empty;
 		status.hidden = shown > 0;
 	}

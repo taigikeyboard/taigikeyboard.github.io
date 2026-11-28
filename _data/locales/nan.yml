@@ -164,7 +164,6 @@ translate:
   error_url: 文字傷長，無法度送出，請縮短一寡。
   error_character: 修正的文字內底有看袂著抑是無支援的字元。
   note: 說明（英文）
-  count: "{n} 項"
   loading: 當咧讀取……
   error: 文字讀取失敗，請小等一下才閣試。
   empty: 揣無相符的文字。

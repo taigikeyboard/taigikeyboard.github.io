@@ -187,7 +187,6 @@ translate:
   error_url: The text is too long to send. Please shorten it.
   error_character: The new text contains an invisible or unsupported character.
   note: Note
-  count: "{n} items"
   loading: Loading…
   error: The text could not be loaded. Try again in a moment.
   empty: No matching text.
