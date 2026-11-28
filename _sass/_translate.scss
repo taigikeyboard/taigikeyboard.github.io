@@ -22,6 +22,12 @@
 	font-size: 1.8rem;
 }
 
+.translate-notice-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
 .translate-toolbar {
 	position: sticky;
 	top: var(--navbar-height);
