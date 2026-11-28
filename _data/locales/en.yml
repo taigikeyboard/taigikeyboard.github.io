@@ -184,7 +184,8 @@ translate:
   error_empty: The new text is empty.
   error_same: The new text is the same as the current text.
   error_long: The new text is longer than 3,000 characters.
-  error_character: The new text contains an invisible character.
+  error_url: The text is too long to send. Please shorten it.
+  error_character: The new text contains an invisible or unsupported character.
   note: Note
   count: "{n} items"
   loading: Loading…

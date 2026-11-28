@@ -161,7 +161,8 @@ translate:
   error_empty: 修正後のテキストが空です。
   error_same: 修正後のテキストが現在のテキストと同じです。
   error_long: 修正後のテキストが 3,000 文字を超えています。
-  error_character: 修正後のテキストに見えない文字が含まれています。
+  error_url: テキストが長すぎて送信できません。短くしてください。
+  error_character: 修正後のテキストに見えない文字または使えない文字が含まれています。
   note: 説明（英語）
   count: "{n} 件"
   loading: 読み込み中…

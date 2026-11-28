@@ -22,7 +22,8 @@
 	var MAX_LENGTH = 3000;
 	var REJECTED_CHARACTER = /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}\p{Cs}\p{Co}\p{Cn}]/u;
 	// Past this the current text is left out of the URL (the form's field is optional and
-	// the automation reads the source file); GitHub answers 414 past its server limit.
+	// the automation reads the source file); a URL still longer is refused, since GitHub
+	// answers 414 past its server limit. About 890 Hanji fill it.
 	var MAX_URL_LENGTH = 8000;
 
 	var strings = JSON.parse(document.getElementById('translate-strings').textContent);
@@ -67,15 +68,21 @@
 		var url = ISSUE_URL + '?' + params.toString();
 		if (url.length <= MAX_URL_LENGTH) return url;
 		params.delete('current');
-		return ISSUE_URL + '?' + params.toString();
+		url = ISSUE_URL + '?' + params.toString();
+		return url.length <= MAX_URL_LENGTH ? url : '';
 	}
 
 	// Returns the reason the new text cannot be sent, or '' when it can.
 	function problemWith(text, current) {
 		if (!text) return strings.error_empty;
 		if (text === current) return strings.error_same;
-		if (text.length > MAX_LENGTH) return strings.error_long;
-		if (REJECTED_CHARACTER.test(text.replace(/\n/g, ''))) return strings.error_character;
+		// Code points, as Python counts: an Extension B Hanji like 𪜶 is one character.
+		if (Array.from(text).length > MAX_LENGTH) return strings.error_long;
+		var rejected = text.replace(/\n/g, '').match(REJECTED_CHARACTER);
+		if (rejected) {
+			var code = rejected[0].codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+			return strings.error_character + ' (U+' + code + ')';
+		}
 		return '';
 	}
 
@@ -99,7 +106,9 @@
 		input.rows = Math.min(8, current.split('\n').length + 1);
 		input.setAttribute('aria-label', strings.suggest + ' ' + entry.id + ' ' + strings.languages[language]);
 		var problem = element('p', 'translate-problem');
+		problem.id = 'translate-problem-' + entry.id.replace(/\./g, '-') + '-' + language;
 		problem.setAttribute('role', 'alert');
+		input.setAttribute('aria-describedby', problem.id);
 		var actions = element('div', 'translate-actions');
 		var cancel = element('button', 'translate-cancel', strings.cancel);
 		cancel.type = 'button';
@@ -119,22 +128,43 @@
 			button.focus();
 		}
 
+		function report(reason) {
+			// Cleared first, so the alert is read again when the same reason repeats.
+			problem.textContent = '';
+			input.setAttribute('aria-invalid', 'true');
+			requestAnimationFrame(function () { problem.textContent = reason; });
+			input.focus();
+		}
+
 		function send() {
-			var text = input.value.replace(/\r\n?/g, '\n').trim();
+			var text = input.value.trim();
 			var reason = problemWith(text, current);
-			problem.textContent = reason;
+			var url = reason ? '' : issueUrl(entry.id, language, current, text);
+			if (!reason && !url) reason = strings.error_url;
 			if (reason) {
-				input.focus();
+				report(reason);
 				return;
 			}
-			window.open(issueUrl(entry.id, language, current, text), '_blank', 'noopener');
+			var tab = window.open(url, '_blank');
+			if (tab) {
+				tab.opener = null;
+			} else {
+				// Blocked (some in-app browsers): go there in this tab; the text rides in the URL.
+				window.location.href = url;
+				return;
+			}
 			close();
 		}
 
 		cancel.addEventListener('click', close);
 		confirm.addEventListener('click', send);
-		input.addEventListener('input', function () { problem.textContent = ''; });
-		input.addEventListener('keydown', function (event) {
+		input.addEventListener('input', function () {
+			problem.textContent = '';
+			input.removeAttribute('aria-invalid');
+		});
+		editor.addEventListener('keydown', function (event) {
+			// An input method's own Escape / Enter (cancel or commit a composition) is not ours.
+			if (event.isComposing || event.keyCode === 229) return;
 			if (event.key === 'Escape') {
 				event.preventDefault();
 				close();

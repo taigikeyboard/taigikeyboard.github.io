@@ -160,8 +160,9 @@ translate:
   cancel: 取消
   error_empty: 修正的文字是空的。
   error_same: 修正的文字佮原本仝款。
-  error_long: 修正的文字傷長，上濟 3000 字。
-  error_character: 修正的文字內底有看袂著的字元。
+  error_long: 修正的文字傷長，上濟 3,000 字。
+  error_url: 文字傷長，無法度送出，請縮短一寡。
+  error_character: 修正的文字內底有看袂著抑是無支援的字元。
   note: 說明（英文）
   count: "{n} 項"
   loading: 當咧讀取……
