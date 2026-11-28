@@ -12,6 +12,7 @@ nav_labels:
   sponsor: Support
   privacy_policy: Privacy policy
   code_signing: Code signing policy
+  translate: Help translate
 hero:
   subtitle: A free, open-source, cross-platform Taiwanese input method
   try_web: Try it in your browser
@@ -169,3 +170,23 @@ ui:
 social:
   facebook_page: Page
   facebook_group: Group
+
+translate:
+  intro:
+  - Every piece of text TaigiKeyboard shows is listed here. If a phrase reads wrong or you know a better way to say it, press Suggest to open a GitHub form. Each suggestion is read by hand.
+  - Sending a suggestion needs a GitHub account.
+  search: Search text or key
+  all: All
+  section: Section
+  suggest: Suggest
+  note: Note
+  count: "{n} items"
+  loading: Loading…
+  error: The text could not be loaded. Try again in a moment.
+  empty: No matching text.
+  languages:
+    hanji: Hanji
+    tailo: Tâi-lô
+    poj: Pe̍h-ōe-jī
+    en: English
+    ja: Japanese

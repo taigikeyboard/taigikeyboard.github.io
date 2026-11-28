@@ -1,0 +1,27 @@
+{% comment %}
+Translation suggestions page body. assets/translate.js reads every i18n/*.json
+from taigikeyboard main at view time, so the list never needs a sync commit
+here. Each Suggest link opens taigikeyboard's .github/ISSUE_TEMPLATE/translation.yml
+with the `key`, `language` and `current` fields prefilled.
+{% endcomment %}
+{% include locale.html %}
+{% assign t = translation.translate %}
+<div class="translate-page">
+	<h1>{{ translation.nav_labels.translate }}</h1>
+	{% for paragraph in t.intro %}
+	<p class="translate-intro">{{ paragraph }}</p>
+	{% endfor %}
+
+	<div class="translate-toolbar">
+		<input type="search" id="translate-search" placeholder="{{ t.search }}" aria-label="{{ t.search }}" autocomplete="off" disabled>
+		<select id="translate-namespace" aria-label="{{ t.section }}" disabled>
+			<option value="">{{ t.all }}</option>
+		</select>
+		<span id="translate-count" class="translate-count" aria-live="polite"></span>
+	</div>
+
+	<p id="translate-status" class="translate-status" role="status">{{ t.loading }}</p>
+	<div id="translate-list" class="translate-list"></div>
+</div>
+<script type="application/json" id="translate-strings">{{ t | jsonify }}</script>
+<script src="{{ '/assets/translate.js' | relative_url }}" defer></script>

@@ -12,6 +12,7 @@ nav_labels:
   sponsor: 贊助支持
   privacy_policy: 隱私政策
   code_signing: 程式碼簽章政策
+  translate: 翻譯建議
 hero:
   subtitle: 免費、開源、跨裝置 ê 台灣話拍字家私
   try_web: 台語齒盤網頁版
@@ -146,3 +147,23 @@ ui:
 social:
   facebook_page: 粉絲專頁
   facebook_group: 社團
+
+translate:
+  intro:
+  - 台語齒盤畫面頂的文字攏佇遮。看著無好勢的講法，揤「建議」會拍開 GitHub 的表單，送出了後我會逐項看過。
+  - 送建議需要 GitHub 帳號。
+  search: 揣文字抑是代號
+  all: 全部
+  section: 分類
+  suggest: 建議
+  note: 說明（英文）
+  count: "{n} 項"
+  loading: 當咧讀取……
+  error: 文字讀取失敗，請小等一下才閣試。
+  empty: 揣無相符的文字。
+  languages:
+    hanji: 漢字
+    tailo: 台羅
+    poj: 白話字
+    en: 英文
+    ja: 日文

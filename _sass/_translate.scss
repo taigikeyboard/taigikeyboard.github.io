@@ -1,0 +1,113 @@
+// Translation suggestions page (_includes/translate.html).
+.translate-page {
+	color: var(--color-text-primary);
+	line-height: 1.5;
+
+	h1 {
+		font-weight: 500;
+		margin-bottom: 1.6rem;
+	}
+}
+
+.translate-intro {
+	max-width: var(--prose-width);
+	color: var(--color-text-secondary);
+	margin-bottom: 0.8rem;
+}
+
+.translate-toolbar {
+	position: sticky;
+	top: var(--navbar-height);
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1.2rem;
+	margin: 2.4rem 0;
+	padding: 1.2rem 0;
+	background: var(--color-bg);
+
+	input,
+	select {
+		font: inherit;
+		font-size: 1.7rem;
+		padding: 0.8rem 1.2rem;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: var(--color-surface);
+		color: inherit;
+	}
+
+	input {
+		flex: 1 1 24rem;
+	}
+}
+
+.translate-count,
+.translate-status {
+	font-size: 1.6rem;
+	color: var(--color-text-secondary);
+}
+
+.translate-list {
+	display: grid;
+	gap: 1.6rem;
+}
+
+.translate-entry {
+	border: 1px solid var(--color-border);
+	border-radius: 12px;
+	padding: 1.6rem 2rem;
+	background: var(--color-surface);
+}
+
+.translate-key {
+	font-size: 1.5rem;
+	color: var(--color-text-secondary);
+}
+
+.translate-note {
+	font-size: 1.5rem;
+	color: var(--color-text-secondary);
+	margin-top: 0.6rem;
+}
+
+.translate-note-label {
+	font-weight: 500;
+	margin-right: 0.8rem;
+}
+
+.translate-values {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.6rem 1.6rem;
+	margin-top: 1.2rem;
+	font-size: 1.8rem;
+
+	dt {
+		color: var(--color-text-secondary);
+	}
+
+	dd {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1.2rem;
+	}
+}
+
+// Colour and hover underline come from the shared .policy-content link rule.
+.translate-suggest {
+	flex: none;
+	font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+	.translate-values {
+		grid-template-columns: 1fr;
+
+		dd {
+			margin-bottom: 0.6rem;
+		}
+	}
+}
