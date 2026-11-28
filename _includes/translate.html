@@ -8,13 +8,10 @@ here. Each Fix button opens an inline editor; Confirm opens taigikeyboard's
 {% assign t = translation.translate %}
 <div class="translate-page">
 	<h1>{{ t.title }}</h1>
-	<div class="translate-notice" role="note">
-		<p class="translate-notice-heading">
-			<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm.9 12.2H7.1V6.8h1.8v5.4ZM8 5.5a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Z" /></svg>
-			{{ t.notice_title }}
-		</p>
-		<p>{{ t.notice }} <a class="translate-notice-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">{{ t.notice_link }}<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 2.5h4.5V7M13.5 2.5 7 9M11.5 9.5v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3" /></svg></a></p>
-	</div>
+	<p class="translate-notice" role="note">
+		<svg class="translate-notice-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm.9 12.2H7.1V6.8h1.8v5.4ZM8 5.5a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Z" /></svg>
+		<span>{{ t.notice }} <a class="translate-notice-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">{{ t.notice_link }}<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 2.5h4.5V7M13.5 2.5 7 9M11.5 9.5v3a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3" /></svg></a></span>
+	</p>
 
 	<div class="translate-toolbar">
 		<input type="search" id="translate-search" placeholder="{{ t.search }}" aria-label="{{ t.search }}" autocomplete="off" disabled>

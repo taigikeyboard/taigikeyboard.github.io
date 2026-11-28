@@ -150,7 +150,6 @@ social:
 
 translate:
   title: 台語齒盤 翻訳校正プロジェクト
-  notice_title: お知らせ
   notice: 修正するには GitHub アカウントが必要です。
   notice_link: GitHub で登録する
   search: テキストを検索

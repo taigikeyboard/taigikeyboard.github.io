@@ -11,18 +11,17 @@
 }
 
 // Admonition look of Docusaurus / Infima's light "info" alert: tinted block, 5px left border,
-// small uppercase heading with an icon.
+// an info icon leading the text.
 .translate-notice {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.8rem;
 	padding: 1.6rem;
 	border-left: 5px solid #4cb3d4;
 	border-radius: 6px;
 	background: #eef9fd;
 	color: #193c47;
 	font-size: 1.7rem;
-
-	p {
-		margin: 0;
-	}
 
 	a[href]:not(.social-links a) {
 		color: inherit;
@@ -31,20 +30,14 @@
 	}
 }
 
-.translate-notice .translate-notice-heading {
-	display: flex;
-	align-items: center;
-	gap: 0.6rem;
-	margin-bottom: 0.5rem;
-	font-size: 1.4rem;
-	font-weight: 700;
-	text-transform: uppercase;
-
-	svg {
-		width: 1.6rem;
-		height: 1.6rem;
-		fill: currentColor;
-	}
+.translate-notice-icon {
+	flex: none;
+	// One em = the text's own size; the 0.25em top margin centres it on the first line
+	// (line height 1.5em), so a wrapped notice keeps it at the top.
+	width: 1em;
+	height: 1em;
+	margin-top: 0.25em;
+	fill: currentColor;
 }
 
 .translate-notice-link {
