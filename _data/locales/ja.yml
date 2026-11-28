@@ -155,7 +155,7 @@ translate:
   search: テキストを検索
   all: すべて
   section: 分類
-  suggest: 提案
+  suggest: 修正
   note: 説明（英語）
   count: "{n} 件"
   loading: 読み込み中…

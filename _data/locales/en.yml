@@ -178,7 +178,7 @@ translate:
   search: Search text
   all: All
   section: Section
-  suggest: Suggest
+  suggest: Fix
   note: Note
   count: "{n} items"
   loading: Loading…
