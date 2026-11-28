@@ -5,7 +5,7 @@
 	'use strict';
 
 	var REPO = 'taigikeyboard/taigikeyboard';
-	var LISTING_URL = 'https://api.github.com/repos/' + REPO + '/contents/i18n?ref=main';
+	var CONTENTS_API = 'https://api.github.com/repos/' + REPO + '/contents/';
 	var ISSUE_URL = 'https://github.com/' + REPO + '/issues/new';
 	var LANGUAGES = ['hanji', 'tailo', 'poj', 'en', 'ja'];
 	// Each value is tagged with its own language, so Han glyphs and screen-reader
@@ -13,8 +13,8 @@
 	var LANGUAGE_TAGS = { hanji: 'nan-TW', tailo: 'nan-TW', poj: 'nan-TW', en: 'en', ja: 'ja' };
 	// The unauthenticated contents API allows 60 calls an hour per IP; the raw file
 	// fetches do not count. One listing per tab session keeps reloads and language
-	// switches off that budget.
-	var LISTING_CACHE_KEY = 'translate-i18n-listing';
+	// switches off that budget (two listings: i18n/ and i18n/content/).
+	var LISTING_CACHE_PREFIX = 'translate-listing:';
 	// Developer-facing text left out of the list: the web page's inspector panel, a testing aid.
 	var HIDDEN_KEY = /^web\.inspector/;
 	// Same limits tools/i18n/apply_suggestion.py enforces, checked here first so the
@@ -43,12 +43,22 @@
 		});
 	}
 
-	function fetchListing() {
-		var cached = sessionStorage.getItem(LISTING_CACHE_KEY);
-		if (cached) return Promise.resolve(JSON.parse(cached));
-		return fetchJson(LISTING_URL).then(function (listing) {
-			sessionStorage.setItem(LISTING_CACHE_KEY, JSON.stringify(listing));
-			return listing;
+	// The .json files of one repository directory, each fetched raw (raw fetches are not rate-limited).
+	function fetchJsonFiles(directory) {
+		var cacheKey = LISTING_CACHE_PREFIX + directory;
+		var cached = sessionStorage.getItem(cacheKey);
+		var listing = cached ? Promise.resolve(JSON.parse(cached)) :
+			fetchJson(CONTENTS_API + directory + '?ref=main').then(function (items) {
+				sessionStorage.setItem(cacheKey, JSON.stringify(items));
+				return items;
+			});
+		return listing.then(function (items) {
+			var files = items.filter(function (item) { return item.type === 'file' && /\.json$/.test(item.name); });
+			return Promise.all(files.map(function (item) {
+				return fetchJson(item.download_url).then(function (doc) {
+					return { name: item.name.replace(/\.json$/, ''), doc: doc };
+				});
+			}));
 		});
 	}
 
@@ -212,31 +222,58 @@
 		status.hidden = shown > 0;
 	}
 
-	function render(documents) {
-		documents.forEach(function (doc) {
-			Object.keys(doc.keys).filter(function (key) {
-				return !HIDDEN_KEY.test(doc.namespace + '.' + key);
-			}).forEach(function (key) {
-				var spec = doc.keys[key];
-				var values = spec.values || {};
-				var entry = {
-					id: doc.namespace + '.' + key,
-					namespace: doc.namespace,
-					comment: spec.comment || '',
-					values: values
-				};
-				entry.haystack = fold([entry.id, entry.comment].concat(LANGUAGES.map(function (l) {
-					return values[l] || '';
-				})).join('\n'));
-				entry.node = renderEntry(entry);
-				entries.push(entry);
+	function makeEntry(id, namespace, comment, values) {
+		var entry = { id: id, namespace: namespace, comment: comment, values: values };
+		entry.haystack = fold([id, comment].concat(LANGUAGES.map(function (l) {
+			return values[l] || '';
+		})).join('\n'));
+		return entry;
+	}
+
+	// i18n/<namespace>.json: { namespace, keys: { key: { comment, values } } }.
+	function namespaceEntries(doc) {
+		return Object.keys(doc.keys).filter(function (key) {
+			return !HIDDEN_KEY.test(doc.namespace + '.' + key);
+		}).map(function (key) {
+			var spec = doc.keys[key];
+			return makeEntry(doc.namespace + '.' + key, doc.namespace, spec.comment || '', spec.values || {});
+		});
+	}
+
+	// i18n/content/<file>.json: a list of items with title / summary / paragraphs. Ids follow
+	// content.<file>.<item id>.<field>, the grammar tools/i18n/apply_suggestion.py parses:
+	// title, summary, paragraph<N> (1-based), paragraph<N>.attachment.
+	function contentEntries(name, doc) {
+		var namespace = 'content.' + name;
+		var items = Object.keys(doc).map(function (k) { return doc[k]; }).filter(Array.isArray)[0] || [];
+		var found = [];
+		items.forEach(function (item) {
+			var base = namespace + '.' + item.id + '.';
+			if (item.title) found.push(makeEntry(base + 'title', namespace, '', item.title));
+			if (item.summary) found.push(makeEntry(base + 'summary', namespace, '', item.summary));
+			(item.paragraphs || []).forEach(function (paragraph, index) {
+				var field = base + 'paragraph' + (index + 1);
+				if (paragraph.text) found.push(makeEntry(field, namespace, '', paragraph.text));
+				if (paragraph.attachment && paragraph.attachment.text) {
+					found.push(makeEntry(field + '.attachment', namespace, '', paragraph.attachment.text));
+				}
 			});
 		});
+		return found;
+	}
+
+	function render(found) {
 		var fragment = document.createDocumentFragment();
-		entries.forEach(function (entry) { fragment.appendChild(entry.node); });
+		var namespaces = [];
+		found.forEach(function (entry) {
+			entry.node = renderEntry(entry);
+			fragment.appendChild(entry.node);
+			entries.push(entry);
+			if (namespaces.indexOf(entry.namespace) === -1) namespaces.push(entry.namespace);
+		});
 		list.appendChild(fragment);
 
-		documents.map(function (doc) { return doc.namespace; }).sort().forEach(function (namespace) {
+		namespaces.sort().forEach(function (namespace) {
 			namespaceSelect.appendChild(element('option', null, namespace)).value = namespace;
 		});
 		search.disabled = false;
@@ -246,16 +283,16 @@
 		applyFilter();
 	}
 
-	fetchListing()
-		.then(function (listing) {
-			// Namespace files only: i18n/content/ holds long-form guide text in another shape.
-			var files = listing.filter(function (item) {
-				return item.type === 'file' && /\.json$/.test(item.name);
+	Promise.all([fetchJsonFiles('i18n'), fetchJsonFiles('i18n/content')])
+		.then(function (directories) {
+			var found = [];
+			directories[0].forEach(function (file) {
+				if (file.doc.namespace && file.doc.keys) found = found.concat(namespaceEntries(file.doc));
 			});
-			return Promise.all(files.map(function (item) { return fetchJson(item.download_url); }));
-		})
-		.then(function (documents) {
-			render(documents.filter(function (doc) { return doc.namespace && doc.keys; }));
+			directories[1].forEach(function (file) {
+				found = found.concat(contentEntries(file.name, file.doc));
+			});
+			render(found);
 		})
 		.catch(function (error) {
 			console.error(error);
